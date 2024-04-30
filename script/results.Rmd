@@ -1,0 +1,2499 @@
+---
+title: "script"
+output: html_document
+date: '2023-12-31'
+---
+
+# Set-up
+
+```{r, warning=FALSE}
+suppressMessages({
+  library(dplyr)
+  library(readr)
+  library(tidyr) 
+  library(tidyverse)
+  library(stringr)
+  library(ggplot2)
+  library(metafor)
+  library(clubSandwich)
+  library(here)
+  library(RColorBrewer)
+  library(ggExtra)
+  library(cowplot)
+  library(patchwork)
+  library(aplot)
+  library(metafor)
+  library(palettetown)
+  library(raincloudplots)
+  library(wesanderson)
+  library(ggpubr)
+  library(janitor)
+  library(ggridges)
+  library(ggsankey)
+  })
+
+source(here("custom_func","custom_func.R"))
+
+```
+
+# Stats function
+
+```{r}
+# power (two-tail) for meta-analysis
+power_MA <- function(mu, SE, alpha = 0.05) {
+  2-pnorm(qnorm(1-alpha/2)-abs(mu)/SE)-pnorm(qnorm(1-alpha/2)+abs(mu)/SE)
+  } 
+
+# function to estimate typical sampling error variance
+sigma2_v <- function(mod){
+  sigma2_v <- sum(1 / mod$vi) * (mod$k - 1) /
+    (sum(1 / mod$vi)^2 - sum((1 / mod$vi)^2))
+  return(sigma2_v)
+}
+
+# write a function to compute ICC
+icc_calc <- function(mod) {
+  icc <- mod$sigma2[1] / sum(mod$sigma2)
+  return(icc)
+}
+```
+
+
+
+# Data
+
+```{r}
+# random-effects model
+mod_Yang_BMCBio_2023_SMD_re <- readRDS(here("data","mod_Yang_BMCBio_2023_SMD_re.rds")) 
+mod_Yang_BMCBio_2023_lnRR_re <- readRDS(here("data","mod_Yang_BMCBio_2023_lnRR_re.rds")) 
+mod_Yang_GCB_2022_SMD_re <- readRDS(here("data","mod_Yang_GCB_2022_SMD_re.rds")) 
+mod_Yang_GCB_2022_lnRR_re <- readRDS(here("data","mod_Yang_GCB_2022_lnRR_re.rds"))
+mod_Senior_Ecology_2016_SMD_re <- readRDS(here("data","mod_Senior_Ecology_2016_SMD_re.rds"))
+mod_Senior_Ecology_2016_lnRR_re <- readRDS(here("data","mod_Senior_Ecology_2016_lnRR_re.rds"))
+
+# multilevel 
+## datasets
+dat_Yang_BMCBio_2023_lnRR <- readRDS(here("data","dat_Yang_BMCBio_2023_lnRR.rds")) 
+dat_Yang_BMCBio_2023_SMD <- readRDS(here("data","dat_Yang_BMCBio_2023_SMD.rds")) 
+dat_Yang_BMCBio_2023_lnVR <- readRDS(here("data","dat_Yang_BMCBio_2023_lnVR.rds")) 
+
+dat_Yang_GCB_2022_lnRR <- readRDS(here("data","dat_Yang_GCB_2022_lnRR.rds"))
+dat_Yang_GCB_2022_SMD <- readRDS(here("data","dat_Yang_GCB_2022_SMD.rds"))
+dat_Yang_GCB_2022_lnVR <- readRDS(here("data","dat_Yang_GCB_2022_lnVR.rds"))
+
+dat_Senior_Ecology_2016_lnRR <- readRDS(here("data","dat_Senior_Ecology_2016_lnRR.rds"))
+dat_Senior_Ecology_2016_SMD <- readRDS(here("data","dat_Senior_Ecology_2016_SMD.rds"))
+dat_Senior_Ecology_2016_lnVR <- readRDS(here("data","dat_Senior_Ecology_2016_lnVR.rds"))
+
+## intercept-only models
+mod_Yang_BMCBio_2023_SMD <- readRDS(here("data", "mod_Yang_BMCBio_2023_SMD.rds"))
+mod_Yang_BMCBio_2023_lnRR <- readRDS(here("data", "mod_Yang_BMCBio_2023_lnRR.rds"))
+mod_Yang_BMCBio_2023_SMD_rob <- readRDS(here("data", "mod_Yang_BMCBio_2023_SMD_rob.rds"))
+mod_Yang_BMCBio_2023_lnRR_rob <- readRDS(here("data", "mod_Yang_BMCBio_2023_lnRR_rob.rds"))
+mod_Yang_BMCBio_2023_lnVR_rob <- readRDS(here("data", "mod_Yang_BMCBio_2023_lnVR_rob.rds"))
+
+
+mod_Yang_GCB_2022_SMD <- readRDS(here("data", "mod_Yang_GCB_2022_SMD.rds"))
+mod_Yang_GCB_2022_lnRR <- readRDS(here("data", "mod_Yang_GCB_2022_lnRR.rds"))
+mod_Yang_GCB_2022_SMD_rob <- readRDS(here("data", "mod_Yang_GCB_2022_SMD_rob.rds"))
+mod_Yang_GCB_2022_lnRR_rob <- readRDS(here("data", "mod_Yang_GCB_2022_lnRR_rob.rds"))
+mod_Yang_GCB_2022_lnVR_rob <- readRDS(here("data", "mod_Yang_GCB_2022_lnVR_rob.rds"))
+
+mod_Senior_Ecology_2016_SMD <- readRDS(here("data", "mod_Senior_Ecology_2016_SMD.rds"))
+mod_Senior_Ecology_2016_lnRR <- readRDS(here("data", "mod_Senior_Ecology_2016_lnRR.rds"))
+mod_Senior_Ecology_2016_SMD_rob <- readRDS(here("data", "mod_Senior_Ecology_2016_SMD_rob.rds"))
+mod_Senior_Ecology_2016_lnRR_rob <- readRDS(here("data", "mod_Senior_Ecology_2016_lnRR_rob.rds"))
+mod_Senior_Ecology_2016_lnVR_rob <- readRDS(here("data", "mod_Senior_Ecology_2016_lnVR_rob.rds"))
+
+## another set
+mod_Yang_BMCBio_2023_SMD_rob2 <- readRDS(here("data", "mod_Yang_BMCBio_2023_SMD_rob2.rds"))
+mod_Yang_BMCBio_2023_SMD_rob2 <- readRDS(here("data", "mod_Yang_BMCBio_2023_SMD_rob2.rds"))
+mod_Yang_BMCBio_2023_lnRR_rob2 <- readRDS(here("data", "mod_Yang_BMCBio_2023_lnRR_rob2.rds"))
+mod_Yang_GCB_2022_SMD_rob2 <- readRDS(here("data", "mod_Yang_GCB_2022_SMD_rob2.rds"))
+mod_Yang_GCB_2022_lnRR_rob2 <- readRDS(here("data", "mod_Yang_GCB_2022_lnRR_rob2.rds"))
+mod_Senior_Ecology_2016_SMD_rob2 <- readRDS(here("data", "mod_Senior_Ecology_2016_SMD_rob2.rds"))
+mod_Senior_Ecology_2016_lnRR_rob2 <- readRDS(here("data", "mod_Senior_Ecology_2016_lnRR_rob2.rds"))
+
+## PB tests
+modPB_Yang_BMCBio_2023_SMD <- readRDS(here("data", "modPB_Yang_BMCBio_2023_SMD.rds"))
+modPB_Yang_BMCBio_2023_lnRR <- readRDS(here("data", "modPB_Yang_BMCBio_2023_lnRR.rds"))
+modPB_Yang_GCB_2022_SMD <- readRDS(here("data", "modPB_Yang_GCB_2022_SMD.rds"))
+modPB_Yang_GCB_2022_lnRR <- readRDS(here("data", "modPB_Yang_GCB_2022_lnRR.rds"))
+modPB_Senior_Ecology_2016_SMD <- readRDS(here("data", "modPB_Senior_Ecology_2016_SMD.rds"))
+modPB_Senior_Ecology_2016_lnRR <- readRDS(here("data", "modPB_Senior_Ecology_2016_lnRR.rds"))
+## another set
+modPB_Yang_BMCBio_2023_SMD2 <- readRDS(here("data", "modPB_Yang_BMCBio_2023_SMD2.rds"))
+modPB_Yang_BMCBio_2023_lnRR2 <- readRDS(here("data", "modPB_Yang_BMCBio_2023_lnRR2.rds"))
+modPB_Yang_GCB_2022_SMD2 <- readRDS(here("data", "modPB_Yang_GCB_2022_SMD2.rds"))
+modPB_Yang_GCB_2022_lnRR2 <- readRDS(here("data", "modPB_Yang_GCB_2022_lnRR2.rds"))
+modPB_Senior_Ecology_2016_SMD2 <- readRDS(here("data", "modPB_Senior_Ecology_2016_SMD2.rds"))
+modPB_Senior_Ecology_2016_lnRR2 <- readRDS(here("data", "modPB_Senior_Ecology_2016_lnRR2.rds"))
+
+
+# bivariate 
+## datasets
+dat_Yang_BMCBio_2023_all <- readRDS(here("data", "dat_Yang_BMCBio_2023_all.rds"))
+dat_Yang_GCB_2022_all <- readRDS(here("data", "dat_Yang_GCB_2022_all.rds"))
+dat_Senior_Ecology_2016_all <- readRDS(here("data", "dat_Senior_Ecology_2016_all.rds"))
+## intercept-only models
+mod_Yang_BMCBio_2023_all_rob <- readRDS(here("data", "mod_Yang_BMCBio_2023_all_rob.rds"))
+mod_Yang_GCB_2022_all_rob <- readRDS(here("data", "mod_Yang_GCB_2022_all_rob.rds"))
+mod_Senior_Ecology_2016_all_rob <- readRDS(here("data", "mod_Senior_Ecology_2016_all_rob.rds"))
+
+## another set
+mod_Yang_BMCBio_2023_all_rob2 <- readRDS(here("data", "mod_Yang_BMCBio_2023_all_rob2.rds"))
+mod_Yang_GCB_2022_all_rob2 <- readRDS(here("data", "mod_Yang_GCB_2022_all_rob2.rds"))
+mod_Senior_Ecology_2016_all_rob2 <- readRDS(here("data", "mod_Senior_Ecology_2016_all_rob2.rds"))
+
+## PB tests
+modPB_Yang_BMCBio_2023_all <- readRDS(here("data", "modPB_Yang_BMCBio_2023_all.rds"))
+modPB_Yang_GCB_2022_all <- readRDS(here("data", "modPB_Yang_GCB_2022_all.rds"))
+modPB_Senior_Ecology_2016_all <- readRDS(here("data", "modPB_Senior_Ecology_2016_all.rds"))
+
+# another set
+modPB_Yang_BMCBio_2023_all2 <- readRDS(here("data", "modPB_Yang_BMCBio_2023_all2.rds"))
+modPB_Yang_GCB_2022_all2 <- readRDS(here("data", "modPB_Yang_GCB_2022_all2.rds"))
+modPB_Senior_Ecology_2016_all2 <- readRDS(here("data", "modPB_Senior_Ecology_2016_all2.rds"))
+
+
+```
+
+# Model estimates
+
+## Conventional analysis
+
+### Intercept-only model 
+
+```{r}
+#***************************************************************#
+#                       intercept-only model                    #
+#***************************************************************#
+
+#*-------------------------------------------------------------*#
+#                       Yang_BMCBio_2023                        #
+#*-------------------------------------------------------------*#
+# lnRR
+mod_est_Yang_BMCBio_2023_lnRR_re <- data.frame(ma=names(dat_Yang_BMCBio_2023_lnRR),
+                      es=rep("lnRR", length(mod_Yang_BMCBio_2023_lnRR_re)),
+                      beta=sapply(mod_Yang_BMCBio_2023_lnRR_re, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_BMCBio_2023_lnRR_re, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_BMCBio_2023_lnRR_re, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_BMCBio_2023_lnRR_re, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_BMCBio_2023_lnRR_re, function(x) i2_ml(x)[[1]]),
+                      CV=sapply(mod_Yang_BMCBio_2023_lnRR_re, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_BMCBio_2023_lnRR_re, function(x) m1_ml(x)[[1]]))
+# SMD
+mod_est_Yang_BMCBio_2023_SMD_re <- data.frame(ma=names(dat_Yang_BMCBio_2023_SMD),
+                      es=rep("SMD", length(mod_Yang_BMCBio_2023_SMD_re)),
+                      beta=sapply(mod_Yang_BMCBio_2023_SMD_re, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_BMCBio_2023_SMD_re, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_BMCBio_2023_SMD_re, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_BMCBio_2023_SMD_re, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_BMCBio_2023_SMD_re, function(x) i2_ml(x)[[1]]),
+                      CV=sapply(mod_Yang_BMCBio_2023_SMD_re, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_BMCBio_2023_SMD_re, function(x) m1_ml(x)[[1]]))
+
+
+#*-------------------------------------------------------------*#
+#                         Yang_GCB_2022                         #
+#*-------------------------------------------------------------*#
+
+# lnRR
+mod_est_Yang_GCB_2022_lnRR_re <- data.frame(ma=names(dat_Yang_GCB_2022_lnRR),
+                      es=rep("lnRR", length(mod_Yang_GCB_2022_lnRR_re)),
+                      beta=sapply(mod_Yang_GCB_2022_lnRR_re, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_GCB_2022_lnRR_re, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_GCB_2022_lnRR_re, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_GCB_2022_lnRR_re, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_GCB_2022_lnRR_re, function(x) i2_ml(x)[[1]]),
+                      CV=sapply(mod_Yang_GCB_2022_lnRR_re, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_GCB_2022_lnRR_re, function(x) m1_ml(x)[[1]]))
+
+
+# SMD
+mod_est_Yang_GCB_2022_SMD_re <- data.frame(ma=names(dat_Yang_GCB_2022_SMD),
+                      es=rep("SMD", length(mod_Yang_GCB_2022_SMD_re)),
+                      beta=sapply(mod_Yang_GCB_2022_SMD_re, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_GCB_2022_SMD_re, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_GCB_2022_SMD_re, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_GCB_2022_SMD_re, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_GCB_2022_SMD_re, function(x) i2_ml(x)[[1]]),
+                      CV=sapply(mod_Yang_GCB_2022_SMD_re, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_GCB_2022_SMD_re, function(x) m1_ml(x)[[1]]))
+
+
+
+#*-------------------------------------------------------------*#
+#                     Senior_Ecology_2016                       #
+#*-------------------------------------------------------------*#
+
+# lnRR
+mod_est_Senior_Ecology_2016_lnRR_re <- data.frame(ma=names(dat_Senior_Ecology_2016_lnRR),
+                      es=rep("lnRR", length(mod_Senior_Ecology_2016_lnRR_re)),
+                      beta=sapply(mod_Senior_Ecology_2016_lnRR_re, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Senior_Ecology_2016_lnRR_re, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Senior_Ecology_2016_lnRR_re, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Senior_Ecology_2016_lnRR_re, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Senior_Ecology_2016_lnRR_re, function(x) i2_ml(x)[[1]]),
+                      CV=sapply(mod_Senior_Ecology_2016_lnRR_re, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Senior_Ecology_2016_lnRR_re, function(x) m1_ml(x)[[1]]))
+
+
+# SMD
+mod_est_Senior_Ecology_2016_SMD_re <- data.frame(ma=names(dat_Senior_Ecology_2016_SMD),
+                      es=rep("SMD", length(mod_Senior_Ecology_2016_SMD_re)),
+                      beta=sapply(mod_Senior_Ecology_2016_SMD_re, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Senior_Ecology_2016_SMD_re, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Senior_Ecology_2016_SMD_re, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Senior_Ecology_2016_SMD_re, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Senior_Ecology_2016_SMD_re, function(x) i2_ml(x)[[1]]),
+                      CV=sapply(mod_Senior_Ecology_2016_SMD_re, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Senior_Ecology_2016_SMD_re, function(x) m1_ml(x)[[1]]))
+```
+
+
+## Multilevel analysis
+
+### Intercept-only model 
+
+```{r}
+#***************************************************************#
+#                       intercept-only model                    #
+#***************************************************************#
+
+#*-------------------------------------------------------------*#
+#                       Yang_BMCBio_2023                        #
+#*-------------------------------------------------------------*#
+# lnRR
+mod_est_Yang_BMCBio_2023_lnRR <- data.frame(ma=names(dat_Yang_BMCBio_2023_lnRR),
+                      es=rep("lnRR", length(mod_Yang_BMCBio_2023_lnRR_rob)),
+                      beta=sapply(mod_Yang_BMCBio_2023_lnRR_rob, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_BMCBio_2023_lnRR_rob, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_BMCBio_2023_lnRR_rob, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_BMCBio_2023_lnRR_rob, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_BMCBio_2023_lnRR_rob, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Yang_BMCBio_2023_lnRR_rob, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Yang_BMCBio_2023_lnRR_rob, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Yang_BMCBio_2023_lnRR_rob, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_BMCBio_2023_lnRR_rob, function(x) m1_ml(x)[[1]]))
+# SMD
+mod_est_Yang_BMCBio_2023_SMD <- data.frame(ma=names(dat_Yang_BMCBio_2023_SMD),
+                      es=rep("SMD", length(mod_Yang_BMCBio_2023_SMD_rob)),
+                      beta=sapply(mod_Yang_BMCBio_2023_SMD_rob, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_BMCBio_2023_SMD_rob, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_BMCBio_2023_SMD_rob, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_BMCBio_2023_SMD_rob, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_BMCBio_2023_SMD_rob, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Yang_BMCBio_2023_SMD_rob, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Yang_BMCBio_2023_SMD_rob, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Yang_BMCBio_2023_SMD_rob, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_BMCBio_2023_SMD_rob, function(x) m1_ml(x)[[1]]))
+# combine
+#mod_est <- left_join(mod_est_lnRR, mod_est_SMD,by="ma")
+
+# another set - results from MLMA
+# lnRR
+mod_est_Yang_BMCBio_2023_lnRR2 <- data.frame(ma=names(dat_Yang_BMCBio_2023_lnRR),
+                      es=rep("lnRR", length(mod_Yang_BMCBio_2023_lnRR_rob2)),
+                      beta=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) m1_ml(x)[[1]]))
+# SMD
+mod_est_Yang_BMCBio_2023_SMD2 <- data.frame(ma=names(dat_Yang_BMCBio_2023_SMD),
+                      es=rep("SMD", length(mod_Yang_BMCBio_2023_SMD_rob2)),
+                      beta=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) m1_ml(x)[[1]]))
+
+# lnVR
+mod_est_Yang_BMCBio_2023_lnVR <- data.frame(ma=names(dat_Yang_BMCBio_2023_lnVR),
+                      es=rep("lnVR", length(mod_Yang_BMCBio_2023_lnVR_rob)),
+                      beta=sapply(mod_Yang_BMCBio_2023_lnVR_rob, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_BMCBio_2023_lnVR_rob, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_BMCBio_2023_lnVR_rob, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_BMCBio_2023_lnVR_rob, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_BMCBio_2023_lnVR_rob, function(x) i2_ml(x)[[1]]),
+                      CV=sapply(mod_Yang_BMCBio_2023_lnVR_rob, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_BMCBio_2023_lnVR_rob, function(x) m1_ml(x)[[1]]))
+
+
+#*-------------------------------------------------------------*#
+#                         Yang_GCB_2022                         #
+#*-------------------------------------------------------------*#
+
+# lnRR
+mod_est_Yang_GCB_2022_lnRR <- data.frame(ma=names(dat_Yang_GCB_2022_lnRR),
+                      es=rep("lnRR", length(mod_Yang_GCB_2022_lnRR_rob)),
+                      beta=sapply(mod_Yang_GCB_2022_lnRR_rob, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_GCB_2022_lnRR_rob, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_GCB_2022_lnRR_rob, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_GCB_2022_lnRR_rob, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_GCB_2022_lnRR_rob, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Yang_GCB_2022_lnRR_rob, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Yang_GCB_2022_lnRR_rob, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Yang_GCB_2022_lnRR_rob, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_GCB_2022_lnRR_rob, function(x) m1_ml(x)[[1]]))
+
+
+# SMD
+mod_est_Yang_GCB_2022_SMD <- data.frame(ma=names(dat_Yang_GCB_2022_SMD),
+                      es=rep("SMD", length(mod_Yang_GCB_2022_SMD_rob)),
+                      beta=sapply(mod_Yang_GCB_2022_SMD_rob, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_GCB_2022_SMD_rob, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_GCB_2022_SMD_rob, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_GCB_2022_SMD_rob, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_GCB_2022_SMD_rob, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Yang_GCB_2022_SMD_rob, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Yang_GCB_2022_SMD_rob, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Yang_GCB_2022_SMD_rob, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_GCB_2022_SMD_rob, function(x) m1_ml(x)[[1]]))
+
+# another set
+# lnRR
+mod_est_Yang_GCB_2022_lnRR2 <- data.frame(ma=names(dat_Yang_GCB_2022_lnRR),
+                      es=rep("lnRR", length(mod_Yang_GCB_2022_lnRR_rob2)),
+                      beta=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) m1_ml(x)[[1]]))
+
+
+# SMD
+mod_est_Yang_GCB_2022_SMD2 <- data.frame(ma=names(dat_Yang_GCB_2022_SMD),
+                      es=rep("SMD", length(mod_Yang_GCB_2022_SMD_rob2)),
+                      beta=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) m1_ml(x)[[1]]))
+
+# lnVR
+mod_est_Yang_GCB_2022_lnVR <- data.frame(ma=names(dat_Yang_GCB_2022_lnVR),
+                      es=rep("lnVR", length(mod_Yang_GCB_2022_lnVR_rob)),
+                      beta=sapply(mod_Yang_GCB_2022_lnVR_rob, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_GCB_2022_lnVR_rob, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_GCB_2022_lnVR_rob, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_GCB_2022_lnVR_rob, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Yang_GCB_2022_lnVR_rob, function(x) i2_ml(x)[[1]]),
+                      CV=sapply(mod_Yang_GCB_2022_lnVR_rob, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Yang_GCB_2022_lnVR_rob, function(x) m1_ml(x)[[1]]))
+
+
+#*-------------------------------------------------------------*#
+#                     Senior_Ecology_2016                       #
+#*-------------------------------------------------------------*#
+
+# lnRR
+mod_est_Senior_Ecology_2016_lnRR <- data.frame(ma=names(dat_Senior_Ecology_2016_lnRR),
+                      es=rep("lnRR", length(mod_Senior_Ecology_2016_lnRR_rob)),
+                      beta=sapply(mod_Senior_Ecology_2016_lnRR_rob, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Senior_Ecology_2016_lnRR_rob, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Senior_Ecology_2016_lnRR_rob, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Senior_Ecology_2016_lnRR_rob, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Senior_Ecology_2016_lnRR_rob, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Senior_Ecology_2016_lnRR_rob, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Senior_Ecology_2016_lnRR_rob, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Senior_Ecology_2016_lnRR_rob, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Senior_Ecology_2016_lnRR_rob, function(x) m1_ml(x)[[1]]))
+
+
+# SMD
+mod_est_Senior_Ecology_2016_SMD <- data.frame(ma=names(dat_Senior_Ecology_2016_SMD),
+                      es=rep("SMD", length(mod_Senior_Ecology_2016_SMD_rob)),
+                      beta=sapply(mod_Senior_Ecology_2016_SMD_rob, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Senior_Ecology_2016_SMD_rob, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Senior_Ecology_2016_SMD_rob, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Senior_Ecology_2016_SMD_rob, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Senior_Ecology_2016_SMD_rob, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Senior_Ecology_2016_SMD_rob, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Senior_Ecology_2016_SMD_rob, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Senior_Ecology_2016_SMD_rob, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Senior_Ecology_2016_SMD_rob, function(x) m1_ml(x)[[1]]))
+
+# another set
+# lnRR
+mod_est_Senior_Ecology_2016_lnRR2 <- data.frame(ma=names(dat_Senior_Ecology_2016_lnRR),
+                      es=rep("lnRR", length(mod_Senior_Ecology_2016_lnRR_rob2)),
+                      beta=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) m1_ml(x)[[1]]))
+
+
+# SMD
+mod_est_Senior_Ecology_2016_SMD2 <- data.frame(ma=names(dat_Senior_Ecology_2016_SMD),
+                      es=rep("SMD", length(mod_Senior_Ecology_2016_SMD_rob2)),
+                      beta=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) i2_ml(x)[[1]]),
+                      I2_b=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) i2_ml(x)[[2]]),
+                      I2_w=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) i2_ml(x)[[3]]),
+                      CV=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) m1_ml(x)[[1]]))
+
+# lnVR
+mod_est_Senior_Ecology_2016_lnVR <- data.frame(ma=names(dat_Senior_Ecology_2016_lnVR),
+                      es=rep("lnVR", length(mod_Senior_Ecology_2016_lnVR_rob)),
+                      beta=sapply(mod_Senior_Ecology_2016_lnVR_rob, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Senior_Ecology_2016_lnVR_rob, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Senior_Ecology_2016_lnVR_rob, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Senior_Ecology_2016_lnVR_rob, function(x) round(x$pval[[1]],4)),
+                      I2=sapply(mod_Senior_Ecology_2016_lnVR_rob, function(x) i2_ml(x)[[1]]),
+                      CV=sapply(mod_Senior_Ecology_2016_lnVR_rob, function(x) cv_ml(x)[[1]]),
+                      M1=sapply(mod_Senior_Ecology_2016_lnVR_rob, function(x) m1_ml(x)[[1]]))
+
+```
+
+### Publication bias
+
+```{r}
+
+#***************************************************************#
+#                      publication bias test                    #
+#***************************************************************#
+
+#*-------------------------------------------------------------*#
+#                       Yang_BMCBio_2023                        #
+#*-------------------------------------------------------------*#
+# lnRR
+modPB_est_Yang_BMCBio_2023_lnRR <- data.frame(ma=names(dat_Yang_BMCBio_2023_lnRR),
+                      es=rep("lnRR", length(modPB_Yang_BMCBio_2023_lnRR)),
+                      beta_pb=sapply(modPB_Yang_BMCBio_2023_lnRR, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Yang_BMCBio_2023_lnRR, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Yang_BMCBio_2023_lnRR, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Yang_BMCBio_2023_lnRR, function(x) round(x$pval[[2]],4)))
+# SMD
+modPB_est_Yang_BMCBio_2023_SMD <- data.frame(ma=names(dat_Yang_BMCBio_2023_SMD),
+                      es=rep("SMD", length(modPB_Yang_BMCBio_2023_SMD)),
+                      beta_pb=sapply(modPB_Yang_BMCBio_2023_SMD, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Yang_BMCBio_2023_SMD, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Yang_BMCBio_2023_SMD, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Yang_BMCBio_2023_SMD, function(x) round(x$pval[[2]],4)))
+
+# another set
+# lnRR
+modPB_est_Yang_BMCBio_2023_lnRR2 <- data.frame(ma=names(dat_Yang_BMCBio_2023_lnRR),
+                      es=rep("lnRR", length(modPB_Yang_BMCBio_2023_lnRR2)),
+                      beta_pb=sapply(modPB_Yang_BMCBio_2023_lnRR2, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Yang_BMCBio_2023_lnRR2, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Yang_BMCBio_2023_lnRR2, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Yang_BMCBio_2023_lnRR2, function(x) round(x$pval[[2]],4)))
+# SMD
+modPB_est_Yang_BMCBio_2023_SMD2 <- data.frame(ma=names(dat_Yang_BMCBio_2023_SMD),
+                      es=rep("SMD", length(modPB_Yang_BMCBio_2023_SMD2)),
+                      beta_pb=sapply(modPB_Yang_BMCBio_2023_SMD2, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Yang_BMCBio_2023_SMD2, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Yang_BMCBio_2023_SMD2, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Yang_BMCBio_2023_SMD2, function(x) round(x$pval[[2]],4)))
+
+#*-------------------------------------------------------------*#
+#                         Yang_GCB_2022                         #
+#*-------------------------------------------------------------*#
+
+# lnRR
+modPB_est_Yang_GCB_2022_lnRR <- data.frame(ma=names(dat_Yang_GCB_2022_lnRR),
+                      es=rep("lnRR", length(modPB_Yang_GCB_2022_lnRR)),
+                      beta_pb=sapply(modPB_Yang_GCB_2022_lnRR, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Yang_GCB_2022_lnRR, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Yang_GCB_2022_lnRR, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Yang_GCB_2022_lnRR, function(x) round(x$pval[[2]],4)))
+
+# SMD
+modPB_est_Yang_GCB_2022_SMD <- data.frame(ma=names(dat_Yang_GCB_2022_SMD),
+                      es=rep("SMD", length(modPB_Yang_GCB_2022_SMD)),
+                      beta_pb=sapply(modPB_Yang_GCB_2022_SMD, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Yang_GCB_2022_SMD, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Yang_GCB_2022_SMD, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Yang_GCB_2022_SMD, function(x) round(x$pval[[2]],4)))
+
+# another set
+# lnRR
+modPB_est_Yang_GCB_2022_lnRR2 <- data.frame(ma=names(dat_Yang_GCB_2022_lnRR),
+                      es=rep("lnRR", length(modPB_Yang_GCB_2022_lnRR2)),
+                      beta_pb=sapply(modPB_Yang_GCB_2022_lnRR2, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Yang_GCB_2022_lnRR2, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Yang_GCB_2022_lnRR2, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Yang_GCB_2022_lnRR2, function(x) round(x$pval[[2]],4)))
+
+# SMD
+modPB_est_Yang_GCB_2022_SMD2 <- data.frame(ma=names(dat_Yang_GCB_2022_SMD),
+                      es=rep("SMD", length(modPB_Yang_GCB_2022_SMD2)),
+                      beta_pb=sapply(modPB_Yang_GCB_2022_SMD2, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Yang_GCB_2022_SMD2, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Yang_GCB_2022_SMD2, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Yang_GCB_2022_SMD2, function(x) round(x$pval[[2]],4)))
+
+
+#*-------------------------------------------------------------*#
+#                     Senior_Ecology_2016                       #
+#*-------------------------------------------------------------*#
+# lnRR
+modPB_est_Senior_Ecology_2016_lnRR <- data.frame(ma=names(dat_Senior_Ecology_2016_lnRR),
+                      es=rep("lnRR", length(modPB_Senior_Ecology_2016_lnRR)),
+                      beta_pb=sapply(modPB_Senior_Ecology_2016_lnRR, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Senior_Ecology_2016_lnRR, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Senior_Ecology_2016_lnRR, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Senior_Ecology_2016_lnRR, function(x) round(x$pval[[2]],4)))
+
+# SMD
+modPB_est_Senior_Ecology_2016_SMD <- data.frame(ma=names(dat_Senior_Ecology_2016_SMD),
+                      es=rep("SMD", length(modPB_Senior_Ecology_2016_SMD)),
+                      beta_pb=sapply(modPB_Senior_Ecology_2016_SMD, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Senior_Ecology_2016_SMD, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Senior_Ecology_2016_SMD, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Senior_Ecology_2016_SMD, function(x) round(x$pval[[2]],4)))
+
+# another set
+# lnRR
+modPB_est_Senior_Ecology_2016_lnRR2 <- data.frame(ma=names(dat_Senior_Ecology_2016_lnRR),
+                      es=rep("lnRR", length(modPB_Senior_Ecology_2016_lnRR2)),
+                      beta_pb=sapply(modPB_Senior_Ecology_2016_lnRR2, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Senior_Ecology_2016_lnRR2, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Senior_Ecology_2016_lnRR2, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Senior_Ecology_2016_lnRR2, function(x) round(x$pval[[2]],4)))
+
+# SMD
+modPB_est_Senior_Ecology_2016_SMD2 <- data.frame(ma=names(dat_Senior_Ecology_2016_SMD),
+                      es=rep("SMD", length(modPB_Senior_Ecology_2016_SMD2)),
+                      beta_pb=sapply(modPB_Senior_Ecology_2016_SMD2, function(x) round(x$beta[[2]],3)),
+                      se_pb=sapply(modPB_Senior_Ecology_2016_SMD2, function(x) round(x$se[[2]],3)),
+                      tval_pb=sapply(modPB_Senior_Ecology_2016_SMD2, function(x) round(x$zval[[2]],3)),
+                      p_pb=sapply(modPB_Senior_Ecology_2016_SMD2, function(x) round(x$pval[[2]],4)))
+```
+
+## Bivariate analysis
+
+### Intercept-only model 
+
+```{r}
+#***************************************************************#
+#                       intercept-only model                    #
+#***************************************************************#
+
+#*-------------------------------------------------------------*#
+#                       Yang_BMCBio_2023                        #
+#*-------------------------------------------------------------*#
+mod_est_Yang_BMCBio_2023_all <- data.frame(ma=names(dat_Yang_BMCBio_2023_all),
+                      rho=sapply(mod_Yang_BMCBio_2023_all_rob, function(x) round(x$rho[[1]],3)),
+                      es=rep("lnRR", length(mod_Yang_BMCBio_2023_all_rob)),
+                      beta=sapply(mod_Yang_BMCBio_2023_all_rob, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_BMCBio_2023_all_rob, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_BMCBio_2023_all_rob, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_BMCBio_2023_all_rob, function(x) round(x$pval[[1]],4)),
+                      
+                      es2=rep("SMD", length(mod_Yang_BMCBio_2023_all_rob)),
+                      beta2=sapply(mod_Yang_BMCBio_2023_all_rob, function(x) round(x$beta[[2]],3)),
+                      se2=sapply(mod_Yang_BMCBio_2023_all_rob, function(x) round(x$se[[2]],3)),
+                      tval2=sapply(mod_Yang_BMCBio_2023_all_rob, function(x) round(x$zval[[2]],3)),
+                      p2=sapply(mod_Yang_BMCBio_2023_all_rob, function(x) round(x$pval[[2]],4)))
+
+
+# another set
+mod_est_Yang_BMCBio_2023_all2 <- data.frame(ma=names(dat_Yang_BMCBio_2023_all),
+                      rho=sapply(mod_Yang_BMCBio_2023_all_rob2, function(x) round(x$rho[[1]],3)),
+                      es=rep("lnRR", length(mod_Yang_BMCBio_2023_all_rob2)),
+                      beta=sapply(mod_Yang_BMCBio_2023_all_rob2, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_BMCBio_2023_all_rob2, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_BMCBio_2023_all_rob2, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_BMCBio_2023_all_rob2, function(x) round(x$pval[[1]],4)),
+                      
+                      es2=rep("SMD", length(mod_Yang_BMCBio_2023_all_rob2)),
+                      beta2=sapply(mod_Yang_BMCBio_2023_all_rob2, function(x) round(x$beta[[2]],3)),
+                      se2=sapply(mod_Yang_BMCBio_2023_all_rob2, function(x) round(x$se[[2]],3)),
+                      tval2=sapply(mod_Yang_BMCBio_2023_all_rob2, function(x) round(x$zval[[2]],3)),
+                      p2=sapply(mod_Yang_BMCBio_2023_all_rob2, function(x) round(x$pval[[2]],4)))
+
+#*-------------------------------------------------------------*#
+#                         Yang_GCB_2022                         #
+#*-------------------------------------------------------------*#
+
+mod_est_Yang_GCB_2022_all <- data.frame(ma=names(dat_Yang_GCB_2022_all),
+                      rho=sapply(mod_Yang_GCB_2022_all_rob, function(x) round(x$rho[[1]],3)),
+                      es=rep("lnRR", length(mod_Yang_GCB_2022_all_rob)),
+                      beta=sapply(mod_Yang_GCB_2022_all_rob, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_GCB_2022_all_rob, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_GCB_2022_all_rob, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_GCB_2022_all_rob, function(x) round(x$pval[[1]],4)),
+                      
+                      es2=rep("SMD", length(mod_Yang_GCB_2022_all_rob)),
+                      beta2=sapply(mod_Yang_GCB_2022_all_rob, function(x) round(x$beta[[2]],3)),
+                      se2=sapply(mod_Yang_GCB_2022_all_rob, function(x) round(x$se[[2]],3)),
+                      tval2=sapply(mod_Yang_GCB_2022_all_rob, function(x) round(x$zval[[2]],3)),
+                      p2=sapply(mod_Yang_GCB_2022_all_rob, function(x) round(x$pval[[2]],4)))
+
+# another set
+mod_est_Yang_GCB_2022_all2 <- data.frame(ma=names(dat_Yang_GCB_2022_all),
+                      rho=sapply(mod_Yang_GCB_2022_all_rob2, function(x) round(x$rho[[1]],3)),
+                      es=rep("lnRR", length(mod_Yang_GCB_2022_all_rob2)),
+                      beta=sapply(mod_Yang_GCB_2022_all_rob2, function(x) round(x$beta[[1]],3)),
+                      se=sapply(mod_Yang_GCB_2022_all_rob2, function(x) round(x$se[[1]],3)),
+                      tval=sapply(mod_Yang_GCB_2022_all_rob2, function(x) round(x$zval[[1]],3)),
+                      p=sapply(mod_Yang_GCB_2022_all_rob2, function(x) round(x$pval[[1]],4)),
+                      
+                      es2=rep("SMD", length(mod_Yang_GCB_2022_all_rob2)),
+                      beta2=sapply(mod_Yang_GCB_2022_all_rob2, function(x) round(x$beta[[2]],3)),
+                      se2=sapply(mod_Yang_GCB_2022_all_rob2, function(x) round(x$se[[2]],3)),
+                      tval2=sapply(mod_Yang_GCB_2022_all_rob2, function(x) round(x$zval[[2]],3)),
+                      p2=sapply(mod_Yang_GCB_2022_all_rob2, function(x) round(x$pval[[2]],4)))
+
+
+#*-------------------------------------------------------------*#
+#                     Senior_Ecology_2016                       #
+#*-------------------------------------------------------------*#
+
+mod_est_Senior_Ecology_2016_all <- data.frame(ma = names(dat_Senior_Ecology_2016_all))
+
+for (i in seq_along(mod_Senior_Ecology_2016_all_rob)) {
+  if (!is.null(mod_Senior_Ecology_2016_all_rob[[i]])) {
+    mod_est_Senior_Ecology_2016_all$rho[i] <- round(mod_Senior_Ecology_2016_all_rob[[i]]$rho[[1]], 3)
+    mod_est_Senior_Ecology_2016_all$es[i] <- "lnRR"
+    mod_est_Senior_Ecology_2016_all$beta[i] <- round(mod_Senior_Ecology_2016_all_rob[[i]]$beta[[1]], 3)
+    mod_est_Senior_Ecology_2016_all$se[i] <- round(mod_Senior_Ecology_2016_all_rob[[i]]$se[[1]], 3)
+    mod_est_Senior_Ecology_2016_all$tval[i] <- round(mod_Senior_Ecology_2016_all_rob[[i]]$zval[[1]], 3)
+    mod_est_Senior_Ecology_2016_all$p[i] <- round(mod_Senior_Ecology_2016_all_rob[[i]]$pval[[1]], 4)
+    
+    mod_est_Senior_Ecology_2016_all$es2[i] <- "SMD"
+    mod_est_Senior_Ecology_2016_all$beta2[i] <- round(mod_Senior_Ecology_2016_all_rob[[i]]$beta[[2]], 3)
+    mod_est_Senior_Ecology_2016_all$se2[i] <- round(mod_Senior_Ecology_2016_all_rob[[i]]$se[[2]], 3)
+    mod_est_Senior_Ecology_2016_all$tval2[i] <- round(mod_Senior_Ecology_2016_all_rob[[i]]$zval[[2]], 3)
+    mod_est_Senior_Ecology_2016_all$p2[i] <- round(mod_Senior_Ecology_2016_all_rob[[i]]$pval[[2]], 4)
+  } else {
+    cat("Filling in NAs for model ", i, " due to convergence issues.\n")
+    mod_est_Senior_Ecology_2016_all$rho[i] <- NA
+    mod_est_Senior_Ecology_2016_all$es[i] <- NA
+    mod_est_Senior_Ecology_2016_all$beta[i] <- NA
+    mod_est_Senior_Ecology_2016_all$se[i] <- NA
+    mod_est_Senior_Ecology_2016_all$tval[i] <- NA
+    mod_est_Senior_Ecology_2016_all$p[i] <- NA
+    
+    mod_est_Senior_Ecology_2016_all$es2[i] <- NA
+    mod_est_Senior_Ecology_2016_all$beta2[i] <- NA
+    mod_est_Senior_Ecology_2016_all$se2[i] <- NA
+    mod_est_Senior_Ecology_2016_all$tval2[i] <- NA
+    mod_est_Senior_Ecology_2016_all$p2[i] <- NA
+  }
+}
+
+
+# another set
+mod_est_Senior_Ecology_2016_all2 <- data.frame(ma = names(dat_Senior_Ecology_2016_all))
+
+for (i in seq_along(mod_Senior_Ecology_2016_all_rob2)) {
+  if (!is.null(mod_Senior_Ecology_2016_all_rob2[[i]])) {
+    mod_est_Senior_Ecology_2016_all2$rho[i] <- round(mod_Senior_Ecology_2016_all_rob2[[i]]$rho[[1]], 3)
+    mod_est_Senior_Ecology_2016_all2$es[i] <- "lnRR"
+    mod_est_Senior_Ecology_2016_all2$beta[i] <- round(mod_Senior_Ecology_2016_all_rob2[[i]]$beta[[1]], 3)
+    mod_est_Senior_Ecology_2016_all2$se[i] <- round(mod_Senior_Ecology_2016_all_rob2[[i]]$se[[1]], 3)
+    mod_est_Senior_Ecology_2016_all2$tval[i] <- round(mod_Senior_Ecology_2016_all_rob2[[i]]$zval[[1]], 3)
+    mod_est_Senior_Ecology_2016_all2$p[i] <- round(mod_Senior_Ecology_2016_all_rob2[[i]]$pval[[1]], 4)
+    
+    mod_est_Senior_Ecology_2016_all2$es2[i] <- "SMD"
+    mod_est_Senior_Ecology_2016_all2$beta2[i] <- round(mod_Senior_Ecology_2016_all_rob2[[i]]$beta[[2]], 3)
+    mod_est_Senior_Ecology_2016_all2$se2[i] <- round(mod_Senior_Ecology_2016_all_rob2[[i]]$se[[2]], 3)
+    mod_est_Senior_Ecology_2016_all2$tval2[i] <- round(mod_Senior_Ecology_2016_all_rob2[[i]]$zval[[2]], 3)
+    mod_est_Senior_Ecology_2016_all2$p2[i] <- round(mod_Senior_Ecology_2016_all_rob2[[i]]$pval[[2]], 4)
+  } else {
+    cat("Filling in NAs for model ", i, " due to convergence issues.\n")
+    mod_est_Senior_Ecology_2016_all2$rho[i] <- NA
+    mod_est_Senior_Ecology_2016_all2$es[i] <- NA
+    mod_est_Senior_Ecology_2016_all2$beta[i] <- NA
+    mod_est_Senior_Ecology_2016_all2$se[i] <- NA
+    mod_est_Senior_Ecology_2016_all2$tval[i] <- NA
+    mod_est_Senior_Ecology_2016_all2$p[i] <- NA
+    
+    mod_est_Senior_Ecology_2016_all2$es2[i] <- NA
+    mod_est_Senior_Ecology_2016_all2$beta2[i] <- NA
+    mod_est_Senior_Ecology_2016_all2$se2[i] <- NA
+    mod_est_Senior_Ecology_2016_all2$tval2[i] <- NA
+    mod_est_Senior_Ecology_2016_all2$p2[i] <- NA
+  }
+}
+
+
+```
+
+
+### Publication bias test
+
+```{r}
+#***************************************************************#
+#                       Publication bias test                   #
+#***************************************************************#
+
+#*-------------------------------------------------------------*#
+#                       Yang_BMCBio_2023                        #
+#*-------------------------------------------------------------*#
+
+modPB_est_Yang_BMCBio_2023_all <- data.frame(ma=names(dat_Yang_BMCBio_2023_all),
+                      rho=sapply(modPB_Yang_BMCBio_2023_all, function(x) round(x$rho[[1]],3)),
+                      es=rep("lnRR", length(modPB_Yang_BMCBio_2023_all)),
+                      beta_pb=sapply(modPB_Yang_BMCBio_2023_all, function(x) round(x$beta[[3]],3)),
+                      se_pb=sapply(modPB_Yang_BMCBio_2023_all, function(x) round(x$se[[3]],3)),
+                      tval_pb=sapply(modPB_Yang_BMCBio_2023_all, function(x) round(x$zval[[3]],3)),
+                      p_pb=sapply(modPB_Yang_BMCBio_2023_all, function(x) round(x$pval[[3]],4)),
+                      
+                      es2=rep("SMD", length(modPB_Yang_BMCBio_2023_all)),
+                      beta_pb2=sapply(modPB_Yang_BMCBio_2023_all, function(x) round(x$beta[[4]],3)),
+                      se_pb2=sapply(modPB_Yang_BMCBio_2023_all, function(x) round(x$se[[4]],3)),
+                      tval_pb2=sapply(modPB_Yang_BMCBio_2023_all, function(x) round(x$zval[[4]],3)),
+                      p_pb2=sapply(modPB_Yang_BMCBio_2023_all, function(x) round(x$pval[[4]],4)))
+
+# another set
+modPB_est_Yang_BMCBio_2023_all2 <- data.frame(ma=names(dat_Yang_BMCBio_2023_all),
+                      rho=sapply(modPB_Yang_BMCBio_2023_all2, function(x) round(x$rho[[1]],3)),
+                      es=rep("lnRR", length(modPB_Yang_BMCBio_2023_all2)),
+                      beta_pb=sapply(modPB_Yang_BMCBio_2023_all2, function(x) round(x$beta[[3]],3)),
+                      se_pb=sapply(modPB_Yang_BMCBio_2023_all2, function(x) round(x$se[[3]],3)),
+                      tval_pb=sapply(modPB_Yang_BMCBio_2023_all2, function(x) round(x$zval[[3]],3)),
+                      p_pb=sapply(modPB_Yang_BMCBio_2023_all2, function(x) round(x$pval[[3]],4)),
+                      
+                      es2=rep("SMD", length(modPB_Yang_BMCBio_2023_all2)),
+                      beta_pb2=sapply(modPB_Yang_BMCBio_2023_all2, function(x) round(x$beta[[4]],3)),
+                      se_pb2=sapply(modPB_Yang_BMCBio_2023_all2, function(x) round(x$se[[4]],3)),
+                      tval_pb2=sapply(modPB_Yang_BMCBio_2023_all2, function(x) round(x$zval[[4]],3)),
+                      p_pb2=sapply(modPB_Yang_BMCBio_2023_all2, function(x) round(x$pval[[4]],4)))
+
+
+#*-------------------------------------------------------------*#
+#                         Yang_GCB_2022                         #
+#*-------------------------------------------------------------*#
+modPB_est_Yang_GCB_2022_all <- data.frame(ma=names(dat_Yang_GCB_2022_all),
+                      rho=sapply(modPB_Yang_GCB_2022_all, function(x) round(x$rho[[1]],3)),
+                      es=rep("lnRR", length(modPB_Yang_GCB_2022_all)),
+                      beta_pb=sapply(modPB_Yang_GCB_2022_all, function(x) round(x$beta[[3]],3)),
+                      se_pb=sapply(modPB_Yang_GCB_2022_all, function(x) round(x$se[[3]],3)),
+                      tval_pb=sapply(modPB_Yang_GCB_2022_all, function(x) round(x$zval[[3]],3)),
+                      p_pb=sapply(modPB_Yang_GCB_2022_all, function(x) round(x$pval[[3]],4)),
+                      
+                      es2=rep("SMD", length(modPB_Yang_GCB_2022_all)),
+                      beta_pb2=sapply(modPB_Yang_GCB_2022_all, function(x) round(x$beta[[4]],3)),
+                      se_pb2=sapply(modPB_Yang_GCB_2022_all, function(x) round(x$se[[4]],3)),
+                      tval_pb2=sapply(modPB_Yang_GCB_2022_all, function(x) round(x$zval[[4]],3)),
+                      p_pb2=sapply(modPB_Yang_GCB_2022_all, function(x) round(x$pval[[4]],4)))
+
+
+# another set
+modPB_est_Yang_GCB_2022_all2 <- data.frame(ma=names(dat_Yang_GCB_2022_all),
+                      rho=sapply(modPB_Yang_GCB_2022_all2, function(x) round(x$rho[[1]],3)),
+                      es=rep("lnRR", length(modPB_Yang_GCB_2022_all2)),
+                      beta_pb=sapply(modPB_Yang_GCB_2022_all2, function(x) round(x$beta[[3]],3)),
+                      se_pb=sapply(modPB_Yang_GCB_2022_all2, function(x) round(x$se[[3]],3)),
+                      tval_pb=sapply(modPB_Yang_GCB_2022_all2, function(x) round(x$zval[[3]],3)),
+                      p_pb=sapply(modPB_Yang_GCB_2022_all2, function(x) round(x$pval[[3]],4)),
+                      
+                      es2=rep("SMD", length(modPB_Yang_GCB_2022_all2)),
+                      beta_pb2=sapply(modPB_Yang_GCB_2022_all2, function(x) round(x$beta[[4]],3)),
+                      se_pb2=sapply(modPB_Yang_GCB_2022_all2, function(x) round(x$se[[4]],3)),
+                      tval_pb2=sapply(modPB_Yang_GCB_2022_all2, function(x) round(x$zval[[4]],3)),
+                      p_pb2=sapply(modPB_Yang_GCB_2022_all2, function(x) round(x$pval[[4]],4)))
+
+#*-------------------------------------------------------------*#
+#                     Senior_Ecology_2016                       #
+#*-------------------------------------------------------------*#
+modPB_est_Senior_Ecology_2016_all <- data.frame(ma=names(dat_Senior_Ecology_2016_all),
+                      rho=sapply(modPB_Senior_Ecology_2016_all, function(x) round(x$rho[[1]],3)),
+                      es=rep("lnRR", length(modPB_Senior_Ecology_2016_all)),
+                      beta_pb=sapply(modPB_Senior_Ecology_2016_all, function(x) round(x$beta[[3]],3)),
+                      se_pb=sapply(modPB_Senior_Ecology_2016_all, function(x) round(x$se[[3]],3)),
+                      tval_pb=sapply(modPB_Senior_Ecology_2016_all, function(x) round(x$zval[[3]],3)),
+                      p_pb=sapply(modPB_Senior_Ecology_2016_all, function(x) round(x$pval[[3]],4)),
+                      
+                      es2=rep("SMD", length(modPB_Senior_Ecology_2016_all)),
+                      beta_pb2=sapply(modPB_Senior_Ecology_2016_all, function(x) round(x$beta[[4]],3)),
+                      se_pb2=sapply(modPB_Senior_Ecology_2016_all, function(x) round(x$se[[4]],3)),
+                      tval_pb2=sapply(modPB_Senior_Ecology_2016_all, function(x) round(x$zval[[4]],3)),
+                      p_pb2=sapply(modPB_Senior_Ecology_2016_all, function(x) round(x$pval[[4]],4)))
+
+
+# another set
+modPB_est_Senior_Ecology_2016_all2 <- data.frame(ma = names(dat_Senior_Ecology_2016_all))
+
+for (i in seq_along(modPB_Senior_Ecology_2016_all2)) {
+  if (!is.null(modPB_Senior_Ecology_2016_all2[[i]])) {
+    modPB_est_Senior_Ecology_2016_all2$rho[i] <- round(modPB_Senior_Ecology_2016_all2[[i]]$rho[[1]], 3)
+    modPB_est_Senior_Ecology_2016_all2$es[i] <- "lnRR"
+    modPB_est_Senior_Ecology_2016_all2$beta_pb[i] <- round(modPB_Senior_Ecology_2016_all2[[i]]$beta[[3]], 3)
+    modPB_est_Senior_Ecology_2016_all2$se_pb[i] <- round(modPB_Senior_Ecology_2016_all2[[i]]$se[[3]], 3)
+    modPB_est_Senior_Ecology_2016_all2$tval_pb[i] <- round(modPB_Senior_Ecology_2016_all2[[i]]$zval[[3]], 3)
+    modPB_est_Senior_Ecology_2016_all2$p_pb[i] <- round(modPB_Senior_Ecology_2016_all2[[i]]$pval[[3]], 4)
+    
+    modPB_est_Senior_Ecology_2016_all2$es2[i] <- "SMD"
+    modPB_est_Senior_Ecology_2016_all2$beta_pb2[i] <- round(modPB_Senior_Ecology_2016_all2[[i]]$beta[[4]], 3)
+    modPB_est_Senior_Ecology_2016_all2$se_pb2[i] <- round(modPB_Senior_Ecology_2016_all2[[i]]$se[[4]], 3)
+    modPB_est_Senior_Ecology_2016_all2$tval_pb2[i] <- round(modPB_Senior_Ecology_2016_all2[[i]]$zval[[4]], 3)
+    modPB_est_Senior_Ecology_2016_all2$p_pb2[i] <- round(modPB_Senior_Ecology_2016_all2[[i]]$pval[[4]], 4)
+  } else {
+    cat("Filling in NAs for model ", i, " due to convergence issues.\n")
+    modPB_est_Senior_Ecology_2016_all2$rho[i] <- NA
+    modPB_est_Senior_Ecology_2016_all2$es[i] <- NA
+    modPB_est_Senior_Ecology_2016_all2$beta_pb[i] <- NA
+    modPB_est_Senior_Ecology_2016_all2$se_pb[i] <- NA
+    modPB_est_Senior_Ecology_2016_all2$tval_pb[i] <- NA
+    modPB_est_Senior_Ecology_2016_all2$p_pb[i] <- NA
+    
+    modPB_est_Senior_Ecology_2016_all2$es2[i] <- NA
+    modPB_est_Senior_Ecology_2016_all2$beta_pb2[i] <- NA
+    modPB_est_Senior_Ecology_2016_all2$se_pb2[i] <- NA
+    modPB_est_Senior_Ecology_2016_all2$tval_pb2[i] <- NA
+    modPB_est_Senior_Ecology_2016_all2$p_pb2[i] <- NA
+  }
+}
+
+```
+
+## Estimate combination
+
+```{r}
+# combine estimates
+# there are four duplicates, we need to remove them
+duplicate <- c("Barton-2015-Functional_Ecology", "Castagneyrol_2014", "Liu_et_al_2017_plants", "MGonigle_et_al_2014_ProcB")
+## conventional analysis
+### intercept model
+mod_est_lnRR_re <- rbind(mod_est_Yang_BMCBio_2023_lnRR_re, mod_est_Yang_GCB_2022_lnRR_re, mod_est_Senior_Ecology_2016_lnRR_re) # 79
+mod_est_lnRR_re <- mod_est_lnRR_re[!(mod_est_lnRR_re$ma %in% duplicate), ] # remove the duplicate
+
+mod_est_SMD_re <- rbind(mod_est_Yang_BMCBio_2023_SMD_re, mod_est_Yang_GCB_2022_SMD_re, mod_est_Senior_Ecology_2016_SMD_re)
+mod_est_SMD_re <- mod_est_SMD_re[!(mod_est_SMD_re$ma %in% duplicate), ] # remove the duplicate
+
+## multilevel
+### intercept model
+mod_est_lnRR <- rbind(mod_est_Yang_BMCBio_2023_lnRR, mod_est_Yang_GCB_2022_lnRR, mod_est_Senior_Ecology_2016_lnRR) # 79
+mod_est_lnRR <- mod_est_lnRR[!(mod_est_lnRR$ma %in% duplicate), ] # remove the duplicate
+
+mod_est_SMD <- rbind(mod_est_Yang_BMCBio_2023_SMD, mod_est_Yang_GCB_2022_SMD, mod_est_Senior_Ecology_2016_SMD)
+mod_est_SMD <- mod_est_SMD[!(mod_est_SMD$ma %in% duplicate), ] # remove the duplicate
+
+mod_est_lnVR <- rbind(mod_est_Yang_BMCBio_2023_lnVR, mod_est_Yang_GCB_2022_lnVR, mod_est_Senior_Ecology_2016_lnVR)
+mod_est_lnVR <- mod_est_lnVR[!(mod_est_lnVR$ma %in% duplicate), ] # remove the duplicate
+
+### publication bias
+modPB_est_lnRR <- rbind(modPB_est_Yang_BMCBio_2023_lnRR, modPB_est_Yang_GCB_2022_lnRR, modPB_est_Senior_Ecology_2016_lnRR)
+modPB_est_lnRR <- modPB_est_lnRR[!(modPB_est_lnRR$ma %in% duplicate), ] # remove the duplicate
+
+modPB_est_SMD <- rbind(modPB_est_Yang_BMCBio_2023_SMD, modPB_est_Yang_GCB_2022_SMD, modPB_est_Senior_Ecology_2016_SMD)
+modPB_est_SMD <- modPB_est_SMD[!(modPB_est_SMD$ma %in% duplicate), ] # remove the duplicate
+
+## bivariate
+### intercept model
+mod_est_all <- rbind(mod_est_Yang_BMCBio_2023_all, mod_est_Yang_GCB_2022_all, mod_est_Senior_Ecology_2016_all)
+mod_est_all <- mod_est_all[!(mod_est_all$ma %in% duplicate), ] # remove the duplicate
+
+mod_est_all2 <- rbind(mod_est_Yang_BMCBio_2023_all2, mod_est_Yang_GCB_2022_all2, mod_est_Senior_Ecology_2016_all2)
+mod_est_all2 <- mod_est_all[!(mod_est_all2$ma %in% duplicate), ] # remove the duplicate
+
+### publication bias
+modPB_est_all <- rbind(modPB_est_Yang_BMCBio_2023_all, modPB_est_Yang_GCB_2022_all, modPB_est_Senior_Ecology_2016_all)
+modPB_est_all <- modPB_est_all[!(modPB_est_all$ma %in% duplicate), ] # remove the duplicate
+
+modPB_est_all2 <- rbind(modPB_est_Yang_BMCBio_2023_all2, modPB_est_Yang_GCB_2022_all2, modPB_est_Senior_Ecology_2016_all2)
+modPB_est_all2 <- modPB_est_all2[!(modPB_est_all2$ma %in% duplicate), ] # remove the duplicate
+```
+
+
+# Divergency
+
+## False positive rates
+
+```{r}
+# MLMA
+which(mod_est_lnRR_re$p < 0.05) %>% length() # 57
+which(mod_est_SMD_re$p < 0.05) %>% length() # 56
+# lnRR
+# false positive rates
+intersect(which(mod_est_lnRR$p > 0.05), which(mod_est_lnRR_re$p < 0.05)) # 13 / length(which(mod_est_lnRR$p > 0.05)) = 42% or setdiff(which(mod_est_lnRR_re$p < 0.05), which(mod_est_lnRR$p < 0.05)) 
+
+# SMD
+setdiff(which(mod_est_SMD_re$p < 0.05), which(mod_est_SMD$p < 0.05)) # 16 / length(which(mod_est_SMD$p > 0.05)) = 46%
+setdiff(which(mod_est_SMD$p < 0.05), which(mod_est_SMD_re$p < 0.05)) # 0
+
+
+# BMLMA
+# lnRR
+# false positive rates
+intersect(which(mod_est_all$p > 0.05), which(mod_est_lnRR_re$p < 0.05)) # 14 / length(which(mod_est_all$p > 0.05)) = 44% or setdiff(which(mod_est_lnRR_re$p < 0.05), which(mod_est_all$p < 0.05)) 
+
+# SMD
+setdiff(which(mod_est_SMD_re$p < 0.05), which(mod_est_all$p2 < 0.05)) # 22 / length(which(mod_est_all$p2 > 0.05)) = 53%
+```
+
+
+## Test of beta
+
+```{r}
+# evidence error
+## univariate
+which(mod_est_lnRR$p < 0.05) %>% length() # 44
+which(mod_est_SMD$p < 0.05) %>% length() # 40
+p <- c(setdiff(which(mod_est_lnRR$p < 0.05), which(mod_est_SMD$p < 0.05)), setdiff(which(mod_est_SMD$p < 0.05), which(mod_est_lnRR$p < 0.05)))  # 12 #intersect()
+
+df <- data.frame(p = mod_est_lnRR$p,
+                 p2 = mod_est_SMD$p,
+                 beta = mod_est_lnRR$beta,
+                 beta2 = mod_est_SMD$beta)
+
+
+# visualization
+p.pbeta <- df[-p,] %>%
+  ggplot(aes(x = p, y = p2)) +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[1], fill = brewer.pal(n = 8, name = "Dark2")[1], shape = 15, size = 4) +
+  geom_point(data = df[p,], aes(x = p, y = p2), color = "red", fill = "red", shape = 16, size = 3) +
+  geom_abline(intercept = 0, slope = 1, colour= 'black', linetype = "dashed") + 
+  labs(x = expression(paste(italic(p),"-value of overall effect estimate"~mu["[lnRR]"])), y = expression(paste(italic(p),"-value of overall effect estimate"~mu["[SMD]"] ~ ""))) + 
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12)
+        ) +
+  annotate("text", x = 0.200, y = 0.65, label = "Discrepant", size = 4, color = "red") +
+  annotate("segment", x = 0.047, y = 0.538, xend = 0.047 + 0.1, yend = 0.538 + 0.1, color = "red", arrow = arrow(length = unit(0.25, "cm"), type = "closed", ends = "first"))
+
+
+
+## bivariate
+which(mod_est_all$p < 0.05) %>% length() # 45
+which(mod_est_all$p2 < 0.05) %>% length() # 49
+
+p <- c(setdiff(which(mod_est_all$p < 0.05), which(mod_est_all$p2 < 0.05)), setdiff(which(mod_est_all$p2 < 0.05), which(mod_est_all$p < 0.05))) # 10
+
+
+# visualization
+p.pbeta <- mod_est_all[-p,] %>%
+  ggplot(aes(x = p, y = p2)) +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[1], fill = brewer.pal(n = 8, name = "Dark2")[1], shape = 15, size = 4) +
+  geom_point(data = mod_est_all[p,], aes(x = p, y = p2), color = "red", fill = "red", shape = 16, size = 3) +
+  geom_abline(intercept = 0, slope = 1, colour= 'black', linetype = "dashed") + 
+  labs(x = expression(paste(italic(p),"-value of overall effect estimate"~mu["[lnRR]"])), y = expression(paste(italic(p),"-value of overall effect estimate"~mu["[SMD]"] ~ ""))) + 
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12)
+        ) +
+  annotate("text", x = 0.200, y = 0.65, label = "Discrepant", size = 4, color = "red") +
+  annotate("segment", x = 0.047, y = 0.538, xend = 0.047 + 0.1, yend = 0.538 + 0.1, color = "red", arrow = arrow(length = unit(0.25, "cm"), type = "closed", ends = "first"))
+
+
+```
+
+## Magnitude of beta
+
+SMD ≈ 0.20: small effect.
+SMD ≈ 0.50: moderate effect.
+SMD ≈ 0.80: large effect.
+
+```{r}
+beta_interpretation <- data.frame(ma = mod_est_all$ma,
+                                  rho = mod_est_all$rho,
+                                  p = mod_est_lnRR$p,
+                                  p2 = mod_est_SMD$p,
+                                  beta = mod_est_lnRR$beta,
+                                  beta2 = mod_est_SMD$beta)
+
+# convert lnRR to percentage
+beta_interpretation <- beta_interpretation %>% mutate(beta_interpretation = abs(exp(beta) - 1))
+
+# Cohen's benchmark
+beta_interpretation <- beta_interpretation %>% mutate(beta_interpretation2 = case_when(abs(beta2) <= 0.2 ~ "Small",
+                                                      abs(beta2) > 0.2 & abs(beta2) < 0.8 ~ "Moderate",
+                                                      abs(beta2) >= 0.8 ~ "Large"))
+
+filter(beta_interpretation, beta_interpretation2 == "Small")
+filter(beta_interpretation, beta_interpretation2 == "Moderate")
+filter(beta_interpretation, beta_interpretation2 == "Large")
+# unequal variance
+filter(mod_est_lnRR, p < 0.05) %>% view()
+
+```
+
+
+
+## Sign of beta
+
+```{r}
+# sign error
+## univariate
+which(mod_est_lnRR$beta * mod_est_SMD$beta < 0) %>% length() # 7
+
+## bivariate
+which(mod_est_all$beta * mod_est_all$beta2 < 0) %>% length() # 8
+```
+
+## Heterogeneity
+
+```{r}
+# heterogeneity
+## univariate
+mod_est_lnRR$I2 %>% summary()
+mod_est_SMD$I2 %>% summary()
+
+I2_interpretation <- data.frame(ma = mod_est_lnRR$ma,
+                                I2 = mod_est_lnRR$I2,
+                                I22 = mod_est_SMD$I2)
+
+I2_interpretation <- I2_interpretation %>% mutate(I2_interpretation = case_when(I2 <= 20 ~ "Small",
+                                                      I2 > 20 & I2 < 70 ~ "Moderate",
+                                                      I2 >= 70 ~ "Large"))
+
+
+I2_interpretation <- I2_interpretation %>% mutate(I22_interpretation = case_when(I22 <= 20 ~ "Small",
+                                                      I22 > 20 & I22 < 70 ~ "Moderate",
+                                                      I22 >= 70 ~ "Large"))
+
+all.equal(I2_interpretation$I2_interpretation, I2_interpretation$I22_interpretation) # 23
+which(I2_interpretation$I2_interpretation != I2_interpretation$I22_interpretation)
+
+filter(I2_interpretation, I2_interpretation == "Large") %>% filter(I22_interpretation != "Large") %>% nrow()
+
+h <- which(I2_interpretation$I2_interpretation != I2_interpretation$I22_interpretation)
+
+## alternative measures
+mod_est_lnRR$CV %>% summary()
+mod_est_SMD$CV %>% summary()
+
+mod_est_lnRR$M1 %>% summary()
+mod_est_SMD$M1 %>% summary()
+
+
+## bivariate
+### define a function to compute I2 for bivariate MA
+i2_bi <- function(mod, data) {
+  W <- solve(mod$V)
+  X <- model.matrix(mod)
+  P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+  # 'typical' sampling variance based on each es measure
+  #I2_lnRR <- 100 * mod$tau2[1] / (mod$tau2[1] + (sum(data$es_type == "lnRR") - 1) / sum(diag(P)[data$es_type == "lnRR"]))
+  #I2_SMD <- 100 * mod$tau2[2] / (mod$tau2[2] + (sum(data$es_type == "SMD") - 1) / sum(diag(P)[data$es_type == "SMD"]))
+  # 'typical' sampling variance based on all studies 
+  I2_lnRR <- 100 * mod$tau2[1] / (mod$tau2[1] + (mod$k-mod$p)/sum(diag(P)))
+  I2_SMD <- 100 * mod$tau2[2] / (mod$tau2[2] + (mod$k-mod$p)/sum(diag(P)))
+  return(data.frame(lnRR = I2_lnRR, SMD = I2_SMD))
+}
+
+### compute bivariate I2
+I2_Yang_BMCBio_2023 <- do.call(rbind, lapply(seq_along(mod_Yang_BMCBio_2023_all_rob2), function(i) i2_bi(mod_Yang_BMCBio_2023_all_rob2[[i]], dat_Yang_BMCBio_2023_all[[i]])))
+
+I2_Yang_GCB_2022 <- do.call(rbind, lapply(seq_along(mod_Yang_GCB_2022_all_rob2), function(i) i2_bi(mod_Yang_GCB_2022_all_rob2[[i]], dat_Yang_GCB_2022_all[[i]])))
+
+I2_Senior_Ecology_2016 <- do.call(rbind, lapply(seq_along(mod_Senior_Ecology_2016_all_rob2), function(i) i2_bi(mod_Senior_Ecology_2016_all_rob2[[i]], dat_Senior_Ecology_2016_all[[i]])))
+
+
+I2_Senior_Ecology_2016 <- lapply(seq_along(mod_Senior_Ecology_2016_all_rob2), function(i) {
+  tryCatch({
+    i2_bi(mod_Senior_Ecology_2016_all_rob2[[i]], dat_Senior_Ecology_2016_all[[i]])
+  }, error = function(err) {
+    cat("Error occurred for model ", i, ". Filling in NA.\n")
+    return(NA)
+  })
+})
+
+I2_Senior_Ecology_2016 <- do.call(rbind, I2_Senior_Ecology_2016)
+
+
+
+### combine
+mod_est_all <- mod_est_all %>% mutate(I2 = c(I2_Yang_BMCBio_2023$lnRR, I2_Yang_GCB_2022$lnRR, I2_Senior_Ecology_2016$lnRR),
+                                      I22 = c(I2_Yang_BMCBio_2023$SMD, I2_Yang_GCB_2022$SMD, I2_Senior_Ecology_2016$SMD))
+
+
+mod_est_all <- mod_est_all %>% mutate(I2_interpretation = case_when(I2 <= 20 ~ "Small",
+                                                      I2 > 20 & I2 < 70 ~ "Moderate",
+                                                      I2 >= 70 ~ "Large"))
+
+mod_est_all <- mod_est_all %>% mutate(I22_interpretation = case_when(I22 <= 20 ~ "Small",
+                                                      I22 > 20 & I22 < 70 ~ "Moderate",
+                                                      I22 >= 70 ~ "Large"))
+
+all.equal(mod_est_all$I2_interpretation, mod_est_all$I22_interpretation) # 18
+which(mod_est_all$I2_interpretation != mod_est_all$I22_interpretation)
+```
+
+
+## Publication bias
+
+```{r}
+# publication bias test
+## univariate
+which(modPB_est_lnRR$p_pb < 0.05) %>% length() #18 
+which(modPB_est_SMD$p_pb < 0.05) %>% length() #57 
+
+p_pb <- c(setdiff(which(modPB_est_lnRR$p_pb < 0.05), which(modPB_est_SMD$p_pb < 0.05)),setdiff(which(modPB_est_SMD$p_pb < 0.05), which(modPB_est_lnRR$p_pb < 0.05))) # 43
+
+# visualization
+df <- data.frame(p_pb = modPB_est_lnRR$p_pb,
+                 p_pb2 = modPB_est_SMD$p_pb)
+  
+p.pb <- df[-p_pb,] %>%
+  ggplot(aes(x = p_pb, y = p_pb2)) +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[4], fill = brewer.pal(n = 8, name = "Dark2")[4], shape = 15, size = 4) +
+  geom_point(data = df[p_pb,], aes(x = p_pb, y = p_pb2), color = "red", fill = "red", shape = 16, size = 3) +
+  geom_abline(intercept = 0, slope = 1, colour= 'black', linetype = "dashed") + 
+  labs(x = expression(paste(italic(p),"-value of publication bias test"["[lnRR]"])), y = expression(paste(italic(p),"-value of publication bias test"["[SMD]"] ~ ""))) + 
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12)
+        ) +
+  annotate("text", x = 0.43, y = 0.19, label = "Discrepant", size = 4, color = "red") +
+  annotate("segment", x = 0.27, y = 0.01, xend = 0.27 + 0.15, yend = 0.01 + 0.15, color = "red", arrow = arrow(length = unit(0.25, "cm"), type = "closed", ends = "first"))
+
+
+
+## bivariate
+which(modPB_est_all$p_pb < 0.05) %>% length() # 40
+which(modPB_est_all$p_pb2 < 0.05) %>% length() # 51
+
+p_pb <- c(setdiff(which(modPB_est_all$p_pb < 0.05), which(modPB_est_all$p_pb2 < 0.05)),setdiff(which(modPB_est_all$p_pb2 < 0.05), which(modPB_est_all$p_pb < 0.05))) # 23
+
+# visualization
+p.pb <- modPB_est_all[-p_pb,] %>%
+  ggplot(aes(x = p_pb, y = p_pb2)) +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[4], fill = brewer.pal(n = 8, name = "Dark2")[4], shape = 15, size = 4) +
+  geom_point(data = modPB_est_all[p_pb,], aes(x = p_pb, y = p_pb2), color = "red", fill = "red", shape = 16, size = 3) +
+  geom_abline(intercept = 0, slope = 1, colour= 'black', linetype = "dashed") + 
+  labs(x = expression(paste(italic(p),"-value of publication bias test"["[lnRR]"])), y = expression(paste(italic(p),"-value of publication bias test"["[SMD]"] ~ ""))) + 
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12)
+        ) +
+  annotate("text", x = 0.43, y = 0.19, label = "Discrepant", size = 4, color = "red") +
+  annotate("segment", x = 0.27, y = 0.01, xend = 0.27 + 0.15, yend = 0.01 + 0.15, color = "red", arrow = arrow(length = unit(0.25, "cm"), type = "closed", ends = "first"))
+
+
+```
+
+
+# Information gain - efficiency gain
+
+## Frequency of indirect evidence
+
+```{r}
+# the information gained due to including the secondary measure
+which(mod_est_all$se^2 < mod_est_lnRR$se^2) %>% length() # 64
+which(mod_est_all$se2^2 < mod_est_SMD$se^2) %>% length() # 63
+
+# lnRR
+e_lnRR <- which(mod_est_all$se^2 < mod_est_lnRR$se^2)
+e_all_lnRR <- left_join(mod_est_lnRR, mod_est_all, by = "ma")
+
+e_all_lnRR[-e_lnRR,] %>%
+  ggplot(aes(x = 1/se.x, y = 1/se.y)) +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[4], fill = brewer.pal(n = 8, name = "Dark2")[4], shape = 15, size = 4) +
+  geom_point(data = e_all_lnRR[e_lnRR,], aes(x = 1/se.x, y = 1/se.y), color = "blue", fill = "blue", shape = 16, size = 3) +
+  geom_abline(intercept = 0, slope = 1, colour= 'black', linetype = "dashed") + 
+  labs(x = bquote(paste("Precision"["[lnRR]"] ~ "of univariate model")), y = bquote(paste("Precision"["[lnRR]"] ~ "of bivariate model"))) +
+  scale_x_continuous(limits = c(0,100)) +
+  scale_y_continuous(limits = c(0,100)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12)
+        )
+
+# SMD
+e_SMD <- which(mod_est_all$se2^2 < mod_est_SMD$se^2)
+e_all_SMD <- left_join(mod_est_SMD, mod_est_all, by = "ma")
+
+e_all_SMD[-e_SMD,] %>%
+  ggplot(aes(x = 1/se.x, y = 1/se2)) +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[4], fill = brewer.pal(n = 8, name = "Dark2")[4], shape = 15, size = 4) +
+  geom_point(data = e_all_SMD[e_SMD,], aes(x = 1/se.x, y = 1/se2), color = "blue", fill = "blue", shape = 16, size = 3) +
+  geom_abline(intercept = 0, slope = 1, colour= 'black', linetype = "dashed") + 
+  labs(x = bquote(paste("Precision"["[SMD]"] ~ "of univariate model")), y = bquote(paste("Precision"["[SMD]"] ~ "of bivariate model"))) +
+  scale_x_continuous(limits = c(0,25)) +
+  scale_y_continuous(limits = c(0,25)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12)
+        )
+```
+
+## N of additional studies
+
+calculation of this quantity requires the number of studies (effect sizes)
+
+```{r}
+N <- sapply(c(dat_Yang_BMCBio_2023_lnRR,dat_Yang_GCB_2022_lnRR,dat_Senior_Ecology_2016_lnRR), function(x) unique(x$study_ID) %>% length())
+
+k <- sapply(c(dat_Yang_BMCBio_2023_lnRR,dat_Yang_GCB_2022_lnRR,dat_Senior_Ecology_2016_lnRR), function(x) nrow(x)) # extract the number of effect sizes
+
+k_eff_lnRR <- sapply(c(mod_Yang_BMCBio_2023_lnRR_rob,mod_Yang_GCB_2022_lnRR_rob,mod_Senior_Ecology_2016_lnRR_rob), function(x) x$k) # extract effective sample size info - sample sizes that are fitted to the model
+
+k_eff_SMD <- sapply(c(mod_Yang_BMCBio_2023_SMD_rob,mod_Yang_GCB_2022_SMD_rob,mod_Senior_Ecology_2016_SMD_rob), function(x) x$k) # extract effective sample size info - sample sizes that are fitted to the model
+
+N_k_dat <- data.frame(ma = c(mod_est_Yang_BMCBio_2023_lnRR$ma,mod_est_Yang_GCB_2022_lnRR$ma,mod_est_Senior_Ecology_2016_lnRR$ma),
+                       N = N,
+                       k = k,
+                       k_eff_lnRR = k_eff_lnRR,
+                       k_eff_SMD = k_eff_SMD) %>% mutate(missness_lnRR = 1 - k_eff_lnRR / k,
+                                                         missness_SMD = 1 - k_eff_SMD / k)
+
+# remove duplicates
+N_k_dat <- N_k_dat[!(N_k_dat$ma %in% duplicate), ]
+
+# computation
+info_est <- data.frame(ma = mod_est_all$ma,
+                       E_lnRR = mod_est_all$se^2 / mod_est_lnRR$se^2,
+                       E_SMD = mod_est_all$se2^2 / mod_est_SMD$se^2,
+                       Pre_lnRR = mod_est_all$se / mod_est_lnRR$se,
+                       Pre_SMD = mod_est_all$se2 / mod_est_SMD$se,
+                       rho = mod_est_all$rho)
+
+# incorporate sample size info
+info_est <- left_join(N_k_dat, info_est, by = "ma")
+
+
+info_est <- info_est %>% mutate(N_extra_lnRR = (k_eff_lnRR * (1 - E_lnRR)) / E_lnRR,
+         N_extra_SMD = (k_eff_SMD * (1 - E_SMD)) / E_SMD,
+         BOS_lnRR = (1 - E_lnRR),
+         BOS_SMD = (1 - E_SMD)) 
+
+
+## cases with increased info/precision where E < 1
+pos_lnRR <- which(info_est$E_lnRR < 1)
+info_est$N_extra_lnRR[pos_lnRR] %>% summary()
+pos_SMD <- which(info_est$E_SMD < 1)
+info_est$N_extra_SMD[pos_SMD] %>% summary()
+
+filter(info_est, E_lnRR < 1)$BOS_lnRR %>% summary()
+filter(info_est, E_SMD < 1)$BOS_SMD %>% summary()
+filter(info_est, E_lnRR < 1)$N_extra_lnRR %>% summary()
+filter(info_est, E_SMD < 1)$N_extra_SMD %>% summary()
+
+info_est2 <- info_est %>% filter(E_lnRR < 1 & E_SMD < 1)
+
+
+# visualization of additional studies
+p.N <- filter(info_est2, N_extra_lnRR < 1000 & N_extra_SMD < 1000) %>% select(ma, N_extra_lnRR, N_extra_SMD) %>% 
+  pivot_longer(!ma, names_to = "N_extra", values_to = "value") %>% ggviolin("N_extra", "value", fill = "N_extra",
+   palette = c("#009E73","#CC79A7"), alpha = 0.5, # c("#00AFBB", "#E7B800")
+   add = "boxplot", add.params = list(fill = "white")) + 
+  guides(fill = "none", color = "none") +
+  theme_bw() + 
+  labs(x = expression(paste("Effect size metrics")), y = expression("Number of extra effect sizes")) +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 12, color = "black")
+        ) + 
+  scale_x_discrete(labels = c("lnRR", "SMD"))
+
+```
+
+
+## Borrowing of strength
+
+percentage increase in precision due to the correlated or indirect evidence. Equivalently, how much precision is contributed by indirect evidence
+
+```{r}
+info_est2$BOS_lnRR %>% summary()
+info_est2$BOS_SMD %>% summary()
+
+# visualization of BOS
+p.BOS <- filter(info_est2) %>% select(ma, BOS_lnRR, BOS_SMD) %>% 
+  pivot_longer(!ma, names_to = "BOS", values_to = "value") %>% ggviolin("BOS", "value", fill = "BOS",
+   palette = c("#009E73","#CC79A7"), alpha = 0.5,
+   add = "boxplot", add.params = list(fill = "white")) + 
+  guides(fill = "none", color = "none") +
+  theme_bw() + 
+  labs(x = expression(paste("Effect size metrics")), y = expression("Borrowing of strength (BoS)")) +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 12, color = "black")
+        ) + 
+  scale_x_discrete(labels = c("lnRR", "SMD")) + 
+  scale_y_continuous(labels = scales::percent)
+
+
+```
+
+
+
+
+## Test of beta
+
+```{r}
+# change in statistical or biological conclusion
+intersect(which(mod_est_lnRR$p > 0.05), which(mod_est_all$p < 0.05)) %>% length() # 2/32 - which(mod_est_lnRR$p > 0.05) %>% length()
+intersect(which(mod_est_SMD$p > 0.05), which(mod_est_all$p2 < 0.05)) %>% length() # 1/36 - which(mod_est_SMD$p > 0.05)
+
+```
+
+## Correlation
+
+```{r}
+# remove bounds that are likely to be unreliably estimated
+pos <- which(mod_est_all$rho == 1 | mod_est_all$rho == -1)
+
+mod_est_all$rho[-pos] %>% summary()
+
+info_est$rho <- mod_est_all$rho
+info_est$p <- mod_est_all$p
+
+info_est2 <- filter(info_est, E_lnRR < 1) 
+info_est3 <- filter(info_est2, rho != 1)
+info_est4 <- filter(info_est3, rho != -1)
+info_est5 <- filter(info_est4, rho > 0)
+info_est6 <- filter(info_est5, p < 0.05)
+
+plot(info_est6$rho,info_est6$E_lnRR)
+plot(info_est6$rho,info_est6$E_SMD)
+
+lm(E_lnRR ~ rho, data = info_est6) %>% summary()
+lm(E_SMD ~ rho, data = info_est6) %>% summary()
+
+plot(info_est$BOS_lnRR[pos_lnRR], info_est$k_eff_lnRR[pos_lnRR]/info_est$k[pos_lnRR])
+
+plot(info_est$BOS_SMD[pos_SMD], info_est$k_eff_SMD[pos_SMD]/info_est$k[pos_SMD])
+
+```
+
+
+
+
+## Statistical errors
+
+```{r}
+error_values <- data.frame(ma = mod_est_lnRR$ma,
+                           p = mod_est_lnRR$p,
+                           p2 = mod_est_SMD$p,
+                           power_lnRR = power_MA(mod_est_lnRR$beta, mod_est_lnRR$se),
+                           power_SMD = power_MA(mod_est_SMD$beta, mod_est_SMD$se)) 
+
+# summary
+error_values$power_lnRR %>% summary()
+error_values$power_SMD %>% summary()
+
+```
+
+
+# Characteristics of the datasets
+
+```{r}
+# extract ICC, typical sampling variance, and total variance
+# dataset1
+icc_Yang_BMCBio_2023_lnRR <- data.frame(ma=names(dat_Yang_BMCBio_2023_lnRR),
+                      es=rep("lnRR", length(mod_Yang_BMCBio_2023_lnRR_rob2)),
+                      icc=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) round(icc_calc(x),3)),
+                      V_bar=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) round(sigma2_v(x),3)),
+                      sigma2_t=sapply(mod_Yang_BMCBio_2023_lnRR_rob2, function(x) round(sum(x$sigma2),3)))
+
+icc_Yang_BMCBio_2023_SMD <- data.frame(ma=names(dat_Yang_BMCBio_2023_SMD),
+                      es=rep("SMD", length(mod_Yang_BMCBio_2023_SMD_rob2)),
+                      icc=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) round(icc_calc(x),3)),
+                      V_bar=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) round(sigma2_v(x),3)),
+                      sigma2_t=sapply(mod_Yang_BMCBio_2023_SMD_rob2, function(x) round(sum(x$sigma2),3)))
+
+# dataset2
+icc_Yang_GCB_2022_lnRR <- data.frame(ma=names(dat_Yang_GCB_2022_lnRR),
+                      es=rep("lnRR", length(mod_Yang_GCB_2022_lnRR_rob2)),
+                      icc=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) round(icc_calc(x),3)),
+                      V_bar=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) round(sigma2_v(x),3)),
+                      sigma2_t=sapply(mod_Yang_GCB_2022_lnRR_rob2, function(x) round(sum(x$sigma2),3)))
+
+icc_Yang_GCB_2022_SMD <- data.frame(ma=names(dat_Yang_GCB_2022_SMD),
+                      es=rep("SMD", length(mod_Yang_GCB_2022_SMD_rob2)),
+                      icc=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) round(icc_calc(x),3)),
+                       V_bar=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) round(sigma2_v(x),3)),
+                      sigma2_t=sapply(mod_Yang_GCB_2022_SMD_rob2, function(x) round(sum(x$sigma2),3)))
+
+# dataset3
+icc_Senior_Ecology_2016_lnRR <- data.frame(ma=names(dat_Senior_Ecology_2016_lnRR),
+                      es=rep("lnRR", length(mod_Senior_Ecology_2016_lnRR_rob2)),
+                      icc=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) round(icc_calc(x),3)),
+                      V_bar=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) round(sigma2_v(x),3)),
+                      sigma2_t=sapply(mod_Senior_Ecology_2016_lnRR_rob2, function(x) round(sum(x$sigma2),3)))
+
+icc_Senior_Ecology_2016_SMD <- data.frame(ma=names(dat_Senior_Ecology_2016_SMD),
+                      es=rep("SMD", length(mod_Senior_Ecology_2016_SMD_rob2)),
+                      icc=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) round(icc_calc(x),3)),
+                      V_bar=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) round(icc_calc(x),3)),
+                      sigma2_t=sapply(mod_Senior_Ecology_2016_SMD_rob2, function(x) round(sum(x$sigma2),3)))
+
+# combine
+icc_lnRR <- rbind(icc_Yang_BMCBio_2023_lnRR, icc_Yang_GCB_2022_lnRR, icc_Senior_Ecology_2016_lnRR)
+icc_lnRR <- icc_lnRR[!(icc_lnRR$ma %in% duplicate), ] # remove the duplicates
+
+icc_SMD <- rbind(icc_Yang_BMCBio_2023_SMD, icc_Yang_GCB_2022_SMD, icc_Senior_Ecology_2016_SMD)
+icc_SMD <- icc_SMD[!(icc_SMD$ma %in% duplicate), ] # remove the duplicates
+# summary
+summary(icc_lnRR$icc)
+summary(icc_SMD$icc)
+
+
+# descriptive stats of the datasets
+## summary of the number of included studies
+summary(info_est$N)
+## summary of the number of estimates
+summary(filter $k_eff_lnRR)
+summary(info_est$k_eff_SMD)
+## estimates per study 
+summary(info_est$k_eff_lnRR / info_est$N)
+summary(info_est$k_eff_SMD / info_est$N)
+
+# summary decomposed heterogeneity
+mod_est_lnRR$I2_b %>% summary()
+mod_est_lnRR$I2_w %>% summary()
+
+mod_est_SMD$I2_b %>% summary()
+mod_est_SMD$I2_w %>% summary()
+
+```
+
+# Figure 2
+
+```{r}
+#lnRR for MLMA
+fpr <- intersect(which(mod_est_lnRR$p > 0.05), which(mod_est_lnRR_re$p < 0.05))
+
+## p
+df <- data.frame(p = mod_est_lnRR$p^(1/4),
+                 p2 = mod_est_lnRR_re$p^(1/4)) # We explored several scales for graphically displaying these p-values, including linear, logarithmic and square root scales. We chose P-values using a scale proportional to the fourth root of the p-value, because this scale best displays these p-values over a broad range from 0 to 1, and it centres p-values lying between 0.05 and 0.10.
+
+p.beta.lnRR <- df[-fpr,] %>%
+  ggplot(aes(x = p, y = p2)) +
+  geom_abline(slope = 1, intercept = 0, color="grey30", linetype = "dashed") +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[1], fill = brewer.pal(n = 8, name = "Dark2")[2], shape = 15, size = 4) +
+  geom_point(data = df[fpr,], aes(x = p, y = p2), color = "red", fill = "red", shape = 16, size = 3) +
+  labs(x = expression(paste("p value of"~mu["[lnRR]"] ~ "from the MLMA model")), y = expression(paste("p value of "~mu["[lnRR]"] ~ "from the RE model"))) +
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 12, color = "black")
+        ) + 
+  annotate("segment", x = 0.50, y = 0.175, xend = 0.60 + 0.05, yend = 0.175, color = "red", arrow = arrow(length = unit(0.25, "cm"), type = "closed", ends = "first")) +
+   annotate("text", x = 0.60 + 0.2, y = 0.175, label = "Discrepant", size = 4, color = "red")
+
+
+## se
+df <- data.frame(se = log(mod_est_lnRR$se),
+                 se2 = log(mod_est_lnRR_re$se))
+
+p.se.lnRR <- df[-fpr,] %>%
+  ggplot(aes(x = se, y = se2)) +
+  geom_abline(slope = 1, intercept = 0, color="grey30", linetype = "dashed") +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[1], fill = brewer.pal(n = 8, name = "Dark2")[2], shape = 15, size = 4) +
+  geom_point(data = df[fpr,], aes(x = se, y = se2), color = "red", fill = "red", shape = 16, size = 3) +
+  labs(x = expression(paste("p value of"~mu["[lnRR]"] ~ "of the MLMA model")), y = expression(paste("p value of "~mu["[lnRR]"] ~ "of the RE model"))) +
+  scale_x_continuous(limits = c(-5,0)) +
+  scale_y_continuous(limits = c(-5,0)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12)
+        ) + 
+  annotate("segment", x = 0.622, y = 0.02, xend = 0.622, yend = 0.25, color = "red", arrow = arrow(length = unit(0.25, "cm"), type = "closed", ends = "first")) +
+   annotate("text", x = 0.622, y = 0.28, label = "False positives", size = 4, color = "red")
+
+
+# SMD for MLMA
+fpr <- intersect(which(mod_est_SMD$p > 0.05), which(mod_est_SMD_re$p < 0.05))
+
+df <- data.frame(p = mod_est_SMD$p^(1/4),
+                 p2 = mod_est_SMD_re$p^(1/4))
+
+p.beta.SMD <- df[-fpr,] %>%
+  ggplot(aes(x = p, y = p2)) +
+  geom_abline(slope = 1, intercept = 0, color="grey30", linetype = "dashed") +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[1], fill = brewer.pal(n = 8, name = "Dark2")[2], shape = 15, size = 4) +
+  geom_point(data = df[fpr,], aes(x = p, y = p2), color = "red", fill = "red", shape = 16, size = 3) +
+  labs(x = expression(paste("p value of"~mu["[SMD]"] ~ "from the MLMA model")), y = expression(paste("p value of"~mu["[SMD]"] ~ "from the RE model"))) +
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 12, color = "black")
+        ) + 
+  annotate("segment", x = 0.52, y = 0.245, xend = 0.62 + 0.05, yend = 0.245, color = "red", arrow = arrow(length = unit(0.25, "cm"), type = "closed", ends = "first")) +
+   annotate("text", x = 0.62 + 0.2, y = 0.245, label = "Discrepant", size = 4, color = "red")
+
+
+
+#lnRR for BRMA
+fpr <- intersect(which(mod_est_all$p > 0.05), which(mod_est_lnRR_re$p < 0.05))
+
+df <- data.frame(p = mod_est_all$p^(1/4),
+                 p2 = mod_est_lnRR_re$p^(1/4))
+
+p.beta.lnRR2 <- df[-fpr,] %>%
+  ggplot(aes(x = p, y = p2)) +
+  geom_abline(slope = 1, intercept = 0, color="grey30", linetype = "dashed") +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[3], fill = brewer.pal(n = 8, name = "Dark2")[3], shape = 15, size = 4) +
+  geom_point(data = df[fpr,], aes(x = p, y = p2), color = "red", fill = "red", shape = 16, size = 3) +
+  labs(x = expression(paste("p value of"~mu["[lnRR]"] ~ "from the BMLMA model")), y = expression(paste("p value of"~mu["[lnRR]"] ~ "from the RE model"))) +
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 12, color = "black")
+        ) + 
+  annotate("segment", x = 0.54, y = 0.175, xend = 0.64 + 0.05, yend = 0.175, color = "red", arrow = arrow(length = unit(0.25, "cm"), type = "closed", ends = "first")) +
+   annotate("text", x = 0.64 + 0.2, y = 0.175, label = "Discrepant", size = 4, color = "red")
+
+
+
+
+#SMD for BRMA
+fpr <- intersect(which(mod_est_all$p2 > 0.05), which(mod_est_SMD_re$p < 0.05))
+
+df <- data.frame(p = mod_est_all$p2^(1/4),
+                 p2 = mod_est_SMD_re$p^(1/4))
+
+p.beta.SMD2 <- df[-fpr,] %>%
+  ggplot(aes(x = p, y = p2)) +
+  geom_abline(slope = 1, intercept = 0, color="grey30", linetype = "dashed") +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[3], fill = brewer.pal(n = 8, name = "Dark2")[3], shape = 15, size = 4) +
+  geom_point(data = df[fpr,], aes(x = p, y = p2), color = "red", fill = "red", shape = 16, size = 3) +
+  labs(x = expression(paste("p value of"~mu["[SMD]"] ~ "from the BMLMA model")), y = expression(paste("p value of"~mu["[SMD]"] ~ "from the RE model"))) +
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 12, color = "black")
+        ) + 
+  annotate("segment", x = 0.58, y = 0.215, xend = 0.68 + 0.05, yend = 0.215, color = "red", arrow = arrow(length = unit(0.25, "cm"), type = "closed", ends = "first")) +
+   annotate("text", x = 0.68 + 0.2, y = 0.215, label = "Discrepant", size = 4, color = "red")
+
+
+# layout
+png(filename = "./fig 2.png", width = 8, height = 7, units = "in", type = "windows", res = 400)
+p.beta.lnRR + p.beta.SMD + p.beta.lnRR2 + p.beta.SMD2 + plot_layout(nrow = 2, ncol = 2 , tag_level = 'new') +
+  plot_annotation(tag_levels = list(c('A', "B", "C", "D"))) & theme(plot.tag = element_text(size = 14, face = "bold"))
+dev.off()
+
+```
+
+
+# Figure 3
+
+```{r}
+# test of beta
+which(mod_est_lnRR$p < 0.05) %>% length() #44
+which(mod_est_lnRR$p>= 0.05) %>% length() #31
+which(mod_est_SMD$p < 0.05) %>% length() #40
+which(mod_est_SMD$p >= 0.05) %>% length() #35
+
+dat_fig <- data.frame(p = mod_est_lnRR$p,
+                      p2 = mod_est_SMD$p) %>% 
+  mutate(lnRR = case_when(p < 0.05 ~ "Significant effect \n (N = 44)",
+                          p >= 0.05 ~ "Non-significant effect \n (N = 31)"),
+         SMD = case_when(p2 < 0.05 ~ "Significant effect \n (N = 40)",
+                          p2 >= 0.05 ~ "Non-significant effect \n (N = 35)"))
+
+dat_fig <- data.frame(p = mod_est_all$p,
+                      p2 = mod_est_all$p2) %>% 
+  mutate(lnRR = case_when(p < 0.05 ~ "Significant effect \n (N = 44)",
+                          p >= 0.05 ~ "Non-significant effect \n (N = 31)"),
+         SMD = case_when(p2 < 0.05 ~ "Significant effect \n (N = 40)",
+                          p2 >= 0.05 ~ "Non-significant effect \n (N = 35)"))
+
+#tabyl(dat_fig,lnRR, SMD)
+
+detectability.p <- ggplot(make_long(dat_fig, lnRR, SMD), aes(x = x, next_x = next_x, node = node, next_node = next_node, fill = factor(node), label = node)) +
+  sankey_p(flow.alpha = 0.8, node.color = "transparent") +  
+  sankey_p_label(size = 3, color = "white", fill = "gray10", alpha = 0.6) + 
+  scale_fill_manual(values = wes_palette("Rushmore1", n = 4)) + 
+  #scale_fill_viridis_d() +
+  theme_sankey(base_size = 10) +
+  labs(x = NULL) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = .5),
+        axis.text.x = element_text(color = "black", size = 11)) +
+  scale_x_discrete(labels = c("lnRR \n (Detectability)", "SMD \n (Detectability)"), position = "top") 
+
+
+# sign of beta
+which(mod_est_lnRR$beta > 0) %>% length() #42
+which(mod_est_lnRR$beta < 0) %>% length() #33
+which(mod_est_SMD$beta > 0) %>% length() #37
+which(mod_est_SMD$beta < 0) %>% length() #38
+
+dat_fig <- data.frame(beta = mod_est_lnRR$beta,
+                      beta2 = mod_est_SMD$beta) %>% 
+  mutate(lnRR = case_when(beta > 0 ~ "Positive effect \n (N = 42)",
+                          beta < 0 ~ "Negative effect \n (N = 33)"),
+         SMD = case_when(beta2 > 0 ~ "Positive effect \n (N = 37)",
+                         beta2 < 0 ~ "Negative effect \n (N =38)"))
+
+#tabyl(dat_fig,lnRR, SMD)
+
+sign.p <- ggplot(make_long(dat_fig, lnRR, SMD), aes(x = x, next_x = next_x, node = node, next_node = next_node, fill = factor(node), label = node)) +
+  sankey_p(flow.alpha = 0.8,
+              node.color = "transparent") + 
+  sankey_p_label(size = 3, color = "white", fill = "gray10", alpha = 0.6) +
+  scale_fill_manual(values = wes_palette("Zissou1", n = 4)) + 
+  theme_sankey(base_size = 10) +
+  labs(x = NULL) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = .5),
+        axis.text.x = element_text(color = "black", size = 11)) +
+  scale_x_discrete(labels = c("lnRR \n (Sign)", "SMD \n (Sign)"), position = "top") 
+
+
+# heterogeneity
+which(mod_est_lnRR$I2 <= 20) %>% length() #0
+which(mod_est_lnRR$I2 > 20 & mod_est_lnRR$I2 < 70) %>% length() #3
+which(mod_est_lnRR$I2 >= 70) %>% length() #72
+which(mod_est_SMD$I2 <= 20) %>% length() #3
+which(mod_est_SMD$I2 > 20 & mod_est_lnRR$I2 < 70) %>% length() #2
+which(mod_est_SMD$I2 >= 70) %>% length() #50
+
+dat_fig <- data.frame(I2 = mod_est_lnRR$I2,
+                      I22 = mod_est_SMD$I2) %>% 
+  mutate(lnRR = case_when(I2 <= 20 ~ "Small heterogeneity \n (N = 0)",
+                          I2 > 20 & I2 < 70 ~ "Moderate heterogeneity \n (N = 3)",
+                          I2 >= 70 ~ "Large heterogeneity \n (N = 72)"),
+         SMD = case_when(I22 <= 20 ~ "Small heterogeneity \n (N = 3)",
+                          I22 > 20 & I22 < 70 ~ "Moderate heterogeneity \n (N = 2)",
+                          I22 >= 70 ~ "Large heterogeneity \n (N = 50)"))
+
+heterogeneity.p <- ggplot(make_long(dat_fig, lnRR, SMD), aes(x = x, next_x = next_x, node = node, next_node = next_node, fill = factor(node), label = node)) +
+  sankey_p(flow.alpha = 0.8,
+              node.color = "transparent") + 
+  sankey_p_label(size = 3, color = "white", fill = "gray10", alpha = 0.6) + 
+  scale_fill_manual(values = wes_palette("Moonrise3", n = 5)) +
+  theme_sankey(base_size = 10) +
+  labs(x = NULL) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = .5),
+        axis.text.x = element_text(color = "black", size = 11)) +
+  scale_x_discrete(labels = c("lnRR \n (Heterogeneity)", "SMD \n (Heterogeneity)"), position = "top") 
+
+
+# publication bias test
+which(modPB_est_lnRR$p < 0.05) %>% length() #18
+which(modPB_est_lnRR$p>= 0.05) %>% length() #57
+which(modPB_est_SMD$p < 0.05) %>% length() #57
+which(modPB_est_SMD$p >= 0.05) %>% length() #18
+
+dat_fig <- data.frame(p = modPB_est_lnRR$p,
+                      p2 = modPB_est_SMD$p) %>% 
+  mutate(lnRR = case_when(p < 0.05 ~ "Publication bias \n (N = 18)",
+                          p >= 0.05 ~ "No publication bias \n (N = 57)"),
+         SMD = case_when(p2 < 0.05 ~ "Publication bias \n (N = 57)",
+                          p2 >= 0.05 ~ "No publication bias \n (N = 18)"))
+
+#dat_fig$lnRR <- as.factor(dat_fig$lnRR)
+#dat_fig$lnRR <- factor(dat_fig$lnRR, levels = c("Publication bias \n (18)", "No publication bias \n (57)"))
+#dat_fig$SMD <- as.factor(dat_fig$SMD)
+#dat_fig$SMD <- factor(dat_fig$SMD, levels = c("Publication bias \n (57)", "No publication bias \n (18)"))
+#tabyl(dat_fig,lnRR, SMD)
+
+
+publicationbias.p <- ggplot(make_long(dat_fig, lnRR, SMD), aes(x = x, next_x = next_x, node = node, next_node = next_node, fill = factor(node), label = node)) +
+  sankey_p(flow.alpha = 0.8,
+              node.color = "transparent") + 
+  sankey_p_label(size = 3, color = "white", fill = "gray10", alpha = 0.6) + 
+  scale_fill_manual(values = wes_palette("GrandBudapest2", n = 4)) +
+  theme_sankey(base_size = 10) +
+  labs(x = NULL) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = .5),
+        axis.text.x = element_text(color = "black", size = 11)) +
+  scale_x_discrete(labels = c("lnRR \n (Publication bias)", "SMD \n (Publication bias)"), position = "top")
+
+# layout
+png(filename = "./fig 3.png", width = 7.5, height = 5.8, units = "in", type = "windows", res = 400)
+detectability.p + sign.p + heterogeneity.p + publicationbias.p + plot_layout(nrow = 2, ncol = 2 , tag_level = 'new') +
+  plot_annotation(tag_levels = list(c('A', "B", "C", "D"))) & theme(plot.tag = element_text(size = 14, face = "bold"))
+dev.off()
+
+```
+
+# Figure 4
+
+```{r}
+beta_interpretation <- data.frame(ma = mod_est_all$ma,
+                                  rho = mod_est_all$rho,
+                                  p = mod_est_lnRR$p,
+                                  p2 = mod_est_SMD$p,
+                                  beta = mod_est_lnRR$beta,
+                                  beta2 = mod_est_SMD$beta)
+
+# convert lnRR to percentage
+beta_interpretation <- beta_interpretation %>% mutate(beta_interpretation = abs(exp(beta) - 1))
+
+# Cohen's benchmark
+beta_interpretation <- beta_interpretation %>% mutate(beta_interpretation2 = case_when(abs(beta2) <= 0.2 ~ "Small",
+                                                      abs(beta2) > 0.2 & abs(beta2) < 0.8 ~ "Moderate",
+                                                      abs(beta2) >= 0.8 ~ "Large"))
+
+beta_small <- filter(beta_interpretation, beta_interpretation2 == "Small")
+beta_moderate <- filter(beta_interpretation, beta_interpretation2 == "Moderate")
+beta_large <- filter(beta_interpretation, beta_interpretation2 == "Large")
+
+df <- tibble(SMD = c("Large effect (SMD)", "Moderate effect (SMD)", "Small effect (SMD)"),
+             Minimum = c(min(beta_large$beta_interpretation), min(beta_moderate$beta_interpretation), min(beta_small$beta_interpretation)),
+             Maximum = c(max(beta_large$beta_interpretation), max(beta_moderate$beta_interpretation), max(beta_small$beta_interpretation)),
+             N = c(nrow(beta_large), nrow(beta_moderate), nrow(beta_small))
+             )
+# convert into percentage and round
+df$Minimum <- (df$Minimum * 100) %>% round(1)
+df$Maximum <- (df$Maximum * 100) %>% round(1)
+
+
+df2 <- df %>% 
+  mutate(gap=Maximum-Minimum) %>% 
+  group_by(SMD) %>% 
+  mutate(max=max(Minimum, Maximum)) %>% 
+  ungroup() %>% 
+  mutate(labels=forcats::fct_reorder(SMD, abs(gap)))  
+
+# make into long format for easier plotting  
+df_long <- df2 %>% 
+  pivot_longer(
+    c(Minimum,Maximum)
+  )
+
+magnitude.p1 <- df_long %>% 
+  ggplot(aes(x=value,y=labels)) +
+  geom_line(aes(group=labels), color="#E7E7E7", linewidth=10) +
+  geom_point(aes(color=name), size=12) +
+  # data callout
+  geom_text(aes(label=value), color="white",
+            size=3.5
+            #nudge_x=if_else(
+            #  df_long$value==df_long$max, # if it's the larger value...
+            #  4,   # move it to the right of the point
+            #  -4), # otherwise, move it to the left of the point
+            #hjust=if_else(
+            #  df_long$value==df_long$max, #if it's the larger value
+            #  0, # left justify
+            #  1),# otherwise, right justify      
+            ) +
+   
+  # legend
+  geom_text(aes(label=name, color=name), 
+            data=. %>% filter(gap==max(gap)),
+            nudge_y =.3, 
+            fontface="bold",
+            size=4)+  
+  labs(x = "Percentage change in mean (back-transformed lnRR)", y = NULL) +
+  theme_bw() +
+  theme(legend.position = "none",
+        axis.text = element_text(color = "black", size = 13),
+        axis.title.x = element_text(color = "black", size = 13),
+        axis.title.y = element_blank(),
+        panel.grid = element_blank(),
+        panel.border = element_blank(),
+        axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.line.x = element_line(),
+        )  +
+  scale_color_manual(values=c("#436685", "#BF2F24")) +
+  
+  #extend the y-axis otherwise the legend is cut off
+  coord_cartesian(ylim=c(1, 3.3)) +
+  
+  #display percentages with % appended
+  scale_x_continuous(limits = c(0,355), labels = scales::percent_format(scale = 1)) +
+  scale_y_discrete(expand = c(0,0.15))
+
+
+df_N <-
+df2 %>%  # note i am using df and not df_long
+  mutate(
+    label=fct_reorder(labels, abs(gap)), #order label by descending gaps
+    
+    # format N values
+    Case=
+      paste0("N = ", N) %>% 
+      fct_inorder() #turns into factor to bake in the order
+  )
+
+
+magnitude.p2 <- df_N %>% 
+  ggplot(aes(x=gap,y=labels)) +
+  geom_text(aes(x=0, label=Case),
+            fontface="bold",
+            size=4) +
+  
+  geom_text(aes(x=0, y=3), # 3 because that's the # of y-axis values
+            label="Case",
+            nudge_y =.3, # match the nudge value of the main plot legend    
+            fontface="bold",
+            size=4) +
+  
+  theme_void() +
+  coord_cartesian(xlim = c(-.05, 0.05), 
+                  ylim=c(1,3.3) # needs to match main plot
+                  ) + 
+  scale_y_discrete(expand = c(0,0.15)) + 
+  theme(plot.margin = margin(l=0, r=0, b=0, t=0), #otherwise it adds too much space
+        panel.background = element_rect(fill="#EFEFE3", color="#EFEFE3"),
+        legend.position = "none")
+
+
+
+
+
+png(filename = "./fig 4.png", width = 8, height = 4, units = "in", type = "windows", res = 400)
+magnitude.p1 + magnitude.p2 + plot_layout(design=
+  c(area(l=0, r=44, t=0, b=1), # defines the main figure area
+    area(l=45, r=50, t=0, b=1)  # defines the n figure area
+  )) 
+dev.off()
+
+```
+
+# Figure 5
+
+```{r}
+png(filename = "fig 5.png", width = 8, height = 4, units = "in", type = "windows", res = 400)
+cowplot::plot_grid(p.BOS, p.N, 
+                   labels = c('A', 'B'), label_size = 12, nrow = 1, ncol = 2) %>% suppressWarnings()
+dev.off()
+
+```
+
+
+
+# Figure 6
+
+```{r}
+# lnRR
+df_1x1 <- data_1x1(
+  array_1 = filter(mod_est_lnRR, I2_b < I2_w)$I2_b,
+  array_2 =filter(mod_est_lnRR, I2_b < I2_w)$I2_w,
+  jit_distance = .2, # 0.09
+  jit_seed = 321)
+
+
+paired_I2 <- raincloud_1x1_repmes(
+  data = df_1x1, # BottleRocket2
+  colors = c("#009E73","#CC79A7"), # brewer.pal(n = 8, name = "Dark2")[1:2], #wes_palette("Rushmore1", 4, type = "discrete")[c(4,3,4,3)],
+  fills = c("#009E73","#CC79A7"), # wes_palette("Rushmore1", 4, type = "discrete")[c(4,3,4,3)], # https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-visualization/
+  line_color = 'gray',
+  line_alpha = .3,
+  size = 1,
+  alpha = .5,
+  align_clouds = FALSE) +
+
+scale_x_continuous(breaks=c(1,2), 
+                   labels=c("Between-study", "Within-study"), 
+                   #limits=c(0, 100)
+                   ) +
+  xlab(" ") +
+  ylab(expression(paste(italic(I)^2) ~ "for lnRR")) + 
+  #annotate(geom = "text", x= 1, y = -1, label = "Publication bias") +
+  #annotate(geom = "text", x= 4, y = -1, label = "No publication bias") +
+  theme_bw() + 
+  theme(axis.text = element_text(size = 12, color = "black"), 
+        axis.title = element_text(size = 12, color = "black"),
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank())
+
+
+
+# SMD
+df_1x1 <- data_1x1(
+  array_1 = filter(mod_est_SMD, I2_b < I2_w)$I2_b,
+  array_2 =filter(mod_est_SMD, I2_b < I2_w)$I2_w,
+  jit_distance = .2, # 0.09
+  jit_seed = 321)
+
+
+paired_I22 <- raincloud_1x1_repmes(
+  data = df_1x1, # BottleRocket2
+  colors = c("#009E73","#CC79A7"), # brewer.pal(n = 8, name = "Dark2")[1:2], #wes_palette("Rushmore1", 4, type = "discrete")[c(4,3,4,3)],
+  fills = c("#009E73","#CC79A7"), # wes_palette("Rushmore1", 4, type = "discrete")[c(4,3,4,3)], # https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-visualization/
+  line_color = 'gray',
+  line_alpha = .3,
+  size = 1,
+  alpha = .5,
+  align_clouds = FALSE) +
+
+scale_x_continuous(breaks=c(1,2), 
+                   labels=c("Between-study", "Within-study"), 
+                   #limits=c(0, 100)
+                   ) +
+  xlab(" ") +
+  ylab(expression(paste(italic(I)^2) ~ "for SMD")) + 
+  #annotate(geom = "text", x= 1, y = -1, label = "Publication bias") +
+  #annotate(geom = "text", x= 4, y = -1, label = "No publication bias") +
+  theme_bw() + 
+  theme(axis.text = element_text(size = 12, color = "black"), 
+        axis.title = element_text(size = 12, color = "black"),
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank())
+
+
+png(filename = "./fig 6.png", width = 8, height = 4, units = "in", type = "windows", res = 400)
+paired_I2 + paired_I22 + plot_layout(nrow = 1, ncol = 2 , tag_level = 'new') + plot_annotation(tag_levels = list(c('A', "B"))) & theme(plot.tag = element_text(size = 14, face = "bold"))
+dev.off()
+
+```
+
+
+
+# Figure S1 
+
+```{r}
+#lnRR for MLMA
+fpr <- intersect(which(mod_est_lnRR$p > 0.05), which(mod_est_lnRR_re$p < 0.05))
+
+## p
+df <- data.frame(p = mod_est_lnRR$p,
+                 p2 = mod_est_lnRR_re$p)
+
+p.beta.lnRR <- df[-fpr,] %>%
+  ggplot(aes(x = p, y = p2)) +
+  geom_abline(slope = 1, intercept = 0, color="grey30", linetype = "dashed") +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[1], fill = brewer.pal(n = 8, name = "Dark2")[2], shape = 15, size = 4) +
+  geom_point(data = df[fpr,], aes(x = p, y = p2), color = "red", fill = "red", shape = 16, size = 3) +
+  labs(x = expression(paste("p value of"~mu["[lnRR]"] ~ "from the MLMA model")), y = expression(paste("p value of "~mu["[lnRR]"] ~ "from the RE model"))) +
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 12, color = "black")
+        )
+
+
+# SMD for MLMA
+fpr <- intersect(which(mod_est_SMD$p > 0.05), which(mod_est_SMD_re$p < 0.05))
+
+df <- data.frame(p = mod_est_SMD$p,
+                 p2 = mod_est_SMD_re$p)
+
+p.beta.SMD <- df[-fpr,] %>%
+  ggplot(aes(x = p, y = p2)) +
+  geom_abline(slope = 1, intercept = 0, color="grey30", linetype = "dashed") +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[1], fill = brewer.pal(n = 8, name = "Dark2")[2], shape = 15, size = 4) +
+  geom_point(data = df[fpr,], aes(x = p, y = p2), color = "red", fill = "red", shape = 16, size = 3) +
+  labs(x = expression(paste("p value of"~mu["[SMD]"] ~ "from the MLMA model")), y = expression(paste("p value of"~mu["[SMD]"] ~ "from the RE model"))) +
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 12, color = "black")
+        )
+
+
+
+#lnRR for BRMA
+fpr <- intersect(which(mod_est_all$p > 0.05), which(mod_est_lnRR_re$p < 0.05))
+
+df <- data.frame(p = mod_est_all$p,
+                 p2 = mod_est_lnRR_re$p)
+
+p.beta.lnRR2 <- df[-fpr,] %>%
+  ggplot(aes(x = p, y = p2)) +
+  geom_abline(slope = 1, intercept = 0, color="grey30", linetype = "dashed") +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[3], fill = brewer.pal(n = 8, name = "Dark2")[3], shape = 15, size = 4) +
+  geom_point(data = df[fpr,], aes(x = p, y = p2), color = "red", fill = "red", shape = 16, size = 3) +
+  labs(x = expression(paste("p value of"~mu["[lnRR]"] ~ "from the BMLMA model")), y = expression(paste("p value of"~mu["[lnRR]"] ~ "from the RE model"))) +
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 12, color = "black")
+        )
+
+
+
+
+#SMD for BRMA
+fpr <- intersect(which(mod_est_all$p2 > 0.05), which(mod_est_SMD_re$p < 0.05))
+
+df <- data.frame(p = mod_est_all$p2,
+                 p2 = mod_est_SMD_re$p)
+
+p.beta.SMD2 <- df[-fpr,] %>%
+  ggplot(aes(x = p, y = p2)) +
+  geom_abline(slope = 1, intercept = 0, color="grey30", linetype = "dashed") +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[3], fill = brewer.pal(n = 8, name = "Dark2")[3], shape = 15, size = 4) +
+  geom_point(data = df[fpr,], aes(x = p, y = p2), color = "red", fill = "red", shape = 16, size = 3) +
+  labs(x = expression(paste("p value of"~mu["[SMD]"] ~ "from the BMLMA model")), y = expression(paste("p value of"~mu["[SMD]"] ~ "from the RE model"))) +
+  scale_x_continuous(limits = c(0,1)) +
+  scale_y_continuous(limits = c(0,1)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 12, color = "black")
+        )
+
+
+# layout
+png(filename = "./fig S1.png", width = 8, height = 7, units = "in", type = "windows", res = 400)
+p.beta.lnRR + p.beta.SMD + p.beta.lnRR2 + p.beta.SMD2 + plot_layout(nrow = 2, ncol = 2 , tag_level = 'new') +
+  plot_annotation(tag_levels = list(c('A', "B", "C", "D"))) & theme(plot.tag = element_text(size = 14, face = "bold"))
+dev.off()
+
+```
+
+# Figure S2
+
+```{r}
+# test of beta
+which(mod_est_all$p < 0.05) %>% length() #41
+which(mod_est_all$p>= 0.05) %>% length() #34
+which(mod_est_all$p2 < 0.05) %>% length() #32
+which(mod_est_all$p2 >= 0.05) %>% length() #43
+
+dat_fig <- data.frame(p = mod_est_all$p,
+                      p2 = mod_est_all$p2) %>% 
+  mutate(lnRR = case_when(p < 0.05 ~ "Significant effect \n (N = 41)",
+                          p >= 0.05 ~ "Non-significant effect \n (N = 34)"),
+         SMD = case_when(p2 < 0.05 ~ "Significant effect \n (N = 32)",
+                          p2 >= 0.05 ~ "Non-significant effect \n (N = 43)"))
+
+dat_fig <- data.frame(p = mod_est_all$p,
+                      p2 = mod_est_all$p2) %>% 
+  mutate(lnRR = case_when(p < 0.05 ~ "Significant effect \n (N = 41)",
+                          p >= 0.05 ~ "Non-significant effect \n (N = 34)"),
+         SMD = case_when(p2 < 0.05 ~ "Significant effect \n (N = 32)",
+                          p2 >= 0.05 ~ "Non-significant effect \n (N = 43)"))
+
+
+detectability.p <- ggplot(make_long(dat_fig, lnRR, SMD), aes(x = x, next_x = next_x, node = node, next_node = next_node, fill = factor(node), label = node)) +
+  sankey_p(flow.alpha = 0.8, node.color = "transparent") +  
+  sankey_p_label(size = 3, color = "white", fill = "gray10", alpha = 0.6) + 
+  scale_fill_manual(values = wes_palette("Rushmore1", n = 4)) + 
+  #scale_fill_viridis_d() +
+  theme_sankey(base_size = 10) +
+  labs(x = NULL) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = .5),
+        axis.text.x = element_text(color = "black", size = 11)) +
+  scale_x_discrete(labels = c("lnRR \n (Detectability)", "SMD \n (Detectability)"), position = "top") 
+
+
+# sign of beta
+which(mod_est_all$beta > 0) %>% length() #41
+which(mod_est_all$beta < 0) %>% length() #33
+which(mod_est_all$beta2 > 0) %>% length() #37
+which(mod_est_all$beta2 < 0) %>% length() #38
+
+dat_fig <- data.frame(beta = mod_est_all$beta,
+                      beta2 = mod_est_all$beta2) %>% 
+  mutate(lnRR = case_when(beta > 0 ~ "Positive effect \n (N = 41)",
+                          beta < 0 ~ "Negative effect \n (N = 33)"),
+         SMD = case_when(beta2 > 0 ~ "Positive effect \n (N = 37)",
+                         beta2 < 0 ~ "Negative effect \n (N = 38)"))
+
+
+sign.p <- ggplot(make_long(dat_fig, lnRR, SMD), aes(x = x, next_x = next_x, node = node, next_node = next_node, fill = factor(node), label = node)) +
+  sankey_p(flow.alpha = 0.8,
+              node.color = "transparent") + 
+  sankey_p_label(size = 3, color = "white", fill = "gray10", alpha = 0.6) +
+  scale_fill_manual(values = wes_palette("Zissou1", n = 4)) + 
+  theme_sankey(base_size = 10) +
+  labs(x = NULL) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = .5),
+        axis.text.x = element_text(color = "black", size = 11)) +
+  scale_x_discrete(labels = c("lnRR \n (Sign)", "SMD \n (Sign)"), position = "top") 
+
+
+# heterogeneity
+which(mod_est_lnRR$I2 <= 20) %>% length() #0
+which(mod_est_lnRR$I2 > 20 & mod_est_lnRR$I2 < 70) %>% length() #3
+which(mod_est_lnRR$I2 >= 70) %>% length() #72
+which(mod_est_SMD$I2 <= 20) %>% length() #3
+which(mod_est_SMD$I2 > 20 & mod_est_lnRR$I2 < 70) %>% length() #2
+which(mod_est_SMD$I2 >= 70) %>% length() #50
+
+dat_fig <- data.frame(I2 = mod_est_lnRR$I2,
+                      I22 = mod_est_SMD$I2) %>% 
+  mutate(lnRR = case_when(I2 <= 20 ~ "Small heterogeneity \n (N = 0)",
+                          I2 > 20 & I2 < 70 ~ "Moderate heterogeneity \n (N = 3)",
+                          I2 >= 70 ~ "Large heterogeneity \n (N = 72)"),
+         SMD = case_when(I22 <= 20 ~ "Small heterogeneity \n (N = 3)",
+                          I22 > 20 & I22 < 70 ~ "Moderate heterogeneity \n (N = 2)",
+                          I22 >= 70 ~ "Large heterogeneity \n (N = 50)"))
+
+heterogeneity.p <- ggplot(make_long(dat_fig, lnRR, SMD), aes(x = x, next_x = next_x, node = node, next_node = next_node, fill = factor(node), label = node)) +
+  sankey_p(flow.alpha = 0.8,
+              node.color = "transparent") + 
+  sankey_p_label(size = 3, color = "white", fill = "gray10", alpha = 0.6) + 
+  scale_fill_manual(values = wes_palette("Moonrise3", n = 5)) +
+  theme_sankey(base_size = 10) +
+  labs(x = NULL) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = .5),
+        axis.text.x = element_text(color = "black", size = 11)) +
+  scale_x_discrete(labels = c("lnRR \n (Heterogeneity)", "SMD \n (Heterogeneity)"), position = "top") 
+
+
+# publication bias test
+which(modPB_est_all$p_pb < 0.05) %>% length() #40
+which(modPB_est_all$p_pb>= 0.05) %>% length() #35
+which(modPB_est_all$p_pb2 < 0.05) %>% length() #51
+which(modPB_est_all$p_pb2 >= 0.05) %>% length() #24
+
+dat_fig <- data.frame(p = modPB_est_lnRR$p,
+                      p2 = modPB_est_SMD$p) %>% 
+  mutate(lnRR = case_when(p < 0.05 ~ "Publication bias \n (N = 40)",
+                          p >= 0.05 ~ "No publication bias \n (N = 35)"),
+         SMD = case_when(p2 < 0.05 ~ "Publication bias \n (N = 51)",
+                          p2 >= 0.05 ~ "No publication bias \n (N = 24)"))
+
+
+publicationbias.p <- ggplot(make_long(dat_fig, lnRR, SMD), aes(x = x, next_x = next_x, node = node, next_node = next_node, fill = factor(node), label = node)) +
+  sankey_p(flow.alpha = 0.8,
+              node.color = "transparent") + 
+  sankey_p_label(size = 3, color = "white", fill = "gray10", alpha = 0.6) + 
+  scale_fill_manual(values = wes_palette("GrandBudapest2", n = 4)) +
+  theme_sankey(base_size = 10) +
+  labs(x = NULL) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = .5),
+        axis.text.x = element_text(color = "black", size = 11)) +
+  scale_x_discrete(labels = c("lnRR \n (Publication bias)", "SMD \n (Publication bias)"), position = "top")
+
+# layout
+png(filename = "./fig S2.png", width = 7.5, height = 5.8, units = "in", type = "windows", res = 400)
+detectability.p + sign.p + heterogeneity.p + publicationbias.p + plot_layout(nrow = 2, ncol = 2 , tag_level = 'new') +
+  plot_annotation(tag_levels = list(c('A', "B", "C", "D"))) & theme(plot.tag = element_text(size = 14, face = "bold"))
+dev.off()
+
+```
+
+# Figure S3
+
+```{r}
+# sign error
+## univariate
+which(mod_est_lnRR$beta * mod_est_SMD$beta < 0) %>% length() # 7
+s <- which(mod_est_lnRR$beta * mod_est_SMD$beta < 0)
+
+df <- data.frame(beta = mod_est_lnRR$beta,
+                 beta2 = mod_est_SMD$beta)
+
+p.beta <- df[-s,] %>%
+  ggplot(aes(x = beta, y = beta2)) +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[2], fill = brewer.pal(n = 8, name = "Dark2")[2], shape = 15, size = 4) +
+  geom_point(data = df[s,], aes(x = beta, y = beta2), color = "red", fill = "red", shape = 16, size = 3) +
+  geom_vline(xintercept = 0, colour= 'black', linetype = "dashed") + 
+  geom_hline(yintercept = 0, colour= 'black', linetype = "dashed") +
+  labs(x = expression(paste("Overall effect estimate"~mu["[lnRR]"] ~ "from the MLMA model")), y = expression(paste("Overall effect estimate"~mu["[SMD]"] ~ "from the MLMA model"))) +
+  scale_x_continuous(limits = c(-2,2)) +
+  scale_y_continuous(limits = c(-2,4)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12)
+        ) 
+
+## bivariate
+which(mod_est_all$beta * mod_est_all$beta2 < 0) %>% length() # 8
+s <- which(mod_est_all$beta * mod_est_all$beta2 < 0)
+
+p.beta2 <- mod_est_all[-s,] %>%
+  ggplot(aes(x = beta, y = beta2)) +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[2], fill = brewer.pal(n = 8, name = "Dark2")[2], shape = 15, size = 4) +
+  geom_point(data = mod_est_all[s,], aes(x = beta, y = beta2), color = "red", fill = "red", shape = 16, size = 3) +
+  geom_vline(xintercept = 0, colour= 'black', linetype = "dashed") + 
+  geom_hline(yintercept = 0, colour= 'black', linetype = "dashed") +
+  labs(x = expression(paste("Overall effect estimate"~mu["[lnRR]"] ~ "from the BMLMA model")), y = expression(paste("Overall effect estimate"~mu["[SMD]"] ~ "from the BMLMA model"))) +
+  scale_x_continuous(limits = c(-2,2)) +
+  scale_y_continuous(limits = c(-2,4)) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12)
+        )
+
+
+# layout
+png(filename = "./fig S3.png", width = 9, height = 5, units = "in", type = "windows", res = 400)
+p.beta + p.beta2 + plot_layout(nrow = 1, ncol = 2 , tag_level = 'new') +
+  plot_annotation(tag_levels = list(c('A', "B"))) & theme(plot.tag = element_text(size = 14, face = "bold"))
+dev.off()
+```
+
+# Figure S4
+```{r}
+# heterogeneity
+## univariate
+I2_interpretation <- data.frame(ma = mod_est_lnRR$ma,
+                                I2 = mod_est_lnRR$I2,
+                                I22 = mod_est_SMD$I2)
+
+I2_interpretation <- I2_interpretation %>% mutate(I2_interpretation = case_when(I2 <= 20 ~ "Small",
+                                                      I2 > 20 & I2 < 70 ~ "Moderate",
+                                                      I2 >= 70 ~ "Large"))
+
+
+I2_interpretation <- I2_interpretation %>% mutate(I22_interpretation = case_when(I22 <= 20 ~ "Small",
+                                                      I22 > 20 & I22 < 70 ~ "Moderate",
+                                                      I22 >= 70 ~ "Large"))
+
+all.equal(I2_interpretation$I2_interpretation, I2_interpretation$I22_interpretation) # 23
+which(I2_interpretation$I2_interpretation != I2_interpretation$I22_interpretation)
+
+filter(I2_interpretation, I2_interpretation == "Large") %>% filter(I22_interpretation != "Large") %>% nrow()
+
+
+
+# visualization
+# I2
+h_lnRR_SMD <- left_join(select(mod_est_lnRR,ma,I2), select(mod_est_SMD,ma,I2), by ="ma") 
+h <- which(I2_interpretation$I2_interpretation != I2_interpretation$I22_interpretation)
+
+p.het <- h_lnRR_SMD[-h,] %>%
+  ggplot(aes(x = I2.x/100, y = I2.y/100)) +
+  geom_point(alpha = 0.5, color = brewer.pal(n = 8, name = "Dark2")[3], fill = brewer.pal(n = 8, name = "Dark2")[3], shape = 15, size = 4) +
+  geom_point(data = h_lnRR_SMD[h,], aes(x = I2.x/100, y = I2.y/100), color = "red", fill = "red", shape = 16, size = 3) +
+  geom_abline(intercept = 0, slope = 1, colour= 'black', linetype = "dashed") + 
+  geom_vline(xintercept = median(h_lnRR_SMD$I2.x)/100, colour= 'green', linetype = "dashed") + 
+  geom_hline(yintercept = median(h_lnRR_SMD$I2.y)/100, colour= 'green', linetype = "dashed") + 
+  labs(x = bquote(paste("Heterogeneity estimate" ~ italic(I)^2, ""["[lnRR]"])), y = bquote(paste("Heterogeneity estimate" ~ italic(I)^2, ""["[SMD]"]))) +
+  scale_x_continuous(limits = c(0.25,1), labels = scales::percent) +
+  scale_y_continuous(limits = c(0.25,1), labels = scales::percent) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 10)
+        ) 
+
+
+png(filename = "./fig S4.png", width = 5, height = 4, units = "in", type = "windows", res = 400)
+p.het
+dev.off()
+
+```
+
+
+
+# Figure S5 
+
+```{r}
+# calculate power
+error_values <- data.frame(ma = mod_est_lnRR$ma,
+                           power_lnRR = power_MA(mod_est_lnRR$beta, mod_est_lnRR$se),
+                           power_SMD = power_MA(mod_est_SMD$beta, mod_est_SMD$se)) 
+
+# long format
+error_values2 <- pivot_longer(error_values, 
+                                  cols = c("power_lnRR", "power_SMD"),
+                                  names_to = "power_type",
+                                  values_to = "power_value")
+
+# figure
+error_values2$power_type <- as.factor(error_values2$power_type)
+error_values2$power_type <- factor(error_values2$power_type, levels = c("power_SMD", "power_lnRR"))
+
+
+p.power <- ggplot() + 
+  geom_density_ridges(data = error_values2, aes(x = power_value, y = power_type, fill = power_type), stat = "binline", bins = 20, draw_baseline = FALSE, 
+                      color = "white", alpha = 0.9,
+                      rel_min_height = 0.002,
+                      scale = 1) +
+  viridis::scale_fill_viridis(option = "H", discrete = T) +
+  scale_x_continuous(limits = c(0, 1), breaks = seq(0, 1, by = 0.2),
+                     minor_breaks=seq(0,1,0.05),expand = expansion(mult = c(0, 0.015)), labels = scales::percent_format(accuracy=1)) +
+  scale_y_discrete(labels = c("lnRR", "SMD"), expand = expansion(mult = c(0.01, 0.25))) +
+  guides(fill = "none") +
+  labs(x = "Statistical power", y = "") +
+  theme_bw() + 
+  theme(axis.title = element_text(size = 10),
+        axis.title.y = element_blank())
+
+
+png(filename = "./fig S5.png", width = 5, height = 4, units = "in", type = "windows", res = 400)
+p.power
+dev.off()
+
+
+
+# potential fig for meta-analysis visualization
+error_bar <- data.frame(power_type = c("power_SMD", "power_lnRR"),
+                        mean = c(0.8, 0.5),
+                        lower.ci = c(0.6, 0.3),
+                        upper.ci = c(0.9,0.75))
+
+p.power <- ggplot() + 
+  # Add error bars
+  geom_errorbarh(data = error_bar, aes(xmax = upper.ci, xmin = lower.ci, y = power_type), height = 0.1, color = "black", position = position_nudge(y = -0.3)) + 
+  # Add mean points
+  geom_point(data = error_bar, aes(x = mean, y = power_type), color = "red", size = 2, position = position_nudge(y = -0.3)) + # Shift points vertically 
+  geom_density_ridges(data = error_values2, aes(x = power_value, y = power_type, fill = power_type),
+                      color = "white", alpha = 0.9,
+                      rel_min_height = 0.002,
+                      scale = 1,
+                      quantile_lines = TRUE,
+                      jittered_points = TRUE) +
+  viridis::scale_fill_viridis(option = "H", discrete = T) +
+  scale_x_continuous(limits = c(0, 1), breaks = seq(0, 1, by = 0.2),
+                     minor_breaks=seq(0,1,0.05),expand = expansion(mult = c(0, 0.015)), labels = scales::percent_format(accuracy=1)) +
+  scale_y_discrete(labels = c("lnRR", "SMD"), expand = expansion(mult = c(0.5, 0.25))) +
+  guides(fill = "none") +
+  labs(x = "Statistical power", y = "") +
+  theme_bw() + 
+  theme(axis.title = element_text(size = 10),
+        axis.title.y = element_blank())
+```
+
+
+# Figure S6 
+
+```{r}
+# calculate power
+lnVR_values <- data.frame(ma = mod_est_lnVR$ma,
+                          beta = mod_est_lnVR$beta,
+                          effect = rep("intercept", length(mod_est_lnVR$beta))) 
+
+res.lnVR <- rma.mv(yi = beta, V = I(se^2), random = ~ 1 | ma, test = "t", method = "REML", data = mod_est_lnVR)
+
+error_bar <- data.frame(effect = c("intercept"),
+                        mean = res.lnVR$beta[1],
+                        lower.ci = res.lnVR$ci.lb[1],
+                        upper.ci = res.lnVR$ci.ub[1])
+
+p.lnVR <- ggplot() + 
+  geom_errorbarh(data = error_bar, aes(xmax = upper.ci, xmin = lower.ci, y = effect), height = 0.1, color = "black", position = position_nudge(y = -0.1)) + 
+  geom_point(data = error_bar, aes(x = mean, y = effect), color = "red", size = 2, position = position_nudge(y = -0.1)) + # Shift points vertically 
+  geom_density_ridges(data = lnVR_values, aes(x = beta, y = effect, fill = effect),
+                      color = "white", alpha = 0.9,
+                      rel_min_height = 0.002,
+                      scale = 1,
+                      quantile_lines = F,
+                      jittered_points = TRUE) +
+  #viridis::scale_fill_viridis(option = "H", discrete = T) +
+  scale_x_continuous(limits = c(-1,1.5), expand = expansion(mult = c(0, 0.015))) +
+  scale_y_discrete(labels = c("Overall mean"), expand = expansion(mult = c(0.25, 0.25))) +
+  guides(fill = "none") +
+  labs(x = "Variability ratio between two groups", y = "") +
+  theme_bw() + 
+  theme(axis.title = element_text(size = 10),
+        axis.title.y = element_blank())
+
+
+png(filename = "./fig S6.png", width = 5, height = 4, units = "in", type = "windows", res = 400)
+p.lnVR
+dev.off()
+
+```
+
+
+# Figure S7 
+
+```{r}
+# data frame
+Vbar_values <- data.frame(ma = icc_lnRR$ma,
+                          Vbar_lnRR = icc_lnRR$V_bar,
+                          Vbar_SMD = icc_SMD$V_bar) 
+
+
+# long format
+Vbar_values2 <- pivot_longer(Vbar_values, 
+                                  cols = c("Vbar_lnRR", "Vbar_SMD"),
+                                  names_to = "Vbar_type",
+                                  values_to = "Vbar_value")
+
+# figure
+Vbar_values2$Vbar_type <- as.factor(Vbar_values2$Vbar_type)
+Vbar_values2$Vbar_type <- factor(Vbar_values2$Vbar_type, levels = c("Vbar_SMD", "Vbar_lnRR"))
+
+
+p.Vbar <- ggplot() + 
+  geom_density_ridges(data = Vbar_values2, aes(x = Vbar_value, y = Vbar_type, fill = Vbar_type),
+                      color = "white", alpha = 0.7,
+                      rel_min_height = 0.01,
+                      scale = 2,
+                      quantile_lines = T,
+                      jittered_points = TRUE) +
+  viridis::scale_fill_viridis(option = "H", discrete = T) +
+  scale_x_continuous(limits = c(0,1.2), expand = expansion(mult = c(0, 0.015))) +
+  scale_y_discrete(labels = c("SMD", "lnRR"), expand = expansion(mult = c(0.25, 0.25))) +
+  guides(fill = "none") +
+  labs(x = "Typical sampling variance", y = "") +
+  theme_bw() + 
+  theme(axis.title = element_text(size = 10),
+        axis.title.y = element_blank())
+
+
+png(filename = "./fig S7.png", width = 5, height = 4, units = "in", type = "windows", res = 400)
+p.Vbar
+dev.off()
+```
+
+
+# Figure S8 
+
+```{r}
+# dataset1
+rho_Yang_BMCBio_2023 <- data.frame(ma=names(dat_Yang_BMCBio_2023_lnRR),
+                      rho=sapply(mod_Yang_BMCBio_2023_all_rob, function(x) x$rho[1]),
+                      phi=sapply(mod_Yang_BMCBio_2023_all_rob, function(x) x$phi[1]))
+
+# dataset2
+rho_Yang_GCB_2022 <- data.frame(ma=names(dat_Yang_GCB_2022_lnRR),
+                      rho=sapply(mod_Yang_GCB_2022_all_rob, function(x) x$rho[1]),
+                      phi=sapply(mod_Yang_GCB_2022_all_rob, function(x) x$phi[1]))
+
+
+# dataset3
+rho_Senior_Ecology_2016 <- data.frame(ma=names(dat_Senior_Ecology_2016_lnRR),
+                      rho=sapply(mod_Senior_Ecology_2016_all_rob, function(x) x$rho[1]),
+                      phi=sapply(mod_Senior_Ecology_2016_all_rob, function(x) x$phi[1]))
+
+
+# combine
+rho_all <- rbind(rho_Yang_BMCBio_2023, rho_Yang_GCB_2022, rho_Senior_Ecology_2016)
+rho_all <- rho_all[!(rho_all$ma %in% duplicate), ] # remove the duplicates
+
+# data frame
+rho_values <- data.frame(ma = rho_all$ma,
+                          rho = rho_all$rho,
+                          phi = rho_all$phi) 
+
+
+# long format
+rho_values2 <- pivot_longer(rho_values, 
+                                  cols = c("rho", "phi"),
+                                  names_to = "rho_type",
+                                  values_to = "rho_value")
+
+# figure
+rho_values2$rho_type <- as.factor(rho_values2$rho_type)
+rho_values2$rho_type <- factor(rho_values2$rho_type, levels = c("phi", "rho"))
+
+
+p.rho <- ggplot() + 
+  geom_density_ridges(data = rho_values2, aes(x = rho_value, y = rho_type, fill = rho_type),
+                      color = "white", alpha = 0.7,
+                      rel_min_height = 0.01,
+                      scale = 1,
+                      quantile_lines = T,
+                      jittered_points = TRUE) +
+  viridis::scale_fill_viridis(option = "H", discrete = T) +
+  scale_x_continuous(limits = c(-1,1), expand = expansion(mult = c(0, 0.015))) +
+  scale_y_discrete(labels = c("With-study", "Between-study"), expand = expansion(mult = c(0.25, 0.25))) +
+  guides(fill = "none") +
+  labs(x = "Correlation between lnRR and SMD", y = "") +
+  theme_bw() + 
+  theme(axis.title = element_text(size = 10),
+        axis.title.y = element_blank())
+
+
+png(filename = "./fig S8.png", width = 5, height = 4, units = "in", type = "windows", res = 400)
+p.rho
+dev.off()
+
+```

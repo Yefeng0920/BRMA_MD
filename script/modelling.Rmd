@@ -1,0 +1,1364 @@
+---
+title: "script"
+output: html_document
+date: '2023-12-31'
+---
+
+# Set-up
+
+```{r, warning=FALSE}
+suppressMessages({
+  library(dplyr)
+  library(readr)
+  library(tidyr) 
+  library(tidyverse)
+  library(stringr)
+  library(ggplot2)
+  library(metafor)
+  library(matrixcalc)
+  library(clubSandwich)
+  library(here)
+  library(RColorBrewer)
+  library(ggExtra)
+  library(cowplot)
+  library(patchwork)
+  library(aplot)
+  library(palettetown)
+  library(wesanderson)
+  library(ggpubr)
+  })
+
+source(here("custom_func","custom_func.R"))
+
+```
+
+
+# Data
+
+```{r}
+# Yang_BMCBio_2023
+dat_Yang_BMCBio_2023_lnRR <- readRDS(here("data","dat_Yang_BMCBio_2023_lnRR.rds")) 
+dat_Yang_BMCBio_2023_SMD <- readRDS(here("data","dat_Yang_BMCBio_2023_SMD.rds")) 
+dat_Yang_BMCBio_2023_lnVR <- readRDS(here("data","dat_Yang_BMCBio_2023_lnVR.rds"))
+# Yang_GCB_2022
+dat_Yang_GCB_2022_lnRR <- readRDS(here("data","dat_Yang_GCB_2022_lnRR.rds"))
+dat_Yang_GCB_2022_SMD <- readRDS(here("data","dat_Yang_GCB_2022_SMD.rds"))
+dat_Yang_GCB_2022_lnVR <- readRDS(here("data","dat_Yang_GCB_2022_lnVR.rds"))
+# Senior_Ecology_2016
+dat_Senior_Ecology_2016_lnRR <- readRDS(here("data","dat_Senior_Ecology_2016_lnRR.rds"))
+dat_Senior_Ecology_2016_SMD <- readRDS(here("data","dat_Senior_Ecology_2016_SMD.rds"))
+dat_Senior_Ecology_2016_lnVR <- readRDS(here("data","dat_Senior_Ecology_2016_lnVR.rds"))
+```
+
+# Conventional analysis
+
+## Intercept-only model
+### Yang_BMCBio_2023
+```{r}
+# transitional RE MA
+# write a function for transitional RE MA MA
+MA_re <- function(df) {
+  rma.mv(
+    data = df,
+    yi = yi,
+    V = vi,
+    random = list(~~1|obs_ID),
+    method = "REML",
+    test = "t",
+    sparse = TRUE,
+    verbose = TRUE,
+    control=list(rel.tol=1e-8, iter.max=1000)
+  )
+}
+
+#***************************************************************#
+#                datasets for Yang_BMCBio_2023                  #
+#***************************************************************# 
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for SMD                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Yang_BMCBio_2023_SMD_re <- lapply(dat_Yang_BMCBio_2023_SMD, MA_re)
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for lnRR                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Yang_BMCBio_2023_lnRR_re <- lapply(dat_Yang_BMCBio_2023_lnRR, MA_re)
+
+
+
+```
+
+
+### Yang_GCB_2022
+
+```{r}
+#***************************************************************#
+#                datasets for Yang_GCB_2022                  #
+#***************************************************************# 
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for SMD                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Yang_GCB_2022_SMD_re <- lapply(dat_Yang_GCB_2022_SMD, MA_re)
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for lnRR                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Yang_GCB_2022_lnRR_re <- lapply(dat_Yang_GCB_2022_lnRR, MA_re)
+
+```
+
+
+### Senior_Ecology_2016
+```{r}
+#***************************************************************#
+#                datasets for Senior_Ecology_2016                  #
+#***************************************************************# 
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for SMD                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Senior_Ecology_2016_SMD_re <- lapply(dat_Senior_Ecology_2016_SMD, MA_re)
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for lnRR                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Senior_Ecology_2016_lnRR_re <- lapply(dat_Senior_Ecology_2016_lnRR, MA_re)
+
+```
+
+
+# Multilevel analysis
+
+## Intercept-only model
+### Yang_BMCBio_2023
+```{r}
+# univariate MA
+# write a function for univariate MA
+sampling_rho = 0.5
+MA_uni <- function(df) {
+  VCV <- vcalc(vi, cluster = study_ID, obs = obs_ID, data = df, rho = sampling_rho, nearpd = T)
+  rma.mv(
+    data = df,
+    yi = yi,
+    V = VCV,
+    random = list(~1|study_ID, ~1|obs_ID),
+    method = "REML",
+    test = "t",
+    sparse = TRUE,
+    verbose = TRUE,
+    control=list(rel.tol=1e-8, iter.max=1000)
+  )
+}
+
+
+# a simpler version
+MA_uni2 <- function(df) {
+  rma.mv(
+    data = df,
+    yi = yi,
+    V = vi,
+    random = list(~1|study_ID, ~1|obs_ID),
+    method = "REML",
+    test = "t",
+    sparse = TRUE,
+    verbose = TRUE,
+    control=list(rel.tol=1e-8, iter.max=1000)
+  )
+}
+
+#***************************************************************#
+#                datasets for Yang_BMCBio_2023                  #
+#***************************************************************# 
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for SMD                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Yang_BMCBio_2023_SMD <- lapply(dat_Yang_BMCBio_2023_SMD, MA_uni)
+
+# cluster-robust inference
+mod_Yang_BMCBio_2023_SMD_rob <- list()
+for (i in 1:length(mod_Yang_BMCBio_2023_SMD)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_BMCBio_2023_SMD_rob[[i]] <- robust(mod_Yang_BMCBio_2023_SMD[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+# a simpler version
+# model fitting
+mod_Yang_BMCBio_2023_SMD2 <- lapply(dat_Yang_BMCBio_2023_SMD, MA_uni2)
+# cluster-robust inference
+mod_Yang_BMCBio_2023_SMD_rob2 <- list()
+for (i in 1:length(mod_Yang_BMCBio_2023_SMD2)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_BMCBio_2023_SMD_rob2[[i]] <- robust(mod_Yang_BMCBio_2023_SMD2[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+#*-------------------------------------------------------------*#
+#                    model fitting for lnRR                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Yang_BMCBio_2023_lnRR <- lapply(dat_Yang_BMCBio_2023_lnRR, MA_uni)
+
+# cluster-robust inference
+mod_Yang_BMCBio_2023_lnRR_rob <- list()
+for (i in 1:length(mod_Yang_BMCBio_2023_lnRR)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_BMCBio_2023_lnRR_rob[[i]] <- robust(mod_Yang_BMCBio_2023_lnRR[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+# a simpler version
+# model fitting
+mod_Yang_BMCBio_2023_lnRR2 <- lapply(dat_Yang_BMCBio_2023_lnRR, MA_uni2)
+
+# cluster-robust inference
+mod_Yang_BMCBio_2023_lnRR_rob2 <- list()
+for (i in 1:length(mod_Yang_BMCBio_2023_lnRR2)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_BMCBio_2023_lnRR_rob2[[i]] <- robust(mod_Yang_BMCBio_2023_lnRR2[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for lnVR                      #
+#*-------------------------------------------------------------*#
+# a simpler version
+# model fitting
+mod_Yang_BMCBio_2023_lnVR <- lapply(dat_Yang_BMCBio_2023_lnVR, MA_uni2)
+
+# cluster-robust inference
+mod_Yang_BMCBio_2023_lnVR_rob <- list()
+for (i in 1:length(mod_Yang_BMCBio_2023_lnVR)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_BMCBio_2023_lnVR_rob[[i]] <- robust(mod_Yang_BMCBio_2023_lnVR[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+```
+
+
+### Yang_GCB_2022
+
+```{r}
+#***************************************************************#
+#                datasets for Yang_GCB_2022                  #
+#***************************************************************# 
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for SMD                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Yang_GCB_2022_SMD <- lapply(dat_Yang_GCB_2022_SMD, MA_uni)
+
+# cluster-robust inference
+mod_Yang_GCB_2022_SMD_rob <- list()
+for (i in 1:length(mod_Yang_GCB_2022_SMD)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_GCB_2022_SMD_rob[[i]] <- robust(mod_Yang_GCB_2022_SMD[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+
+# a simpler version
+# model fitting
+mod_Yang_GCB_2022_SMD2 <- lapply(dat_Yang_GCB_2022_SMD, MA_uni2)
+
+# cluster-robust inference
+mod_Yang_GCB_2022_SMD_rob2 <- list()
+for (i in 1:length(mod_Yang_GCB_2022_SMD2)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_GCB_2022_SMD_rob2[[i]] <- robust(mod_Yang_GCB_2022_SMD2[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+#*-------------------------------------------------------------*#
+#                    model fitting for lnRR                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Yang_GCB_2022_lnRR <- lapply(dat_Yang_GCB_2022_lnRR, MA_uni)
+
+
+# cluster-robust inference
+mod_Yang_GCB_2022_lnRR_rob <- list()
+for (i in 1:length(mod_Yang_GCB_2022_lnRR)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_GCB_2022_lnRR_rob[[i]] <- robust(mod_Yang_GCB_2022_lnRR[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+# a simpler version
+
+# model fitting
+mod_Yang_GCB_2022_lnRR2 <- lapply(dat_Yang_GCB_2022_lnRR, MA_uni2)
+
+# cluster-robust inference
+mod_Yang_GCB_2022_lnRR_rob2 <- list()
+for (i in 1:length(mod_Yang_GCB_2022_lnRR2)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_GCB_2022_lnRR_rob2[[i]] <- robust(mod_Yang_GCB_2022_lnRR2[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for lnVR                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Yang_GCB_2022_lnVR <- lapply(dat_Yang_GCB_2022_lnVR, MA_uni2)
+
+# cluster-robust inference
+mod_Yang_GCB_2022_lnVR_rob <- list()
+for (i in 1:length(mod_Yang_GCB_2022_lnVR)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_GCB_2022_lnVR_rob[[i]] <- robust(mod_Yang_GCB_2022_lnVR[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+```
+
+
+### Senior_Ecology_2016
+```{r}
+#***************************************************************#
+#                datasets for Senior_Ecology_2016                  #
+#***************************************************************# 
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for SMD                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Senior_Ecology_2016_SMD <- lapply(dat_Senior_Ecology_2016_SMD, MA_uni)
+
+# cluster-robust inference
+mod_Senior_Ecology_2016_SMD_rob <- list()
+for (i in 1:length(mod_Senior_Ecology_2016_SMD)) {
+  # Apply robust analysis and store the result in the list
+  mod_Senior_Ecology_2016_SMD_rob[[i]] <- robust(mod_Senior_Ecology_2016_SMD[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+# a simpler version
+# model fitting
+mod_Senior_Ecology_2016_SMD2 <- lapply(dat_Senior_Ecology_2016_SMD, MA_uni2)
+
+# cluster-robust inference
+mod_Senior_Ecology_2016_SMD_rob2 <- list()
+for (i in 1:length(mod_Senior_Ecology_2016_SMD2)) {
+  # Apply robust analysis and store the result in the list
+  mod_Senior_Ecology_2016_SMD_rob2[[i]] <- robust(mod_Senior_Ecology_2016_SMD2[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for lnRR                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Senior_Ecology_2016_lnRR <- lapply(dat_Senior_Ecology_2016_lnRR, MA_uni)
+
+# cluster-robust inference
+mod_Senior_Ecology_2016_lnRR_rob <- list()
+for (i in 1:length(mod_Senior_Ecology_2016_lnRR)) {
+  # Apply robust analysis and store the result in the list
+  mod_Senior_Ecology_2016_lnRR_rob[[i]] <- robust(mod_Senior_Ecology_2016_lnRR[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+# a simpler version
+# model fitting
+mod_Senior_Ecology_2016_lnRR2 <- lapply(dat_Senior_Ecology_2016_lnRR, MA_uni2)
+
+# cluster-robust inference
+mod_Senior_Ecology_2016_lnRR_rob2 <- list()
+for (i in 1:length(mod_Senior_Ecology_2016_lnRR2)) {
+  # Apply robust analysis and store the result in the list
+  mod_Senior_Ecology_2016_lnRR_rob2[[i]] <- robust(mod_Senior_Ecology_2016_lnRR2[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+#*-------------------------------------------------------------*#
+#                    model fitting for lnVR                      #
+#*-------------------------------------------------------------*#
+# model fitting
+mod_Senior_Ecology_2016_lnVR <- lapply(dat_Senior_Ecology_2016_lnVR, MA_uni2)
+
+# cluster-robust inference
+mod_Senior_Ecology_2016_lnVR_rob <- list()
+for (i in 1:length(mod_Senior_Ecology_2016_lnVR)) {
+  # Apply robust analysis and store the result in the list
+  mod_Senior_Ecology_2016_lnVR_rob[[i]] <- robust(mod_Senior_Ecology_2016_lnVR[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+```
+
+
+## Publication bias test
+### Yang_BMCBio_2023
+```{r}
+# pb test
+# write a function for pb test
+sampling_rho = 0.5
+PB_uni <- function(df) {
+  VCV <- vcalc(vi, cluster = study_ID, obs = obs_ID, data = df, rho = sampling_rho, nearpd = T)
+  rma.mv(
+    data = df,
+    yi = yi,
+    V = VCV,
+    mods = I(sqrt(vi)),
+    random = list(~1|study_ID, ~1|obs_ID),
+    method = "REML",
+    test = "t",
+    sparse = TRUE,
+    verbose = TRUE,
+    control=list(rel.tol=1e-8, iter.max=1000)
+  )
+}
+
+# a simpler version
+PB_uni2 <- function(df) {
+  rma.mv(
+    data = df,
+    yi = yi,
+    V = vi,
+    mods = I(sqrt(vi)),
+    random = list(~1|study_ID, ~1|obs_ID),
+    method = "REML",
+    test = "t",
+    sparse = TRUE,
+    verbose = TRUE,
+    control=list(rel.tol=1e-8, iter.max=1000)
+  )
+}
+
+#***************************************************************#
+#                datasets for Yang_BMCBio_2023                  #
+#***************************************************************# 
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for SMD                      #
+#*-------------------------------------------------------------*#
+# model fitting
+modPB_Yang_BMCBio_2023_SMD <- lapply(dat_Yang_BMCBio_2023_SMD, PB_uni)
+# a simpler version
+modPB_Yang_BMCBio_2023_SMD2 <- lapply(dat_Yang_BMCBio_2023_SMD, PB_uni2)
+
+#*-------------------------------------------------------------*#
+#                publication bias test for lnRR                 #
+#*-------------------------------------------------------------*#
+# model fitting
+modPB_Yang_BMCBio_2023_lnRR <- lapply(dat_Yang_BMCBio_2023_lnRR, PB_uni)
+
+# a simpler version
+modPB_Yang_BMCBio_2023_lnRR2 <- lapply(dat_Yang_BMCBio_2023_lnRR, PB_uni2)
+
+```
+
+### Yang_GCB_2022
+```{r}
+#***************************************************************#
+#                datasets for Yang_BMCBio_2023                  #
+#***************************************************************# 
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for SMD                      #
+#*-------------------------------------------------------------*#
+# model fitting
+modPB_Yang_GCB_2022_SMD <- lapply(dat_Yang_GCB_2022_SMD, PB_uni)
+# a simpler version
+modPB_Yang_GCB_2022_SMD2 <- lapply(dat_Yang_GCB_2022_SMD, PB_uni2)
+
+#*-------------------------------------------------------------*#
+#                publication bias test for lnRR                 #
+#*-------------------------------------------------------------*#
+# model fitting
+modPB_Yang_GCB_2022_lnRR <- lapply(dat_Yang_GCB_2022_lnRR, PB_uni)
+# a simple version
+modPB_Yang_GCB_2022_lnRR2 <- lapply(dat_Yang_GCB_2022_lnRR, PB_uni2)
+
+```
+
+### Senior_Ecology_2016
+```{r}
+#***************************************************************#
+#                datasets for Yang_BMCBio_2023                  #
+#***************************************************************# 
+
+
+#*-------------------------------------------------------------*#
+#                    model fitting for SMD                      #
+#*-------------------------------------------------------------*#
+# model fitting
+modPB_Senior_Ecology_2016_SMD <- lapply(dat_Senior_Ecology_2016_SMD, PB_uni)
+# a simpler version
+modPB_Senior_Ecology_2016_SMD2 <- lapply(dat_Senior_Ecology_2016_SMD, PB_uni2)
+
+#*-------------------------------------------------------------*#
+#                publication bias test for lnRR                 #
+#*-------------------------------------------------------------*#
+# model fitting
+modPB_Senior_Ecology_2016_lnRR <- lapply(dat_Senior_Ecology_2016_lnRR, PB_uni)
+# a simpler version
+modPB_Senior_Ecology_2016_lnRR2 <- lapply(dat_Senior_Ecology_2016_lnRR, PB_uni2)
+```
+
+
+# Bivariate analysis
+
+## Intercept-only model
+
+### Yang_BMCBio_2023
+
+```{r}
+# cbind SMD and lnRR
+dat_Yang_BMCBio_2023_all <- list()
+if (length(dat_Yang_BMCBio_2023_SMD) == length(dat_Yang_BMCBio_2023_lnRR)) {
+  for (i in seq_along(dat_Yang_BMCBio_2023_SMD)) {
+    dat_Yang_BMCBio_2023_all[[i]] <- rbind(dat_Yang_BMCBio_2023_SMD[[i]], dat_Yang_BMCBio_2023_lnRR[[i]])
+  }
+} else {
+  print("error: Lists have different lengths.")
+}
+names(dat_Yang_BMCBio_2023_all) <- names(dat_Yang_BMCBio_2023_SMD)
+# create new variables to contain info about es types
+for (i in seq_along(dat_Yang_BMCBio_2023_all)) {
+    dat_Yang_BMCBio_2023_all[[i]]$es_type <- c(rep("SMD", nrow(dat_Yang_BMCBio_2023_SMD[[i]])), rep("lnRR", nrow(dat_Yang_BMCBio_2023_lnRR[[i]])))
+}
+
+#***************************************************************#
+#                         model fitting                         #
+#***************************************************************#
+# bivariate MA 
+# write a function for bivariate MA
+sampling_rho2 = 0.5
+MA_bi <- function(df) {
+  tryCatch({
+    VCV <- vcalc(vi, cluster = study_ID, type = es_type, data = df, rho = sampling_rho2, nearpd = T)
+    rma.mv(
+      data = df,
+      yi = yi,
+      V = VCV,
+      mods = ~ I(es_type) - 1,
+      random = list(~es_type|study_ID, ~es_type|obs_ID),
+      struct = "UN",
+      method = "REML",
+      test = "t",
+      sparse = TRUE,
+      verbose = TRUE,
+      control=list(rel.tol=1e-8, iter.max=1000)
+    )
+  }, error = function(err) {
+    # Catch convergence issues and adjust rho
+    cat("Convergence issue occurred.")
+    
+    VCV <- vcalc(vi, cluster = study_ID, type = es_type, data = df, rho = 0, nearpd = T)
+    rma.mv(
+      data = df,
+      yi = yi,
+      V = VCV,
+      mods = ~ I(es_type) - 1,
+      random = list(~es_type|study_ID, ~es_type|obs_ID),
+      struct = "UN",
+      method = "REML",
+      test = "t",
+      sparse = TRUE,
+      verbose = TRUE,
+      control=list(rel.tol=1e-8, iter.max=1000)
+    )
+  })
+}
+
+
+# a simpler version
+sampling_rho3 = 0.5
+MA_bi2 <- function(df) {
+  tryCatch({
+    VCV <- vcalc(vi, cluster = study_ID, type = es_type,  data = df, rho = sampling_rho3, nearpd = T)
+    
+    if (is.positive.definite(VCV)) {
+      # If VCV is positive definite, use it in the model
+      rma.mv(
+        data = df,
+        yi = yi,
+        V = VCV,
+        mods = ~ I(es_type) - 1,
+        random = list(~es_type|study_ID),
+        struct = "UN",
+        method = "REML",
+        test = "t",
+        sparse = TRUE,
+        verbose = TRUE,
+        control=list(rel.tol=1e-8, iter.max=1000)
+      )
+    } else {
+      # If VCV is not positive definite, use vi in the model
+      cat("VCV is not positive definite. Using vi instead.")
+      rma.mv(
+        data = df,
+        yi = yi,
+        V = vi,
+        mods = ~ I(es_type) - 1,
+        random = list(~es_type|study_ID),
+        struct = "UN",
+        method = "REML",
+        test = "t",
+        sparse = TRUE,
+        verbose = TRUE,
+        control=list(rel.tol=1e-8, iter.max=1000)
+      )
+    }
+  }, error = function(err) {
+    # Catch convergence issues and adjust rho
+    cat("Convergence issue occurred.")
+    rma.mv(
+      data = df,
+      yi = yi,
+      V = vi,
+      mods = ~ I(es_type) - 1,
+      random = list(~es_type|study_ID),
+      struct = "UN",
+      method = "REML",
+      test = "t",
+      sparse = TRUE,
+      verbose = TRUE,
+      control=list(rel.tol=1e-8, iter.max=1000)
+    )
+  })
+}
+
+## remove zero, extreme large and small variance to avoid non-positive definite matrix
+# -0
+for (i in seq_along(dat_Yang_BMCBio_2023_all)) {
+  dat_Yang_BMCBio_2023_all[[i]] <- dat_Yang_BMCBio_2023_all[[i]][dat_Yang_BMCBio_2023_all[[i]]$vi != 0, ]
+}
+
+# remove NA in study_ID
+for (i in seq_along(dat_Yang_BMCBio_2023_all)) {
+  dat_Yang_BMCBio_2023_all[[i]] <- dat_Yang_BMCBio_2023_all[[i]][
+!is.na(dat_Yang_BMCBio_2023_all[[i]]$study_ID), 
+    ]
+}
+
+# model fitting
+mod_Yang_BMCBio_2023_all <- lapply(dat_Yang_BMCBio_2023_all, function(x) {
+  tryCatch({
+    MA_bi(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+# filter out NULL or NA from mod_bi_list
+#mod_bi_list <- mod_bi[!sapply(mod_bi, is.null)]
+
+
+
+# cluster-robust inference
+mod_Yang_BMCBio_2023_all_rob <- list()
+for (i in 1:length(mod_Yang_BMCBio_2023_all)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_BMCBio_2023_all_rob[[i]] <- robust(mod_Yang_BMCBio_2023_all[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+
+# a simpler version
+mod_Yang_BMCBio_2023_all2 <- lapply(dat_Yang_BMCBio_2023_all, function(x) {
+  tryCatch({
+    MA_bi2(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+# cluster-robust inference
+mod_Yang_BMCBio_2023_all_rob2 <- list()
+for (i in 1:length(mod_Yang_BMCBio_2023_all2)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_BMCBio_2023_all_rob2[[i]] <- robust(mod_Yang_BMCBio_2023_all2[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+```
+
+
+### Yang_GCB_2022
+
+```{r}
+# cbind SMD and lnRR
+dat_Yang_GCB_2022_all <- list()
+if (length(dat_Yang_GCB_2022_SMD) == length(dat_Yang_GCB_2022_lnRR)) {
+  for (i in seq_along(dat_Yang_GCB_2022_SMD)) {
+    dat_Yang_GCB_2022_all[[i]] <- rbind(dat_Yang_GCB_2022_SMD[[i]], dat_Yang_GCB_2022_lnRR[[i]])
+  }
+} else {
+  print("error: Lists have different lengths.")
+}
+names(dat_Yang_GCB_2022_all) <- names(dat_Yang_GCB_2022_SMD)
+# create new variables to contain info about es types
+for (i in seq_along(dat_Yang_GCB_2022_all)) {
+    dat_Yang_GCB_2022_all[[i]]$es_type <- c(rep("SMD", nrow(dat_Yang_GCB_2022_SMD[[i]])), rep("lnRR", nrow(dat_Yang_GCB_2022_lnRR[[i]])))
+}
+
+#***************************************************************#
+#                         model fitting                         #
+#***************************************************************#
+
+## remove zero, extreme large and small variance to avoid non-positive definite matrix
+# -0
+for (i in seq_along(dat_Yang_GCB_2022_all)) {
+  dat_Yang_GCB_2022_all[[i]] <- dat_Yang_GCB_2022_all[[i]][dat_Yang_GCB_2022_all[[i]]$vi != 0, ]
+}
+
+# remove NA in study_ID
+for (i in seq_along(dat_Yang_GCB_2022_all)) {
+  dat_Yang_GCB_2022_all[[i]] <- dat_Yang_GCB_2022_all[[i]][
+!is.na(dat_Yang_GCB_2022_all[[i]]$study_ID), 
+    ]
+}
+
+
+# model fitting
+#mod_bi <- lapply(dat_Yang_GCB_2022_all, MA_bi)
+mod_Yang_GCB_2022_all <- lapply(dat_Yang_GCB_2022_all, function(x) {
+  tryCatch({
+    MA_bi(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+
+
+# cluster-robust inference
+mod_Yang_GCB_2022_all_rob <- list()
+for (i in 1:length(mod_Yang_GCB_2022_all)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_GCB_2022_all_rob[[i]] <- robust(mod_Yang_GCB_2022_all[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+
+# a simpler version
+mod_Yang_GCB_2022_all2 <- lapply(dat_Yang_GCB_2022_all, function(x) {
+  tryCatch({
+    MA_bi2(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+
+
+# cluster-robust inference
+mod_Yang_GCB_2022_all_rob2 <- list()
+for (i in 1:length(mod_Yang_GCB_2022_all2)) {
+  # Apply robust analysis and store the result in the list
+  mod_Yang_GCB_2022_all_rob2[[i]] <- robust(mod_Yang_GCB_2022_all2[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+```
+
+
+### Senior_Ecology_2016
+
+```{r}
+# cbind SMD and lnRR
+dat_Senior_Ecology_2016_all <- list()
+if (length(dat_Senior_Ecology_2016_SMD) == length(dat_Senior_Ecology_2016_lnRR)) {
+  for (i in seq_along(dat_Senior_Ecology_2016_SMD)) {
+    dat_Senior_Ecology_2016_all[[i]] <- rbind(dat_Senior_Ecology_2016_SMD[[i]], dat_Senior_Ecology_2016_lnRR[[i]])
+  }
+} else {
+  print("error: Lists have different lengths.")
+}
+names(dat_Senior_Ecology_2016_all) <- names(dat_Senior_Ecology_2016_SMD)
+# create new variables to contain info about es types
+for (i in seq_along(dat_Senior_Ecology_2016_all)) {
+    dat_Senior_Ecology_2016_all[[i]]$es_type <- c(rep("SMD", nrow(dat_Senior_Ecology_2016_SMD[[i]])), rep("lnRR", nrow(dat_Senior_Ecology_2016_lnRR[[i]])))
+}
+
+#***************************************************************#
+#                         model fitting                         #
+#***************************************************************#
+
+## remove zero, extreme large and small variance to avoid non-positive definite matrix
+# -0
+for (i in seq_along(dat_Senior_Ecology_2016_all)) {
+  dat_Senior_Ecology_2016_all[[i]] <- dat_Senior_Ecology_2016_all[[i]][dat_Senior_Ecology_2016_all[[i]]$vi != 0, ]
+}
+
+# remove NA in study_ID
+for (i in seq_along(dat_Senior_Ecology_2016_all)) {
+  dat_Senior_Ecology_2016_all[[i]] <- dat_Senior_Ecology_2016_all[[i]][
+!is.na(dat_Senior_Ecology_2016_all[[i]]$study_ID), 
+    ]
+}
+
+# model fitting
+#mod_bi <- lapply(dat_Senior_Ecology_2016_all, MA_bi)
+mod_Senior_Ecology_2016_all <- lapply(dat_Senior_Ecology_2016_all, function(x) {
+  tryCatch({
+    MA_bi(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+
+# cluster-robust inference
+mod_Senior_Ecology_2016_all_rob <- list()
+for (i in 1:length(mod_Senior_Ecology_2016_all)) {
+  # Apply robust analysis and store the result in the list
+  mod_Senior_Ecology_2016_all_rob[[i]] <- robust(mod_Senior_Ecology_2016_all[[i]], cluster = study_ID, clubSandwich = TRUE)
+}
+
+
+
+# simpler model
+mod_Senior_Ecology_2016_all2 <- lapply(dat_Senior_Ecology_2016_all, function(x) {
+  tryCatch({
+    MA_bi2(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+# cluster-robust inference
+mod_Senior_Ecology_2016_all_rob2 <- list()
+
+for (i in 1:length(mod_Senior_Ecology_2016_all2)) {
+  tryCatch({
+    #  robust analysis
+    mod_Senior_Ecology_2016_all_rob2[[i]] <- robust(mod_Senior_Ecology_2016_all2[[i]], cluster = study_ID, clubSandwich = TRUE)
+  }, error = function(err) {
+    # error
+    cat("Convergence issue occurred for model ", i, ". Skipping...\n")
+    mod_Senior_Ecology_2016_all_rob2[[i]] <- NULL  # skip this model
+  })
+}
+
+```
+
+## over-parameter
+
+```{r}
+df <- dat_Senior_Ecology_2016_all[[3]]
+
+VCV <- vcalc(vi, cluster = study_ID, type = es_type, obs = obs_ID, data = df, rho = c(0.5, 0.5))
+
+res <- rma.mv(
+      data = df,
+      yi = yi,
+      V = VCV,
+      mods = ~ I(es_type) - 1,
+      random = list(~es_type|study_ID, ~1|obs_ID, ~1|Species),
+      struct = "UN",
+      method = "REML",
+      test = "t",
+      sparse = TRUE,
+      verbose = TRUE,
+      control=list(rel.tol=1e-8, iter.max=1000))
+
+
+res2 <- rma.mv(
+      data = df,
+      yi = yi,
+      V = VCV,
+      mods = ~ I(es_type) - 1,
+      random = list(~es_type|study_ID, ~1|obs_ID),
+      struct = "UN",
+      method = "REML",
+      test = "t",
+      sparse = TRUE,
+      verbose = TRUE,
+      control=list(rel.tol=1e-8, iter.max=1000))
+
+
+res3 <- rma.mv(
+      data = df,
+      yi = yi,
+      V = VCV,
+      mods = ~ I(es_type) - 1,
+      random = list(~es_type|study_ID),
+      struct = "UN",
+      method = "REML",
+      test = "t",
+      sparse = TRUE,
+      verbose = TRUE,
+      control=list(rel.tol=1e-8, iter.max=1000))
+
+```
+
+
+## two UN
+
+```{r}
+
+
+df <- dat_Yang_BMCBio_2023_all[[3]]
+
+VCV <- vcalc(vi, cluster = study_ID, type = es_type, data = df, rho = 0.5,  nearpd = T)
+
+
+res <- rma.mv(
+      data = df,
+      yi = yi,
+      V = VCV,
+      mods = ~ I(es_type) - 1,
+      random = list(~es_type|study_ID, ~es_type|obs_ID),
+      struct = "UN",
+      method = "REML",
+      test = "t",
+      sparse = TRUE,
+      verbose = TRUE,
+      control=list(rel.tol=1e-8, iter.max=1000))
+
+res2 <- rma.mv(
+      data = df,
+      yi = yi,
+      V = VCV,
+      mods = ~ I(es_type) - 1,
+      random = list(~es_type|study_ID),
+      struct = "UN",
+      method = "REML",
+      test = "t",
+      sparse = TRUE,
+      verbose = TRUE,
+      control=list(rel.tol=1e-8, iter.max=1000))
+
+```
+
+
+
+## Publication bias test
+
+### Yang_BMCBio_2023
+
+```{r}
+#***************************************************************#
+#                         model fitting                         #
+#***************************************************************#
+# bivariate MA 
+# write a function for bivariate MA
+sampling_rho2 = 0.5
+PB_bi <- function(df) {
+  tryCatch({
+    VCV <- vcalc(vi, cluster = study_ID, type = es_type, data = df, rho = sampling_rho, nearpd = T)
+    rma.mv(
+      data = df,
+      yi = yi,
+      V = VCV,
+      mods = ~ I(es_type) + I(es_type):I(sei) - 1,
+      random = list(~es_type|study_ID, ~es_type|obs_ID),
+      struct = "UN",
+      method = "REML",
+      test = "t",
+      sparse = TRUE,
+      verbose = TRUE,
+      control=list(rel.tol=1e-8, iter.max=1000)
+    )
+  }, error = function(err) {
+    # Catch convergence issues and adjust rho
+    cat("Convergence issue occurred.")
+    
+    VCV <- vcalc(vi, cluster = study_ID, type = es_type, obs = obs_ID, data = df, rho = c(0, 0))
+    
+    rma.mv(
+      data = df,
+      yi = yi,
+      V = VCV,
+      mods = ~ ~ I(es_type) + I(es_type):sei - 1,
+      random = list(~es_type|study_ID, ~es_type|obs_ID),
+      struct = "UN",
+      method = "REML",
+      test = "t",
+      sparse = TRUE,
+      verbose = TRUE,
+      control=list(rel.tol=1e-8, iter.max=1000)
+    )
+  })
+}
+
+
+# a simpler version
+sampling_rho3 = 0.5
+PB_bi2 <- function(df) {
+  tryCatch({
+    VCV <- vcalc(vi, cluster = study_ID, type = es_type,  data = df, rho = sampling_rho3, nearpd = T)
+    
+    if (is.positive.definite(VCV)) {
+      # If VCV is positive definite, use it in the model
+      rma.mv(
+        data = df,
+        yi = yi,
+        V = VCV,
+        mods = ~ I(es_type) + I(es_type):I(sei) - 1,
+        random = list(~es_type|study_ID),
+        struct = "UN",
+        method = "REML",
+        test = "t",
+        sparse = TRUE,
+        verbose = TRUE,
+        control=list(rel.tol=1e-8, iter.max=1000)
+      )
+    } else {
+      # If VCV is not positive definite, use vi in the model
+      cat("VCV is not positive definite. Using vi instead.")
+      rma.mv(
+        data = df,
+        yi = yi,
+        V = vi,
+        mods = ~ I(es_type) + I(es_type):I(sei) - 1,
+        random = list(~es_type|study_ID),
+        struct = "UN",
+        method = "REML",
+        test = "t",
+        sparse = TRUE,
+        verbose = TRUE,
+        control=list(rel.tol=1e-8, iter.max=1000)
+      )
+    }
+  }, error = function(err) {
+    # Catch convergence issues and adjust rho
+    cat("Convergence issue occurred.")
+    rma.mv(
+      data = df,
+      yi = yi,
+      V = vi,
+      mods = ~ ~ I(es_type) + I(es_type):I(sei) - 1,
+      random = list(~es_type|study_ID),
+      struct = "UN",
+      method = "REML",
+      test = "t",
+      sparse = TRUE,
+      verbose = TRUE,
+      control=list(rel.tol=1e-8, iter.max=1000)
+    )
+  })
+}
+
+
+# create sei
+for (i in seq_along(dat_Yang_BMCBio_2023_all)) {
+  dat_Yang_BMCBio_2023_all[[i]]$sei <- sqrt(dat_Yang_BMCBio_2023_all[[i]]$vi)
+}
+
+
+# model fitting
+modPB_Yang_BMCBio_2023_all <- lapply(dat_Yang_BMCBio_2023_all, function(x) {
+  tryCatch({
+    PB_bi(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+# a simpler version
+modPB_Yang_BMCBio_2023_all2 <- lapply(dat_Yang_BMCBio_2023_all, function(x) {
+  tryCatch({
+    PB_bi2(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+
+```
+
+### Yang_GCB_2022
+
+```{r}
+#***************************************************************#
+#                         model fitting                         #
+#***************************************************************#
+
+# create sei
+for (i in seq_along(dat_Yang_GCB_2022_all)) {
+  dat_Yang_GCB_2022_all[[i]]$sei <- sqrt(dat_Yang_GCB_2022_all[[i]]$vi)
+}
+
+
+# model fitting
+modPB_Yang_GCB_2022_all <- lapply(dat_Yang_GCB_2022_all, function(x) {
+  tryCatch({
+    PB_bi(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+# simpler model
+modPB_Yang_GCB_2022_all2 <- lapply(dat_Yang_GCB_2022_all, function(x) {
+  tryCatch({
+    PB_bi2(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+```
+
+### Senior_Ecology_2016
+
+```{r}
+#***************************************************************#
+#                         model fitting                         #
+#***************************************************************#
+# bivariate MA 
+# create sei
+for (i in seq_along(dat_Senior_Ecology_2016_all)) {
+  dat_Senior_Ecology_2016_all[[i]]$sei <- sqrt(dat_Senior_Ecology_2016_all[[i]]$vi)
+}
+
+
+# model fitting
+modPB_Senior_Ecology_2016_all <- lapply(dat_Senior_Ecology_2016_all, function(x) {
+  tryCatch({
+    PB_bi(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+# a simpler model
+modPB_Senior_Ecology_2016_all2 <- lapply(dat_Senior_Ecology_2016_all, function(x) {
+  tryCatch({
+    PB_bi2(x)
+  }, error = function(err) {
+    # record the error information
+    cat("Error occurred for data frame:", i, "\n")
+    cat("Error message:", conditionMessage(err), "\n")
+    cat("StackTrace:", conditionCall(err), "\n")
+    
+    # return a placeholder or alternative result
+    # return NA or NULL or any other suitable value
+    return(NULL)
+  })
+})
+
+
+```
+
+
+# Save
+
+```{r}
+# random-effects model
+## intercept-only models
+saveRDS(mod_Yang_BMCBio_2023_SMD_re, "mod_Yang_BMCBio_2023_SMD_re.rds")
+saveRDS(mod_Yang_BMCBio_2023_lnRR_re, "mod_Yang_BMCBio_2023_lnRR_re.rds")
+saveRDS(mod_Yang_GCB_2022_SMD_re, "mod_Yang_GCB_2022_SMD_re.rds")
+saveRDS(mod_Yang_GCB_2022_lnRR_re, "mod_Yang_GCB_2022_lnRR_re.rds")
+saveRDS(mod_Senior_Ecology_2016_SMD_re, "mod_Senior_Ecology_2016_SMD_re.rds")
+saveRDS(mod_Senior_Ecology_2016_lnRR_re, "mod_Senior_Ecology_2016_lnRR_re.rds")
+
+# multilevel 
+## intercept-only models
+saveRDS(mod_Yang_BMCBio_2023_SMD_rob, "mod_Yang_BMCBio_2023_SMD_rob.rds")
+saveRDS(mod_Yang_BMCBio_2023_lnRR_rob, "mod_Yang_BMCBio_2023_lnRR_rob.rds")
+saveRDS(mod_Yang_GCB_2022_SMD_rob, "mod_Yang_GCB_2022_SMD_rob.rds")
+saveRDS(mod_Yang_GCB_2022_lnRR_rob, "mod_Yang_GCB_2022_lnRR_rob.rds")
+saveRDS(mod_Senior_Ecology_2016_SMD_rob, "mod_Senior_Ecology_2016_SMD_rob.rds")
+saveRDS(mod_Senior_Ecology_2016_lnRR_rob, "mod_Senior_Ecology_2016_lnRR_rob.rds")
+## another set
+saveRDS(mod_Yang_BMCBio_2023_SMD_rob2, "mod_Yang_BMCBio_2023_SMD_rob2.rds")
+saveRDS(mod_Yang_BMCBio_2023_lnRR_rob2, "mod_Yang_BMCBio_2023_lnRR_rob2.rds")
+saveRDS(mod_Yang_BMCBio_2023_lnVR_rob, "mod_Yang_BMCBio_2023_lnVR_rob.rds")
+
+saveRDS(mod_Yang_GCB_2022_SMD_rob2, "mod_Yang_GCB_2022_SMD_rob2.rds")
+saveRDS(mod_Yang_GCB_2022_lnRR_rob2, "mod_Yang_GCB_2022_lnRR_rob2.rds")
+saveRDS(mod_Yang_GCB_2022_lnVR_rob, "mod_Yang_GCB_2022_lnVR_rob.rds")
+
+saveRDS(mod_Senior_Ecology_2016_SMD_rob2, "mod_Senior_Ecology_2016_SMD_rob2.rds")
+saveRDS(mod_Senior_Ecology_2016_lnRR_rob2, "mod_Senior_Ecology_2016_lnRR_rob2.rds")
+saveRDS(mod_Senior_Ecology_2016_lnVR_rob, "mod_Senior_Ecology_2016_lnVR_rob.rds")
+
+
+
+## univariate PB tests
+saveRDS(modPB_Yang_BMCBio_2023_SMD,"modPB_Yang_BMCBio_2023_SMD.rds")
+saveRDS(modPB_Yang_BMCBio_2023_lnRR,"modPB_Yang_BMCBio_2023_lnRR.rds")
+saveRDS(modPB_Yang_GCB_2022_SMD,"modPB_Yang_GCB_2022_SMD.rds")
+saveRDS(modPB_Yang_GCB_2022_lnRR,"modPB_Yang_GCB_2022_lnRR.rds")
+saveRDS(modPB_Senior_Ecology_2016_SMD,"modPB_Senior_Ecology_2016_SMD.rds")
+saveRDS(modPB_Senior_Ecology_2016_lnRR,"modPB_Senior_Ecology_2016_lnRR.rds")
+## another set
+saveRDS(modPB_Yang_BMCBio_2023_SMD2,"modPB_Yang_BMCBio_2023_SMD2.rds")
+saveRDS(modPB_Yang_BMCBio_2023_lnRR2,"modPB_Yang_BMCBio_2023_lnRR2.rds")
+saveRDS(modPB_Yang_GCB_2022_SMD2,"modPB_Yang_GCB_2022_SMD2.rds")
+saveRDS(modPB_Yang_GCB_2022_lnRR2,"modPB_Yang_GCB_2022_lnRR2.rds")
+saveRDS(modPB_Senior_Ecology_2016_SMD2,"modPB_Senior_Ecology_2016_SMD2.rds")
+saveRDS(modPB_Senior_Ecology_2016_lnRR2,"modPB_Senior_Ecology_2016_lnRR2.rds")
+
+
+# bivariate
+## datasets
+saveRDS(dat_Yang_BMCBio_2023_all,"dat_Yang_BMCBio_2023_all.rds")
+saveRDS(dat_Yang_GCB_2022_all,"dat_Yang_GCB_2022_all.rds")
+saveRDS(dat_Senior_Ecology_2016_all,"dat_Senior_Ecology_2016_all.rds")
+## intercept-only models
+saveRDS(mod_Yang_BMCBio_2023_all_rob,"mod_Yang_BMCBio_2023_all_rob.rds")
+saveRDS(mod_Yang_GCB_2022_all_rob,"mod_Yang_GCB_2022_all_rob.rds")
+saveRDS(mod_Senior_Ecology_2016_all_rob,"mod_Senior_Ecology_2016_all_rob.rds")
+## another set
+saveRDS(mod_Yang_BMCBio_2023_all_rob2,"mod_Yang_BMCBio_2023_all_rob2.rds")
+saveRDS(mod_Yang_GCB_2022_all_rob2,"mod_Yang_GCB_2022_all_rob2.rds")
+saveRDS(mod_Senior_Ecology_2016_all_rob2,"mod_Senior_Ecology_2016_all_rob2.rds")
+
+## publication bias tests
+saveRDS(modPB_Yang_BMCBio_2023_all, "modPB_Yang_BMCBio_2023_all.rds")
+saveRDS(modPB_Yang_GCB_2022_all, "modPB_Yang_GCB_2022_all.rds")
+saveRDS(modPB_Senior_Ecology_2016_all, "modPB_Senior_Ecology_2016_all.rds")
+
+## another set
+saveRDS(modPB_Yang_BMCBio_2023_all2, "modPB_Yang_BMCBio_2023_all2.rds")
+saveRDS(modPB_Yang_GCB_2022_all2, "modPB_Yang_GCB_2022_all2.rds")
+saveRDS(modPB_Senior_Ecology_2016_all2, "modPB_Senior_Ecology_2016_all2.rds")
+
+```
+
+
+
+# Discrepancy between different effect measures
+
+```{r}
+# combine estimates
+## univariate
+mod_est_lnRR <- rbind(mod_est_Yang_BMCBio_2023_lnRR, mod_est_Yang_GCB_2022_lnRR, mod_est_Senior_Ecology_2016_lnRR) # 79
+
+mod_est_SMD <- rbind(mod_est_Yang_BMCBio_2023_SMD, mod_est_Yang_GCB_2022_SMD, mod_est_Senior_Ecology_2016_SMD)
+
+## bivariate
+mod_est_all <- rbind(mod_est_Yang_BMCBio_2023_all, mod_est_Yang_GCB_2022_all, mod_est_Senior_Ecology_2016_all)
+
+## publication bias
+modPB_est_lnRR <- rbind(modPB_est_Yang_BMCBio_2023_lnRR, modPB_est_Yang_GCB_2022_lnRR, modPB_est_Senior_Ecology_2016_lnRR)
+modPB_est_SMD <- rbind(modPB_est_Yang_BMCBio_2023_SMD, modPB_est_Yang_GCB_2022_SMD, modPB_est_Senior_Ecology_2016_SMD)
+
+
+# sign error
+which(mod_est_lnRR$beta * mod_est_SMD$beta < 0) %>% length() # 8
+
+which(mod_est_all$beta * mod_est_all$beta2 < 0) %>% length() # 8
+
+
+# evidence error
+which(mod_est_lnRR$p < 0.05) %>% length() # 47
+which(mod_est_SMD$p < 0.05) %>% length() # 43
+setdiff(which(mod_est_lnRR$p < 0.05), which(mod_est_SMD$p < 0.05)) %>% length() # 8 #intersect()
+
+setdiff(which(mod_est_all$p < 0.05), which(mod_est_all$p2 < 0.05)) %>% length() # 10
+
+
+# borrowing of strength
+which(mod_est_all$se^2 < mod_est_lnRR$se^2) %>% length() # 67
+which(mod_est_all$se2^2 < mod_est_SMD$se^2) %>% length() # 67
+
+
+# heterogeneity
+mod_est_lnRR$I2 %>% summary()
+mod_est_SMD$I2 %>% summary()
+
+mod_est_lnRR <- mod_est_lnRR %>% mutate(I2_interpretation = case_when(I2 <= 20 ~ "Small",
+                                                      I2 > 20 & I2 < 70 ~ "Moderate",
+                                                      I2 >= 70 ~ "Large"))
+
+
+mod_est_SMD <- mod_est_SMD %>% mutate(I2_interpretation = case_when(I2 <= 20 ~ "Small",
+                                                      I2 > 20 & I2 < 70 ~ "Moderate",
+                                                      I2 >= 70 ~ "Large"))
+
+all.equal(mod_est_lnRR$I2_interpretation, mod_est_SMD$I2_interpretation) # 24
+which(mod_est_lnRR$I2_interpretation != mod_est_SMD$I2_interpretation)
+
+
+mod_est_lnRR$CV %>% summary()
+mod_est_SMD$CV %>% summary()
+
+mod_est_lnRR$M1 %>% summary()
+mod_est_SMD$M1 %>% summary()
+
+# publication bias test
+which(modPB_est_lnRR$p_pb < 0.05) %>% length() #21 # which(modPB_est_lnRR$p_pb < 0.05 & modPB_est_lnRR$beta_pb * mod_est_lnRR$beta > 0)
+which(modPB_est_SMD$p_pb < 0.05) %>% length() #61 # which(modPB_est_SMD$p_pb < 0.05 & modPB_est_SMD$beta_pb * mod_est_SMD$beta > 0)
+
+```
+

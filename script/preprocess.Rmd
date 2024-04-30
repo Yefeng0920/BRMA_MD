@@ -1,0 +1,298 @@
+---
+title: "script"
+output: html_document
+date: '2023-12-31'
+---
+
+# Set-up
+
+```{r, warning=FALSE}
+suppressMessages({
+  library(dplyr)
+  library(readr)
+  library(tidyr) 
+  library(tidyverse)
+  library(stringr)
+  library(ggplot2)
+  library(metafor)
+  library(clubSandwich)
+  library(here)
+  library(RColorBrewer)
+  library(ggExtra)
+  library(cowplot)
+  library(patchwork)
+  library(aplot)
+  library(palettetown)
+  library(wesanderson)
+  library(ggpubr)
+  })
+
+source(here("custom_func","custom_func.R"))
+
+```
+
+
+
+
+# Yang_BMCBio_2023
+## Raw data
+```{r}
+#***************************************************************#
+#                datasets for Yang_BMCBio_2023                  #
+#***************************************************************# 
+dat_Yang_BMCBio_2023 <- list.files(here("data/Yang_BMCBio_2023"), pattern = "*.csv", full.names = TRUE) %>% lapply(read_csv) %>% suppressMessages()
+new_names <- list.files(here("data/Yang_BMCBio_2023"), pattern = "*.csv", full.names = F) # extract file names
+new_names <- gsub("\\..*","", new_names) # remove .csv - https://stackoverflow.com/questions/10617702/remove-part-of-string-after
+names(dat_Yang_BMCBio_2023) <- new_names
+
+# remove NA in study_ID
+for (i in seq_along(dat_Yang_BMCBio_2023)) {
+  dat_Yang_BMCBio_2023[[i]] <- dat_Yang_BMCBio_2023[[i]][
+!is.na(dat_Yang_BMCBio_2023[[i]]$study_ID), 
+    ]
+}
+```
+
+## ES computation
+```{r}
+# calculate lnRR
+dat_Yang_BMCBio_2023_lnRR <- lapply(dat_Yang_BMCBio_2023, function(df) {
+  escalc(
+    measure = "ROM",
+    m1i = df$T_mean,
+    m2i = df$C_mean,
+    sd1i = df$T_sd,
+    sd2i = df$C_sd,
+    n1i = df$T_n,
+    n2i = df$C_n,
+    data = df
+  )
+})
+
+# calculate SMD
+dat_Yang_BMCBio_2023_SMD <- lapply(dat_Yang_BMCBio_2023, function(df) {
+  escalc(
+    measure = "SMD",
+    m1i = df$T_mean,
+    m2i = df$C_mean,
+    sd1i = df$T_sd,
+    sd2i = df$C_sd,
+    n1i = df$T_n,
+    n2i = df$C_n,
+    data = df
+  )
+})
+
+# calculate lnVR - a mediator of the discrepancy between lnRR and SMD
+dat_Yang_BMCBio_2023_lnVR <- lapply(dat_Yang_BMCBio_2023, function(df) {
+  escalc(
+    measure = "VR",
+    m1i = df$T_mean,
+    m2i = df$C_mean,
+    sd1i = df$T_sd,
+    sd2i = df$C_sd,
+    n1i = df$T_n,
+    n2i = df$C_n,
+    data = df
+  )
+})
+```
+
+
+# Yang_GCB_2022
+## Raw data
+```{r}
+#***************************************************************#
+#             datasets for Yang_GCB_2022                   #
+#***************************************************************#
+dat_Yang_GCB_2022 <- list.files(here("data/Yang_GCB_2022"), pattern = "*.csv", full.names = TRUE) %>% lapply(read_csv) %>% suppressMessages()
+new_names <- list.files(here("data/Yang_GCB_2022"), pattern = "*.csv", full.names = F) 
+new_names <- gsub("\\..*","", new_names) 
+names(dat_Yang_GCB_2022) <- new_names
+
+# unify the column names of descriptive statistics 
+names(dat_Yang_GCB_2022[[1]])[str_detect(names(dat_Yang_GCB_2022[[1]]), c("T.mean|T.sd|T.N|C.mean|C.sd|C.N"))] <- c("T_mean", "T_sd", "T_N", "C_mean", "C_sd", "C_N")
+names(dat_Yang_GCB_2022[[2]])[str_detect(names(dat_Yang_GCB_2022[[2]]), c("T.mean|T.sd|T.N|C.mean|C.sd|C.N"))] <- c("T_mean", "T_sd", "T_N", "C_mean", "C_sd", "C_N") 
+names(dat_Yang_GCB_2022[[3]])[str_detect(names(dat_Yang_GCB_2022[[3]]), c("Mean|SD|N|Mean.1|SD.1|N.1"))] <- c("C_mean","C_sd","C_N","T_mean","T_sd","T_N")
+names(dat_Yang_GCB_2022[[4]])[str_detect(names(dat_Yang_GCB_2022[[4]]), c("con.mn|con.sd|con.n|fert.mn|fert.sd|fert.n"))] <- c( "C_mean", "C_sd", "C_N", "T_mean", "T_sd", "T_N")
+names(dat_Yang_GCB_2022[[5]])[str_detect(names(dat_Yang_GCB_2022[[5]]), c("con.mn|con.sd|con.n|fert.mn|fert.sd|fert.n"))] <- c( "C_mean", "C_sd", "C_N", "T_mean", "T_sd", "T_N")  
+names(dat_Yang_GCB_2022[[6]])[str_detect(names(dat_Yang_GCB_2022[[6]]), c("NT|NC|meanT|meanC|sdT|sdC"))] <- c("T_N", "C_N", "T_mean", "C_mean", "T_sd", "C_sd") 
+names(dat_Yang_GCB_2022[[7]])[str_detect(names(dat_Yang_GCB_2022[[7]]), c("p.mean|p.sd|p.n|d.mean|d.sd|d.n"))] <- c("C_mean","C_sd","C_N",  "T_mean","T_sd","T_N") 
+names(dat_Yang_GCB_2022[[8]])[str_detect(names(dat_Yang_GCB_2022[[8]]), c("p.mean|p.sd|p.n|d.mean|d.sd|d.n"))] <- c("C_mean","C_sd","C_N",  "T_mean","T_sd","T_N") 
+names(dat_Yang_GCB_2022[[9]])[str_detect(names(dat_Yang_GCB_2022[[9]]), c("p.mean|p.sd|p.n|d.mean|d.sd|d.n"))] <- c("C_mean","C_sd","C_N",  "T_mean","T_sd","T_N") 
+names(dat_Yang_GCB_2022[[10]])[str_detect(names(dat_Yang_GCB_2022[[10]]), c("p.mean|p.sd|p.n|d.mean|d.sd|d.n"))] <- c("C_mean","C_sd","C_N",  "T_mean","T_sd","T_N") 
+names(dat_Yang_GCB_2022[[11]])[str_detect(names(dat_Yang_GCB_2022[[11]]), c("p.mean|p.sd|p.n|d.mean|d.sd|d.n"))] <- c("C_mean","C_sd","C_N",  "T_mean","T_sd","T_N") 
+names(dat_Yang_GCB_2022[[12]])[str_detect(names(dat_Yang_GCB_2022[[12]]), c("N2O.trt|SD.N2O.trt|N.N2O.trt|N2O.ctr|SD.N2O.ctr|N.N2O.ctr"))] <- c("T_mean","T_sd","T_N","C_mean","C_sd","C_N")
+```
+
+
+## ES computation
+```{r}
+# calculate lnRR
+dat_Yang_GCB_2022_lnRR <- lapply(dat_Yang_GCB_2022, function(df) {
+  escalc(
+    measure = "ROM",
+    m1i = df$T_mean,
+    m2i = df$C_mean,
+    sd1i = df$T_sd,
+    sd2i = df$C_sd,
+    n1i = df$T_N,
+    n2i = df$C_N,
+    data = df
+  )
+})
+
+# calculate SMD
+dat_Yang_GCB_2022_SMD <- lapply(dat_Yang_GCB_2022, function(df) {
+  escalc(
+    measure = "SMD",
+    m1i = df$T_mean,
+    m2i = df$C_mean,
+    sd1i = df$T_sd,
+    sd2i = df$C_sd,
+    n1i = df$T_N,
+    n2i = df$C_N,
+    data = df
+  )
+})
+
+# calculate lnVR - a mediator of the discrepancy between lnRR and SMD
+dat_Yang_GCB_2022_lnVR <- lapply(dat_Yang_GCB_2022, function(df) {
+  escalc(
+    measure = "VR",
+    m1i = df$T_mean,
+    m2i = df$C_mean,
+    sd1i = df$T_sd,
+    sd2i = df$C_sd,
+    n1i = df$T_N,
+    n2i = df$C_N,
+    data = df
+  )
+})
+
+# rename to identities of study and observation to match with dat_Yang_BMCBio_2023
+for (i in 1:length(dat_Yang_GCB_2022_lnRR)) {
+  colnames(dat_Yang_GCB_2022_lnRR[[i]])[colnames(dat_Yang_GCB_2022_lnRR[[i]]) == "Study"] <- "study_ID"
+  colnames(dat_Yang_GCB_2022_lnRR[[i]])[colnames(dat_Yang_GCB_2022_lnRR[[i]]) == "Unit_ID"] <- "obs_ID"
+}
+
+for (i in 1:length(dat_Yang_GCB_2022_SMD)) {
+  colnames(dat_Yang_GCB_2022_SMD[[i]])[colnames(dat_Yang_GCB_2022_SMD[[i]]) == "Study"] <- "study_ID"
+  colnames(dat_Yang_GCB_2022_SMD[[i]])[colnames(dat_Yang_GCB_2022_SMD[[i]]) == "Unit_ID"] <- "obs_ID"
+}
+
+for (i in 1:length(dat_Yang_GCB_2022_lnVR)) {
+  colnames(dat_Yang_GCB_2022_lnVR[[i]])[colnames(dat_Yang_GCB_2022_lnVR[[i]]) == "Study"] <- "study_ID"
+  colnames(dat_Yang_GCB_2022_lnVR[[i]])[colnames(dat_Yang_GCB_2022_lnVR[[i]]) == "Unit_ID"] <- "obs_ID"
+}
+
+# remove NA in study_ID
+for (i in seq_along(dat_Yang_GCB_2022_lnRR)) {
+  dat_Yang_GCB_2022_lnRR[[i]] <- dat_Yang_GCB_2022_lnRR[[i]][
+!is.na(dat_Yang_GCB_2022_lnRR[[i]]$study_ID), 
+    ]
+}
+
+for (i in seq_along(dat_Yang_GCB_2022_SMD)) {
+  dat_Yang_GCB_2022_SMD[[i]] <- dat_Yang_GCB_2022_SMD[[i]][
+!is.na(dat_Yang_GCB_2022_SMD[[i]]$study_ID), 
+    ]
+}
+
+for (i in seq_along(dat_Yang_GCB_2022_lnVR)) {
+  dat_Yang_GCB_2022_lnVR[[i]] <- dat_Yang_GCB_2022_lnVR[[i]][
+!is.na(dat_Yang_GCB_2022_lnVR[[i]]$study_ID), 
+    ]
+}
+```
+
+
+# Senior_Ecology_2016
+## Raw data
+```{r}
+#***************************************************************#
+#                datasets for Senior_Ecology_2016                  #
+#***************************************************************# 
+dat_Senior_Ecology_2016 <- list.files(here("data/Senior_Ecology_2016"), pattern = "*.csv", full.names = TRUE) %>% lapply(read_csv) %>% suppressMessages()
+new_names <- list.files(here("data/Senior_Ecology_2016"), pattern = "*.csv", full.names = F) # extract file names
+new_names <- gsub("\\..*","", new_names) # remove .csv - https://stackoverflow.com/questions/10617702/remove-part-of-string-after
+names(dat_Senior_Ecology_2016) <- new_names
+
+# rename to identities of study and observation to match with dat_Yang_BMCBio_2023
+for (i in 1:length(dat_Senior_Ecology_2016)) {
+  colnames(dat_Senior_Ecology_2016[[i]])[colnames(dat_Senior_Ecology_2016[[i]]) == "study_id"] <- "study_ID"
+}
+# add obs ID
+for (i in 1:length(dat_Senior_Ecology_2016)) {
+  dat_Senior_Ecology_2016[[i]]$obs_ID <- 1:nrow(dat_Senior_Ecology_2016[[i]])
+}
+# remove NA in study_ID
+for (i in seq_along(dat_Senior_Ecology_2016)) {
+  dat_Senior_Ecology_2016[[i]] <- dat_Senior_Ecology_2016[[i]][
+!is.na(dat_Senior_Ecology_2016[[i]]$study_ID), 
+    ]
+}
+```
+
+
+## ES computation
+```{r}
+# calculate lnRR
+dat_Senior_Ecology_2016_lnRR <- lapply(dat_Senior_Ecology_2016, function(df) {
+  escalc(
+    measure = "ROM",
+    m1i = mean_trt,
+    m2i = mean_ctrl,
+    sd1i = SD_trt,
+    sd2i = SD_ctrl,
+    n1i = N_trt,
+    n2i = N_ctrl,
+    data = df
+  )
+})
+
+# calculate SMD
+dat_Senior_Ecology_2016_SMD <- lapply(dat_Senior_Ecology_2016, function(df) {
+  escalc(
+    measure = "SMD",
+    m1i = mean_trt,
+    m2i = mean_ctrl,
+    sd1i = SD_trt,
+    sd2i = SD_ctrl,
+    n1i = N_trt,
+    n2i = N_ctrl,
+    data = df
+  )
+})
+
+# calculate lnVR - a mediator of the discrepancy between lnRR and SMD
+dat_Senior_Ecology_2016_lnVR <- lapply(dat_Senior_Ecology_2016, function(df) {
+  escalc(
+    measure = "VR",
+    m1i = mean_trt,
+    m2i = mean_ctrl,
+    sd1i = SD_trt,
+    sd2i = SD_ctrl,
+    n1i = N_trt,
+    n2i = N_ctrl,
+    data = df
+  )
+})
+
+```
+
+# Save
+
+```{r}
+saveRDS(dat_Yang_BMCBio_2023_lnRR, "dat_Yang_BMCBio_2023_lnRR.rds")
+saveRDS(dat_Yang_BMCBio_2023_SMD, "dat_Yang_BMCBio_2023_SMD.rds")
+saveRDS(dat_Yang_BMCBio_2023_lnVR, "dat_Yang_BMCBio_2023_lnVR.rds")
+saveRDS(dat_Yang_GCB_2022_lnRR, "dat_Yang_GCB_2022_lnRR.rds")
+saveRDS(dat_Yang_GCB_2022_SMD, "dat_Yang_GCB_2022_SMD.rds")
+saveRDS(dat_Yang_GCB_2022_lnVR, "dat_Yang_GCB_2022_lnVR.rds")
+saveRDS(dat_Senior_Ecology_2016_lnRR, "dat_Senior_Ecology_2016_lnRR.rds")
+saveRDS(dat_Senior_Ecology_2016_SMD, "dat_Senior_Ecology_2016_SMD.rds")
+saveRDS(dat_Senior_Ecology_2016_lnVR, "dat_Senior_Ecology_2016_lnVR.rds")
+
+```
+

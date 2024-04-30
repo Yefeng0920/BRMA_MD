@@ -1,0 +1,176 @@
+---
+title: "simulation"
+output: html_document
+date: '2024-01-08'
+---
+
+
+# Data
+
+```{r}
+## datasets
+dat_Yang_BMCBio_2023_lnRR <- readRDS(here("data","dat_Yang_BMCBio_2023_lnRR.rds")) 
+dat_Yang_GCB_2022_lnRR <- readRDS(here("data","dat_Yang_GCB_2022_lnRR.rds")) 
+dat_Senior_Ecology_2016_lnRR <- readRDS(here("data","dat_Senior_Ecology_2016_lnRR.rds"))
+```
+
+# Correlation
+```{r}
+#*-------------------------------------------------------------*#
+#                       Yang_BMCBio_2023                        #
+#*-------------------------------------------------------------*#
+# calculation
+r1 <- lapply(dat_Yang_BMCBio_2023_lnRR, function(df) {
+  selected_vars <- df[c("C_mean", "C_sd")]
+  selected_vars <- selected_vars[complete.cases(log(selected_vars)) & !is.infinite(log(selected_vars$C_mean)) & !is.infinite(log(selected_vars$C_sd)), ] # remove NA, Inf, -Inf values
+  correlation <- cor.test(log(selected_vars$C_mean), log(selected_vars$C_sd))
+  
+  return(correlation)
+})
+
+# extract estimates
+r1_df <- data.frame(
+  ma = names(dat_Yang_BMCBio_2023_lnRR),
+  r = sapply(r1, function(x) x$estimate)
+)
+
+#*-------------------------------------------------------------*#
+#                         Yang_GCB_2022                         #
+#*-------------------------------------------------------------*#
+# calculation
+r2 <- lapply(dat_Yang_GCB_2022_lnRR, function(df) {
+  selected_vars <- df[c("C_mean", "C_sd")]
+  selected_vars <- selected_vars[complete.cases(log(selected_vars)) & !is.infinite(log(selected_vars$C_mean)) & !is.infinite(log(selected_vars$C_sd)), ] # remove NA, Inf, -Inf values
+  correlation <- cor.test(log(selected_vars$C_mean), log(selected_vars$C_sd))
+  
+  return(correlation)
+})
+
+# extract estimates
+r2_df <- data.frame(
+  ma = names(dat_Yang_GCB_2022_lnRR),
+  r = sapply(r2, function(x) x$estimate)
+)
+
+
+#*-------------------------------------------------------------*#
+#                     Senior_Ecology_2016                       #
+#*-------------------------------------------------------------*#
+# calculation
+r3 <- lapply(dat_Senior_Ecology_2016_lnRR, function(df) {
+  selected_vars <- df[c("mean_ctrl", "SD_ctrl")]
+  selected_vars <- selected_vars[complete.cases(log(selected_vars)) & !is.infinite(log(selected_vars$mean_ctrl)) & !is.infinite(log(selected_vars$SD_ctrl)), ] # remove NA, Inf, -Inf values
+  correlation <- cor.test(log(selected_vars$mean_ctrl), log(selected_vars$SD_ctrl))
+  
+  return(correlation)
+})
+
+# extract estimates
+r3_df <- data.frame(
+  ma = names(dat_Senior_Ecology_2016_lnRR),
+  r = sapply(r3, function(x) x$estimate)
+)
+
+
+# combine
+r_df <- rbind(r1_df,r2_df,r3_df)
+
+# visualization
+distribution.r <- ggdensity(r_df, x = "r",
+   add = "median", 
+   rug = TRUE,
+   color = "#56B4E9", 
+   fill = "#56B4E9"
+   ) + 
+  geom_vline(xintercept = quantile(r_df$r, probs = 0.25), linetype = "dashed", color="red") + 
+  geom_vline(xintercept = quantile(r_df$r, probs = 0.5), linetype = "dashed", color="black")+
+  geom_vline(xintercept = quantile(r_df$r, probs = 0.75), linetype = "dashed", color="blue") +
+  labs(x = expression(paste("Mean-variance correlation")), y = "Density", fill = "Effect size measures") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12)) + 
+  scale_x_continuous(limits = c(0.6,1), expand = c(0.003, 0.003))
+```
+
+# Taylor's law parameter
+
+```{r}
+#*-------------------------------------------------------------*#
+#                       Yang_BMCBio_2023                        #
+#*-------------------------------------------------------------*#
+# calculation
+taylor1 <- lapply(dat_Yang_BMCBio_2023_lnRR, function(df) {
+  selected_vars <- df[c("C_mean", "C_sd", "C_n")]
+  selected_vars <- selected_vars[complete.cases(log(selected_vars)) & !is.infinite(log(selected_vars$C_mean)) & !is.infinite(log(selected_vars$C_sd)), ] # remove NA, Inf, -Inf values
+  taylor_lm <- lm(log(selected_vars$C_sd)~log(selected_vars$C_mean),weights = selected_vars$C_n)
+  
+  return(taylor_lm)
+})
+
+# extract estimates
+taylor1_df <- data.frame(
+  ma = names(dat_Yang_BMCBio_2023_lnRR),
+  lna = sapply(taylor1, function(x) summary(x)$coefficients[, "Estimate"][1]),
+  b = sapply(taylor1, function(x) summary(x)$coefficients[, "Estimate"][2]), 
+  lna_SE = sapply(taylor1, function(x) summary(x)$coefficients[, "Std. Error"][1]),
+  b_SE = sapply(taylor1, function(x) summary(x)$coefficients[, "Std. Error"][2])
+)
+
+
+#*-------------------------------------------------------------*#
+#                         Yang_GCB_2022                         #
+#*-------------------------------------------------------------*#
+taylor2 <- lapply(dat_Yang_GCB_2022_lnRR, function(df) {
+  selected_vars <- df[c("C_mean", "C_sd", "C_N")]
+  selected_vars <- selected_vars[complete.cases(log(selected_vars)) & !is.infinite(log(selected_vars$C_mean)) & !is.infinite(log(selected_vars$C_sd)), ] # remove NA, Inf, -Inf values
+  taylor_lm <- lm(log(selected_vars$C_sd)~log(selected_vars$C_mean),weights = selected_vars$C_N)
+  
+  return(taylor_lm)
+})
+
+# extract estimates
+taylor2_df <- data.frame(
+  ma = names(dat_Yang_GCB_2022_lnRR),
+  lna = sapply(taylor2, function(x) summary(x)$coefficients[, "Estimate"][1]),
+  b = sapply(taylor2, function(x) summary(x)$coefficients[, "Estimate"][2]), 
+  lna_SE = sapply(taylor2, function(x) summary(x)$coefficients[, "Std. Error"][1]),
+  b_SE = sapply(taylor2, function(x) summary(x)$coefficients[, "Std. Error"][2])
+)
+
+
+#*-------------------------------------------------------------*#
+#                     Senior_Ecology_2016                       #
+#*-------------------------------------------------------------*#
+taylor3 <- lapply(dat_Senior_Ecology_2016_lnRR, function(df) {
+  selected_vars <- df[c("mean_ctrl", "SD_trt", "N_ctrl")]
+  selected_vars <- selected_vars[complete.cases(log(selected_vars)) & !is.infinite(log(selected_vars$mean_ctrl)) & !is.infinite(log(selected_vars$SD_trt)), ] # remove NA, Inf, -Inf values
+  taylor_lm <- lm(log(selected_vars$SD_trt)~log(selected_vars$mean_ctrl),weights = selected_vars$N_ctrl)
+  
+  return(taylor_lm)
+})
+
+# extract estimates
+taylor3_df <- data.frame(
+  ma = names(dat_Senior_Ecology_2016_lnRR),
+  lna = sapply(taylor3, function(x) summary(x)$coefficients[, "Estimate"][1]),
+  b = sapply(taylor3, function(x) summary(x)$coefficients[, "Estimate"][2]), 
+  lna_SE = sapply(taylor3, function(x) summary(x)$coefficients[, "Std. Error"][1]),
+  b_SE = sapply(taylor3, function(x) summary(x)$coefficients[, "Std. Error"][2])
+)
+
+
+# combine
+taylor_df <- rbind(taylor1_df,taylor2_df,taylor3_df)
+
+# meta-analysis
+lna_mod <- rma(yi = lna, sei = lna_SE, data = taylor_df)
+b_mod <- rma(yi = b, sei = b_SE, data = taylor_df)
+
+# mean a and b
+exp(lna_mod$beta[[1]]) #0.5106748
+b_mod$beta[[1]] #0.8320615
+
+
+```
+
