@@ -1,0 +1,120 @@
+study_id,subsidytype,donor_system,recipient_system,recipient_taxa,trophiclevel,study_type,N_trt,N_ctrl,mean_trt,units,SD_trt,mean_ctrl,units,SD_ctrl,response_var,exclude
+Barrett et al. 2005,marine debris,ocean,islands,Uta stansburiana,predator,descriptive,2,2,9,no. sighted/h,1,25,no. sighted/h,4,abundance,0
+Barrett et al. 2005,marine bird guano,ocean,islands,Uta stansburiana,predator,descriptive,9,9,26,no. sighted/h,8,78,no. sighted/h,20,abundance,0
+Bastow et al. 2002,algal mats,stream,cobble bars,tetrigidae,detritivore,descriptive,3,3,0.0707,no./m2,0.1141,0.2173,no./m2,0.2082,density,0
+Bastow et al. 2002,algal mats,stream,cobble bars,tetrigidae,detritivore,descriptive,3,3,0.0294,no./m2,0.0336,1.075,no./m2,0.6041,density,0
+Bastow et al. 2002,algal mats,stream,cobble bars,tetrigidae,detritivore,descriptive,3,3,0.0191,no./m2,0.0336,1.154,no./m2,0.8693,density,0
+Bastow et al. 2002,algal mats,stream,cobble bars,tetrigidae,detritivore,manipulative,6,6,1.121,no./m2,0.8355,35.96,no./m2,24.4046,density,0
+Bastow et al. 2002,algal mats,stream,cobble bars,acrididae,detritivore,manipulative,3,3,0.02,no./m2,0.0346,0.14,no./m2,0.1386,density,0
+Bastow et al. 2002,algal mats,stream,cobble bars,gelastocoridae,detritivore,manipulative,3,3,0.05,no./m2,0.052,4.1,no./m2,0.1559,density,0
+Baxter et al. 2004,aquatic insects,stream,riparian forest,spiders,predator,manipulative,4,4,0.0252,no./m2,0.0271,0.1452,no./m2,0.04,density,0
+Bomkamp et al. 2004,marine debris,oil platforms,ocean floor,echinoderms,predator,manipulative,3,3,0.5,no./m2,0.4,2.5,no./m2,1,density,0
+Bomkamp et al. 2004,marine debris,oil platforms,ocean floor,mollusks,detritivore,manipulative,3,3,0.1,no./m2,0.2,0.45,no./m2,0.2,density,0
+Bouchard and Bjorndal 2000,marine turtle eggs,ocean,coast,racoons,omnivore,descriptive,2,2,1,percent,,28,percent,,percent of total,1
+Bouchard and Bjorndal 2000,marine turtle eggs,ocean,coast,ghost crabs,omnivore,descriptive,2,2,1,percent,,2.5,percent,,percent of total,1
+Bouchard and Bjorndal 2000,marine turtle eggs,ocean,coast,plants,producer,descriptive,2,2,1,percent,,23,percent,,percent of total,1
+Eggert and Wallace 2003,leaf litter,forest,stream,Pycnopsyche gentilis,detritivore,manipulative,4,4,2,no./m2,,175,no./m2,,abundance,1
+Gende and Willson 2001,salmon,ocean,forest,birds,insectivore,descriptive,7,7,4.21,no./station/day,0.7,5.14,no./station/day,0.7408,density,0
+Gende and Willson 2001,salmon,ocean,forest,Pacific Slope Flycatcher,insectivore,descriptive,7,7,0.29,no./station/day,,0.7,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Townsends Warbler,insectivore,descriptive,7,7,0.45,no./station/day,,0.6,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Golden crowned Kinglet,insectivore,descriptive,7,7,0.43,no./station/day,,0.54,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Chestnut backed Chickadee,insectivore,descriptive,7,7,0.36,no./station/day,,0.42,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Dark-eyed Junco,insectivore,descriptive,7,7,0,no./station/day,,0.03,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Pine Siskin,insectivore,descriptive,7,7,0,no./station/day,,0.03,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Tree Swallow,insectivore,descriptive,7,7,0,no./station/day,,0.01,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Western Tanager,insectivore,descriptive,7,7,0,no./station/day,,0.01,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Varied Thush,insectivore,descriptive,7,7,0.39,no./station/day,,0.4,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,American Robin,insectivore,descriptive,7,7,0.11,no./station/day,,0.1,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Fox Sparrow,insectivore,descriptive,7,7,0.04,no./station/day,,0,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Winter Wren,insectivore,descriptive,7,7,0.63,no./station/day,,0.58,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Ruby crowned Kinglet,insectivore,descriptive,7,7,0.17,no./station/day,,0.13,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Hermit Thush,insectivore,descriptive,7,7,0.3,no./station/day,,0.25,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Swainson's Thush,insectivore,descriptive,7,7,0.07,no./station/day,,0.01,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Orange-crowned Warbler,insectivore,descriptive,7,7,0.12,no./station/day,,0.04,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Yellow Warbler,insectivore,descriptive,7,7,0.08,no./station/day,,0,no./station/day,,density,0
+Gende and Willson 2001,salmon,ocean,forest,Wilson's Warbler,insectivore,descriptive,7,7,0.28,no./station/day,,0.05,no./station/day,,density,0
+Henschel et al. 2001,aquatic insects,stream,riparian forest,horizontal orb weavers,predator,descriptive,9,9,9.2,no./m2,7.1,21.9,no./m2,21.1,density,0
+Henschel et al. 2001,aquatic insects,stream,riparian forest,horizontal orb weavers,predator,descriptive,9,9,10.5,no./m2,8.1,21.9,no./m2,21.1,density,0
+Iwata et al. 2003,aquatic insects,stream,riparian forest,flycatchers,insectivore,descriptive,26,26,0.44,no. ind.,,41.5198,no. ind.,,density,0
+Iwata et al. 2003,aquatic insects,stream,riparian forest,gleaners,insectivore,descriptive,26,26,11.31,no. ind.,,219.9078,no. ind.,,density,0
+Iwata et al. 2003,aquatic insects,stream,riparian forest,bark probers,insectivore,descriptive,26,26,2.43,no. ind.,,17.8934,no. ind.,,density,0
+Johnson et al. 2003,leaf litter,forest,stream,stoneflies,predator,manipulative,2,2,0.9,percent mortalist,0.3,0.55,percent mortality,0.2,mortality,1
+Johnson et al. 2003,leaf litter,forest,stream,stoneflies,predator,manipulative,2,2,0.9,percent mortalist,0.3,0.55,percent mortality,0.2,mortality,1
+Johnson et al. 2003,leaf litter,forest,stream,stoneflies,predator,manipulative,2,2,0.9,percent mortalist,0.3,0.55,percent mortality,0.2,mortality,1
+Johnson et al. 2003,leaf litter,forest,stream,stoneflies,predator,manipulative,2,2,0.9,percent mortalist,0.3,0.55,percent mortality,0.2,mortality,1
+Kato et al. 2003,aquatic insects,stream,riparian forest,horizontal orb weavers,predator,manipulative,6,6,0.25,no./m2,0.098,0.65,no./m2,0.2205,density,0
+Kato et al. 2003,aquatic insects,stream,riparian forest,horizontal orb weavers,predator,manipulative,6,6,0.09,no./m2,0.0735,0.34,no./m2,0.1225,density,0
+Kato et al. 2003,aquatic insects,stream,riparian forest,horizontal orb weavers,predator,manipulative,6,6,0.03,no./m2,0.049,0.1,no./m2,0.1225,density,0
+Kato et al. 2003,aquatic insects,stream,riparian forest,vertical orb weavers,predator,manipulative,6,6,0.31,no./m2,0.0735,0.24,no./m2,0.098,density,0
+Kato et al. 2003,aquatic insects,stream,riparian forest,vertical orb weavers,predator,manipulative,6,6,0.24,no./m2,0.0735,0.24,no./m2,0.0735,density,0
+Kato et al. 2003,aquatic insects,stream,riparian forest,vertical orb weavers,predator,manipulative,6,6,0.06,no./m2,0.049,0.07,no./m2,0.049,density,0
+Kato et al. 2003,aquatic insects,stream,riparian forest,sheet weavers,predator,manipulative,6,6,0.41,no./m2,0.1715,0.52,no./m2,0.2449,density,0
+Kato et al. 2003,aquatic insects,stream,riparian forest,sheet weavers,predator,manipulative,6,6,0.24,no./m2,0.1225,0.33,no./m2,0.147,density,0
+Kato et al. 2003,aquatic insects,stream,riparian forest,sheet weavers,predator,manipulative,6,6,0.11,no./m2,0.098,0.17,no./m2,0.098,density,0
+Kawaguchi and Nakano 2001,terrestrial invertebrates,forest,stream,salmonids,predator,descriptive,2,2,1273,dry mass/100mg/150m2,325.1277,2821,dry mass/100mg/150m2,379.2921,biomass,0
+Kawaguchi and Nakano 2001,terrestrial invertebrates,forest,stream,salmonids,predator,descriptive,2,2,1692,dry mass/100mg/150m3,531.0372,4052,dry mass/100mg/150m3,433.4565,biomass,0
+Kawaguchi and Nakano 2001,terrestrial invertebrates,forest,stream,salmonids,predator,descriptive,2,2,2171,dry mass/100mg/150m4,498.5103,5972,dry mass/100mg/150m4,444.3459,biomass,0
+Kawaguchi and Nakano 2001,terrestrial invertebrates,forest,stream,salmonids,predator,descriptive,2,2,1456,dry mass/100mg/150m5,270.9633,2099,dry mass/100mg/150m5,359.4931,biomass,0
+Kawaguchi et al 2003,terrestrial invertebrates,forest,stream,salmonids,predator,manipulative,4,4,41.7,g dry mass/165 m2,1.5,55.2,g dry mass/165m2,2.9,biomass,0
+Kawaguchi et al 2003,terrestrial invertebrates,forest,stream,salmonids,predator,manipulative,4,4,212.5,g/dry mass/165m2,96,412.5,g/dry mass/165m2,35.18,biomass,0
+Marczak and Richardson 2006,aquatic insects,stream,riparian forest,vertical orb weavers,predator,descriptive,2,2,6.5,no. ind./m2,0.7,13.5,no. ind./m2,2.12,abundance,0
+Marczak and Richardson 2006,aquatic insects,stream,riparian forest,sheet weavers,predator,descriptive,2,2,19,no. ind./m2,5.65,20,no. ind./m2,12.02,abundance,0
+Marczak and Richardson 2006,aquatic insects,stream,riparian forest,horizontal orb weavers,predator,descriptive,2,2,7.5,no. ind./m2,0.7,15,no. ind./m2,9.89,abundance,0
+Marczak and Richardson 2006,aquatic insects,stream,riparian forest,tangle web weavers,predator,descriptive,2,2,11,no. ind./m2,15.5,10,no. ind./m2,11.3,abundance,0
+Marczak unpublished data,aquatic insects,stream,forest,vertical orb weavers,predator,manipulative,16,16,0.00997,no. ind.,0.032,0.0523,no. ind.,0.032,density,0
+Marczak unpublished data,aquatic insects,stream,forest,horizontal orb weavers,predator,manipulative,16,16,0.07,no. ind.,0.0532,0.1228,no. ind.,0.0532,density,0
+Marczak unpublished data,aquatic insects,stream,forest,sheet weavers,predator,manipulative,16,16,0.0589,no. ind.,0.0576,0.109,no. ind.,0.0576,density,0
+Marczak unpublished data,aquatic insects,stream,forest,dwarf sheet weavers,predator,manipulative,16,16,0.0059,no. ind.,0.028,0.0444,no. ind.,0.028,density,0
+Medelssohn and Kuhn 2003,marine debris,ocean,salt marsh,plants,producer,manipulative,5,5,47,% cover,15.65,44,% cover,6.71,percent cover,1
+Medelssohn and Kuhn 2003,marine debris,ocean,salt marsh,plants,producer,manipulative,5,5,47,% cover,15.65,76,% cover,8.94,percent cover,1
+Murakami and Nakano 2002,aquatic insects,stream,riparian forest,Great Tit,insectivore,descriptive,3,3,0.588,visitation rate/hour,0.6495,4.671,visitation rate/hour,1.0685,density,0
+Murakami and Nakano 2002,aquatic insects,stream,riparian forest,Marsh Tit,insectivore,descriptive,3,3,2.078,visitation rate/hour,1.5084,1.588,visitation rate/hour,1.0477,density,0
+Murakami and Nakano 2002,aquatic insects,stream,riparian forest,Crowned Willow Warbler,insectivore,descriptive,3,3,0.1199,visitation rate/hour,0.1152,0.6583,visitation rate/hour,0.3038,density,0
+Nakano et al. 1999,terrestrial invertebrates,forest,stream,dolly varden charr,predator,manipulative,8,8,130,mm,5.6569,132,mm,5.6569,biomass,0
+Polis and Hurd 1995,marine debris,ocean,islands,orb weavers,predator,descriptive,7,7,0.025,no./m2,0.017,0.155,no./m2,0.04,density,0
+Polis and Hurd 1995,marine bird guano,ocean,islands,orb weavers,predator,descriptive,7,7,6.15,no./m3,3.92,25.1,no./m3,2.11,density,0
+Polis and Hurd 1995,marine bird guano,ocean,islands,orb weavers,predator,descriptive,7,7,1.8,no./m3,1.5,14.3,no./m3,1.5,density,0
+Polis and Hurd 1995,marine debris,ocean,islands,insects,detritivore,descriptive,7,7,1.6,mm/trap/h,2.5,175.8,mm/trap/h,2,biomass,0
+Polis and Hurd 1995,marine bird guano,ocean,islands,insects,detritivore,descriptive,7,7,5.46,mm/trap/h,1.45,12.2,mm/trap/h,1.65,density,0
+Polis and Hurd 1995,marine bird guano,ocean,islands,insects,detritivore,descriptive,7,7,4.5,no./day,1.8,12.3,no./day,1,density,0
+Rose and Polis 1998,marine debris,ocean,coast,coyote,omnivore,descriptive,4,4,2.799,tracks/transect/night,1.4242,14.2,tracks/transect/night,2.216,density,0
+Sabo and Power 2002,aquatic insects,stream,cobble bars,Sceloporus_sp.,predator,manipulative,4,4,0.0317,g/day,0.5084,0.2097,g/day,0.22,growth rate,0
+Sabo and Power 2002,aquatic insects,stream,forest,Sceloporus_sp.,predator,manipulative,4,4,2.12,ind/plot,0.12,3.37,ind/plot,1.06,abundance,0
+Sabo and Power 2002a,aquatic insects,stream,cobble bars,Sceloporus_sp.,predator,manipulative,4,4,0.036,g/day,0.0671,0.0219,g/day,0.0178,growth rate,0
+Sanchez-Pinero and Polis 2000,marine carrion,ocean,islands,beetles,detritivore,descriptive,4,4,3,no./trap,4,12.5,no./trap,8,abundance,0
+Sanchez-Pinero and Polis 2000,marine bird guano,ocean,islands,beetles,detritivore,descriptive,17,17,19,no./trap,10,73,no./trap,12,abundance,0
+Stapp and Polis 2003,marine debris,ocean,islands,Peromyscus,omnivore,descriptive,3,3,23.25,proportion of captures,15.7963,49.73,proportion of captures,8.3485,density,0
+Stapp and Polis 2003,marine debris,ocean,islands,Peromyscus,omnivore,descriptive,3,3,68.45,proportion of captures,13.9257,8.87,proportion of captures,8.0194,density,0
+Stapp and Polis 2003a,marine debris,ocean,islands,Peromyscus,omnivore,descriptive,6,6,22.47,proportion of captures,16.0931,57.26,proportion of captures,29.6878,density,0
+Uesugi 2002,aquatic insects,stream,riparian forest,riparian birds,insectivore,descriptive,12,12,0.1,birds/ha/h,1.0392,3.7,birds/ha/h,4.1569,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,upland birds,insectivore,descriptive,12,12,21.6,birds/ha/h,8.6603,21.5,birds/ha/h,9.3531,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Black faced Bunting,insectivore,descriptive,12,12,2,birds/ha/h,0.6928,2,birds/ha/h,0.7967,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Eastern crowned Willow Warbler,insectivore,descriptive,12,12,3.1,birds/ha/h,0.6928,2.9,birds/ha/h,0.6928,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Great Tit,insectivore,descriptive,12,12,2.4,birds/ha/h,0.6928,2.6,birds/ha/h,1.0392,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Nuthatch,insectivore,descriptive,12,12,0.6,birds/ha/h,1.2124,1.2,birds/ha/h,1.0392,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Japanese Grey Thush,insectivore,descriptive,12,12,2,birds/ha/h,1.7321,2.7,birds/ha/h,1.7321,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Marsh Tit,insectivore,descriptive,12,12,0.6,birds/ha/h,1.7321,0.5,birds/ha/h,1.7321,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Treecreeper,insectivore,descriptive,12,12,0.9,birds/ha/h,2.0785,0.9,birds/ha/h,1.7321,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Short-tailed Bush Warbler,insectivore,descriptive,12,12,0.9,birds/ha/h,1.3856,1,birds/ha/h,1.3856,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Coal Tit,insectivore,descriptive,12,12,1.55,birds/ha/h,3.4641,1.56,birds/ha/h,3.4641,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Great spotted Woodpecker,insectivore,descriptive,12,12,0.3,birds/ha/h,0.6928,0.6,birds/ha/h,2.0785,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Long tailed Tit,insectivore,descriptive,12,12,0.5,birds/ha/h,1.3856,0.6,birds/ha/h,1.0392,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Japanese Pygmy Woodpecker,insectivore,descriptive,12,12,0.9,birds/ha/h,1.7321,1.4,birds/ha/h,2.0785,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Varied Tit,insectivore,descriptive,12,12,0.3,birds/ha/h,1.3856,0.5,birds/ha/h,1.3856,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Narcissus Flycatcher,insectivore,descriptive,12,12,3.1,birds/ha/h,3.1177,2.9,birds/ha/h,3.1177,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Brown Flycatcher,insectivore,descriptive,12,12,0.1,birds/ha/h,0.6928,1.3,birds/ha/h,2.7713,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Blue and White Flycatcher,insectivore,descriptive,12,12,0,birds/ha/h,0,0.4,birds/ha/h,0.866,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Pale legged Willow Warbler,insectivore,descriptive,12,12,0,birds/ha/h,0,1.2,birds/ha/h,2.4249,abundance,0
+Uesugi 2002,aquatic insects,stream,riparian forest,Olive backed Tree Pipit,insectivore,descriptive,12,12,0,birds/ha/h,0,0.65,birds/ha/h,2.2517,abundance,0
+Wallace et al. 1997,detritus,ocean,coastal shelf,Mytilus galloprovincialis,detritivore,descriptive,6,6,23,g/m2,61.2372,478,g/m2,244.949,biomass,0
+Wallace et al. 1997,leaf litter,forest,stream,scraper,detritivore,manipulative,2,2,367,no./m2,314,562,no./m2,469,abundance,0
+Wallace et al. 1997,leaf litter,forest,stream,shedders,detritivore,manipulative,2,2,554,no./m2,431,954,no./m2,588,abundance,0
+Wallace et al. 1997,leaf litter,forest,stream,gatherers,detritivore,manipulative,2,2,18019,no./m2,9874,30940,no./m2,14431,abundance,0
+Wallace et al. 1997,leaf litter,forest,stream,filterers,detritivore,manipulative,2,2,188,no./m2,233,323,no./m2,546,abundance,0
+Wallace et al. 1997,leaf litter,forest,stream,consumers,consumer,manipulative,2,2,19128,no./m2,10237,32779,no./m2,14927,abundance,0
+Wallace et al. 1997,leaf litter,forest,stream,predators,predator,manipulative,2,2,2883,no./m2,2121,4892,no./m2,2486,abundance,0
+Wallace et al. 1997,leaf litter,forest,stream,salamander,predator,manipulative,2,2,1,no./m2,2,4,no./m2,6,abundance,0
+Wallace et al. 1999,leaf litter,forest,stream,shedders,detritivore,manipulative,2,2,554,no./m2,431,954,no./m2,588,density,0
+Wallace et al. 1999,leaf litter,forest,stream,gatherers,detritivore,manipulative,2,2,18019,no./m2,9874,30940,no./m2,14431,density,0
+Wipfli et al. 1999,salmon,ocean,stream,invertebrates,omnivore,manipulative,6,6,18.53,no./100cm2,2.23,64.84,no./100cm2,11.51,abundance,0
+Wipfli et al. 1999,salmon,ocean,stream,invertebrates,omnivore,manipulative,6,6,140.53,no./100cm2,32.65,402.9,no./100cm2,119,abundance,0

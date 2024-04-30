@@ -1,0 +1,18 @@
+study_id,mean_ctrl,SD_ctrl,mean_trt,SD_trt,N_ctrl,N_trt,Latitude,Longitude,Elevation(m),MAT(oC),MAP(mm),Duration(Month),Increased magnitude,Vegetation types,,References
+1,4.95,0.06,3.18,0.1,3,3,31.58,102.58,3000,,600-1100,14,0.3,Forest,Woody,Responses of seed germination and seedling growth of Picea Asperata to climate warming and enhanced UV-B radiation
+2,14.83,1.99,14.08,2.78,4,4,34.92,102.88,2900,2,550,2.67,0.18,Grassland,herbaceous ,Effects of enhanced UV-B radiation on fitness of an alpine species Cerastium glomeratum Thuill
+3,18.36,0.15,16.46,1.13,3,3,31.7,103.9,1826,8.9,920,6,0.3,Forest,Woody,Effects of enhanced UV-B radiation on growth and photosynthetic responses of four species of seedlings in subalpine forests of the eastern Tibet plateau
+4,9.83,1.45,7.9,1.08,3,3,31.7,103.9,1826,8.9,920,6,0.3,Forest,Woody,
+5,65.4,5.63,59.3,4.16,3,3,31.7,103.9,1826,8.9,920,6,0.3,Forest,Woody,
+6,62.67,5.27,59.63,5.36,3,3,31.7,103.9,1826,8.9,920,6,0.3,Forest,Woody,
+7,63.3,4.86,58.6,3.38,3,3,29.27,88.85,3840,NA,NA,NA,NA,Crop,herbaceous ,Intraspecific responses of Fagopyrum esculentum to enhanced ultraviolet B radiation
+8,63.3,4.86,47,3.21,3,3,29.27,88.85,3840,NA,NA,NA,NA,Crop,herbaceous ,
+9,16.91,2.58,13.14,2.49,3,3,34.47,103.1,2924,NA,NA,1.33,0.18,Grassland,herbaceous ,Changes of endogenous hormones in the stress-response of alpine plant Vicia unijuga A.Br. to enhanced UV-B radiation
+10,14.29,2.97,11.53,2.29,4,4,34.92,102.88,2900,2,550,2.67,0.18,Grassland,herbaceous ,Effects of UV-B radiation on six annual species on Qinghai-Tibet Plateau
+11,6.14,2.27,5.41,2.75,4,4,34.92,102.88,2900,2,550,2.67,0.18,Grassland,herbaceous ,
+12,15.41,8.1,8.82,6.9,4,4,34.92,102.88,2900,2,550,2.67,0.18,Grassland,herbaceous ,
+13,3.47,0.82,3.26,0.34,4,4,34.92,102.88,2900,2,550,2.67,0.18,Grassland,herbaceous ,
+14,13.91,4.31,11.56,3.64,4,4,34.92,102.88,2900,2,550,2.67,0.18,Grassland,herbaceous ,
+15,3.8,0.9,3.44,0.74,4,4,34.92,102.88,2900,2,550,2.67,0.18,Grassland,herbaceous ,
+16,85.2,6.69,78.8,7.52,3,3,33.27,104.23,1800,NA,522,6,NA,Shrub,Woody,Ecophysioloical responses of sea buckthorn (Hippophae rhamnoides L.) to low temperature and enhanced  UV-B radiation
+17,61.6,9.7,50.4,3.34,3,3,33.27,104.23,1800,NA,522,6,NA,Shrub,Woody,

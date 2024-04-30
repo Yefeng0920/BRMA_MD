@@ -1,0 +1,214 @@
+﻿obs_ID,study_ID,year_pub,T_mean,C_mean,T_sd,C_sd,T_n,C_n
+obs001,Day et al. 2003 a,2003,1.08,0.88,0.25,0.28,8,8
+obs002,Day et al. 2003 a,2003,1.19,0.88,0.21,0.28,8,8
+obs003,Day et al. 2003 a,2003,1.18,0.88,0.14,0.28,8,8
+obs004,Day et al. 2003 b,2003,2,0.8,0.11,0.11,5,5
+obs005,Day et al. 2003 b,2003,3.17,2.94,0.61,0.69,5,5
+obs006,Day et al. 2003 b,2003,7.16,7.53,1.83,0.99,5,5
+obs007,Day et al. 2003 b,2003,1.81,0.8,0.19,0.11,5,5
+obs008,Day et al. 2003 b,2003,3.77,2.94,0.77,0.69,5,5
+obs009,Day et al. 2003 b,2003,7.19,7.53,2.14,0.99,5,5
+obs010,Dong et al. 2015,2015,7.96,8.77,0.64,1.16,5,5
+obs011,Dong et al. 2015,2015,7.73,8.77,1.03,1.16,5,5
+obs012,Garcia-Palacios et al. 2011,2011,834.25,718.23,314.92,331.49,9,9
+obs013,Garcia-Palacios et al. 2011,2011,662.98,828.73,414.37,381.22,9,9
+obs014,Garcia-Palacios et al. 2011,2011,839.78,651.93,364.64,348.07,9,9
+obs015,Garcia-Palacios et al. 2011,2011,828.73,635.36,381.22,215.47,9,9
+obs016,Garcia-Palacios et al. 2011,2011,812.16,651.93,513.81,530.39,9,9
+obs017,Garcia-Palacios et al. 2011,2011,662.98,767.96,430.94,381.22,9,9
+obs018,Garcia-Palacios et al. 2011,2011,801.11,475.14,232.04,232.04,9,9
+obs019,Garcia-Palacios et al. 2011,2011,872.93,513.81,364.64,265.19,9,9
+obs020,Garcia-Palacios et al. 2014,2014,438.6,416.79,123.39,123.39,8,8
+obs021,Garcia-Palacios et al. 2014,2014,557.36,487.08,95.97,267.34,8,8
+obs022,Garcia-Palacios et al. 2014,2014,528.28,523.43,116.53,116.53,8,8
+obs023,Garcia-Palacios et al. 2014,2014,482.23,651.88,171.37,89.11,8,8
+obs024,Gazol et al. 2013,2013,0.06,0.04,0.01,0.01,10,10
+obs025,Gazol et al. 2013,2013,0.06,0.04,0.01,0.01,10,10
+obs026,Maestre & Reynolds 2006 AoB,2006,1.05,0.61,0.23,0.1,4,4
+obs027,Maestre & Reynolds 2006 AoB,2006,2.7,1.38,0.26,0.4,4,4
+obs028,Maestre & Reynolds 2006 AoB,2006,1.18,0.66,0.07,0.13,4,4
+obs029,Maestre & Reynolds 2006 AoB,2006,3.93,1.23,0.99,0.43,4,4
+obs030,Maestre & Reynolds 2006 AoB,2006,1.17,0.64,0.13,0.23,4,4
+obs031,Maestre & Reynolds 2006 AoB,2006,2.89,1.51,0.79,0.23,4,4
+obs032,Maestre & Reynolds 2006 AoB,2006,1.17,0.57,0.46,0.2,4,4
+obs033,Maestre & Reynolds 2006 AoB,2006,3.12,1.28,1.28,0.33,4,4
+obs034,Maestre & Reynolds 2006 AoB,2006,1.53,1.17,0.1,0.36,4,4
+obs035,Maestre & Reynolds 2006 AoB,2006,3.44,2.01,0.43,0.1,4,4
+obs036,Maestre & Reynolds 2006 AoB,2006,1.86,1.53,0.33,0.2,4,4
+obs037,Maestre & Reynolds 2006 AoB,2006,3.24,2.45,0.43,0.39,4,4
+obs038,Maestre & Reynolds 2006 GCB,2006,356.57,289.4,73.27,42.74,4,4
+obs039,Maestre & Reynolds 2006 GCB,2006,356.57,243.61,36.64,36.64,4,4
+obs040,Maestre & Reynolds 2006 GCB,2006,304.67,234.45,67.17,30.53,4,4
+obs041,Maestre & Reynolds 2006 GCB,2006,356.57,319.94,48.85,36.64,4,4
+obs042,Maestre & Reynolds 2006 GCB,2006,658.83,475.64,85.49,85.49,4,4
+obs043,Maestre & Reynolds 2006 GCB,2006,591.66,408.48,73.27,30.53,4,4
+obs044,Maestre & Reynolds 2006 GCB,2006,616.09,454.27,73.28,18.32,4,4
+obs045,Maestre & Reynolds 2006 GCB,2006,722.94,567.24,128.23,18.32,4,4
+obs046,Maestre & Reynolds 2006 GCB,2006,368.78,316.88,42.74,61.06,4,4
+obs047,Maestre & Reynolds 2006 GCB,2006,408.48,304.67,54.96,12.21,4,4
+obs048,Maestre & Reynolds 2006 GCB,2006,344.36,280.24,61.06,61.06,4,4
+obs049,Maestre & Reynolds 2006 GCB,2006,423.74,310.78,73.27,12.21,4,4
+obs050,Maestre & Reynolds 2006 GCB,2006,848.12,631.35,73.27,12.21,4,4
+obs051,Maestre & Reynolds 2006 GCB,2006,842.02,600.82,79.38,18.32,4,4
+obs052,Maestre & Reynolds 2006 GCB,2006,726,509.23,30.53,54.96,4,4
+obs053,Maestre & Reynolds 2006 GCB,2006,875.6,616.09,146.55,24.42,4,4
+obs054,Maestre & Reynolds 2007 Eco,2007,335.49,272.06,38.06,19.03,4,4
+obs055,Maestre & Reynolds 2007 Eco,2007,440.16,272.06,31.72,31.72,4,4
+obs056,Maestre & Reynolds 2007 Eco,2007,440.16,313.29,50.75,31.72,4,4
+obs057,Maestre & Reynolds 2007 Eco,2007,586.06,497.25,57.09,31.72,4,4
+obs058,Maestre & Reynolds 2007 Eco,2007,674.86,620.94,57.09,44.4,4,4
+obs059,Maestre & Reynolds 2007 Eco,2007,785.87,643.15,38.06,44.4,4,4
+obs060,Maestre & Reynolds 2007 Eco,2007,620.94,509.93,82.46,50.75,4,4
+obs061,Maestre & Reynolds 2007 Eco,2007,893.71,703.41,88.81,38.06,4,4
+obs062,Maestre & Reynolds 2007 Eco,2007,966.66,865.16,145.9,50.75,4,4
+obs063,Maestre & Reynolds 2007 Eco,2007,373.55,316.46,50.75,50.75,4,4
+obs064,Maestre & Reynolds 2007 Eco,2007,532.14,364.04,82.46,44.4,4,4
+obs065,Maestre & Reynolds 2007 Eco,2007,538.48,421.13,57.09,19.03,4,4
+obs066,Maestre & Reynolds 2007 Eco,2007,560.68,449.67,63.43,19.03,4,4
+obs067,Maestre & Reynolds 2007 Eco,2007,712.92,551.17,44.4,63.43,4,4
+obs068,Maestre & Reynolds 2007 Eco,2007,839.79,655.83,57.09,50.75,4,4
+obs069,Maestre & Reynolds 2007 Eco,2007,551.17,449.67,76.12,44.4,4,4
+obs070,Maestre & Reynolds 2007 Eco,2007,674.86,617.77,57.09,76.12,4,4
+obs071,Maestre & Reynolds 2007 Eco,2007,947.63,744.64,158.58,63.43,4,4
+obs072,Maestre & Reynolds 2007 Oec,2007,216.43,150.56,42.05,22.42,4,4
+obs073,Maestre & Reynolds 2007 Oec,2007,280.9,167.38,50.45,14.01,4,4
+obs074,Maestre & Reynolds 2007 Oec,2007,230.45,158.97,28.03,30.83,4,4
+obs075,Maestre & Reynolds 2007 Oec,2007,370.6,289.31,30.83,64.47,4,4
+obs076,Maestre & Reynolds 2007 Oec,2007,243.06,149.16,92.5,39.24,4,4
+obs077,Maestre & Reynolds 2007 Oec,2007,446.28,377.61,42.05,33.64,4,4
+obs078,Maestre & Reynolds 2007 Oec,2007,372,363.59,47.65,33.64,4,4
+obs079,Maestre & Reynolds 2007 Oec,2007,419.65,329.96,25.23,36.44,4,4
+obs080,Maestre & Reynolds 2007 Oec,2007,226.25,144.96,25.23,36.44,4,4
+obs081,Maestre & Reynolds 2007 Oec,2007,376.21,315.94,5.61,22.42,4,4
+obs082,Maestre & Reynolds 2007 Oec,2007,223.44,135.15,22.42,42.05,4,4
+obs083,Maestre & Reynolds 2007 Oec,2007,412.64,341.17,64.47,42.04,4,4
+obs084,Maestre & Reynolds 2007 Oec,2007,362.19,293.52,67.27,61.67,4,4
+obs085,Maestre & Reynolds 2007 Oec,2007,377.61,321.55,19.62,56.06,4,4
+obs086,Maestre et al. 2005 NP,2005,4.19,3.52,0.44,0.39,6,6
+obs087,Maestre et al. 2005 NP,2005,4.35,3.66,0.29,0.44,6,6
+obs088,Maestre et al. 2005 NP,2005,5.16,4.27,0.29,0.73,6,6
+obs089,Maestre et al. 2005 NP,2005,3.95,3.99,0.58,0.44,6,6
+obs090,Maestre et al. 2005 NP,2005,4.98,4.49,1.11,0.68,6,6
+obs091,Maestre et al. 2005 NP,2005,5.79,5.42,0.58,0.77,6,6
+obs092,Maestre et al. 2006 JVS,2006,0.99,0.31,0.6,0.29,6,6
+obs093,Maestre et al. 2006 JVS,2006,1.59,0.23,0.77,0.11,6,6
+obs094,Maestre et al. 2006 JVS,2006,0.05,0.04,0.03,0.03,6,6
+obs095,Maestre et al. 2006 JVS,2006,0.67,0.21,0.32,0.13,6,6
+obs096,Maestre et al. 2006 JVS,2006,1.09,0.17,0.92,0.12,6,6
+obs097,Maestre et al. 2006 JVS,2006,0.45,0.14,0.49,0.14,6,6
+obs098,Maestre et al. 2006 JVS,2006,0.89,0.24,0.85,0.23,6,6
+obs099,Maestre et al. 2007 PS,2007,1.7,1.21,0.35,0.3,4,4
+obs100,Maestre et al. 2007 PS,2007,4.43,2.73,0.29,0.89,4,4
+obs101,Maestre et al. 2007 PS,2007,2.22,1.33,0.34,0.2,4,4
+obs102,Maestre et al. 2007 PS,2007,5.32,2.41,1.13,0.74,4,4
+obs103,Maestre et al. 2007 PS,2007,1.82,1.28,0.25,0.34,4,4
+obs104,Maestre et al. 2007 PS,2007,4.33,2.86,0.59,0.34,4,4
+obs105,Maestre et al. 2007 PS,2007,1.95,1.21,0.74,0.3,4,4
+obs106,Maestre et al. 2007 PS,2007,4.7,2.51,0.94,0.49,4,4
+obs107,Maestre et al. 2007 PS,2007,2.88,2.27,0.35,0.49,4,4
+obs108,Maestre et al. 2007 PS,2007,5.66,4.24,0.44,0.25,4,4
+obs109,Maestre et al. 2007 PS,2007,3.52,2.98,0.25,0.29,4,4
+obs110,Maestre et al. 2007 PS,2007,6.08,4.92,0.49,0.59,4,4
+obs111,Wijesinghe et al. 2005,2005,199.45,177.84,48.85,65.14,24,24
+obs112,Wijesinghe et al. 2005,2005,201.11,177.84,48.85,65.14,24,24
+obs113,Wijesinghe et al. 2005,2005,212.74,177.84,40.71,65.14,24,24
+obs114,Wijesinghe et al. 2005,2005,201.11,177.84,48.85,65.14,24,24
+obs115,Xi et al. 2015,2015,440.22,418.48,150,78.26,6,6
+obs116,Xi et al. 2015,2015,476.09,444.57,97.83,104.35,6,6
+obs117,Xi et al. 2015,2015,547.83,554.35,143.48,153.26,6,6
+obs118,Zhou et al. 2012,2012,0.78,0.55,0.15,0.26,8,8
+obs119,Zhou et al. 2012,2012,0.61,0.39,0.16,0.19,8,8
+obs120,Zhou et al. 2012,2012,0.42,0.35,0.14,0.14,8,8
+obs121,Zhou et al. 2012,2012,0.27,0.21,0.09,0.07,8,8
+obs122,Day et al. 2003 a,2003,0.41,0.26,0.25,0.28,8,8
+obs123,Day et al. 2003 a,2003,0.44,0.26,0.21,0.28,8,8
+obs124,Day et al. 2003 a,2003,0.45,0.26,0.14,0.28,8,8
+obs125,Day et al. 2003 b,2003,0.87,0.39,0.2,0.08,5,5
+obs126,Day et al. 2003 b,2003,1.37,1.7,0.12,0.36,5,5
+obs127,Day et al. 2003 b,2003,1.56,2.22,0.32,0.4,5,5
+obs128,Day et al. 2003 b,2003,0.85,0.39,0.28,0.08,5,5
+obs129,Day et al. 2003 b,2003,1.45,1.7,0.28,0.36,5,5
+obs130,Day et al. 2003 b,2003,1.61,2.22,0.28,0.4,5,5
+obs131,Dong et al. 2015,2015,0.56,0.62,0.13,0.15,5,5
+obs132,Dong et al. 2015,2015,0.53,0.62,0.09,0.15,5,5
+obs133,Garcia-Palacios et al. 2011,2011,766.48,510.99,519.23,247.25,9,9
+obs134,Garcia-Palacios et al. 2011,2011,1293.96,667.58,543.96,271.98,9,9
+obs135,Garcia-Palacios et al. 2011,2011,445.06,395.6,148.35,49.45,9,9
+obs136,Garcia-Palacios et al. 2011,2011,609.89,585.17,222.53,197.8,9,9
+obs137,Garcia-Palacios et al. 2011,2011,494.51,692.31,148.35,568.68,9,9
+obs138,Garcia-Palacios et al. 2011,2011,535.71,791.21,173.08,222.53,9,9
+obs139,Garcia-Palacios et al. 2011,2011,626.37,527.47,346.15,346.15,9,9
+obs140,Garcia-Palacios et al. 2011,2011,725.28,667.58,222.53,197.8,9,9
+obs141,Garcia-Palacios et al. 2014,2014,429.68,505.85,206.82,224.06,8,8
+obs142,Garcia-Palacios et al. 2014,2014,563.74,408.35,137.88,284.38,8,8
+obs143,Garcia-Palacios et al. 2014,2014,652.09,676.47,180.97,336.09,8,8
+obs144,Garcia-Palacios et al. 2014,2014,377.88,585.07,146.5,249.91,8,8
+obs145,Gazol et al. 2013,2013,0.02,0.02,0,0.01,10,10
+obs146,Gazol et al. 2013,2013,0.03,0.02,0.01,0.01,10,10
+obs147,Maestre & Reynolds 2006 GCB,2006,587.54,515.56,50.81,42.34,4,4
+obs148,Maestre & Reynolds 2006 GCB,2006,566.37,418.17,42.34,50.81,4,4
+obs149,Maestre & Reynolds 2006 GCB,2006,553.67,494.39,33.88,101.63,4,4
+obs150,Maestre & Reynolds 2006 GCB,2006,744.22,515.56,93.16,101.62,4,4
+obs151,Maestre & Reynolds 2006 GCB,2006,1044.86,752.68,152.44,50.81,4,4
+obs152,Maestre & Reynolds 2006 GCB,2006,964.4,828.9,186.31,177.84,4,4
+obs153,Maestre & Reynolds 2006 GCB,2006,968.64,828.9,101.62,93.16,4,4
+obs154,Maestre & Reynolds 2006 GCB,2006,1040.62,977.11,50.81,93.16,4,4
+obs155,Maestre & Reynolds 2006 GCB,2006,570.61,460.51,93.16,143.97,4,4
+obs156,Maestre & Reynolds 2006 GCB,2006,553.67,481.68,84.69,93.16,4,4
+obs157,Maestre & Reynolds 2006 GCB,2006,549.43,468.98,42.34,101.63,4,4
+obs158,Maestre & Reynolds 2006 GCB,2006,663.76,549.43,177.84,186.31,4,4
+obs159,Maestre & Reynolds 2006 GCB,2006,1205.76,1010.98,203.25,169.38,4,4
+obs160,Maestre & Reynolds 2006 GCB,2006,1184.59,917.83,220.19,245.6,4,4
+obs161,Maestre & Reynolds 2006 GCB,2006,1188.83,955.94,67.75,152.44,4,4
+obs162,Maestre & Reynolds 2006 GCB,2006,1252.34,955.94,194.78,135.5,4,4
+obs163,Maestre & Reynolds 2007 Eco,2007,354.12,275.2,31.57,25.25,4,4
+obs164,Maestre & Reynolds 2007 Eco,2007,398.31,300.46,31.57,31.57,4,4
+obs165,Maestre & Reynolds 2007 Eco,2007,467.76,319.4,56.82,12.63,4,4
+obs166,Maestre & Reynolds 2007 Eco,2007,511.95,496.17,44.19,50.51,4,4
+obs167,Maestre & Reynolds 2007 Eco,2007,647.69,575.09,31.57,31.57,4,4
+obs168,Maestre & Reynolds 2007 Eco,2007,657.16,606.65,107.33,69.45,4,4
+obs169,Maestre & Reynolds 2007 Eco,2007,543.52,451.98,44.19,56.82,4,4
+obs170,Maestre & Reynolds 2007 Eco,2007,840.25,669.79,119.95,63.13,4,4
+obs171,Maestre & Reynolds 2007 Eco,2007,960.2,837.09,132.58,94.7,4,4
+obs172,Maestre & Reynolds 2007 Eco,2007,373.06,341.49,56.82,31.57,4,4
+obs173,Maestre & Reynolds 2007 Eco,2007,395.16,347.81,37.88,82.07,4,4
+obs174,Maestre & Reynolds 2007 Eco,2007,433.04,357.28,50.51,50.51,4,4
+obs175,Maestre & Reynolds 2007 Eco,2007,527.74,448.82,50.51,63.13,4,4
+obs176,Maestre & Reynolds 2007 Eco,2007,685.57,524.58,44.19,56.82,4,4
+obs177,Maestre & Reynolds 2007 Eco,2007,707.67,609.81,151.52,138.89,4,4
+obs178,Maestre & Reynolds 2007 Eco,2007,480.39,420.41,75.76,50.51,4,4
+obs179,Maestre & Reynolds 2007 Eco,2007,672.94,597.18,56.82,56.82,4,4
+obs180,Maestre & Reynolds 2007 Eco,2007,821.31,666.63,94.7,126.27,4,4
+obs181,Maestre & Reynolds 2007 Oec,2007,360.5,215.54,89.98,44.99,4,4
+obs182,Maestre & Reynolds 2007 Oec,2007,412.98,225.53,79.98,59.98,4,4
+obs183,Maestre & Reynolds 2007 Oec,2007,532.95,405.49,194.95,74.98,4,4
+obs184,Maestre & Reynolds 2007 Oec,2007,655.42,555.45,94.97,149.96,4,4
+obs185,Maestre & Reynolds 2007 Oec,2007,670.42,390.49,264.93,64.98,4,4
+obs186,Maestre & Reynolds 2007 Oec,2007,695.41,585.44,64.98,129.97,4,4
+obs187,Maestre & Reynolds 2007 Oec,2007,617.93,530.45,169.96,84.98,4,4
+obs188,Maestre & Reynolds 2007 Oec,2007,577.94,552.95,69.98,34.99,4,4
+obs189,Maestre & Reynolds 2007 Oec,2007,477.97,305.51,54.99,34.99,4,4
+obs190,Maestre & Reynolds 2007 Oec,2007,570.44,487.96,54.99,94.97,4,4
+obs191,Maestre & Reynolds 2007 Oec,2007,460.47,310.51,69.98,59.99,4,4
+obs192,Maestre & Reynolds 2007 Oec,2007,652.92,627.93,89.98,154.96,4,4
+obs193,Maestre & Reynolds 2007 Oec,2007,580.44,510.46,44.99,104.97,4,4
+obs194,Maestre & Reynolds 2007 Oec,2007,565.44,457.97,74.98,144.96,4,4
+obs195,Maestre et al. 2005 NP,2005,6.31,5.96,0.65,0.51,6,6
+obs196,Maestre et al. 2005 NP,2005,7.55,6.29,0.79,0.5,6,6
+obs197,Maestre et al. 2005 NP,2005,8.47,7.61,0.58,0.72,6,6
+obs198,Maestre et al. 2005 NP,2005,6.55,6.43,1.01,0.51,6,6
+obs199,Maestre et al. 2005 NP,2005,6.64,6.08,1.08,1.16,6,6
+obs200,Maestre et al. 2005 NP,2005,8.94,7.52,2.38,0.94,6,6
+obs201,Maestre et al. 2006 JVS,2006,1.05,0.42,0.18,0.33,6,6
+obs202,Maestre et al. 2006 JVS,2006,2.02,0.46,0.89,0.24,6,6
+obs203,Maestre et al. 2006 JVS,2006,0.05,0.09,0.05,0.07,6,6
+obs204,Maestre et al. 2006 JVS,2006,1.24,0.32,0.68,0.22,6,6
+obs205,Maestre et al. 2006 JVS,2006,1.45,0.21,1.03,0.13,6,6
+obs206,Maestre et al. 2006 JVS,2006,0.56,0.12,0.59,0.16,6,6
+obs207,Maestre et al. 2006 JVS,2006,0.98,0.34,0.96,0.43,6,6
+obs208,Wijesinghe et al. 2005,2005,194.46,157.9,57,65.14,24,24
+obs209,Wijesinghe et al. 2005,2005,199.45,157.9,89.57,65.14,24,24
+obs210,Wijesinghe et al. 2005,2005,272.58,157.9,162.85,65.14,24,24
+obs211,Wijesinghe et al. 2005,2005,244.32,157.9,113.99,65.14,24,24
+obs212,Zhou et al. 2012,2012,1.35,0.9,0.35,0.35,8,8
+obs213,Zhou et al. 2012,2012,0.7,0.53,0.22,0.22,8,8

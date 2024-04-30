@@ -1,0 +1,113 @@
+study_id,Species,Family,Form,biome,type,Trait,trichome,Damage,Herbivore,Ontogeny,N_ctrl,mean_ctrl,SD_ctrl,N_trt,mean_trt,SD_trt,lnR,Var(lnR)
+Abdala-Roberts and Parra-Table (2005),Cnidoscolusaconitifolius,Euphorbiaceae,shrub,tropic,physical,trichomes,nonglandular,mechanical,na,mature,24,1.14,0.489897949,24,1.47,0.783836718,0.254234138,0.019541591
+Agrawal (1999),Raphanussativus,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,herbivore,insect,juvenile,12,26,16.70771023,12,37.68,19.92926219,0.371032912,0.057723677
+Agrawal (2000),Lepidiumvirginicum,Brassicaceae,annual,temperate,chemistry,chemistry,na,herbivore,insect,juvenile,9,21.33,7.176,9,29.78,8.439,0.333722495,0.021498518
+Agrawal (2000),Lepidiumvirginicum,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,herbivore,insect,juvenile,12,25.26315789,4.375707303,12,41.26315789,8.751414607,0.490622917,0.006248438
+Barton (2014),Argemoneglauca,Papaveraceae,perennial,tropic,physical,prickles,na,mechanical,na,juvenile,20,30.93,15.80005633,23,28.66,12.95450011,-0.076224164,0.021930534
+Baur et al. (1991),Alnusincana,Betulaceae,tree,temperate,physical,trichomes,nonglandular,herbivore,insect,juvenile,11,0.364583333,0.340277778,12,2.591385646,0.250117776,1.961192862,0.079968245
+Bazely et al. (1991),Rubusfruticosus,Rosaceae,shrub,temperate,physical,prickles,na,mechanical,na,juvenile,6,3.64,1.258103681,6,7.94,2.97369961,0.779929594,0.043288056
+Bjorkman et al. (2008),Salixcinerea,Salicaceae,shrub,boreal,physical,trichomes,nonglandular,herbivore,insect,juvenile,48,3.972862327,4.102357237,48,8.280581455,9.377092613,0.734426366,0.048929714
+Bjorkman et al. (2008),Salixcinerea,Salicaceae,shrub,boreal,physical,trichomes,nonglandular,mechanical,na,juvenile,48,3.972862327,4.102357237,48,4.715516415,6.450334332,0.171371612,0.061195638
+Boughton et al. (2005),Lycopersiconesculentum,Solanaceae,annual,temperate,physical,trichomes,glandular,jasmonate,na,juvenile,9,1.1,0.6,9,9.4,2.7,2.145399509,0.042224895
+Bryant et al. (1993),Betulaneoalaskana,Betulaceae,tree,boreal,chemistry,chemistry,na,mechanical,na,juvenile,10,1.240094673,0.327267542,10,4.700461765,0.841925104,1.332473026,0.010172833
+Bryant et al. (1993),Betulaneoalaskana,Betulaceae,tree,boreal,nutrients,nutrients,na,mechanical,na,juvenile,10,3.034749035,0.330933915,10,1.827983634,0.141594522,-0.506915211,0.001789147
+Bryant et al. (1993),Betulaneoalaskana,Betulaceae,tree,boreal,physical,toughness,na,mechanical,na,juvenile,10,5.316692758,0.615443472,10,5.798126827,0.41530302,0.086683457,0.001853008
+Cooper et al. (2003),Prosopisglandulosa,Fabaceae,shrub,temperate,physical,prickles,na,mechanical,na,juvenile,15,0.21,0.1161895,15,0.27,0.077459667,0.251314428,0.025895132
+Cooper et al. (2003),Senegaliaberlandieri,Fabaceae,shrub,temperate,physical,spines,na,mechanical,na,juvenile,15,0.43,0.464758002,15,0.76,0.348568501,0.569533225,0.091903481
+Cooper et al. (2003),Senegaliagreggii,Fabaceae,shrub,temperate,physical,spines,na,mechanical,na,juvenile,15,0.65,0.503487835,15,0.75,0.193649167,0.143100844,0.044444444
+Cooper et al. (2003),Vachelliaschaffneri,Fabaceae,shrub,temperate,physical,prickles,na,mechanical,na,juvenile,15,1.08,0.735866836,15,1.14,0.387298335,0.054067221,0.038644607
+Dalin and Bjorkman (2003),Salixcinerea,Salicaceae,shrub,boreal,physical,trichomes,nonglandular,herbivore,insect,juvenile,17,3.256944444,2.10450183,17,5.493055556,3.50750305,0.5226952,0.048543903
+Dalin and Bjorkman (2003),Salixcinerea,Salicaceae,shrub,boreal,physical,trichomes,nonglandular,mechanical,na,juvenile,17,3.256944444,2.10450183,17,4.423611111,2.906216813,0.306166887,0.049949481
+Dalin et al. (2004),Salixviminalis,Salicaceae,shrub,boreal,physical,trichomes,nonglandular,herbivore,insect,juvenile,20,9.92,3.922318636,20,13.02,5.558694172,0.271933715,0.016930538
+Frederickson et al. (2013),Cordianodosa,Boraginaceae,tree,tropic,chemistry,chemistry,na,herbivore,insect,juvenile,11,0.716638889,0.193958474,11,0.738739899,0.221789296,0.030373823,0.014853409
+Frederickson et al. (2013),Cordianodosa,Boraginaceae,tree,tropic,physical,toughness,na,herbivore,insect,juvenile,11,0.491093366,0.077087351,12,0.527308559,0.083196433,0.071151614,0.004314415
+Frederickson et al. (2013),Cordianodosa,Boraginaceae,tree,tropic,physical,trichomes,nonglandular,herbivore,insect,juvenile,11,12.43813268,4.917077029,13,18.72698545,6.441977164,0.409198586,0.023309751
+Gibson et al. (1993),Rubusvestitus,Rosaceae,shrub,temperate,physical,prickles,na,mechanical,na,juvenile,12,20.90711363,2.940449566,12,22.11819551,2.716084966,0.05631113,0.002905009
+Gomez and Zamora (2002),Hormathophyllaspinosa,Brassicaceae,shrub,temperate,physical,thorns,na,herbivore,mammal,mature,20,25,12.48037941,20,42.79,10.40031617,0.537428606,0.015414572
+Gonzales et al. (2008),Madiasativa,Asteraceae,annual,temperate,physical,trichomes,glandular,mechanical,na,mature,35,3.620469083,1.438023657,35,4.452025586,1.438023657,0.206755582,0.007488394
+Gonzales et al. (2008),Madiasativa,Asteraceae,annual,temperate,physical,trichomes,nonglandular,mechanical,na,mature,35,2.36,1.330483458,35,2.69,1.013236852,0.130879575,0.013134537
+Gowda (1997),Vachelliatortilis,Fabaceae,tree,tropic,chemistry,chemistry,na,mechanical,na,juvenile,12,1.18,0.554256258,12,1.19,0.519615242,0.008438869,0.03427423
+Gowda (1997),Vachelliatortilis,Fabaceae,tree,tropic,nutrients,nutrients,na,mechanical,na,juvenile,12,2.98,0.796743371,12,3.12,0.623538291,0.045909701,0.009285341
+Gowda (1997),Vachelliatortilis,Fabaceae,tree,tropic,physical,spines,na,mechanical,na,juvenile,12,8.2,37.06588728,12,17.5,33.60178567,0.758066727,2.009939375
+Hattori et al. (2004),Quercusdentata,Fagaceae,tree,temperate,physical,toughness,na,mechanical,na,mature,5,6.66,0.68084567,5,7.03,0.670226474,0.054067221,0.003908026
+Hattori et al. (2004),Quercusmongolica,Fagaceae,tree,temperate,physical,toughness,na,mechanical,na,mature,5,5.63,0.809848169,5,6.26,0.622467505,0.106070743,0.006115777
+Herrera and Bazaga (2013),Ilexaquifolium,Aquifoliaceae,shrub,temperate,physical,prickles,na,herbivore,mammal,mature,13,19.2,9.013878189,27,76.2,21.30422493,1.378451184,0.019849271
+Hoan et al. (2014),Argemoneglauca,Papaveraceae,perennial,tropic,physical,prickles,na,jasmonate,na,juvenile,9,8.99,4.524,8,13.679,7.32845468,0.419748962,0.064015184
+Hoan et al. (2014),Argemoneglauca,Papaveraceae,perennial,tropic,physical,toughness,na,jasmonate,na,juvenile,9,0.004339,0.000438,8,0.00393,0.000420304,-0.099004481,0.002561932
+Hoan et al. (2014),Argemonemexicana,Papaveraceae,perennial,tropic,physical,prickles,na,jasmonate,na,juvenile,7,0.3567,0.270131209,9,0.603,0.348,0.525022104,0.118937221
+Hoan et al. (2014),Argemonemexicana,Papaveraceae,perennial,tropic,physical,toughness,na,jasmonate,na,juvenile,7,0.0028356,0.001576868,9,0.003883,0.0015186,0.314354496,0.061172203
+Holeski (2007),Mimulusguttatus,Phrymaceae,annual,temperate,physical,trichomes,glandular,mechanical,na,juvenile,7,1.697127937,0.362668261,7,2.291122715,0.224508923,0.300104592,0.007895411
+Kariyat et al. (2013),Solanumcarolinense,Solanaceae,perennial,temperate,physical,spines,na,herbivore,insect,unknown,36,10.34313725,2.941176471,36,15.6372549,4.117647059,0.41333297,0.004172213
+Kariyat et al. (2013),Solanumcarolinense,Solanaceae,perennial,temperate,physical,spines,na,mechanical,na,unknown,36,10.34313725,2.941176471,36,11.12745098,2.647058824,0.073091884,0.003818061
+Kariyat et al. (2013),Solanumcarolinense,Solanaceae,perennial,temperate,physical,trichomes,nonglandular,herbivore,insect,unknown,36,102.0408163,25.51020408,36,203.2312925,56.12244898,0.688971809,0.003854421
+Kariyat et al. (2013),Solanumcarolinense,Solanaceae,perennial,temperate,physical,trichomes,nonglandular,mechanical,na,unknown,36,102.0408163,25.51020408,36,148.9667719,56.33775442,0.378350381,0.005709104
+Kjaer et al. (2012),Artemesiaannua,Asteraceae,annual,temperate,physical,trichomes,glandular,jasmonate,na,mature,9,37.05435147,8.819654363,9,32.57216425,10.42322788,-0.128927727,0.017672877
+Kjaer et al. (2012),Artemesiaannua,Asteraceae,annual,temperate,physical,trichomes,glandular,mechanical,na,mature,9,37.05435147,8.819654363,9,32.08500268,8.819278467,-0.143997079,0.014689779
+Kobayashi et al. (2010),Chlorisgayana,Poaceae,grass,temperate,physical,prickles,na,jasmonate,na,juvenile,9,12.28021978,8.159340659,9,22.58241758,15.08241758,0.6091818,0.098614954
+Kobayashi et al. (2010),Chlorisgayana,Poaceae,grass,temperate,physical,trichomes,nonglandular,jasmonate,na,juvenile,9,23.50746269,5.373134328,9,86.41791045,18.13432836,1.301877019,0.010697737
+Kudo (1996),Quercusmongolica,Fagaceae,tree,temperate,nutrients,nutrients,na,mechanical,na,unknown,12,2.06322515,0.220913092,6,1.574105937,0.174441836,-0.270582913,0.003002195
+Kudo (1996),Quercusmongolica,Fagaceae,tree,temperate,physical,toughness,na,mechanical,na,unknown,48,7.133167945,0.139978762,24,8.298586572,0.171066845,0.15132976,2.57E-05
+Liu et al. (2009),Artemesiaannua,Asteraceae,annual,temperate,chemistry,chemistry,na,jasmonate,na,unknown,7,3.65,0.13,7,6.18,0.29,0.526591104,0.000495791
+Liu et al. (2009),Artemesiaannua,Asteraceae,annual,temperate,physical,trichomes,glandular,jasmonate,na,unknown,7,41.7,1.9,7,86.6,3.7,0.730798687,0.000557354
+Liu et al. (2010),Schimasuperba,Theaceae,tree,subtropic,chemistry,chemistry,na,mechanical,na,juvenile,15,48.01526718,9.362173483,15,53.1043257,7.883935565,0.100739362,0.004003948
+Liu et al. (2010),Schimasuperba,Theaceae,tree,subtropic,nutrients,nutrients,na,mechanical,na,juvenile,15,2,0.134409448,15,1.93,0.144365703,-0.035627178,0.00067411
+Liu et al. (2010),Schimasuperba,Theaceae,tree,subtropic,nutrients,nutrients,na,mechanical,na,juvenile,15,61.47651458,8.711798998,15,52.74878075,11.49957468,-0.153114567,0.004507224
+Liu et al. (2010),Schimasuperba,Theaceae,tree,subtropic,physical,toughness,na,mechanical,na,juvenile,15,576.6497462,149.4145859,15,698.4771574,220.1899161,0.191667419,0.011101001
+Maes et al. (2008),Arabidopsisthaliana,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,jasmonate,na,juvenile,6,0.431219512,0.023897461,6,0.692682927,0.076471875,0.473955089,0.002543208
+Maes et al. (2011),Artemesiaannua,Asteraceae,annual,temperate,chemistry,chemistry,na,jasmonate,na,juvenile,2,240.84,222.1277847,2,1434.55,281.3618606,1.784473678,0.444556653
+Maes et al. (2011),Artemesiaannua,Asteraceae,annual,temperate,physical,trichomes,glandular,jasmonate,na,juvenile,6,11.84036442,5.090066966,6,50.87666826,7.831308152,1.457890027,0.034749991
+Maes et al. (2011),Artemesiaannua,Asteraceae,annual,temperate,physical,trichomes,nonglandular,jasmonate,na,juvenile,6,1.453586045,2.743130068,6,30.90161993,19.57260373,3.05677497,0.660416392
+Mathur et al. (2011),Brassicajuncea,Brassicaceae,annual,temperate,chemistry,chemistry,na,herbivore,insect,juvenile,10,50.7,15.36866943,10,82.87,25.93067681,0.491347204,0.018979889
+Mathur et al. (2011),Brassicajuncea,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,herbivore,insect,juvenile,10,15.1,6.957010852,10,20.8,3.16227766,0.320258243,0.02353853
+Mathur et al. (2013),Brassicajuncea,Brassicaceae,annual,temperate,chemistry,chemistry,na,herbivore,insect,juvenile,10,26.42424242,11.49919149,10,68.36363636,19.93193192,0.950559189,0.027438378
+Mathur et al. (2013),Brassicajuncea,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,herbivore,insect,juvenile,10,10.3057554,2.149893805,10,17.25539568,1.672139626,0.515422372,0.005290918
+Midgley and Ward (1996),Vachelliakarroo,Fabaceae,tree,subtropic,physical,thorns,na,herbivore,mammal,unknown,15,19.7,11,15,25.3,13.5,0.25018576,0.039767262
+Midgley and Ward (1996),Ziziphusmucronata,Rhamnaceae,tree,subtropic,physical,thorns,na,herbivore,mammal,unknown,15,6.9,2.6,15,7.9,1.6,0.135341348,0.012200403
+Milewski and Madden (2006),Balanitesglabra,Zygophyllaceae,tree,tropic,physical,thorns,na,herbivore,mammal,unknown,960,10.47694781,135.19665,960,3.135077932,55.20484076,-1.206523365,0.49644471
+Milewski and Madden (2006),Vachelliadrepanolobium,Fabaceae,tree,tropic,physical,thorns,na,herbivore,mammal,unknown,1850,1.192334245,29.70657001,1850,2.650016882,31.29142904,0.798653074,0.410901655
+Milewski and Madden (2006),Vachelliaseyal,Fabaceae,tree,tropic,physical,thorns,na,herbivore,mammal,unknown,2680,2.271304821,52.71387423,2680,4.238398315,82.80448467,0.623830965,0.343404748
+Milewski et al. (1991),Vachelliaxanthophloea,Fabaceae,tree,tropic,physical,thorns,na,herbivore,mammal,unknown,4,0.819240078,0.740865957,2,4.965231088,0.688009003,1.801837942,0.214054788
+Mizumachi et al. (2012),Quercusserrata,Fagaceae,tree,temperate,chemistry,chemistry,na,herbivore,insect,juvenile,3,108.2408612,10.00466928,3,127.1846271,13.34359155,0.161280847,0.006516811
+Mizumachi et al. (2012),Quercusserrata,Fagaceae,tree,temperate,nutrients,nutrients,na,herbivore,insect,juvenile,3,15.75137987,0.500549275,3,15.65687159,0.500549275,-0.006018072,0.000677309
+Mizumachi et al. (2012),Quercusserrata,Fagaceae,tree,temperate,physical,toughness,na,herbivore,insect,juvenile,51,4.91,0.49989999,21,6.19,0.916515139,0.231661145,0.001247199
+Mutikainen et al. (1994),Urticadioica,Urticaceae,perennial,boreal,physical,trichomes,glandular,mechanical,na,mature,11,63.95032148,20.28404798,11,77.06462345,29.65427195,0.18653778,0.022606825
+Mutikainen et al. (1995),Urticadioica,Urticaceae,perennial,boreal,physical,trichomes,glandular,mechanical,na,mature,20,3.2,1.341640786,20,3.6,2.236067977,0.117783036,0.028079186
+Mutikainen et al. (1995),Urticadioica,Urticaceae,perennial,boreal,physical,trichomes,glandular,mechanical,na,mature,20,66.1,14.31083506,20,83.5,25.93838854,0.233677885,0.007168514
+Mutikainen et al. (1995),Urticaurens,Urticaceae,annual,boreal,physical,trichomes,glandular,mechanical,na,mature,20,24.4,7.155417528,20,21.9,6.708203932,-0.108096495,0.008991231
+Obeso (1997),Ilexaquifolium,Aquifoliaceae,shrub,temperate,nutrients,nutrients,na,herbivore,mammal,unknown,12,0.57,0.024,12,0.55,0.022,-0.035718083,0.000281071
+Obeso (1997),Ilexaquifolium,Aquifoliaceae,shrub,temperate,physical,prickles,na,herbivore,mammal,unknown,12,605,95.8,12,683.3,153.8,0.121705544,0.00631139
+Pullin and Gilbert (1989),Urticadioica,Urticaceae,perennial,temperate,physical,trichomes,glandular,mechanical,na,unknown,3,12.78,4.738269726,3,20.9,3.431792535,0.49186771,0.054807438
+Rautio et al. (2002),Betulapubescens,Betulaceae,tree,boreal,physical,trichomes,glandular,mechanical,na,juvenile,20,11.83,12.47063301,20,1.38,0.817064972,-2.148555179,0.073089658
+Rautio et al. (2002),Betulapubescens,Betulaceae,tree,boreal,physical,trichomes,nonglandular,mechanical,na,juvenile,20,5.190471022,10.18049182,20,70.36303451,45.80614616,2.606843599,0.213540668
+Rohner and Ward (1997),Vachelliaraddiana,Fabaceae,tree,temperate,chemistry,chemistry,na,herbivore,mammal,mixed,40,46.32,37.87499258,40,58.99,42.86122973,0.241794105,0.029913195
+Rohner and Ward (1997),Vachelliaraddiana,Fabaceae,tree,temperate,physical,thorns,na,herbivore,mammal,mixed,40,7.67,2.474375397,40,7.073667434,2.383178458,-0.080937538,0.005439522
+Rohner and Ward (1997),Vachelliatortilis,Fabaceae,tree,temperate,chemistry,chemistry,na,herbivore,mammal,mixed,40,32.61,17.26725169,40,35.78,14.70045794,0.092770088,0.011229548
+Rohner and Ward (1997),Vachelliatortilis,Fabaceae,tree,temperate,physical,thorns,na,herbivore,mammal,mixed,40,8.02,4.296357067,40,6.34,4.055790445,-0.235059653,0.017405375
+Rowe et al. (2012),Helianthusannuus,Asteraceae,annual,temperate,physical,trichomes,glandular,jasmonate,na,juvenile,6,169.64,44.12,6,124.43,50.11,-0.309935236,0.038303697
+Schultz and Baldwin (1982),Quercusrubra,Fagaceae,tree,temperate,chemistry,chemistry,na,herbivore,insect,juvenile,9,3.4,0.6,10,16.24,3.478505426,1.563701903,0.008048101
+Schultz and Baldwin (1982),Quercusrubra,Fagaceae,tree,temperate,nutrients,nutrients,na,herbivore,insect,juvenile,9,57.3,2.7,10,63.2,24.03331022,0.098003677,0.014707527
+Schultz and Baldwin (1982),Quercusrubra,Fagaceae,tree,temperate,physical,toughness,na,herbivore,insect,juvenile,9,268.7,128.4,10,275.23,250.7686185,0.024011596,0.108386522
+Sletvold et al. (2010),Arabidopsislyrata,Brassicaceae,perennial,boreal,physical,trichomes,nonglandular,herbivore,insect,juvenile,342,0.71,2.219189041,352,0.68,2.251399565,-0.043172172,0.059707629
+Takada et al. (2001),Damnacanthusindicus,Rubiaceae,shrub,temperate,physical,spines,na,herbivore,mammal,unknown,40,11.48485865,4.00793692,40,12.8398036,5.815173154,0.111520473,0.008172608
+Travers-Martin and Muller (2008),Sinapisalba,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,herbivore,insect,juvenile,5,51.99,40.0256168,5,159.49,69.6535175,1.120929832,0.156686427
+Traw (2002),Brassicanigra,Brassicaceae,annual,temperate,chemistry,chemistry,na,herbivore,insect,juvenile,373,19.5,15.06430217,371,23.1,18.68351948,0.169418152,0.003363273
+Traw (2002),Brassicanigra,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,herbivore,insect,juvenile,373,70.4,50.21434058,371,97.3,57.78408085,0.323605726,0.002314601
+Traw and Bergelson (2003),Arabidopsisthaliana,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,jasmonate,na,juvenile,2,103.8604548,58.3759657,2,165.9545581,88.72308932,0.468665787,0.300867345
+Traw and Bergelson (2003),Arabidopsisthaliana,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,mechanical,na,juvenile,3,139.9778516,87.03388993,3,215.7253599,107.3564449,0.432521909,0.211418514
+Traw and Dawson (2002),Brassicanigra,Brassicaceae,annual,temperate,chemistry,chemistry,na,herbivore,insect,juvenile,11,2.659370617,2.952477237,11,3.776911281,2.763383068,0.35081707,0.160717707
+Traw and Dawson (2002),Brassicanigra,Brassicaceae,annual,temperate,nutrients,nutrients,na,herbivore,insect,juvenile,8,3.114917869,0.566794816,8,3.448904917,0.43184367,0.10185398,0.006098494
+Traw and Dawson (2002),Brassicanigra,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,herbivore,insect,juvenile,11,91.89,31.37347775,11,163.51,76.19273167,0.576281941,0.030337259
+Traw and Dawson (2002),Brassicanigra,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,herbivore,insect,juvenile,11,63.51,40.33732853,11,97.3,85.15658246,0.426601615,0.10630571
+Traw and Dawson (2002),Brassicanigra,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,herbivore,insect,juvenile,11,63.51,44.81925392,11,133.78,98.60235863,0.744999286,0.094659871
+Valkama et al. (2005),Betulapendulaa,Betulaceae,tree,boreal,physical,trichomes,glandular,mechanical,na,mature,5,809.0820796,57.97262521,5,914.6795901,49.01966627,0.122673459,0.001601236
+White (1988),Araliaspinosa,Araliaceae,tree,temperate,physical,prickles,na,mechanical,na,unknown,75,19.6,36.4,50,43.6,37.4,0.799527584,0.060702748
+White (1988),Araliaspinosa,Araliaceae,tree,temperate,physical,prickles,na,mechanical,na,unknown,75,3.9,1.5,50,7.7,1.7,0.680243776,0.002947256
+Wright and Bonser (1999),Phaseoluscoccineus,Fabaceae,annual,temperate,physical,trichomes,nonglandular,mechanical,na,unknown,30,72.2,54.00544417,30,88.2,98.97346614,0.200166917,0.060623907
+Yoshida et al. (2009),Arabidopsisthaliana,Brassicaceae,annual,temperate,physical,trichomes,nonglandular,jasmonate,na,juvenile,12,124.65,12.09077018,12,160.06,22.45428748,0.250038935,0.002424077
+Young (1987),Vachelliadrepanolobium,Fabaceae,tree,tropic,physical,thorns,na,herbivore,mammal,mature,35,1.09,1.302545975,44,2,1.601779018,0.606969484,0.05537828
+Young and Okello (1998),Vachelliadrepanolobium,Fabaceae,tree,tropic,physical,thorns,na,herbivore,mammal,mature,3,1.59,0.143470612,3,1.98,0.172670668,0.219362828,0.005249047
+Young et al. (2003),Vachelliadrepanolobium,Fabaceae,tree,tropic,physical,thorns,na,mechanical,na,mature,23,1.06,0.717486606,23,2.1,1.35994518,0.683668437,0.038153706
+Zhang et al. (2006),Caraganamicrophylla,Fabaceae,shrub,temperate,physical,spines,na,herbivore,mammal,unknown,6,0.4,0.133898812,6,0.67,0.158254511,0.515813165,0.027974396
+Zhang et al. (2006),Caraganamicrophylla,Fabaceae,shrub,temperate,physical,spines,na,herbivore,mammal,unknown,6,7.92,1.077405363,6,14.85,1.69395148,0.628608659,0.005252992
+Zinn et al. (2007),Acaciasieberiana,Fabaceae,tree,subtropic,chemistry,chemistry,na,herbivore,mammal,unknown,20,17.74,8.005123359,20,15.71,10.86729037,-0.121524525,0.03410665
+Zinn et al. (2007),Acaciasieberiana,Fabaceae,tree,subtropic,physical,spines,na,herbivore,mammal,unknown,20,0.82,0.491934955,20,1.93,1.341640786,0.855970942,0.042156963

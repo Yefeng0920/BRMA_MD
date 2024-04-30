@@ -1,0 +1,388 @@
+Species,study_id,T_ style,Control Day T (mean),Control Night T (mean),Control Whole-day T (mean),Increased Day T (mean),Increased Night T (mean),Increased Whole-day T (mean),_Day T,_Night T,_Whole-day T,T Position,Facility,Exposed time(d),Other Treatment,pot or field,Latitude,Longitude,Elevation(m),mean_ctrl,mean_trt,SD_ctrl,SD_trt,Sc,Se,N_ctrl,N_trt,Unit
+NA,Campbell et al. 2007,day/night,NA,NA,7,NA,NA,21,NA,NA,14,air,NA,10 days,NA,pot,NA,NA,NA,0.5676,1.1459,0.272270729,0.43958361,0.0703,0.1135,15,15,mmol m-2 s-1
+NA,Campbell et al. 2007,day/night,NA,NA,7,NA,NA,21,NA,NA,14,air,NA,1 month,NA,pot,NA,NA,NA,0.9676,1.2811,0.690940229,0.795510779,0.1784,0.2054,15,15,mmol m-2 s-1
+Abies faxoniana,Yin2008,day/night,NA,NA,11.52,NA,NA,NA,NA,NA,0.51,air,open-top chamber,18 months,NA,field,31?35_N,102?35_E,3110,0.27,0.29,0.09486833,0.09486833,0.03,0.03,10,10,_mol m-2 s-1
+Abies faxoniana,Yin2008,day/night,NA,NA,10.92,NA,NA,NA,NA,NA,0.69,air,open-top chamber,18 months,light,field,31?35_N,102?35_E,3110,0.92,0.96,0.284604989,0.316227766,0.09,0.1,10,10,_mol m-2 s-1
+Acacia aneura,Loveys 2002,day/night,NA,NA,23,NA,NA,28,NA,NA,5,air,growth cabinet,14days,NA,pot,NA,NA,NA,15.2,15.68,2.56,0.96,1.28,0.48,4,4,nmol g-1 s-1
+Acacia melanoxylon,Loveys 2002,day/night,NA,NA,18,NA,NA,23,NA,NA,5,air,growth cabinet,14days,NA,pot,NA,NA,NA,16.16,27.04,2.88,1.92,1.44,0.96,4,4,nmol g-1 s-1
+Acacia melanoxylon,Loveys 2002,day/night,NA,NA,18,NA,NA,28,NA,NA,10,air,growth cabinet,14days,NA,pot,NA,NA,NA,16.16,34.08,2.88,6.08,1.44,3.04,4,4,nmol g-1 s-1
+Acer rubrum,Bauerle 2007,day/night,NA,NA,25,NA,NA,33,NA,NA,8,air,Chamber,NA,NA,field,NA,NA,NA,2.8,4.3,0.2,0.4,0.1,0.2,4,4,_mol m-2 s-1
+Acer rubrum,Bauerle 2007,day/night,NA,NA,25,NA,NA,33,NA,NA,8,air,Chamber,NA,NA,field,NA,NA,NA,2.9,4.6,0.2,0.4,0.1,0.2,4,4,_mol m-2 s-1
+Acer rubrum,Bauerle 2007,day/night,NA,NA,25,NA,NA,38,NA,NA,13,air,Chamber,NA,NA,field,NA,NA,NA,2.8,5.4,0.2,0.4,0.1,0.2,4,4,_mol m-2 s-1
+Acer rubrum,Bauerle 2007,day/night,NA,NA,25,NA,NA,38,NA,NA,13,air,Chamber,NA,NA,field,NA,NA,NA,2.9,5.6,0.2,0.4,0.1,0.2,4,4,_mol m-2 s-1
+Achillea millefolium,Loveys 2003,day/night,NA,NA,15,NA,NA,25,NA,NA,10,air,"phytotron, growth cabinet",<0.5,NA,pot,NA,NA,NA,44.4,84.1,33.3,38.7,11.1,12.9,9,9,nmol g-1 s-1
+Achillea ptarmica,Loveys 2003,day/night,NA,NA,15,NA,NA,25,NA,NA,10,air,"phytotron, growth cabinet",<0.5,NA,pot,NA,NA,NA,50.4,79.3,38.7,44.1,12.9,14.7,9,9,nmol g-1 s-1
+Agropyron cristatum,Wan 2009,day,NA,NA,18.9,NA,NA,NA,1.04,0.61,0.82,soil at 10cm,infrared indiator,2 years,NA,field,42?02_N,116?17_E,1324,0.4375,0.3443,0.109247243,0.059522601,0.0446,0.0243,6,6,g C m-2 d-1
+Agropyron cristatum,Wan 2009,day,NA,NA,18.9,NA,NA,NA,1.04,0.61,0.82,soil at 10cm,infrared indiator,2 years,NA,field,42?02_N,116?17_E,1324,0.6319,0.6522,0.069565509,0.039681734,0.0284,0.0162,6,6,g C m-2 d-1
+Agropyron cristatum,Wan 2009,day,NA,NA,18.9,NA,NA,NA,1.04,0.61,0.82,soil at 10cm,infrared indiator,2 years,NA,field,42?02_N,116?17_E,1324,0.3929,0.3686,0.049724642,0.099204335,0.0203,0.0405,6,6,g C m-2 d-1
+Agropyron cristatum,Wan 2009,day,NA,NA,18.9,NA,NA,NA,1.04,0.61,0.82,soil at 10cm,infrared indiator,3 years,NA,field,42?02_N,116?17_E,1324,1.0491,0.9397,0.25793127,0.267974178,0.1053,0.1094,6,6,g C m-2 d-1
+Agropyron cristatum,Wan 2009,night,NA,NA,18.9,NA,NA,NA,1.03,0.87,0.95,soil at 10cm,infrared indiator,2 years,NA,field,42?02_N,116?17_E,1324,0.4375,0.6238,0.109247243,0.089406376,0.0446,0.0365,6,6,g C m-2 d-1
+Agropyron cristatum,Wan 2009,night,NA,NA,18.9,NA,NA,NA,1.03,0.87,0.95,soil at 10cm,infrared indiator,2 years,NA,field,42?02_N,116?17_E,1324,0.6319,1.1747,0.069565509,0.297613004,0.0284,0.1215,6,6,g C m-2 d-1
+Agropyron cristatum,Wan 2009,night,NA,NA,18.9,NA,NA,NA,1.03,0.87,0.95,soil at 10cm,infrared indiator,2 years,NA,field,42?02_N,116?17_E,1324,0.3929,0.5306,0.049724642,0.069565509,0.0203,0.0284,6,6,g C m-2 d-1
+Agropyron cristatum,Wan 2009,night,NA,NA,18.9,NA,NA,NA,1.03,0.87,0.95,soil at 10cm,infrared indiator,3 years,NA,field,42?02_N,116?17_E,1324,1.0491,1.3327,0.25793127,0.228292444,0.1053,0.0932,6,6,g C m-2 d-1
+Agropyron cristatum,Wan 2009,day/night,NA,NA,18.9,NA,NA,NA,NA,NA,NA,air,infrared indiator,2 years,NA,field,42?02_N,116?17_E,1324,0.4375,0.4901,0.109247243,0.089406376,0.0446,0.0365,6,6,g C m-2 d-1
+Agropyron cristatum,Wan 2009,day/night,NA,NA,18.9,NA,NA,NA,NA,NA,NA,air,infrared indiator,2 years,NA,field,42?02_N,116?17_E,1324,0.6319,0.7494,0.069565509,0.198408669,0.0284,0.081,6,6,g C m-2 d-1
+Agropyron cristatum,Wan 2009,day/night,NA,NA,18.9,NA,NA,NA,NA,NA,NA,air,infrared indiator,2 years,NA,field,42?02_N,116?17_E,1324,0.3929,0.5468,0.049724642,0.069565509,0.0203,0.0284,6,6,g C m-2 d-1
+Agropyron cristatum,Wan 2009,day/night,NA,NA,18.9,NA,NA,NA,NA,NA,NA,air,infrared indiator,3 years,NA,field,42?02_N,116?17_E,1324,1.0491,1.122,0.25793127,0.228292444,0.1053,0.0932,6,6,g C m-2 d-1
+Agrostis scabra,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.03,NA,pot,NA,NA,NA,1.4885,1.584,1.373918797,0.687081873,0.5609,0.2805,6,6,mmol g-1 d-1
+Agrostis scabra,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.23,NA,pot,NA,NA,NA,2.2137,2.0706,2.06100067,2.11831873,0.8414,0.8648,6,6,mmol g-1 d-1
+Agrostis scabra,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.47,NA,pot,NA,NA,NA,1.8607,2.1374,2.06100067,1.488554917,0.8414,0.6077,6,6,mmol g-1 d-1
+Agrostis scabra,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.7,NA,pot,NA,NA,NA,1.7271,1.9179,0.860750696,1.660264148,0.3514,0.6778,6,6,mmol g-1 d-1
+Agrostis stolonifera,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.03,NA,pot,NA,NA,NA,1.4885,1.7175,0.801473044,1.202209566,0.3272,0.4908,6,6,mmol g-1 d-1
+Agrostis stolonifera,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.23,NA,pot,NA,NA,NA,2.0992,2.4045,2.576373311,1.259527626,1.0518,0.5142,6,6,mmol g-1 d-1
+Agrostis stolonifera,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.47,NA,pot,NA,NA,NA,2.0419,2.1851,2.00368261,1.316845686,0.818,0.5376,6,6,mmol g-1 d-1
+Agrostis stolonifera,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.7,NA,pot,NA,NA,NA,2.0133,2.061,1.602946088,1.431236857,0.6544,0.5843,6,6,mmol g-1 d-1
+Agrotis,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.03,NA,pot,NA,NA,NA,1.4272,1.7816,0.689531363,0.632213303,0.2815,0.2581,6,6,mmol g-1 d-1
+Agrotis,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.23,NA,pot,NA,NA,NA,2.0785,2.4139,2.183965055,1.494188743,0.8916,0.61,6,6,mmol g-1 d-1
+Agrotis,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.47,NA,pot,NA,NA,NA,2.0115,2.3946,1.953957968,1.036134161,0.7977,0.423,6,6,mmol g-1 d-1
+Agrotis,Rachmilevitch 2006,day/night,NA,NA,20,NA,NA,37,NA,NA,7,air,water bath,0.7,NA,pot,NA,NA,NA,1.8678,2.0498,1.036134161,0.689531363,0.423,0.2815,6,6,mmol g-1 d-1
+Amaranthus hypochondriacus,Bunce 2007,day/night,NA,NA,20,NA,NA,NA,NA,NA,5,air,"chamber, metal halied lamp",0.6,NA,pot,NA,NA,NA,1.1458,1.9375,0.4166,0.25,0.2083,0.125,4,4,_mol m-2 s-1
+Amaranthus hypochondriacus,Bunce 2007,day/night,NA,NA,20,NA,NA,NA,NA,NA,5,air,"chamber, metal halied lamp",0.6,NA,pot,NA,NA,NA,1.1667,1.5,0.25,0.5,0.125,0.25,4,4,_mol m-2 s-1
+Amaranthus hypochondriacus,Bunce 2007,day/night,NA,NA,20,NA,NA,NA,NA,NA,10,air,"chamber, metal halied lamp",0.6,NA,pot,NA,NA,NA,1.1458,3.1041,0.4166,0.3334,0.2083,0.1667,4,4,_mol m-2 s-1
+Amaranthus hypochondriacus,Bunce 2007,day/night,NA,NA,20,NA,NA,NA,NA,NA,10,air,"chamber, metal halied lamp",0.6,NA,pot,NA,NA,NA,1.1667,1.9167,0.25,0.6666,0.125,0.3333,4,4,_mol m-2 s-1
+Amaranthus hypochondriacus,Bunce 2007,day/night,NA,NA,20,NA,NA,NA,NA,NA,15,air,"chamber, metal halied lamp",0.6,NA,pot,NA,NA,NA,1.1458,4.6875,0.4166,1.0034,0.2083,0.5017,4,4,_mol m-2 s-1
+Amaranthus hypochondriacus,Bunce 2007,day/night,NA,NA,20,NA,NA,NA,NA,NA,15,air,"chamber, metal halied lamp",0.6,NA,pot,NA,NA,NA,1.1667,2.2708,0.25,0.8334,0.125,0.4167,4,4,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,3.4035,4.5263,1.117212272,0.429640501,0.4561,0.1754,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,3.4386,3.9649,0.34390836,0.859525951,0.1404,0.3509,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,2.9123,4.0351,0.515617591,0.687571771,0.2105,0.2807,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,1.8596,3.1579,0.945503041,1.461120632,0.386,0.5965,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,2.1053,3.1579,0.17195418,0.08597709,0.0702,0.0351,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,1.5088,2.4211,0.25793127,0.25793127,0.1053,0.1053,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,2.4211,3.4035,0.25793127,0.515617591,0.1053,0.2105,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,4.0351,4.9825,0.25793127,0.601594681,0.1053,0.2456,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,3.1228,4.1053,1.719051901,1.031480131,0.7018,0.4211,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,5.8246,6,1.203189362,1.117212272,0.4912,0.4561,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,4.0702,4.2105,0.687571771,0.601594681,0.2807,0.2456,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,2.8772,2.9123,0.25793127,0.515617591,0.1053,0.2105,6,6,_mol m-2 s-1
+Ambrosia psilostachya,Zhou 2007,day/night,NA,NA,16.3,NA,NA,NA,NA,NA,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,NA,0.3158,0.7368,0.25793127,0.515617591,0.1053,0.2105,6,6,_mol m-2 s-1
+Andropogon gerardii,Kakani 2008,day/night,20,12,NA,25,17,NA,5,5,NA,air,*,40---60days,NA,pot,NA,NA,NA,1.7885,2.4038,0.499696658,0.399757326,0.2885,0.2308,3,3,_mol m-2 s-1
+Andropogon gerardii,Kakani 2008,day/night,20,12,NA,30,22,NA,10,10,NA,air,*,40---60days,NA,pot,NA,NA,NA,1.7885,2.5962,0.499696658,0.166623288,0.2885,0.0962,3,3,_mol m-2 s-1
+Andropogon gerardii,Kakani 2008,day/night,20,12,NA,35,27,NA,15,15,NA,air,*,40---60days,NA,pot,NA,NA,NA,1.7885,2.5192,0.499696658,0.099939332,0.2885,0.0577,3,3,_mol m-2 s-1
+Andropogon gerardii,Kakani 2008,day/night,20,12,NA,40,32,NA,20,20,NA,air,*,40---60days,NA,pot,NA,NA,NA,1.7885,3.1538,0.499696658,0.632891365,0.2885,0.3654,3,3,_mol m-2 s-1
+Andropogon gerardii,Kakani 2008,day/night,20,12,NA,25,17,NA,5,5,NA,air,*,40---60days,CO2,pot,NA,NA,NA,1.7115,1.2115,0.832770028,0.066683956,0.4808,0.0385,3,3,_mol m-2 s-1
+Andropogon gerardii,Kakani 2008,day/night,20,12,NA,30,22,NA,10,10,NA,air,*,40---60days,CO2,pot,NA,NA,NA,1.7115,2.4615,0.832770028,0.33307337,0.4808,0.1923,3,3,_mol m-2 s-1
+Andropogon gerardii,Kakani 2008,day/night,20,12,NA,35,27,NA,15,15,NA,air,*,40---60days,CO2,pot,NA,NA,NA,1.7115,2.4423,0.832770028,0.566207409,0.4808,0.3269,3,3,_mol m-2 s-1
+Andropogon gerardii,Kakani 2008,day/night,20,12,NA,40,32,NA,20,20,NA,air,*,40---60days,CO2,pot,NA,NA,NA,1.7115,3.0385,0.832770028,0.59963599,0.4808,0.3462,3,3,_mol m-2 s-1
+Anthoxanthum alpinum,Larigauderie 1995,day/night,10,5,NA,20,15,NA,10,10,NA,air,chamber,<1,NA,pot,NA,NA,2500,3.5496,5.4389,2.061,1.145,1.0305,0.5725,4,4,mmol g-1 s-1
+Anthoxanthum odoratum,Larigauderie 1995,day/night,10,5,NA,20,15,NA,10,10,NA,air,chamber,<1,NA,pot,NA,NA,2500,7.4427,11.3933,3.4352,5.9542,1.7176,2.9771,4,4,mmol g-1 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,3.1579,4.0702,0.429640501,0.773548861,0.1754,0.3158,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,3.3333,3.8596,0.34390836,0.859525951,0.1404,0.3509,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,2.9825,4.386,0.34390836,1.117212272,0.1404,0.4561,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,2.3158,5.1228,0.859525951,2.320646582,0.3509,0.9474,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,2.0702,3.0877,0.17195418,0.25793127,0.0702,0.1053,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,2.2105,3.1228,0.25793127,0.429640501,0.1053,0.1754,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,3.4035,4.3158,0.25793127,0.515617591,0.1053,0.2105,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,4.4912,5.8246,0.25793127,0.773548861,0.1053,0.3158,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,4.0351,4.7368,0.859525951,1.031480131,0.3509,0.4211,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,7.4035,7.6491,0.945503041,0.515617591,0.386,0.2105,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,5.1579,5.2982,0.515617591,0.601594681,0.2105,0.2456,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,3.5088,3.7193,0.34390836,0.25793127,0.1404,0.1053,6,6,_mol m-2 s-1
+Aster ericoides,Zhou 2007,day/night,*,*,16.3,NA,NA,NA,*,*,1.1,air,infrared heater,1year,NA,field,34?58_54_N,97?31_14_W,*,0.8772,1.0526,0.17195418,0.25793127,0.0702,0.1053,6,6,_mol m-2 s-1
+Betula alleghaniensis,Wayne 1998,day/night,26,21,*,31,26,*,5,5,*,air,growth container,61days,NA,pot,*,*,*,590.1639,1628.4153,185.4704317,1391.029935,43.7158,327.8689,18,18,_mol g-1 s-1
+Betula alleghaniensis,Wayne 1998,day/night,26,21,*,31,26,*,5,5,*,air,growth container,61days,CO2,pot,*,*,*,797.8142,896.1749,463.6765036,788.2499713,109.2896,185.7923,18,18,_mol g-1 s-1
+Betula papyrifera,Tjoelker 1999a,day/night,18,12,*,24,18,*,6,6,*,air,growth chamber,0.6 - 3,*,pot,*,*,*,11.6469,19.7639,13.23483803,11.64658888,5.4031,4.7547,6,6,nmol g-1 s-1
+Betula papyrifera,Tjoelker 1999a,day/night,18,12,*,30,24,*,12,12,*,air,growth chamber,0.6 - 3,*,pot,*,*,*,11.6469,24.1755,13.23483803,10.58791941,5.4031,4.3225,6,6,nmol g-1 s-1
+Betula papyrifera,Tjoelker 1999a,day/night,18,12,*,24,18,*,6,6,*,air,growth chamber,0.6 - 3,CO2,pot,*,*,*,11.8231,18.7936,24.35209218,10.07230182,9.9417,4.112,6,6,nmol g-1 s-1
+Betula papyrifera,Tjoelker 1999a,day/night,18,12,*,30,24,*,12,12,*,air,growth chamber,0.6 - 3,CO2,pot,*,*,*,11.8231,25.6755,24.35209218,10.60114666,9.9417,4.3279,6,6,nmol g-1 s-1
+Betula papyrifera,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.3,*,pot,*,*,*,18.9133,25.174,7.043384609,3.130335425,4.0665,1.8073,3,3,nmol g-1 s-1
+Betula papyrifera,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.3,*,pot,*,*,*,18.9133,39.2625,7.043384609,7.826098369,4.0665,4.5184,3,3,nmol g-1 s-1
+Betula papyrifera,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.3,*,pot,*,*,*,18.9133,19.565,7.043384609,6.652114332,4.0665,3.8406,3,3,nmol g-1 s-1
+Betula papyrifera,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.3,*,pot,*,*,*,18.9133,28.3044,7.043384609,3.913049184,4.0665,2.2592,3,3,nmol g-1 s-1
+Betula papyrifera,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.3,CO2,pot,*,*,*,11.3477,25.4359,2.739065147,3.913049184,1.5814,2.2592,3,3,nmol g-1 s-1
+Betula papyrifera,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.3,CO2,pot,*,*,*,11.3477,36.5214,2.739065147,3.521778907,1.5814,2.0333,3,3,nmol g-1 s-1
+Betula papyrifera,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.3,CO2,pot,*,*,*,11.3477,15.1303,2.739065147,7.826098369,1.5814,4.5184,3,3,nmol g-1 s-1
+Betula papyrifera,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.3,CO2,pot,*,*,*,11.3477,20.8694,2.739065147,9.782449756,1.5814,5.6479,3,3,nmol g-1 s-1
+Carex caryophyllea,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,2.6192,5.8779,2.9238,3.5328,1.4619,1.7664,4,4,mmol g-1 s-1
+Carex foetida,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,2.6801,6.7307,3.2892,4.022,1.6446,2.011,4,4,mmol g-1 s-1
+Cerastium uniflorum,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,4.6559,15.9531,1.2212,1.5266,0.6106,0.7633,4,4,mmol g-1 s-1
+Cirsium acaule,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,2.8977,8.5228,1.5908,6.3636,0.7954,3.1818,4,4,mmol g-1 s-1
+Cirsium alpinum,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,4.4889,11.989,2.2384,3.6364,1.1192,1.8182,4,4,mmol g-1 s-1
+Colobanthus quitensis,Xiong 2000,day,*,*,7,*,*,12,*,*,5,air,growth chamber,2.3,*,pot,*,*,*,0.1586,0.1261,0.115399827,0.08654987,0.0408,0.0306,8,8,_mol g-1 s-1
+Colobanthus quitensis,Xiong 2000,day,*,*,7,*,*,20,*,*,13,air,growth chamber,2.3,*,pot,*,*,*,0.1586,0.1766,0.115399827,0.230516811,0.0408,0.0815,8,8,_mol g-1 s-1
+Colobanthus quitensis,Xiong 2000,day,*,*,7,*,*,12,*,*,5,air,growth chamber,2.3,*,pot,*,*,*,7.3739,7.563,4.033619923,5.041954193,1.4261,1.7826,8,8,_mol m-2 s-1
+Colobanthus quitensis,Xiong 2000,day,*,*,7,*,*,20,*,*,13,air,growth chamber,2.3,*,pot,*,*,*,7.3739,7.1218,4.033619923,8.083079037,1.4261,2.8578,8,8,_mol m-2 s-1
+Delphinium nuttallianum,Lambrecht 2007,day/night,*,*,*,*,*,*,*,*,*,air,infrade heater,>12,*,field,38.57,-106.59,2920,3.3,3,17.99990001,12.00008241,4.0249,2.6833,20,20,_mol m-2 s-1
+Delphinium nuttallianum,Lambrecht 2007,day/night,*,*,*,*,*,*,*,*,*,air,infrade heater,>12,*,field,38.57,-106.59,2920,3,6.5,17.99990001,35.99980001,4.0249,8.0498,20,20,_mol m-2 s-1
+Deschampsia antarctica,Xiong 2000,day,*,*,7,*,*,12,*,*,5,air,growth chamber,2.3,*,pot,*,*,*,0.0811,0.066,0.105783174,0.060245498,0.0374,0.0213,8,8,_mol g-1 s-1
+Deschampsia antarctica,Xiong 2000,day,*,*,7,*,*,20,*,*,13,air,growth chamber,2.3,*,pot,*,*,*,0.0811,0.0717,0.105783174,0.060245498,0.0374,0.0213,8,8,_mol g-1 s-1
+Deschampsia antarctica,Xiong 2000,day,*,*,7,*,*,12,*,*,5,air,growth chamber,2.3,*,pot,*,*,*,7.7521,7.4369,6.554597019,6.554597019,2.3174,2.3174,8,8,_mol m-2 s-1
+Deschampsia antarctica,Xiong 2000,day,*,*,7,*,*,20,*,*,13,air,growth chamber,2.3,*,pot,*,*,*,7.7521,7.3739,6.554597019,4.537928479,2.3174,1.6044,8,8,_mol m-2 s-1
+Erigeron speciosus,Lambrecht 2007,day/night,*,*,*,*,*,*,*,*,*,air,infrade heater,>12,*,field,38.57,-106.59,2920,2.2,3.4,8,17.6,2,4.4,16,16,_mol m-2 s-1
+Erigeron speciosus,Lambrecht 2007,day/night,*,*,*,*,*,*,*,*,*,air,infrade heater,>12,*,field,38.57,-106.59,2920,1.3,3,3.2,1.6,0.8,0.4,16,16,_mol m-2 s-1
+Eriophorum angustifolium,Shaver 1998,day,*,*,11.3,*,*,*,*,*,5.6,air,greenhouse,2.5,*,field,68.38,-149.34,760,0.0176,0.0059,0.005888973,0.002944486,0.0034,0.0017,3,3,_mol g-1 s-1
+Erythronium grandiflorum,Lambrecht 2007,day/night,*,*,*,*,*,*,*,*,*,air,infrade heater,>12,*,field,38.57,-106.59,2920,2.9,3.1,16.89993994,18.20010173,4.6872,5.0478,13,13,_mol m-2 s-1
+Erythronium grandiflorum,Lambrecht 2007,day/night,*,*,*,*,*,*,*,*,*,air,infrade heater,>12,*,field,38.57,-106.59,2920,5.1,6.2,31.19991685,36.3998429,8.6533,10.0955,13,13,_mol m-2 s-1
+Eucalyptus pauciflora,Atkin 2000,day/night,*,*,10,*,*,*,*,*,10,air,growth chamber,0.13,*,pot,*,*,*,1.4132,2.752,0.6612,0.6942,0.3306,0.3471,4,4,_mol m-2 s-1
+Eucalyptus pauciflora,Atkin 2000,day/night,*,*,10,*,*,*,*,*,10,air,growth chamber,0.2,*,pot,*,*,*,1.2975,3.0826,0.562,0.4958,0.281,0.2479,4,4,_mol m-2 s-1
+Eucalyptus pauciflora,Atkin 2000,day/night,*,*,10,*,*,*,*,*,10,air,growth chamber,0.27,*,pot,*,*,*,1.2067,2.9173,0.1652,0.6942,0.0826,0.3471,4,4,_mol m-2 s-1
+Eucalyptus pauciflora,Atkin 2000,day/night,*,*,10,*,*,*,*,*,10,air,growth chamber,0.33,*,pot,*,*,*,1.1652,2.6859,0.2976,0.2994,0.1488,0.1497,4,4,_mol m-2 s-1
+Eucalyptus pauciflora,Atkin 2000,day/night,*,*,10,*,*,*,*,*,10,air,growth chamber,0.47,*,pot,*,*,*,1.0082,2.2809,1.124,0.628,0.562,0.314,4,4,_mol m-2 s-1
+Eucalyptus pauciflora,Atkin 2000,day/night,*,*,10,*,*,*,*,*,10,air,growth chamber,<0.1,CO2,pot,*,*,*,1.3719,2.4793,0.628,0.595,0.314,0.2975,4,4,_mol m-2 s-1
+Eucalyptus pauciflora,Bruhn 2007,night,*,*,12.09,*,*,*,*,0.3,*,air,infrared ceramic lamp,1year,*,field,35?15_S,149?27_E,700,1.6617,1.3383,0.448778843,0.324229857,0.2007,0.145,5,5,_mol m-2 s-1
+Eucalyptus pauciflora,Bruhn 2007,night,*,*,12.09,*,*,*,*,0.3,*,air,infrared ceramic lamp,1year,*,field,35?15_S,149?27_E,700,0.4721,0.5651,0.199457264,0.266092089,0.0892,0.119,5,5,_mol m-2 s-1
+Eucalyptus pauciflora,Bruhn 2007,night,*,*,12.09,*,*,*,*,1.3,*,air,infrared ceramic lamp,1year,*,field,35?15_S,149?27_E,700,1.6617,1.6506,0.448778843,0.274365541,0.2007,0.1227,5,5,_mol m-2 s-1
+Eucalyptus pauciflora,Bruhn 2007,night,*,*,12.09,*,*,*,*,1.3,*,air,infrared ceramic lamp,1year,*,field,35?15_S,149?27_E,700,0.4721,0.539,0.199457264,0.157866399,0.0892,0.0706,5,5,_mol m-2 s-1
+Eucalyptus pauciflora,Bruhn 2007,night,*,*,12.09,*,*,*,*,2.2,*,air,infrared ceramic lamp,1year,*,field,35?15_S,149?27_E,700,1.6617,1.4498,0.448778843,0.598595398,0.2007,0.2677,5,5,_mol m-2 s-1
+Eucalyptus pauciflora,Bruhn 2007,night,*,*,12.09,*,*,*,*,2.2,*,air,infrared ceramic lamp,1year,*,field,35?15_S,149?27_E,700,0.4721,0.5465,0.199457264,0.116275535,0.0892,0.052,5,5,_mol m-2 s-1
+Geum rivale,Loveys 2003,day/night,*,*,15,*,*,25,*,*,10,air,"phytotron, growth cabinet",<0.5,*,pot,*,*,*,38.9,50.6,34.2,21.6,11.4,7.2,9,9,nmol g-1 s-1
+Geum urbanum,Loveys 2003,day/night,*,*,15,*,*,25,*,*,10,air,"phytotron, growth cabinet",<0.5,*,pot,*,*,*,8.9,47.2,10.8,61.2,3.6,20.4,9,9,nmol g-1 s-1
+Helianthella quinquenervis,Lambrecht 2007,day/night,*,*,*,*,*,*,*,*,*,air,infrade heater,>12,*,field,38.57,-106.59,2920,3.3,3.4,8.00020401,8.00020401,1.7889,1.7889,20,20,_mol m-2 s-1
+Helianthella quinquenervis,Lambrecht 2007,day/night,*,*,*,*,*,*,*,*,*,air,infrade heater,>12,*,field,38.57,-106.59,2920,0.5,0.8,3.999878398,1.999939199,0.8944,0.4472,20,20,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,3.1579,3.9298,0.515617591,0.17195418,0.2105,0.0702,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,3.2281,4,1.117212272,0.515617591,0.4561,0.2105,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,3.1579,4.0351,0.25793127,0.429640501,0.1053,0.1754,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,2.0351,2.807,0.25793127,0.429640501,0.1053,0.1754,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,2.1404,2.9474,0.17195418,0.25793127,0.0702,0.1053,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,2.4912,3.5439,0.17195418,0.25793127,0.0702,0.1053,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,3.1579,4.1404,0.34390836,0.25793127,0.1404,0.1053,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,4.6316,6.1404,0.515617591,0.773548861,0.2105,0.3158,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,3.4386,5.1579,0.515617591,0.773548861,0.2105,0.3158,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,5.0175,6.2807,0.515617591,0.515617591,0.2105,0.2105,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,3.5088,4.3509,0.34390836,0.25793127,0.1404,0.1053,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,2.4561,3.0175,0.25793127,0.25793127,0.1053,0.1053,6,6,_mol m-2 s-1
+Helianthus mollis,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,0.6667,0.5965,0.25793127,0.515617591,0.1053,0.2105,6,6,_mol m-2 s-1
+Larix laricina,Tjoelker 1999a,day/night,18,12,*,24,18,*,6,6,*,air,growth chamber,0.6 - 3,*,pot,*,*,*,9.8889,12.6667,6.333400679,4.666767858,2.5856,1.9052,6,6,nmol g-1 s-1
+Larix laricina,Tjoelker 1999a,day/night,18,12,*,30,24,*,12,12,*,air,growth chamber,0.6 - 3,*,pot,*,*,*,9.8889,13.0001,6.333400679,5.333274017,2.5856,2.1773,6,6,nmol g-1 s-1
+Larix laricina,Tjoelker 1999a,day/night,18,12,*,24,18,*,6,6,*,air,growth chamber,0.6 - 3,CO2,pot,*,*,*,10.0002,14.2782,4.999898463,5.333274017,2.0412,2.1773,6,6,nmol g-1 s-1
+Larix laricina,Tjoelker 1999a,day/night,18,12,*,30,24,*,12,12,*,air,growth chamber,0.6 - 3,CO2,pot,*,*,*,10.0002,14.7223,4.999898463,4.999898463,2.0412,2.0412,6,6,nmol g-1 s-1
+Larix laricina,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.7,*,pot,*,*,*,12.1221,17.5014,4.318175868,6.590972938,2.4931,3.8053,3,3,nmol g-1 s-1
+Larix laricina,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.7,*,pot,*,*,*,12.1221,22.1211,4.318175868,5.913394662,2.4931,3.4141,3,3,nmol g-1 s-1
+Larix laricina,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.7,*,pot,*,*,*,12.1221,10.0003,4.318175868,5.227329337,2.4931,3.018,3,3,nmol g-1 s-1
+Larix laricina,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.7,*,pot,*,*,*,12.1221,15.6062,4.318175868,3.863685736,2.4931,2.2307,3,3,nmol g-1 s-1
+Larix laricina,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.7,CO2,pot,*,*,*,11.9699,22.4243,4.090930802,13.18177267,2.3619,7.6105,3,3,nmol g-1 s-1
+Larix laricina,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.7,CO2,pot,*,*,*,11.9699,28.0302,4.090930802,7.727198268,2.3619,4.4613,3,3,nmol g-1 s-1
+Larix laricina,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.7,CO2,pot,*,*,*,11.9699,8.7121,4.090930802,4.324064841,2.3619,2.4965,3,3,nmol g-1 s-1
+Larix laricina,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.7,CO2,pot,*,*,*,11.9699,14.2424,4.090930802,3.863685736,2.3619,2.2307,3,3,nmol g-1 s-1
+Leucanthemopsis alpina,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,5.4289,13.4287,4.5714,1.1428,2.2857,0.5714,4,4,mmol g-1 s-1
+Leucanthemopsis vulgare,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,6.0571,6.0574,4.8,5.0286,2.4,2.5143,4,4,mmol g-1 s-1
+Luzula acutifolia,Loveys 2003,day/night,*,*,15,*,*,25,*,*,10,air,"phytotron, growth cabinet",<0.5,*,pot,*,*,*,32,39.9,57.6,31.5,19.2,10.5,9,9,nmol g-1 s-1
+Luzula alpino-pilosa,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,5.0857,11.3137,3.657,6.171,1.8285,3.0855,4,4,mmol g-1 s-1
+Luzula campestris,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,5.4282,11.8849,4.5768,3.664,2.2884,1.832,4,4,mmol g-1 s-1
+Picea asperata,Yin2008,day/night,*,*,11.52,*,*,*,*,*,0.51,air,open-top chamber,18 months,*,field,31?35_N,102?35_E,3110,0.29,0.31,0.284604989,0.316227766,0.09,0.1,10,10,_mol m-2 s-1
+Picea asperata,Yin2008,day/night,*,*,10.92,*,*,*,*,*,0.69,air,open-top chamber,18 months,light,field,31?35_N,102?35_E,3110,0.83,0.9,0.379473319,0.537587202,0.12,0.17,10,10,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,air and soil,greenhouse and heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.19,0.21,0.11,0.3,0.11,0.3,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,air and soil,greenhouse and heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.21,0.24,0.21,0.25,0.21,0.25,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,air and soil,greenhouse and heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.31,0.24,0.12,0.07,0.12,0.07,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,air and soil,greenhouse and heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.25,0.28,0.1,0.08,0.1,0.08,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,air and soil,greenhouse and heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.59,0.5,0.33,0.2,0.33,0.2,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,air and soil,greenhouse and heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.32,0.35,0.07,0.12,0.07,0.12,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,air and soil,greenhouse and heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.32,0.36,0.45,0.28,0.45,0.28,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,air and soil,greenhouse and heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.35,0.26,0.18,0.14,0.18,0.14,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,air and soil,greenhouse and heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.24,0.18,0.14,0.1,0.14,0.1,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,soil,heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.19,0.23,0.08,0.11,0.08,0.11,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,soil,heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.24,0.31,0.23,0.32,0.23,0.32,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,soil,heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.3,0.29,0.12,0.07,0.12,0.07,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,soil,heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.31,0.33,0.14,0.08,0.14,0.08,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,soil,heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.82,0.58,0.22,0.11,0.22,0.11,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,soil,heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.34,0.39,0.05,0.1,0.05,0.1,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,soil,heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.34,0.48,0.22,0.33,0.22,0.33,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,soil,heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.23,0.39,0.15,0.24,0.15,0.24,4,4,_mol m-2 s-1
+Picea mariana,Bronson 2010,day/night,*,*,*,*,*,*,*,*,5,soil,heating cable,1-3years,*,field,55?53_N,98?20_W,510,0.2,0.22,0.11,0.07,0.11,0.07,4,4,_mol m-2 s-1
+Picea mariana,Tjoelker 1999a,day/night,18,12,*,24,18,*,6,6,*,air,growth chamber,0.6 - 3,*,pot,*,*,*,7.8481,10.8355,4.25304904,4.25304904,1.7363,1.7363,6,6,nmol g-1 s-1
+Picea mariana,Tjoelker 1999a,day/night,18,12,*,30,24,*,12,12,*,air,growth chamber,0.6 - 3,*,pot,*,*,*,7.8481,10.7341,4.25304904,4.25304904,1.7363,1.7363,6,6,nmol g-1 s-1
+Picea mariana,Tjoelker 1999a,day/night,18,12,*,24,18,*,6,6,*,air,growth chamber,0.6 - 3,CO2,pot,*,*,*,7.6963,9.5696,4.25304904,4.25304904,1.7363,1.7363,6,6,nmol g-1 s-1
+Picea mariana,Tjoelker 1999a,day/night,18,12,*,30,24,*,12,12,*,air,growth chamber,0.6 - 3,CO2,pot,*,*,*,7.6963,9.9748,4.25304904,3.949312312,1.7363,1.6123,6,6,nmol g-1 s-1
+Picea mariana,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",3.2,*,pot,*,*,*,7.7949,13.7553,1.76859708,4.519613377,1.0211,2.6094,3,3,nmol g-1 s-1
+Picea mariana,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",3.2,*,pot,*,*,*,7.7949,20.3708,1.76859708,1.375594751,1.0211,0.7942,3,3,nmol g-1 s-1
+Picea mariana,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",3.2,*,pot,*,*,*,7.7949,6.8776,1.76859708,2.358013969,1.0211,1.3614,3,3,nmol g-1 s-1
+Picea mariana,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",3.2,*,pot,*,*,*,7.7949,10.0218,1.76859708,2.161599408,1.0211,1.248,3,3,nmol g-1 s-1
+Picea mariana,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",3.2,CO2,pot,*,*,*,10.4809,11.3971,4.126611049,4.323025611,2.3825,2.4959,3,3,nmol g-1 s-1
+Picea mariana,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",3.2,CO2,pot,*,*,*,10.4809,16.7027,4.126611049,2.751016298,2.3825,1.5883,3,3,nmol g-1 s-1
+Picea mariana,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",3.2,CO2,pot,*,*,*,10.4809,5.8296,4.126611049,3.340606393,2.3825,1.9287,3,3,nmol g-1 s-1
+Picea mariana,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",3.2,CO2,pot,*,*,*,10.4809,7.4019,4.126611049,2.161599408,2.3825,1.248,3,3,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999a,day/night,18,12,*,24,18,*,6,6,*,air,growth chamber,0.6 - 3,*,pot,*,*,*,6.2625,9.5453,7.272535046,3.030263761,2.969,1.2371,6,6,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999a,day/night,18,12,*,30,24,*,12,12,*,air,growth chamber,0.6 - 3,*,pot,*,*,*,6.2625,10.0504,7.272535046,3.636267523,2.969,1.4845,6,6,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999a,day/night,18,12,*,24,18,*,6,6,*,air,growth chamber,0.6 - 3,CO2,pot,*,*,*,7.4747,8.9898,3.333265642,3.636267523,1.3608,1.4845,6,6,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999a,day/night,18,12,*,30,24,*,12,12,*,air,growth chamber,0.6 - 3,CO2,pot,*,*,*,7.4747,12.1717,3.333265642,3.333265642,1.3608,1.3608,6,6,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.8,*,pot,*,*,*,7.8802,7.3909,2.771627702,2.952627012,1.6002,1.7047,3,3,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.8,*,pot,*,*,*,7.8802,10.9788,2.771627702,4.564993108,1.6002,2.6356,3,3,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.8,*,pot,*,*,*,7.8802,9.5109,2.771627702,3.423744831,1.6002,1.9767,3,3,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.8,*,pot,*,*,*,7.8802,14.021,2.771627702,1.793365406,1.6002,1.0354,3,3,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.8,CO2,pot,*,*,*,8.3691,11.9559,2.771627702,1.793365406,1.6002,1.0354,3,3,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",2.8,CO2,pot,*,*,*,8.3691,16.9026,2.771627702,3.097599664,1.6002,1.7884,3,3,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.8,CO2,pot,*,*,*,8.3691,8.9669,2.771627702,2.125745956,1.6002,1.2273,3,3,nmol g-1 s-1
+Pinus banksiana,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",2.8,CO2,pot,*,*,*,8.3691,12.6623,2.771627702,4.401833922,1.6002,2.5414,3,3,nmol g-1 s-1
+Pinus ponderosa,Callaway 1994,day/night,10,25,*,15,30,*,5,5,5,air,growth chamber,2,*,pot,*,*,*,0.0035,0.004,0.000447214,0.000894427,0.0002,0.0004,5,5,_mol g-1 s-1
+Pinus ponderosa,Callaway 1994,day/night,10,25,*,15,30,*,5,5,5,air,growth chamber,2,CO2,pot,*,*,*,0.0033,0.0038,0.000447214,0.000447214,0.0002,0.0002,5,5,_mol g-1 s-1
+Pinus radiata,Ow 2008b,day/night,20,15,*,25,20,*,5,5,*,air,chamber,7d,*,pot,*,*,*,0.3366,0.4341,0.069013622,0.034506811,0.0244,0.0122,8,8,_mol m-2 s-1
+Pinus sylvestris,Wang 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,Chamber,4years,*,field,62.47,30.58,145,2.3131,2.0303,0.2626,0.2626,0.1313,0.1313,4,4,_mol m-2 s-1
+Pinus sylvestris,Wang 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,Chamber,4years,*,field,62.47,30.58,145,2.0404,1.8384,0.3434,0.3636,0.1717,0.1818,4,4,_mol m-2 s-1
+Pinus sylvestris,Wang 2002,day/night,*,*,8.3,*,*,*,*,*,6,air,Chamber,4years,*,field,62.47,30.58,145,0.8889,1.4343,0.7272,0.5454,0.3636,0.2727,4,4,_mol m-2 s-1
+Pinus sylvestris,Wang 2002,day/night,*,*,8.3,*,*,*,*,*,6,air,Chamber,4years,*,field,62.47,30.58,145,1.0303,1.6263,0.2828,0.3434,0.1414,0.1717,4,4,_mol m-2 s-1
+Pinus sylvestris,Wang 2002,day/night,*,*,8.3,*,*,*,*,*,6,air,Chamber,4years,*,field,62.47,30.58,145,0.3232,1.2323,0.6464,0.4444,0.3232,0.2222,4,4,_mol m-2 s-1
+Pinus sylvestris,Wang 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,Chamber,4years,CO2,field,62.47,30.58,145,2.1414,1.7677,0.2828,0.3232,0.1414,0.1616,4,4,_mol m-2 s-1
+Pinus sylvestris,Wang 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,Chamber,4years,CO2,field,62.47,30.58,145,1.8283,1.5152,0.3434,0.1616,0.1717,0.0808,4,4,_mol m-2 s-1
+Pinus sylvestris,Wang 2002,day/night,*,*,8.3,*,*,*,*,*,6,air,Chamber,4years,CO2,field,62.47,30.58,145,0.7778,1.2222,0.7272,0.5454,0.3636,0.2727,4,4,_mol m-2 s-1
+Pinus sylvestris,Wang 2002,day/night,*,*,8.3,*,*,*,*,*,6,air,Chamber,4years,CO2,field,62.47,30.58,145,0.9091,1.4242,0.3838,0.404,0.1919,0.202,4,4,_mol m-2 s-1
+Pinus sylvestris,Wang 2002,day/night,*,*,8.3,*,*,*,*,*,6,air,Chamber,4years,CO2,field,62.47,30.58,145,0.3939,1.0303,0.606,0.4848,0.303,0.2424,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,6.5108,7.565,1.4882,3.2244,0.7441,1.6122,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,5.9528,7.441,2.7284,2.4926,1.3642,1.2463,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,6.1388,7.0069,2.2322,2.4926,1.1161,1.2463,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,5.2707,6.5729,2.9764,2.7284,1.4882,1.3642,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,5.5187,6.8829,2.7284,1.9842,1.3642,0.9921,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,5.0847,6.3871,1.2402,1.7362,0.6201,0.8681,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,4.4026,5.209,2.246,1.7362,1.123,0.8681,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,3.7205,4.589,2.7284,2.5294,1.3642,1.2647,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,4.3366,5.3182,1.6364,1.8,0.8182,0.9,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,4.0091,5.3183,1.8,1.6446,0.9,0.8223,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,3.7227,4.4184,1.8074,1.309,0.9037,0.6545,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,2.7818,3.5593,1.6364,1.1454,0.8182,0.5727,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,2.0045,2.9048,0.6746,1.309,0.3373,0.6545,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,5.2707,7.689,2.7284,3.2244,1.3642,1.6122,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,4.9606,7.1929,2.9764,2.4804,1.4882,1.2402,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,4.8366,6.9449,2.4804,2.2322,1.2402,1.1161,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,4.6506,5.7667,1.4882,2.4804,0.7441,1.2402,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,4.2786,6.0771,2.4804,2.7284,1.2402,1.3642,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,3.7205,6.2631,1.7362,1.7538,0.8681,0.8769,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,3.4725,5.2707,1.9842,2.2322,0.9921,1.1161,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,2.7284,4.7126,1.9842,3.234,0.9921,1.617,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,3.723,5.1545,1.309,1.6364,0.6545,0.8182,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,3.5182,5.1136,1.8,1.9636,0.9,0.9818,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,3.1909,4.5,1.4818,1.9636,0.7409,0.9818,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,2.25,3.2321,1.309,1.4728,0.6545,0.7364,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,1.6773,2.6185,0.9818,1.157,0.4909,0.5785,4,4,_mol kg-1 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,1.5545,1.7455,0.494,0.4364,0.247,0.2182,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,1.4455,1.6364,0.4364,0.2728,0.2182,0.1364,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,1.4182,1.5682,0.4398,0.2728,0.2199,0.1364,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,1.2545,1.4591,0.4398,0.3272,0.2199,0.1636,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,1.3094,1.5001,0.3318,0.397,0.1659,0.1985,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,1.1045,1.2409,0.2728,0.1636,0.1364,0.0818,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,0.8591,0.9274,0.3818,0.2728,0.1909,0.1364,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,0.6956,0.7773,0.4364,0.3818,0.2182,0.1909,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,1.0476,1.2095,0.2694,0.1524,0.1347,0.0762,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,0.9238,1.1238,0.2666,0.3048,0.1333,0.1524,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,0.8095,0.8666,0.3048,0.2666,0.1524,0.1333,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,0.5619,0.6762,0.2286,0.2286,0.1143,0.1143,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,0.4,0.5238,0.1904,0.1942,0.0952,0.0971,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,1.3637,1.6364,0.494,0.5454,0.247,0.2727,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,1.3909,1.5682,0.3818,0.491,0.1909,0.2455,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,1.2682,1.5818,0.3272,0.4364,0.1636,0.2182,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,1.2,1.3091,0.4364,0.4364,0.2182,0.2182,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,1.1182,1.3773,0.3818,0.491,0.1909,0.2455,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,0.9545,1.2273,0.1636,0.3272,0.0818,0.1636,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,0.7909,0.9136,0.3818,0.3818,0.1909,0.1909,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,0.6,0.8045,0.3818,0.3318,0.1909,0.1659,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,0.9333,1.1904,0.3428,0.2286,0.1714,0.1143,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,0.8762,1.1523,0.2666,0.3428,0.1333,0.1714,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,0.7333,0.9143,0.2286,0.2666,0.1143,0.1333,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,0.4952,0.6095,0.2286,0.2666,0.1143,0.1333,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2002,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,CO2,field,62.47,30.58,145,0.3619,0.4762,0.1904,0.2286,0.0952,0.1143,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,1,*,field,62.47,30.58,145,65.22,78.39,17.28,16.84,8.64,8.42,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,1,*,field,62.47,30.58,145,65.22,74.55,17.28,28.64,8.64,14.32,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,2,*,field,62.47,30.58,145,131.23,157.66,26.36,34.48,13.18,17.24,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,2,*,field,62.47,30.58,145,131.23,148.9,26.36,28.32,13.18,14.16,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,3,*,field,62.47,30.58,145,104.79,129.34,19.52,30.16,9.76,15.08,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,3,*,field,62.47,30.58,145,104.79,124.92,19.52,30.08,9.76,15.04,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,77.31,98.66,21.12,24.96,10.56,12.48,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,4,*,field,62.47,30.58,145,77.31,101.69,21.12,21.84,10.56,10.92,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,5,*,field,62.47,30.58,145,22.38,59.89,5.48,24.6,2.74,12.3,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,5,*,field,62.47,30.58,145,22.38,55.2,5.48,13.88,2.74,6.94,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,6,*,field,62.47,30.58,145,27.28,46.55,5.04,14.88,2.52,7.44,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2003,day/night,*,*,8.3,*,*,*,*,*,2,air,chamber,6,*,field,62.47,30.58,145,27.28,51.68,5.04,19.72,2.52,9.86,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2005,day/night,*,*,8.3,*,*,*,*,*,4.4,air,chamber,1,*,field,62.47,30.58,145,0.3737,0.4629,0.0686,0.1234,0.0343,0.0617,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2005,day/night,*,*,8.3,*,*,*,*,*,4.4,air,chamber,2,*,field,62.47,30.58,145,0.4457,0.4834,0.1508,0.2332,0.0754,0.1166,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2005,day/night,*,*,8.3,*,*,*,*,*,4.4,air,chamber,3,*,field,62.47,30.58,145,0.3326,0.384,0.0548,0.096,0.0274,0.048,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2005,day/night,*,*,8.3,*,*,*,*,*,4.4,air,chamber,4,*,field,62.47,30.58,145,0.3223,0.3394,0.0686,0.0686,0.0343,0.0343,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2005,day/night,*,*,8.3,*,*,*,*,*,4.4,air,chamber,5,*,field,62.47,30.58,145,0.096,0.1406,0.0412,0.1372,0.0206,0.0686,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2005,day/night,*,*,8.3,*,*,*,*,*,4.4,air,chamber,1,CO2,field,62.47,30.58,145,0.3737,0.4766,0.0686,0.1234,0.0343,0.0617,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2005,day/night,*,*,8.3,*,*,*,*,*,4.4,air,chamber,2,CO2,field,62.47,30.58,145,0.4457,0.5143,0.1508,0.1378,0.0754,0.0689,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2005,day/night,*,*,8.3,*,*,*,*,*,4.4,air,chamber,3,CO2,field,62.47,30.58,145,0.3326,0.4595,0.0548,0.0686,0.0274,0.0343,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2005,day/night,*,*,8.3,*,*,*,*,*,4.4,air,chamber,4,CO2,field,62.47,30.58,145,0.3223,0.4217,0.0686,0.1234,0.0343,0.0617,4,4,_mol m-2 s-1
+Pinus sylvestris,Zha 2005,day/night,*,*,8.3,*,*,*,*,*,4.4,air,chamber,5,CO2,field,62.47,30.58,145,0.096,0.168,0.0412,0.1646,0.0206,0.0823,4,4,_mol m-2 s-1
+Pinus taeda,Will 2000,day/night,22,15,*,*,*,*,*,*,7,air,chamber,0.53,*,pot,*,*,*,0.6202,0.3275,1.973393605,1.682065611,0.6977,0.5947,8,8,_mol m-2 s-1
+Pinus taeda,Will 2000,day,22,15,*,*,*,*,*,*,7,air,chamber,0.53,*,pot,*,*,*,0.6202,0.3253,1.973393605,1.727603288,0.6977,0.6108,8,8,_mol m-2 s-1
+Pinus taeda,Will 2000,day,22,15,*,*,*,*,*,*,7,air,chamber,0.53,*,pot,*,*,*,0.6202,0.307,1.973393605,2.447155148,0.6977,0.8652,8,8,_mol m-2 s-1
+Pinus taeda,Will 2000,day,22,15,*,*,*,*,*,*,7,air,chamber,0.2-0.6,*,pot,*,*,*,0.5205,0.2295,1.645861744,1.657458295,0.5819,0.586,8,8,_mol m-2 s-1
+Pinus taeda,Will 2000,day,22,15,*,*,*,*,*,*,7,air,chamber,0.2-0.6,*,pot,*,*,*,0.3329,0.2208,1.657458295,1.651801441,0.586,0.584,8,8,_mol m-2 s-1
+Pinus taeda,Will 2000,night,22,15,*,*,*,*,*,*,7,air,chamber,0.2-0.6,*,pot,*,*,*,0.5205,0.3329,1.645861744,1.657458295,0.5819,0.586,8,8,_mol m-2 s-1
+Pinus taeda,Will 2000,night,22,15,*,*,*,*,*,*,7,air,chamber,0.2-0.6,*,pot,*,*,*,0.2295,0.2208,1.657458295,1.651801441,0.586,0.584,8,8,_mol m-2 s-1
+Plantago euryphylla,Atkin 2006,day/night,*,*,13,*,*,20,*,*,7,air,*,*,*,pot,*,*,*,0.7865,0.9438,0.194682511,0.155711368,0.1124,0.0899,3,3,_mol m-2 s-1
+Plantago euryphylla,Atkin 2006,day/night,*,*,13,*,*,27,*,*,14,air,*,*,*,pot,*,*,*,0.7865,1.4382,0.194682511,0.233480449,0.1124,0.1348,3,3,_mol m-2 s-1
+Plantago euryphylla,Atkin 2007,day/night,*,*,13,*,*,*,*,*,7,air,chamber,about 2,N,pot,*,*,*,1,1.5,0.4,0.4,0.2,0.2,4,4,_mol m-2 s-1
+Plantago euryphylla,Atkin 2007,day/night,*,*,13,*,*,*,*,*,14,air,chamber,about 2,N,pot,*,*,*,1,1.8,0.4,0.4,0.2,0.2,4,4,_mol m-2 s-1
+Plantago euryphylla,Loveys 2003,day/night,*,*,15,*,*,25,*,*,10,air,"phytotron, growth cabinet",<0.5,*,pot,*,*,*,24.5,37.6,20.7,57.6,6.9,19.2,9,9,nmol g-1 s-1
+Plantago lanceolata,Atkin 2006,day/night,*,*,13,*,*,20,*,*,7,air,*,*,*,pot,*,*,*,1.1011,0.6067,0.233480449,0.194682511,0.1348,0.1124,3,3,_mol m-2 s-1
+Plantago lanceolata,Atkin 2006,day/night,*,*,13,*,*,27,*,*,14,air,*,*,*,pot,*,*,*,1.1011,0.9213,0.233480449,0.077769081,0.1348,0.0449,3,3,_mol m-2 s-1
+Plantago major,Atkin 2006,day/night,*,*,13,*,*,20,*,*,7,air,*,*,*,pot,*,*,*,0.9663,1.0112,0.194682511,0.194682511,0.1124,0.1124,3,3,_mol m-2 s-1
+Plantago major,Atkin 2006,day/night,*,*,13,*,*,27,*,*,14,air,*,*,*,pot,*,*,*,0.9663,1.7303,0.194682511,0.272451592,0.1124,0.1573,3,3,_mol m-2 s-1
+Plantago major,Atkin 2007,day/night,*,*,13,*,*,*,*,*,7,air,chamber,about 2,N,pot,*,*,*,0.8,1.2,1.2,0.004,0.6,0.002,4,4,_mol m-2 s-1
+Plantago major,Atkin 2007,day/night,*,*,13,*,*,*,*,*,14,air,chamber,about 2,N,pot,*,*,*,0.8,1.1,1.2,0.004,0.6,0.002,4,4,_mol m-2 s-1
+Poa alpina,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,16.9243,43.1573,12.191,3.8022,6.0955,1.9011,4,4,mmol g-1 s-1
+Poa costiniana,Loveys 2002,day/night,*,*,18,*,*,23,*,*,5,air,growth cabinet,14days,*,pot,*,*,*,18.88,24.16,0.96,4.16,0.48,2.08,4,4,nmol g-1 s-1
+Poa costiniana,Loveys 2002,day/night,*,*,18,*,*,28,*,*,10,air,growth cabinet,14days,*,pot,*,*,*,18.88,21.44,0.96,6.4,0.48,3.2,4,4,nmol g-1 s-1
+Poa pratensis,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,22.6242,23.9542,3.8022,3.8022,1.9011,1.9011,4,4,mmol g-1 s-1
+Poa trivialis,Loveys 2002,day/night,*,*,18,*,*,23,*,*,5,air,growth cabinet,14days,*,pot,*,*,*,29.28,35.2,1.28,4.48,0.64,2.24,4,4,nmol g-1 s-1
+Poa trivialis,Loveys 2002,day/night,*,*,18,*,*,28,*,*,10,air,growth cabinet,14days,*,pot,*,*,*,29.28,36.32,1.28,1.6,0.64,0.8,4,4,nmol g-1 s-1
+Populus balsamifera,Salim 2010,day/night,19,10,*,27,16,*,8,6,*,air,*,*,*,pot,*,*,*,1.32,1.75,0.18,0.36,0.18,0.36,15,15,_mol m-2 s-1
+Populus balsamifera,Salim 2010,day/night,19,10,*,27,16,*,8,6,*,air,*,*,*,pot,*,*,*,1.15,1.69,0.15,0.26,0.15,0.26,15,15,_mol m-2 s-1
+Populus deltoides,Griffin 2002a,night,*,10,*,*,15,*,0,5,*,air,chamber,0.17,*,pot,*,*,*,0.6127,0.8039,0.327741728,0.351991676,0.1338,0.1437,6,6,_mol m-2 s-1
+Populus deltoides,Griffin 2002a,night,*,10,*,*,20,*,0,10,*,air,chamber,0.17,*,pot,*,*,*,0.6127,1.0341,0.327741728,0.374526982,0.1338,0.1529,6,6,_mol m-2 s-1
+Populus deltoides,Griffin 2002a,night,*,10,*,*,15,*,0,5,*,air,chamber,0.17,*,pot,*,*,*,0.6556,0.9561,0.234171219,0.234171219,0.0956,0.0956,6,6,_mol m-2 s-1
+Populus deltoides,Griffin 2002a,night,*,10,*,*,20,*,0,10,*,air,chamber,0.17,*,pot,*,*,*,0.6556,1.3542,0.234171219,0.257441372,0.0956,0.1051,6,6,_mol m-2 s-1
+Populus deltoides,Griffin 2002b,night,*,10,*,*,15,*,0,5,*,air,chamber,0.17,*,pot,*,*,*,0.5389,0.8222,0.733350312,0.666493151,0.2117,0.1924,12,12,_mol m-2 s-1
+Populus deltoides,Griffin 2002b,night,*,10,*,*,20,*,0,10,*,air,chamber,0.17,*,pot,*,*,*,0.5389,1.2222,0.733350312,0.666493151,0.2117,0.1924,12,12,_mol m-2 s-1
+Populus deltoides,Griffin 2002b,night,*,10,*,*,15,*,0,5,*,air,chamber,0.17,*,pot,*,*,*,0.65,0.9444,0.466614488,0.5999824,0.1347,0.1732,12,12,_mol m-2 s-1
+Populus deltoides,Griffin 2002b,night,*,10,*,*,20,*,0,10,*,air,chamber,0.17,*,pot,*,*,*,0.65,1.3444,0.466614488,0.533471649,0.1347,0.154,12,12,_mol m-2 s-1
+Populus deltoides,Griffin 2002b,night,*,10,*,*,15,*,0,5,*,air,chamber,0.17,*,pot,*,*,*,1.0278,1.2611,0.333246575,0.266735824,0.0962,0.077,12,12,_mol m-2 s-1
+Populus deltoides,Griffin 2002b,night,*,10,*,*,20,*,0,10,*,air,chamber,0.17,*,pot,*,*,*,1.0278,1.5279,0.333246575,0.333246575,0.0962,0.0962,12,12,_mol m-2 s-1
+Populus deltoides,Turnbull 2002,day,25,20,*,28,20,*,3,0,*,air,chamber,0.3,*,pot,*,*,*,0.6325,0.6976,0.390750662,0.27886018,0.1128,0.0805,12,12,_mol m-2 s-1
+Populus deltoides,Turnbull 2002,day,25,15,*,28,20,*,3,5,*,air,chamber,0.3,*,pot,*,*,*,0.3537,0.5881,0.42920219,0.384515279,0.1239,0.111,12,12,_mol m-2 s-1
+Populus deltoides,Turnbull 2002,day,25,20,*,31,20,*,6,0,*,air,chamber,0.3,*,pot,*,*,*,0.6325,0.6559,0.390750662,0.27886018,0.1128,0.0805,12,12,_mol m-2 s-1
+Populus deltoides,Turnbull 2002,day,25,15,*,31,25,*,6,10,*,air,chamber,0.3,*,pot,*,*,*,0.3537,0.6438,0.42920219,0.238330191,0.1239,0.0688,12,12,_mol m-2 s-1
+Populus deltoides,Turnbull 2004,night,31,15,*,31,20,*,0,5,*,air,chamber,0.1,*,pot,*,*,*,1.1684,1.3106,0.757945433,0.473542691,0.2188,0.1367,12,12,_mol m-2 s-1
+Populus deltoides,Turnbull 2004,night,31,15,*,31,25,*,0,10,*,air,chamber,0.1,*,pot,*,*,*,1.1684,1.3895,0.757945433,0.757945433,0.2188,0.2188,12,12,_mol m-2 s-1
+Populus deltoides,Turnbull 2004,night,31,15,*,31,20,*,0,5,*,air,chamber,0.1,CO2,pot,*,*,*,0.9553,1.1211,0.568459075,0.473542691,0.1641,0.1367,12,12,_mol m-2 s-1
+Populus deltoides,Turnbull 2004,night,31,15,*,31,25,*,0,10,*,air,chamber,0.1,CO2,pot,*,*,*,0.9553,1.3026,0.568459075,0.473542691,0.1641,0.1367,12,12,_mol m-2 s-1
+Populus deltoides,Turnbull 2004,night,31,15,*,31,20,*,0,5,*,air,chamber,0.1,CO2,pot,*,*,*,1.3816,1.3975,1.424092174,0.852515407,0.4111,0.2461,12,12,_mol m-2 s-1
+Populus deltoides,Turnbull 2004,night,31,15,*,31,25,*,0,10,*,air,chamber,0.1,CO2,pot,*,*,*,1.3816,1.5553,1.424092174,1.042001766,0.4111,0.3008,12,12,_mol m-2 s-1
+Populus deltoides _ nigra,Ow 2008a,day/night,20,15,*,25,20,*,5,5,*,air,chamber,7d,*,pot,*,*,*,1.2752,1.9358,0.285388297,0.337431356,0.1009,0.1193,8,8,_mol m-2 s-1
+Populus tremuloides,Tjoelker 1999a,day/night,18,12,*,24,18,*,6,6,*,air,growth chamber,0.6 - 3,*,pot,*,*,*,20.1142,29.4858,17.82861109,17.14275396,7.2785,6.9985,6,6,nmol g-1 s-1
+Populus tremuloides,Tjoelker 1999a,day/night,18,12,*,30,24,*,12,12,*,air,growth chamber,0.6 - 3,*,pot,*,*,*,20.1142,39.3168,17.82861109,21.25716189,7.2785,8.6782,6,6,nmol g-1 s-1
+Populus tremuloides,Tjoelker 1999a,day/night,18,12,*,24,18,*,6,6,*,air,growth chamber,0.6 - 3,CO2,pot,*,*,*,16.9142,27.5437,17.82861109,15.08567248,7.2785,6.1587,6,6,nmol g-1 s-1
+Populus tremuloides,Tjoelker 1999a,day/night,18,12,*,30,24,*,12,12,*,air,growth chamber,0.6 - 3,CO2,pot,*,*,*,16.9142,37.3741,17.82861109,17.14275396,7.2785,6.9985,6,6,nmol g-1 s-1
+Populus tremuloides,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",1,*,pot,*,*,*,26.9466,36.647,4.850261876,3.233565653,2.8003,1.8669,3,3,nmol g-1 s-1
+Populus tremuloides,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",1,*,pot,*,*,*,26.9466,48.3235,4.850261876,13.47293041,2.8003,7.7786,3,3,nmol g-1 s-1
+Populus tremuloides,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",1,*,pot,*,*,*,26.9466,36.2877,4.850261876,4.88005315,2.8003,2.8175,3,3,nmol g-1 s-1
+Populus tremuloides,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",1,*,pot,*,*,*,26.9466,45.4493,4.850261876,7.005972312,2.8003,4.0449,3,3,nmol g-1 s-1
+Populus tremuloides,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",1,CO2,pot,*,*,*,26.9466,37.7248,10.77837897,8.083827529,6.2229,4.6672,3,3,nmol g-1 s-1
+Populus tremuloides,Tjoelker 1999b,day/night,18,12,*,24,18,*,6,6,6,air,"chamber, metal halied lamp",1,CO2,pot,*,*,*,26.9466,54.2516,10.77837897,23.17986275,6.2229,13.3829,3,3,nmol g-1 s-1
+Populus tremuloides,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",1,CO2,pot,*,*,*,26.9466,38.6226,10.77837897,7.544813318,6.2229,4.356,3,3,nmol g-1 s-1
+Populus tremuloides,Tjoelker 1999b,day/night,18,12,*,30,24,*,6,6,6,air,"chamber, metal halied lamp",1,CO2,pot,*,*,*,26.9466,48.6837,10.77837897,11.31739318,6.2229,6.5341,3,3,nmol g-1 s-1
+Ranunculus acris,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,16.7942,17.5573,19.8474,9.542,9.9237,4.771,4,4,mmol g-1 s-1
+Ranunculus acris,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,6.4885,11.1641,3.4352,4.2674,1.7176,2.1337,4,4,mmol g-1 s-1
+Saxifraga biflora,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,3.5882,19.541,1.5266,1.5568,0.7633,0.7784,4,4,mmol g-1 s-1
+Saxifraga muscoides,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,3.5119,11.2966,1.2212,1.8318,0.6106,0.9159,4,4,mmol g-1 s-1
+Silene dioica,Loveys 2002,day/night,*,*,18,*,*,23,*,*,5,air,growth cabinet,14days,*,pot,*,*,*,18.88,22.08,1.6,1.28,0.8,0.64,4,4,nmol g-1 s-1
+Silene dioica,Loveys 2002,day/night,*,*,18,*,*,28,*,*,10,air,growth cabinet,14days,*,pot,*,*,*,18.88,21.12,1.6,0.64,0.8,0.32,4,4,nmol g-1 s-1
+Silene dioica,Loveys 2003,day/night,*,*,15,*,*,25,*,*,10,air,"phytotron, growth cabinet",<0.5,*,pot,*,*,*,38.5,62.5,39.6,38.7,13.2,12.9,9,9,nmol g-1 s-1
+Silene uniflora,Loveys 2002,day/night,*,*,18,*,*,23,*,*,5,air,growth cabinet,14days,*,pot,*,*,*,16.48,23.36,2.88,3.52,1.44,1.76,4,4,nmol g-1 s-1
+Silene uniflora,Loveys 2002,day/night,*,*,18,*,*,28,*,*,10,air,growth cabinet,14days,*,pot,*,*,*,16.48,25.76,2.88,5.12,1.44,2.56,4,4,nmol g-1 s-1
+Silene uniflora,Loveys 2003,day/night,*,*,15,*,*,25,*,*,10,air,"phytotron, growth cabinet",<0.5,*,pot,*,*,*,35.7,67.6,40.5,45,13.5,15,9,9,nmol g-1 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,1.7895,2.1754,0.429640501,0.601594681,0.1754,0.2456,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,1.8947,2.5965,0.17195418,1.031480131,0.0702,0.4211,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,3.0526,3.3684,0.429640501,0.429640501,0.1754,0.1754,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,2.2105,2.6667,0.773548861,0.515617591,0.3158,0.2105,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,2.386,2.8421,0.34390836,0.515617591,0.1404,0.2105,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,2.5965,3.2982,0.34390836,0.601594681,0.1404,0.2456,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,3.614,4.3158,0.25793127,0.687571771,0.1053,0.2807,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,4.3158,6.2456,0.34390836,1.633074812,0.1404,0.6667,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,4.6667,5.2632,1.289166452,2.578332903,0.5263,1.0526,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,6.1404,7.2632,1.031480131,2.062715312,0.4211,0.8421,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,4.3158,5.0175,0.687571771,1.289166452,0.2807,0.5263,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,2.9825,3.5088,0.429640501,0.945503041,0.1754,0.386,6,6,_mol m-2 s-1
+Sorghastrum nutans,Zhou 2007,day/night,*,*,16.3,*,*,*,*,*,1.1,air,infrared heater,1year,*,field,34?58_54_N,97?31_14_W,*,0.386,0.6316,0.25793127,0.17195418,0.1053,0.0702,6,6,_mol m-2 s-1
+Spinacia oleracea,Yamori 2005,day/night,15,10,*,30,25,*,15,15,*,air,growth chamber,1.5,nutrient,pot,*,*,*,1.0032,1.4855,0.347276187,0.238676601,0.2005,0.1378,3,3,_mol m-2 s-1
+Stipa krylovii,Wan 2009,day,*,*,18.9,*,*,*,1.04,0.61,0.82,soil at 10cm,infrared indiator,2 years,*,field,42?02_N,116?17_E,1324,0.5387,0.5266,0.148928976,0.069565509,0.0608,0.0284,6,6,g C m-2 d-1
+Stipa krylovii,Wan 2009,day,*,*,18.9,*,*,*,1.04,0.61,0.82,soil at 10cm,infrared indiator,2 years,*,field,42?02_N,116?17_E,1324,0.7615,0.5833,0.168769843,0.148928976,0.0689,0.0608,6,6,g C m-2 d-1
+Stipa krylovii,Wan 2009,day,*,*,18.9,*,*,*,1.04,0.61,0.82,soil at 10cm,infrared indiator,2 years,*,field,42?02_N,116?17_E,1324,0.3524,0.4942,0.049724642,0.099204335,0.0203,0.0405,6,6,g C m-2 d-1
+Stipa krylovii,Wan 2009,day,*,*,18.9,*,*,*,1.04,0.61,0.82,soil at 10cm,infrared indiator,3 years,*,field,42?02_N,116?17_E,1324,1.1058,0.9357,0.248133311,0.367178512,0.1013,0.1499,6,6,g C m-2 d-1
+Stipa krylovii,Wan 2009,night,*,*,18.9,*,*,*,1.03,0.87,0.95,soil at 10cm,infrared indiator,2 years,*,field,42?02_N,116?17_E,1324,0.5387,0.6765,0.148928976,0.158726935,0.0608,0.0648,6,6,g C m-2 d-1
+Stipa krylovii,Wan 2009,night,*,*,18.9,*,*,*,1.03,0.87,0.95,soil at 10cm,infrared indiator,2 years,*,field,42?02_N,116?17_E,1324,0.7615,1.0613,0.168769843,0.178567802,0.0689,0.0729,6,6,g C m-2 d-1
+Stipa krylovii,Wan 2009,night,*,*,18.9,*,*,*,1.03,0.87,0.95,soil at 10cm,infrared indiator,2 years,*,field,42?02_N,116?17_E,1324,0.3524,0.9519,0.049724642,0.208451577,0.0203,0.0851,6,6,g C m-2 d-1
+Stipa krylovii,Wan 2009,night,*,*,18.9,*,*,*,1.03,0.87,0.95,soil at 10cm,infrared indiator,3 years,*,field,42?02_N,116?17_E,1324,1.1058,1.2638,0.248133311,0.148928976,0.1013,0.0608,6,6,g C m-2 d-1
+Stipa krylovii,Wan 2009,day/night,*,*,18.9,*,*,*,*,*,*,air,infrared indiator,2 years,*,field,42?02_N,116?17_E,1324,0.5387,0.6076,0.148928976,0.049724642,0.0608,0.0203,6,6,g C m-2 d-1
+Stipa krylovii,Wan 2009,day/night,*,*,18.9,*,*,*,*,*,*,air,infrared indiator,2 years,*,field,42?02_N,116?17_E,1324,0.7615,0.8385,0.168769843,0.119045201,0.0689,0.0486,6,6,g C m-2 d-1
+Stipa krylovii,Wan 2009,day/night,*,*,18.9,*,*,*,*,*,*,air,infrared indiator,3 years,*,field,42?02_N,116?17_E,1324,0.3524,0.7129,0.049724642,0.148928976,0.0203,0.0608,6,6,g C m-2 d-1
+Stipa krylovii,Wan 2009,day/night,*,*,18.9,*,*,*,*,*,*,air,infrared indiator,*,*,field,42?02_N,116?17_E,1324,1.1058,1.0532,0.248133311,0.148928976,0.1013,0.0608,6,6,g C m-2 d-1
+Taraxacum alpinum,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,16.4774,23.2962,15.4542,8.1944,7.7271,4.0972,4,4,mmol g-1 s-1
+Taraxacum officinale,Larigauderie 1995,day/night,10,5,*,20,15,*,10,10,*,air,chamber,<1,*,pot,*,*,2500,8.409,14.432,4.5454,2.7272,2.2727,1.3636,4,4,mmol g-1 s-1

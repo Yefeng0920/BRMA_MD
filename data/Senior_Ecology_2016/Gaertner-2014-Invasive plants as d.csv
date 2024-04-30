@@ -1,0 +1,367 @@
+﻿ID,study_id,Invader name,GROWTHFORM,ECOSYSTEMS,IMPACT,COMBINATION,mean_ctrl,SD_ctrl,N_ctrl,mean_trt,SD_trt,N_trt,Effect size,SD
+3,Rossiter- Rachor et al. 2003,Andropogon gayanus,grass,grasslands,fire,grassgrasslandsfire,0.39,0.12,4,1.54,0.47,4,3.35275543,1.096613223
+,Rossiter- Rachor et al. 2003,Andropogon gayanus,grass,grasslands,fire,grassgrasslandsfire,0.38,0.09,4,1.12,0.07,4,9.17857036,2.401121533
+,Rossiter- Rachor et al. 2003,Andropogon gayanus,grass,grasslands,fire,grassgrasslandsfire,0.27,0.07,4,1.2,0.07,4,13.28571429,3.39586333
+,Rossiter- Rachor et al. 2003,Andropogon gayanus,grass,grasslands,fire,grassgrasslandsfire,0.25,0.02,4,1.72,0.29,4,7.151612555,1.9226538
+4,Reed et al. 2005,Andropogon bladhii,grass,grasslands,nutrients,grassgrasslandsnutrients,0.135,0.018,60,0.0595,0.0069,60,-5.538832774,0.401448775
+,Reed et al. 2005,Andropogon bladhii,grass,grasslands,nutrients,grassgrasslandsnutrients,0.119,0.044,60,0.118,0.021,60,-0.029006839,0.182583787
+,Reed et al. 2005,Andropogon bladhii,grass,grasslands,nutrients,grassgrasslandsnutrients,0.289,0.011,60,0.252,0.0079,60,-3.863716179,0.309086711
+,Reed et al. 2005,Andropogon bladhii,grass,grasslands,nutrients,grassgrasslandsnutrients,4.18,0.32,60,3.51,0.16,60,-2.64840754,0.25011716
+5,Niu et al. 2007,Ageratina adenophora,herb,grasslands,nutrients,herbgrasslandsnutrients,43.1,4.5,5,62.7,7.7,5,3.107980432,0.939668622
+,Niu et al. 2007,Ageratina adenophora,herb,grasslands,nutrients,herbgrasslandsnutrients,4.4,0.4,5,4.7,0.4,5,0.75,0.654312616
+,Niu et al. 2007,Ageratina adenophora,herb,grasslands,nutrients,herbgrasslandsnutrients,0.01444,0.0021,5,0.0325,0.0048,5,4.874853508,1.260241975
+,Niu et al. 2007,Ageratina adenophora,herb,grasslands,nutrients,herbgrasslandsnutrients,0.0281,0.0031,5,0.0393,0.0032,5,3.555107724,1.015844253
+,Niu et al. 2007,Ageratina adenophora,herb,grasslands,nutrients,herbgrasslandsnutrients,0.6,0.05,5,0.6,0.07,5,0,0.632455532
+,Niu et al. 2007,Ageratina adenophora,herb,grasslands,nutrients,herbgrasslandsnutrients,0.0022,0.0002,5,0.0047,0.0003,5,9.805806757,2.282036877
+,Niu et al. 2007,Ageratina adenophora,herb,grasslands,nutrients,herbgrasslandsnutrients,3.8,0.3,5,3.6,0.4,5,-0.565685425,0.64498062
+,Niu et al. 2007,Ageratina adenophora,herb,grasslands,nutrients,herbgrasslandsnutrients,0.0181,0.0029,5,0.0396,0.0028,5,7.542698966,1.801281595
+6,Miller et al. 2010,Cenchrus ciliaris,grass,forests,fire,grassforestsfire,0.1804,0.0154,16,0.6679,0.0969,16,7.02666615,0.946820644
+7,Meiman et al. 2006,Centaurea stoebe (syn. maculosa) ,herb,grasslands,biota,herbgrasslandsbiota,0.23,0.02,49,0.16,0.01,49,,
+8,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0102,0.0011,3,0.0047,0.0011,3,-5,1.658312395
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0022,0.0011,3,0.0014,0.0011,3,-0.727272727,0.843056227
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0041,0.0007,3,0.0062,0.0006,3,3.221252953,1.237486383
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0015,0.0006,3,0.00174,0.0006,3,0.4,0.824621125
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0068,0.0004,3,0.0034,0.0004,3,-8.5,2.586020108
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0012,0.0004,3,0.0011,0.0004,3,-0.25,0.819679816
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0072,0.0007,3,0.0064,0.0007,3,-1.142857143,0.880630572
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0073,0.0007,3,0.0053,0.0007,3,-2.857142857,1.160576915
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0021,0.0002,3,0.0025,0.0002,3,2,1
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0031,0.0002,3,0.0022,0.0002,3,-4.5,1.534329387
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0048,0.0013,3,0.003,0.0012,3,-1.438849381,0.916073484
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0089,0.0012,3,0.0064,0.0013,3,-1.998401917,0.999733724
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.1,0.0034,3,0.013,0.0035,3,-25.21474339,7.324520942
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0039,0.0033,3,0.0095,0.0033,3,1.696969697,0.952177599
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0085,0.00184,3,0.0045,0.00018,3,-3.059771252,1.202850784
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.012,0.0017,3,0.0186,0.0018,3,3.769890155,1.360516807
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.235,0.0031,3,0.015,0.0034,3,-67.62032436,19.53737501
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.023,0.003,3,0.04,0.0028,3,5.858586893,1.878009593
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.013,0.001,3,0.0015,0.001,3,-11.5,3.418698583
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.002,0.001,3,0.0013,0.001,3,-0.7,0.841130192
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0063,0.0007,3,0.0038,0.0007,3,-3.571428571,1.315139474
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0018,0.0007,3,0.0016,0.0007,3,-0.285714286,0.820651807
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0082,0.0012,3,0.0073,0.0012,3,-0.75,0.844713956
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0082,0.0016,3,0.0013,0.0016,3,-4.3125,1.488781836
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0031,0.0026,3,0.013,0.0033,3,3.332558928,1.261809184
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0029,0.0025,3,0.0009,0.0025,3,-0.8,0.848528137
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0086,0.0019,3,0.0093,0.0019,3,0.368421053,0.823394097
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0153,0.0019,3,0.0098,0.0019,3,-2.894736842,1.168314362
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.019,0.0035,3,0.0047,0.028,3,-0.716681696,0.842300058
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.024,0.0032,3,0.0044,0.019,3,-1.438612028,0.916042419
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.009,0.0013,3,0.008,0.0012,3,-0.799360767,0.848477933
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.003,0.0012,3,0.0013,0.0012,3,-1.416666667,0.913187843
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0041,0.0006,3,0.0062,0.0007,3,3.221252953,1.237486383
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0014,0.0007,3,0.0018,0.0006,3,0.613571991,0.835487412
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0069,0.0005,3,0.0034,0.0005,3,-7,2.179449472
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.00012,0.0005,3,0.001,0.0005,3,1.76,0.961665222
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0073,0.0006,3,0.0063,0.0006,3,-1.666666667,0.947706784
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0072,0.0006,3,0.005,0.0006,3,-3.666666667,1.336801046
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0021,0.0003,3,0.0025,0.0003,3,1.333333333,0.902670934
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.00031,0.0003,3,0.0021,0.0003,3,5.966666667,1.906154749
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0054,0.00143,3,0.0034,0.0013,3,-1.463543059,0.919327575
+,Jordan et al. 2008,Bromus inermis ,grass,lab,biota,grasslabbiota,0.0099,0.0013,3,0.0071,0.0013,3,-2.153846154,1.026281851
+10,Hawkes et al. 2005,Avena barbata & Bromus hordeaceus,grass,grasslands,nutrients,grassgrasslandsnutrients,0.96,0.23,10,0.72,0.1,10,-1.353321299,0.495769063
+,Hawkes et al. 2005,Avena barbata & Bromus hordeaceus,grass,grasslands,nutrients,grassgrasslandsnutrients,1.17,0.13,10,1,0.14,10,-1.258396457,0.489478336
+,Hawkes et al. 2005,Avena barbata & Bromus hordeaceus,grass,grasslands,litter,grassgrasslandslitter,0.63,0.22,10,0.23,0.05,10,-2.507356563,0.597637786
+,Hawkes et al. 2005,Avena barbata & Bromus hordeaceus,grass,grasslands,litter,grassgrasslandslitter,5.74,1.21,10,0.26,0.06,10,-6.397008226,1.10591268
+,Hawkes et al. 2005,Avena barbata & Bromus hordeaceus,grass,grasslands,nutrients,grassgrasslandsnutrients,5.9,0.06,5,5.7,0.02,5,-4.472135955,1.183215957
+,Hawkes et al. 2005,Avena barbata & Bromus hordeaceus,grass,grasslands,nutrients,grassgrasslandsnutrients,0.28,0.006,20,0.37,0.05,20,2.527451803,0.424087441
+,Hawkes et al. 2005,Avena barbata & Bromus hordeaceus,grass,grasslands,nutrients,grassgrasslandsnutrients,0.08,0.02,20,0.57,0.09,20,7.516256891,0.897873304
+12,Ehrenfeld et al. 2001,Berberis spp.,shrub,forests,nutrients,shrubforestsnutrients,10.4,3.36,11,1.58,0.58,56,-6.203415716,0.629244049
+,Ehrenfeld et al. 2001,Berberis spp.,shrub,forests,nutrients,shrubforestsnutrients,11.62,1.7,18,3.07,0.61,50,-8.463065357,0.776014662
+,Ehrenfeld et al. 2001,Microstegium spp.,grass,forests,nutrients,grassforestsnutrients,10.4,3.36,11,2.11,0.78,56,-5.524627181,0.580119525
+,Ehrenfeld et al. 2001,Berberis spp.,shrub,forests,nutrients,shrubforestsnutrients,0.01,0.001,11,0.16,0.06,56,2.717717904,0.404827823
+,Ehrenfeld et al. 2001,Berberis spp.,shrub,forests,nutrients,shrubforestsnutrients,0.11,0.06,18,1.31,0.28,50,4.934748977,0.504591441
+,Ehrenfeld et al. 2001,Berberis spp.,shrub,forests,nutrients,shrubforestsnutrients,2.5,1.28,26,12.77,3.03,32,4.25935333,0.475509067
+,Ehrenfeld et al. 2001,Microstegium spp.,grass,forests,nutrients,grassforestsnutrients,0.01,0.01,11,0.2,0.08,56,2.578237534,0.397961073
+,Ehrenfeld et al. 2001,Microstegium spp.,grass,forests,nutrients,grassforestsnutrients,2.5,1.28,26,12.53,2.86,32,4.373528362,0.484361371
+,Ehrenfeld et al. 2001,Berberis spp.,shrub,forests,nutrients,shrubforestsnutrients,4.82,0.084,26,5.76,0.18,32,6.473418653,0.656477588
+,Ehrenfeld et al. 2001,Microstegium spp.,grass,forests,nutrients,grassforestsnutrients,4.82,0.084,26,6.5,0.075,32,21.22701753,1.988485847
+,Ehrenfeld et al. 2001,Microstegium spp.,grass,forests,nutrients,grassforestsnutrients,4.54,0.075,18,5.09,0.098,50,5.938020205,0.578637087
+,Ehrenfeld et al. 2001,Berberis spp.,shrub,forests,nutrients,shrubforestsnutrients,4.44,0.084,11,4.96,0.0515,56,9.011509188,0.845453041
+,Ehrenfeld et al. 2001,Microstegium spp.,grass,forests,nutrients,grassforestsnutrients,4.44,0.084,11,5.43,0.066,56,14.33220402,1.281285348
+13,Dassonville et al. 2007,Fallopia japonica,herb,grasslands,nutrients,herbgrasslandsnutrients,1871,526,6,3998,1880,6,1.54084404,0.657463572
+,Dassonville et al. 2007,Fallopia japonica,herb,agriculture,nutrients,herbagriculturenutrients,845,169,6,2980,418,6,6.69669023,1.483880892
+,Dassonville et al. 2007,Fallopia japonica,herb,forests,nutrients,herbforestsnutrients,1294,719,6,3901,1313,6,2.46287224,0.765553712
+,Dassonville et al. 2007,Fallopia japonica,herb,dump,nutrients,herbdumpnutrients,3074,367,6,2435,827,6,-0.998792359,0.61229031
+,Dassonville et al. 2007,Fallopia japonica,herb,grasslands,nutrients,herbgrasslandsnutrients,419,58,6,2643,1086,6,2.892021161,0.825726609
+,Dassonville et al. 2007,Fallopia japonica,herb,grasslands,nutrients,herbgrasslandsnutrients,8.6,3.2,6,22.9,10.5,6,1.8423644,0.689030314
+,Dassonville et al. 2007,Fallopia japonica,herb,agriculture,nutrients,herbagriculturenutrients,12,2,6,39.3,6.2,6,5.926386307,1.340429885
+,Dassonville et al. 2007,Fallopia japonica,herb,forests,nutrients,herbforestsnutrients,7.4,2.7,6,26.4,7.7,6,3.293037705,0.886098596
+,Dassonville et al. 2007,Fallopia japonica,herb,dump,nutrients,herbdumpnutrients,11.3,0.7,6,30.7,12.1,6,2.263632027,0.739482644
+,Dassonville et al. 2007,Fallopia japonica,herb,grasslands,nutrients,herbgrasslandsnutrients,3.3,0.6,6,33.7,12,6,3.578204395,0.931028703
+14,Adams&Engelhardt 2009,Microstegium vimineum _ June ,grass,forests,plantcomp,grassforestsplantcomp,39.7,8.4,6,23.56,6.5,6,-2.149041136,0.725097057
+,Adams&Engelhardt 2009,Microstegium vimineum _ August ,grass,forests,plantcomp,grassforestsplantcomp,46.6,9.04,6,17.9,5.8,6,-3.77890748,0.963503627
+,Adams&Engelhardt 2009,Microstegium vimineum _ September,grass,forests,plantcomp,grassforestsplantcomp,39.5,8.2,6,23.97,6,6,-2.161535913,0.726642894
+,Adams&Engelhardt 2009,Microstegium vimineum _ June ,grass,forests,plantcomp,grassforestsplantcomp,25.3,2.76,6,22.94,4.05,6,-0.680988214,0.593848499
+,Adams&Engelhardt 2009,Microstegium vimineum _ August ,grass,forests,plantcomp,grassforestsplantcomp,22.06,1.97,6,16.2,1.97,6,-2.974619289,0.837863352
+,Adams&Engelhardt 2009,Microstegium vimineum _ September,grass,forests,plantcomp,grassforestsplantcomp,22.2,2.7,6,16.18,1.97,6,-2.547225578,0.776969491
+,Adams&Engelhardt 2009,Microstegium vimineum ,grass,forests,plantcomp,grassforestsplantcomp,3.76,0.47,6,3.23,0.3,6,-1.344251428,0.639238215
+,Adams&Engelhardt 2009,Microstegium vimineum ,grass,forests,plantcomp,grassforestsplantcomp,1.33,0.17,6,1.82,0.22,6,2.492420593,0.769528005
+,Adams&Engelhardt 2009,Microstegium vimineum ,grass,forests,plantcomp,grassforestsplantcomp,6.06,0.15,6,6.04,0.19,6,-0.116841248,0.577842679
+,Adams&Engelhardt 2009,Microstegium vimineum ,grass,forests,plantcomp,grassforestsplantcomp,25.39,4.75,6,29.28,6.15,6,0.707945888,0.595160601
+15,Angeloni et al. 2006,Typha x glauca,herb,wetlands,nutrients,herbwetlandsnutrients,1.98,0.554,5,8.08,2.15,5,3.885501649,1.074642337
+,Angeloni et al. 2006,Typha x glauca,herb,wetlands,nutrients,herbwetlandsnutrients,26.6,2.03,5,80.2,4.51,5,15.32648921,3.484976839
+,Angeloni et al. 2006,Typha x glauca,herb,wetlands,nutrients,herbwetlandsnutrients,8.15,0.04,5,7.52,0.044,5,-14.98302207,3.409479067
+,Angeloni et al. 2006,Typha x glauca,herb,wetlands,biota,herbwetlandsbiota,54,3.36,9,68.4,1.71,9,5.401618618,1.016222358
+16,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,9.5,0.8,3,12.2,4.2,3,0.893080622,0.856231715
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,8.3,1.1,3,8.5,2.2,3,0.114991915,0.817171093
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,17,3.1,3,15.3,3.6,3,-0.506055489,0.829462284
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,9.8,0.9,3,9.2,0.8,3,-0.704664263,0.841454679
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,5.1,0.3,3,5.7,0.7,3,1.114172029,0.877561931
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,165,11,3,172,9,3,0.696526033,0.840889832
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,7.6,0.1,3,7.6,0,3,0,0.816496581
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,7.6,0,3,7.5,0,3,,
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,352,35,3,378,11,3,1.002226348,0.866239846
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,354,40,3,455,77,3,1.64614362,0.944712867
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,0.19,0.02,3,0.24,0.01,3,3.16227766,1.224744871
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,1.8,0.1,3,1.8,0.2,3,0,0.816496581
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,4.7,0.6,3,4.5,0.3,3,-0.421637021,0.825518916
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,0.38,0.01,3,0.43,0.05,3,1.386750491,0.909353109
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,0.21,0.04,3,0.25,0.01,3,1.371988681,0.907485213
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,1.4,0,3,1.8,0.1,3,5.656854249,1.825741858
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,3.1,0.2,3,5.4,0.2,3,11.5,3.418698583
+,Belnap&Philips 2001,Bromus tectorum,grass,grasslands,biota,grassgrasslandsbiota,0.32,0.01,3,0.38,0.01,3,6,1.914854216
+17,Castro et al. 2010,Anthriscus caucalis,herb,shrublands,plantcomp,herbshrublandsplantcomp,1.19,0.1,100,0.41,0.11,100,-7.420163309,0.39704793
+,Castro et al. 2010,Anthriscus caucalis,herb,shrublands,plantcomp,herbshrublandsplantcomp,0.59,0.04,100,0.23,0.06,100,-7.060180865,0.380283295
+18,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,319.2,26.8,6,155.5,21.6,6,-6.725756724,1.489348341
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,430.3,36.1,6,223.4,56.6,6,-4.358557614,1.060601725
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,357.2,54.6,6,213.1,59.7,6,-2.518928609,0.773116026
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,291.3,22.7,6,223.4,46.3,6,-1.862203921,0.691248974
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,234.7,18.5,6,155.4,29.9,6,-3.189578361,0.870187004
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,326.5,14.7,6,143.87,24.9,6,-8.932191084,1.912503132
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,258.2,16.6,6,151.3,12.9,6,-7.191116214,1.577341545
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,351.4,19.6,6,166,19.4,6,-9.507567291,2.02478225
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,367.9,19.4,6,83,14.8,6,-16.51212744,3.4196147
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,355.9,36.9,6,46.11,11.9,6,-11.29980945,2.37772382
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,480.8,33.1,6,278.1,44.5,6,-5.168749256,1.202704745
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,582.9,10.4,6,231.6,41.4,6,-11.63870499,2.444887982
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,437.4,68.3,6,221.3,24.8,6,-4.205868426,1.03459592
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,417.7,65.1,6,146.8,41.4,6,-4.965850447,1.166541731
+,Chen et al. 2004,Spartina alterniflora,grass,wetlands,plantcompet,grasswetlandsplantcompet,399.1,37.2,6,133.4,10.4,6,-9.727968165,2.067943469
+19,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,8.5,1.1,14,20,1.6,12,8.503949466,1.243171932
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,7.7,2.5,14,9.5,2.7,12,0.694020904,0.404999622
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,0.9,0.3,14,0,0,12,-4.076197323,0.688686091
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,1.1,0.4,14,0.1,0.1,12,-3.310423554,0.604574281
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,39.2,5.2,14,82.1,7,12,7.042730571,1.052905074
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,23.2,6.5,14,19,4.9,12,-0.721462074,0.405920762
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,5.4,1.6,14,0,0,12,-4.585721988,0.747771885
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,0,0,14,0.1,0,12,,
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,2.9,1.1,14,0.1,0.1,12,-3.446561747,0.619031609
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,6,1.5,14,25.5,2.5,13,9.549191084,1.35536
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,5.5,1,14,12.3,1.5,13,5.375872022,0.826762864
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,3.3,1.4,14,0,0,13,-3.268769013,0.588403991
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,1,0.7,14,0,0,13,-1.981072129,0.470138589
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,0,0,14,0.2,0.2,13,1.443375673,0.432356213
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,36.8,9.4,14,112.4,9.4,13,8.042553191,1.160249421
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,16.3,3.3,14,28.3,4.7,13,2.975369193,0.558831632
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,16.8,7.5,14,0,0,13,-3.106321099,0.57187508
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,3.4,1.8,14,0,0,13,-2.619417593,0.524798683
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,0,0,14,0.4,0.4,13,1.443375673,0.432356213
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,2.9,0.2,14,2.2,0.15,12,-3.914393385,0.670391599
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,3.37,0.22,14,2,0.26,13,-5.707540674,0.866955182
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,2.74,0.2,14,2.1,0.12,12,-3.806647611,0.658351453
+,Ciu et al. 2011,Spartina alterniflora,grass,wetlands,faunacomp,grasswetlandsfaunacomp,3.1,0.35,14,2.5,0.06,13,-2.345683581,0.500244764
+20,Cushmann et al. 2010,Arunda donax,grass,riparian,plantcomp,grassriparianplantcomp,4.6,0.4,30,4.6,0.3,30,0,0.25819889
+,Cushmann et al. 2010,Arunda donax,grass,riparian,plantcomp,grassriparianplantcomp,6.4,0.3,30,3.44,0.18,30,-11.96509084,1.122361345
+,Cushmann et al. 2010,Arunda donax,grass,riparian,plantcomp,grassriparianplantcomp,8.9,0.7,30,7.1,0.29,30,-3.359647629,0.400907639
+,Cushmann et al. 2010,Vinca major,grass,riparian,plantcomp,grassriparianplantcomp,0.6,0.35,30,0.33,0.18,30,-0.970181643,0.272965999
+21,De Meester et al. 2010,Microstegium vimineum,grass,wetlands,plantcompet,grasswetlandsplantcompet,661.28,161.41,6,553.12,60.08,6,-0.888128169,0.605143635
+,De Meester et al. 2010,Microstegium vimineum,grass,wetlands,nutrients,grasswetlandsnutrients,76.04,11.32,6,110.321,4.9,6,3.930330543,0.988422526
+,De Meester et al. 2010,Microstegium vimineum,grass,wetlands,nutrients,grasswetlandsnutrients,1,0.06,6,0.83,0.14,6,-1.578410375,0.661166246
+,De Meester et al. 2010,Microstegium vimineum,grass,wetlands,plantcompet,grasswetlandsplantcompet,566.96,116.64,6,724.56,347.12,6,0.608641249,0.59056626
+,De Meester et al. 2010,Microstegium vimineum,grass,wetlands,nutrients,grasswetlandsnutrients,72.9,6.66,6,82.89,4.83,6,1.717259286,0.675431327
+22,Drenovski & Batten 2007,Aegilops triuncialis ,grass,grasslands ,plantcompet,grassgrasslands plantcompet,84.2,5.4,6,38.4,1.6,6,-11.50042491,2.417469174
+,Drenovski & Batten 2007,Aegilops triuncialis ,grass,grasslands ,nutrients,grassgrasslands nutrients,1.6,0.1,6,1.3,0.05,6,-3.794733192,0.966091783
+,Drenovski & Batten 2007,Aegilops triuncialis ,grass,grasslands ,nutrients,grassgrasslands nutrients,7.5,0.4,6,4.8,0.2,6,-8.538149682,1.835982934
+,Drenovski & Batten 2007,Aegilops triuncialis ,grass,grasslands ,nutrients,grassgrasslands nutrients,150.8,5.8,6,80.3,6.9,6,-11.06095002,2.330456102
+23,Fickbohm & Zhu 2006,Lythrum salicaria (live),herb,wetlands,nutrients,herbwetlandsnutrients,2.2,1,15,14,0.3,15,15.98393689,2.095575651
+,Fickbohm & Zhu 2006,Lythrum salicaria (dead),herb,wetlands,nutrients,herbwetlandsnutrients,21.31,1.95,15,14.53,4.66,15,-1.898106272,0.43975007
+,Fickbohm & Zhu 2006,Lythrum salicaria ,herb,wetlands,nutrients,herbwetlandsnutrients,7.44,1.27,15,4.07,0.71,15,-3.275551784,0.558707429
+,Fickbohm & Zhu 2006,Lythrum salicaria ,herb,wetlands,nutrients,herbwetlandsnutrients,0.05,0.03,15,0.04,0.01,15,-0.447213595,0.36968455
+,Fickbohm & Zhu 2006,Lythrum salicaria ,herb,wetlands,nutrients,herbwetlandsnutrients,3.17,0.52,15,9.87,1.43,15,6.227104654,0.882957458
+,Fickbohm & Zhu 2006,Lythrum salicaria ,herb,wetlands,plantcompet,herbwetlandsplantcompet,35.16,0.39,15,27.5,1.06,15,-9.591123643,1.290927656
+24,Flanders et al. 2006,Cenchrus ciliaris & Eragrostis lehmanniana,grass,grasslands,plantcomp,grassgrasslandsplantcomp,13.6,2.36,45,3.03,0.36,45,-6.261567062,0.512115558
+,Flanders et al. 2006,Cenchrus ciliaris & Eragrostis lehmanniana,grass,grasslands,plantcomp,grassgrasslandsplantcomp,20.09,4.37,45,19.29,1.68,45,-0.241652696,0.211586547
+,Flanders et al. 2006,Cenchrus ciliaris & Eragrostis lehmanniana,grass,grasslands,plantcomp,grassgrasslandsplantcomp,32.5,1.32,45,28.5,1.26,45,-3.099937033,0.312779738
+,Flanders et al. 2006,Cenchrus ciliaris & Eragrostis lehmanniana,grass,grasslands,plantcomp,grassgrasslandsplantcomp,15,1.04,45,12.17,0.6,45,-3.333335646,0.325841871
+,Flanders et al. 2006,Cenchrus ciliaris & Eragrostis lehmanniana,grass,grasslands,plantcomp,grassgrasslandsplantcomp,23,0.52,45,22.67,0.8,45,-0.489117063,0.213947495
+25,Fraterrigo et al. 2011,Microstegium vimineum,grass,forests,nutrients,grassforestsnutrients,0.49,0.6,36,0.17,0.19,36,-0.719055736,0.243199751
+,Fraterrigo et al. 2011,Microstegium vimineum,grass,forests,nutrients,grassforestsnutrients,0.003,0.001,36,0.01,0.01,36,0.985036563,0.249587118
+,Fraterrigo et al. 2011,Microstegium vimineum,grass,forests,nutrients,grassforestsnutrients,1.18,0.61,36,0.97,0.75,36,-0.307200136,0.237088414
+,Fraterrigo et al. 2011,Microstegium vimineum,grass,forests,nutrients,grassforestsnutrients,0.03,0.01,36,0.04,0.01,36,1,0.25
+,Fraterrigo et al. 2011,Microstegium vimineum,grass,forests,nutrients,grassforestsnutrients,43.32,5.95,36,21.78,6.02,36,-3.598935955,0.381447717
+26,Larkin et al. 2012,Typha x glauca,herb,wetlands,nutrients,herbwetlandsnutrients,13.9,16.71,5,12,12.1,5,-0.130241801,0.633125696
+,Larkin et al. 2012,Typha x glauca,herb,wetlands,nutrients,herbwetlandsnutrients,4.7,6.5,5,14,20,5,0.625408854,0.647732052
+,Larkin et al. 2012,Typha x glauca,herb,wetlands,nutrients,herbwetlandsnutrients,3.4,8.3,5,24.3,53.3,5,0.547937731,0.644214085
+,Larkin et al. 2012,Typha x glauca,herb,wetlands,plantcomp,herbwetlandsplantcomp,7.3,3.9,5,6.1,4.2,5,-0.296093284,0.635911599
+27,Mitchell et al. 2011,Typha x glauca(<=10 years),herb,wetlands,plantcomp,herbwetlandsplantcomp,0.91,0.079,60,0.67,0.17,60,-1.810586098,0.216777747
+,Mitchell et al. 2011,Typha x glauca(15<= Age<= 25),herb,wetlands,plantcomp,herbwetlandsplantcomp,0.91,0.079,60,0.42,0.094,60,-5.643566027,0.407481275
+,Mitchell et al. 2011,Typha x glauca(>= 35),herb,wetlands,plantcomp,herbwetlandsplantcomp,0.91,0.079,60,0.2,0.1,60,-7.878924945,0.540360444
+,Mitchell et al. 2011,Typha x glauna(<=10 years),herb,wetlands,litter,herbwetlandslitter,46.97,3.35,60,44.83,3.02,60,-0.67099972,0.187641509
+,Mitchell et al. 2011,Typha x glauca(15<= Age<= 25),herb,wetlands,litter,herbwetlandslitter,46.97,3.35,60,12.8,3.69,60,-9.696085128,0.651965192
+,Mitchell et al. 2011,Typha x glauca(>= 35),herb,wetlands,litter,herbwetlandslitter,46.97,3.35,60,20.04,2.48,60,-9.137243346,0.617418065
+28,Scharfy et al 2010,Solidago gigantea,herb,grasslands,biota,herbgrasslandsbiota,47.6,1.74,9,43.4,2.54,9,-1.929205294,0.570619378
+,Scharfy et al. 2010,Solidago gigantea,herb,grasslands,biota,herbgrasslandsbiota,60.67,2.4,9,52.54,4.67,9,-2.189756501,0.596169102
+,Scharfy et al. 2010,Solidago gigantea,herb,grasslands,biota,herbgrasslandsbiota,46.53,2.67,9,43.47,5.6,9,-0.69753929,0.485528379
+,Scharfy et al. 2010,Solidago gigantea,herb,grasslands,biota,herbgrasslandsbiota,10.9,0.6,9,11.6,0.9,9,0.915208631,0.495468545
+,Scharfy et al. 2010,Solidago gigantea,herb,grasslands,biota,herbgrasslandsbiota,16.7,1.2,9,14.3,0.8,9,-2.353393622,0.613244141
+,Scharfy et al. 2010,Solidago gigantea,herb,grasslands,biota,herbgrasslandsbiota,46.5,8.2,9,40.7,6.8,9,-0.769986885,0.488560237
+,Scharfy et al. 2010,Solidago gigantea,herb,grasslands,biota,herbgrasslandsbiota,16,2.1,9,19.5,2.2,9,1.627466942,0.543871121
+,Scharfy et al. 2010,Solidago gigantea,herb,grasslands,biota,herbgrasslandsbiota,2.09,0.1,9,2.28,0.09,9,1.997235659,0.577084393
+30,Stiers et al. 2011,Hydrocotyle ranunculoides,aquatic,wetlands,plantcomp,aquaticwetlandsplantcomp,5.19,1.1,38,1.63,0.25,38,-4.463094683,0.428577928
+,Stiers et al. 2011,Ludwigia grandiflora,aquatic,wetlands,plantcomp,aquaticwetlandsplantcomp,6.75,0.62,41,2.25,0.31,41,-9.18080611,0.750151208
+,Stiers et al. 2011,Myriophyllum aquaticum,aquatic,wetlands,plantcomp,aquaticwetlandsplantcomp,3.99,0.71,35,1.7,0.44,35,-3.877181383,0.405608322
+31,Hartmann&Mc Carthy 2008 ,Lonicera maackii,shrub,forests,plantcomp,shrubforestsplantcomp,28.5,3.05,4,32.5,2.75,12,1.419962099,0.62955736
+,Hartmann&Mc Carthy 2008 ,Lonicera maackii,shrub,forests,plantcomp,shrubforestsplantcomp,8.75,1.18,4,3.66,1.03,12,-4.784173278,1.024008371
+,Hartmann&Mc Carthy 2008 ,Lonicera maackii,shrub,forests,plantcomp,shrubforestsplantcomp,11,1.57,4,7.16,1.01,12,-3.330077877,0.824546946
+,Hartmann&Mc Carthy 2008 ,Lonicera maackii,shrub,forests,plantcomp,shrubforestsplantcomp,19,1.87,4,18.16,0.99,12,-0.681461278,0.589784286
+,Hartmann&Mc Carthy 2008 ,Lonicera maackii,shrub,forests,plantcomp,shrubforestsplantcomp,14.5,1.25,4,8.5,1.38,12,-4.433951964,0.973502001
+32,Flory & Clay 2010,Microstegium vimineum,grass,forests,plantcompet,grassforestsplantcompet,29.3,0,16,15.7,0,16,,
+,Flory & Clay 2010,Microstegium vimineum,grass,forests,plantcompet,grassforestsplantcompet,34.2,0,16,12.5,0,16,,
+,Flory & Clay 2010,Microstegium vimineum,grass,forests,plantcompet,grassforestsplantcompet,34.2,0,16,16.7,0,16,,
+33,Turner et al. 2008,Asparagus asparagoides ,herb,lab,plantcompet,herblabplantcompet,12.3,0.3,6,4.8,0.9,6,-11.18033989,2.354074482
+,Turner et al. 2008,Asparagus asparagoides ,herb,lab,plantcompet,herblabplantcompet,12.1,0.3,6,7.5,0.5,6,-11.15663875,2.349384567
+,Turner et al. 2008,Asparagus asparagoides ,herb,lab,plantcompet,herblabplantcompet,6.7,0.6,6,2.7,0.7,6,-6.135719911,1.379115943
+,Turner et al. 2008,Asparagus asparagoides ,herb,lab,plantcompet,herblabplantcompet,11.1,0,6,6,0.9,6,-8.013876853,1.734721666
+34,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,1.3,0.3,6,5.5,1.3,6,4.451991096,1.076650375
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,2,0,6,2.3,0.4,6,1.060660172,0.616610358
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,1,0,6,2,0,6,,
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,2.3,1,6,2.2,0.3,6,-0.135457092,0.578011989
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,1.8,0.4,6,11,3.7,6,3.496052441,0.917932066
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,3.2,0.3,6,3.3,0.3,6,0.333333333,0.58134582
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,1.2,0.2,6,3,0,6,12.72792206,2.661453237
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,3.7,0.6,6,5.7,0.6,6,3.333333333,0.892354356
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,95,18,6,273,26,6,7.960402,1.724432274
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,458,16,6,404,32,6,-2.134537421,0.723309811
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,73,7,6,185,10,6,12.9759716,2.71090267
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,248,32,6,311,32,6,1.96875,0.703443215
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,2.5,0.3,6,4.5,0.3,6,6.666666667,1.478237188
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,3.3,0.1,6,3.3,0.2,6,0,0.577350269
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,1.6,0.1,6,4.1,0.2,6,15.8113883,3.278719262
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,3.9,0.6,6,6,0.1,6,4.882400827,1.151771061
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,6.4,0.2,6,6.7,0.2,6,1.5,0.653516131
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,6.5,0,6,6.4,0,6,,
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,5.7,0,6,5.9,0,6,,
+,Turner et al. 2011,Asparagus asparagoides ,herb,lab,nutrients,herblabnutrients,6.7,0.1,6,6.6,0.1,6,-1,0.612372436
+35,Truscott et al. 2008,Mimulus guttatus (May),herb,riparian,plantcomp,herbriparianplantcomp,15.5,0.9,32,12.5,0.8,32,-3.523321317,0.399352925
+,Truscott et al. 2008,Mimulus guttatus (July),herb,riparian,plantcomp,herbriparianplantcomp,15,0.9,32,11.5,0.7,32,-4.341215711,0.457968969
+,Truscott et al. 2008,Mimulus guttatus (September),herb,riparian,plantcomp,herbriparianplantcomp,15.5,0.6,32,11.1,0.5,32,-7.967145652,0.747262765
+,Truscott et al. 2008,Mimulus guttatus (May),herb,riparian,plantcomp,herbriparianplantcomp,0.86,0.09,32,0.85,0.09,32,-0.111111111,0.250192827
+,Truscott et al. 2008,Mimulus guttatus (July),herb,riparian,plantcomp,herbriparianplantcomp,0.84,0.01,32,0.7,0.01,32,-14,1.262438117
+,Truscott et al. 2008,Mimulus guttatus (September),herb,riparian,plantcomp,herbriparianplantcomp,0.84,0.01,32,0.85,0.01,32,1,0.265165043
+,Truscott et al. 2008,Mimulus guttatus (May),herb,riparian,nutrients,herbripariannutrients,1.4,0.2,32,1.8,0.3,32,1.568929081,0.285885937
+,Truscott et al. 2008,Mimulus guttatus (September),herb,riparian,nutrients,herbripariannutrients,1.9,0.4,32,2.3,0.3,32,1.13137085,0.26925824
+,Truscott et al. 2008,Mimulus guttatus (May),herb,riparian,nutrients,herbripariannutrients,0.1,0.01,32,0.12,0.02,32,1.264911064,0.273861279
+,Truscott et al. 2008,Mimulus guttatus (September),herb,riparian,nutrients,herbripariannutrients,0.2,0.03,32,0.2,0.03,32,0,0.25
+36,Timsina et al. 2011,Parthenium hysterophorus ,herb,grasslands,nutrients,herbgrasslandsnutrients,0.09,0.01,20,0.11,0.01,20,2,0.387298335
+,Timsina et al. 2011,Parthenium hysterophorus ,herb,grasslands,nutrients,herbgrasslandsnutrients,1.36,0.12,20,1.63,0.09,20,2.545584412,0.425440948
+,Timsina et al. 2011,Parthenium hysterophorus ,herb,grasslands,richness,herbgrasslandsrichness,5.31,0.17,20,5.82,0.2,20,2.747739538,0.440880831
+,Timsina et al. 2011,Parthenium hysterophorus ,herb,grasslands,nutrients,herbgrasslandsnutrients,130.03,5.42,20,338.9,46.12,20,6.360969328,0.778314933
+,Timsina et al. 2011,Parthenium hysterophorus ,herb,grasslands,nutrients,herbgrasslandsnutrients,274.1,11.6,20,656.4,37.07,20,13.91910748,1.588008001
+37,Reinhardt Adams & Galatowitsch 2008,Phalaris arundinacea,grass,wetlands,seed,grasswetlandsseed,392,31,30,172.9,33.9,30,-6.745195429,0.667692927
+,Reinhardt Adams & Galatowitsch 2008,Phalaris arundinacea,grass,wetlands,seed,grasswetlandsseed,392,31,30,240.8,60.6,30,-3.141367646,0.385877687
+,Reinhardt Adams & Galatowitsch 2008,Phalaris arundinacea,grass,wetlands,seed,grasswetlandsseed,392,31,30,189.6,43.9,30,-5.326122149,0.55051171
+,Reinhardt Adams & Galatowitsch 2008,Phalaris arundinacea,grass,wetlands,seed,grasswetlandsseed,392,31,30,236.6,52.7,30,-3.594425758,0.417531401
+38,Ogle et al. 2003,Bromus spp. (C3)(June),grass,grasslands,litter,grassgrasslandslitter,27.8,0.6,2,27.1,0.6,2,-1.166666667,1.081729582
+,Ogle et al. 2003,Bromus spp. (C3)(July),grass,grasslands,litter,grassgrasslandslitter,18.2,0.7,2,17.6,0.7,2,-0.857142857,1.044909917
+,Ogle et al. 2003,Bromus spp. (C3)(August),grass,grasslands,litter,grassgrasslandslitter,30,1.3,2,31,1.3,2,0.769230769,1.036322583
+,Ogle et al. 2003,Bromus spp.(C3)(October),grass,grasslands,litter,grassgrasslandslitter,18.7,0.9,2,18.4,0.8,2,-0.352332132,1.007728754
+,Ogle et al. 2003,Bromus spp. (C3/C4)(Jun),grass,grasslands,litter,grassgrasslandslitter,21.3,0.9,2,19.3,1.5,2,-1.616904167,1.151866913
+,Ogle et al. 2003,Bromus spp. (C3/C4)(July),grass,grasslands,litter,grassgrasslandslitter,14.6,0.8,2,13.9,0.4,2,-1.106797181,1.07383658
+,Ogle et al. 2003,Bromus spp. (C3/C4)(August),grass,grasslands,litter,grassgrasslandslitter,24.7,0.6,2,24.9,0.8,2,0.282842712,1.004987562
+,Ogle et al. 2003,Bromus spp.(C3/C4)(October),grass,grasslands,litter,grassgrasslandslitter,12.5,0.4,2,15,0.4,2,6.25,2.425450989
+,Ogle et al. 2003,Bromus spp. (C3)(June),grass,grasslands,litter,grassgrasslandslitter,155,24,2,218,23,2,2.680244468,1.37766607
+,Ogle et al. 2003,Bromus spp. (C3)(July),grass,grasslands,litter,grassgrasslandslitter,366,82,2,389,30,2,0.37252154,1.008635979
+,Ogle et al. 2003,Bromus spp. (C3)(August),grass,grasslands,litter,grassgrasslandslitter,300,44,2,364,78,2,1.010666307,1.06192316
+,Ogle et al. 2003,Bromus spp.(C3)(October),grass,grasslands,litter,grassgrasslandslitter,306,38,2,257,38,2,-1.289473684,1.099019016
+,Ogle et al. 2003,Bromus spp. (C3/C4)(Jun),grass,grasslands,litter,grassgrasslandslitter,117,10,2,173,14,2,4.603171645,1.91014362
+,Ogle et al. 2003,Bromus spp. (C3/C4)(July),grass,grasslands,litter,grassgrasslandslitter,323,10,2,354,43,2,0.993049214,1.059843546
+,Ogle et al. 2003,Bromus spp. (C3/C4)(August),grass,grasslands,litter,grassgrasslandslitter,255,33,2,217,68,2,-0.710994895,1.031110672
+,Ogle et al. 2003,Bromus spp.(C3/C4)(October),grass,grasslands,litter,grassgrasslandslitter,213,36,2,154,14,2,-2.160143477,1.258283545
+,Ogle et al. 2003,Bromus spp. (C3)(June),grass,grasslands,litter,grassgrasslandslitter,249,24,2,201,38,2,-1.510360261,1.13364391
+,Ogle et al. 2003,Bromus spp. (C3)(July),grass,grasslands,litter,grassgrasslandslitter,252,47,2,299,52,2,0.948286294,1.054706529
+,Ogle et al. 2003,Bromus spp. (C3)(August),grass,grasslands,litter,grassgrasslandslitter,252,35,2,282,34,2,0.86947391,1.046182637
+,Ogle et al. 2003,Bromus spp.(C3)(October),grass,grasslands,litter,grassgrasslandslitter,428,41,2,315,51,2,-2.442137485,1.3211754
+,Ogle et al. 2003,Bromus spp. (C3/C4)(Jun),grass,grasslands,litter,grassgrasslandslitter,205,53,2,189,13,2,-0.414641373,1.010688346
+,Ogle et al. 2003,Bromus spp. (C3/C4)(July),grass,grasslands,litter,grassgrasslandslitter,219,38,2,290,54,2,1.520652926,1.13536257
+,Ogle et al. 2003,Bromus spp. (C3/C4)(August),grass,grasslands,litter,grassgrasslandslitter,264,111,2,151,41,2,-1.350511867,1.108144976
+,Ogle et al. 2003,Bromus spp.(C3/C4)(October),grass,grasslands,litter,grassgrasslandslitter,307,54,2,203,41,2,-2.169257388,1.260241922
+,Ogle et al. 2003,Bromus spp. (C3)(June),grass,grasslands,litter,grassgrasslandslitter,411,127,2,722,138,2,2.345150295,1.299025111
+,Ogle et al. 2003,Bromus spp. (C3)(July),grass,grasslands,litter,grassgrasslandslitter,221,73,2,242,49,2,0.337788256,1.007106059
+,Ogle et al. 2003,Bromus spp. (C3)(August),grass,grasslands,litter,grassgrasslandslitter,885,100,2,900,173,2,0.106160276,1.000704127
+,Ogle et al. 2003,Bromus spp.(C3)(October),grass,grasslands,litter,grassgrasslandslitter,236,88,2,278,61,2,0.554724387,1.019050977
+,Ogle et al. 2003,Bromus spp. (C3/C4)(June),grass,grasslands,litter,grassgrasslandslitter,514,184,2,424,93,2,-0.617358592,1.023543577
+,Ogle et al. 2003,Bromus spp. (C3/C4)(July),grass,grasslands,litter,grassgrasslandslitter,330,87,2,397,98,2,0.723047311,1.032157777
+,Ogle et al. 2003,Bromus spp. (C3/C4)(August),grass,grasslands,litter,grassgrasslandslitter,409,66,2,794,95,2,4.706861746,1.941473264
+,Ogle et al. 2003,Bromus spp.(C3/C4)(October),grass,grasslands,litter,grassgrasslandslitter,168,49,2,280,19,2,3.013846876,1.461303912
+,Ogle et al. 2003,Bromus spp. (C3)(June),grass,grasslands,litter,grassgrasslandslitter,171,13,2,160,30,2,-0.475793857,1.014050035
+,Ogle et al. 2003,Bromus spp. (C3)(July),grass,grasslands,litter,grassgrasslandslitter,139,17,2,257,62,2,2.595758606,1.357293388
+,Ogle et al. 2003,Bromus spp. (C3)(August),grass,grasslands,litter,grassgrasslandslitter,194,39,2,144,17,2,-1.662056238,1.15987235
+,Ogle et al. 2003,Bromus spp.(C3)(October),grass,grasslands,litter,grassgrasslandslitter,264,38,2,135,35,2,-3.531265905,1.599603032
+,Ogle et al. 2003,Bromus spp. (C3/C4)(June),grass,grasslands,litter,grassgrasslandslitter,158,23,2,183,18,2,1.210543753,1.087739409
+,Ogle et al. 2003,Bromus spp. (C3/C4)(July),grass,grasslands,litter,grassgrasslandslitter,165,20,2,389,199,2,1.583899391,1.146120482
+,Ogle et al. 2003,Bromus spp. (C3/C4)(August),grass,grasslands,litter,grassgrasslandslitter,186,53,2,99,20,2,-2.171947843,1.260821034
+,Ogle et al. 2003,Bromus spp.(C3/C4)(October),grass,grasslands,litter,grassgrasslandslitter,162,52,2,147,34,2,-0.34143859,1.007259916
+39,Kurten et al. 2008,Morella cerifera,tree,forests,nutrients,treeforestsnutrients,5,1.7,14,6.6,0.8,14,1.204335887,0.410801154
+,Kurten et al. 2008,Morella cerifera,tree,forests,nutrients,treeforestsnutrients,0.33,0.16,14,0.3,0.1,14,-0.224859507,0.379157002
+,Kurten et al. 2008,Morella cerifera,tree,forests,nutrients,treeforestsnutrients,16,3,14,19,2,14,1.176696811,0.409368315
+,Kurten et al. 2008,Morella cerifera,tree,forests,nutrients,treeforestsnutrients,3.1,2.3,14,5.7,2.1,14,1.180599184,0.409568903
+,Kurten et al. 2008,Morella cerifera,tree,forests,nutrients,treeforestsnutrients,0.7,0.3,14,1.4,0.5,14,1.697749375,0.440826191
+,Kurten et al. 2008,Morella cerifera,tree,forests,nutrients,treeforestsnutrients,70,3,14,59,3,14,-3.666666667,0.618818639
+40,Litton et al. 1998,Pennisetum setaceum,grass,forests,plantcompet,grassforestsplantcompet,108.1,10.4,14,107,17.7,14,-0.07577652,0.378100093
+41,Ruehmann et al. 2011,Bromus inermis ,grass,shrublands,faunacomp,grassshrublandsfaunacomp,58.73,1.32,55,0.44,0.22,57,-62.13734878,4.156026533
+42,Clarke et al. 2005,Cenchrus ciliaris (summer),grass,grasslands,plantcomp,grassgrasslandsplantcomp,2.7,0.7,11,0.5,0.3,13,-4.219718008,0.734023787
+,Clarke et al. 2005,Cenchrus ciliaris (summer & winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,3.5,1.9,11,1.4,1,13,-1.420228086,0.45809824
+,Clarke et al. 2005,Cenchrus ciliaris (winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,13,3.6,11,10.6,2.3,13,-0.810128549,0.426034337
+,Clarke et al. 2005,Cenchrus ciliaris (summer),grass,grasslands,plantcomp,grassgrasslandsplantcomp,3.8,0.93,11,1.61,0.28,13,-3.317039783,0.630123946
+,Clarke et al. 2005,Cenchrus ciliaris (summer & winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,5.8,1.8,11,0.9,0.5,13,-3.862831724,0.691878677
+,Clarke et al. 2005,Cenchrus ciliaris (winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,27.6,2.15,11,8.9,1.5,13,-10.24998564,1.535131303
+,Clarke et al. 2005,Cenchrus ciliaris (summer),grass,grasslands,plantcomp,grassgrasslandsplantcomp,22.3,2.2,11,7,0.8,13,-9.582939995,1.442572088
+,Clarke et al. 2005,Cenchrus ciliaris (summer & winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,24.8,7.2,11,11.1,3.4,13,-2.50674158,0.546574511
+,Clarke et al. 2005,Cenchrus ciliaris (winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,11.4,2.6,11,3.4,0.9,13,-4.267321902,0.739735035
+,Clarke et al. 2005,Cenchrus ciliaris (summer),grass,grasslands,plantcomp,grassgrasslandsplantcomp,30.4,2.4,11,3.8,0.8,13,-15.4419771,2.266194502
+,Clarke et al. 2005,Cenchrus ciliaris (summer & winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,27.9,6.4,11,3.8,1.9,13,-5.311505477,0.869243379
+,Clarke et al. 2005,Cenchrus ciliaris (winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,11.8,2.3,11,0.4,0.07,13,-7.34762738,1.13691443
+,Clarke et al. 2005,Cenchrus ciliaris (summer),grass,grasslands,plantcomp,grassgrasslandsplantcomp,15.3,1.9,11,6.7,0.8,13,-6.096378363,0.970628804
+,Clarke et al. 2005,Cenchrus ciliaris (summer & winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,10.4,3.9,11,3.5,1.25,13,-2.476013108,0.543648649
+,Clarke et al. 2005,Cenchrus ciliaris (winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,16.5,3.3,11,5.1,1.4,13,-4.646643994,0.785907709
+,Clarke et al. 2005,Cenchrus ciliaris (summer),grass,grasslands,plantcomp,grassgrasslandsplantcomp,7.2,0.14,11,6.1,0.27,13,-4.985972104,0.828098498
+,Clarke et al. 2005,Cenchrus ciliaris (summer & winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,8.4,0.4,11,5.3,0.7,13,-5.316456139,0.869873673
+,Clarke et al. 2005,Cenchrus ciliaris (winter ),grass,grasslands,plantcomp,grassgrasslandsplantcomp,9.9,0.5,11,7.6,0.5,13,-4.6,0.780170174
+43,Dillemuth et al 2009,Bromus inermis ,grass,grasslands,plantcomp,grassgrasslandsplantcomp,18,1.63,194,20,1.43,385,1.333449762,0.0963718
+44,Thiele et al. 2010,Heracleum mantegazzianum,herb,grasslands,plantcomp,herbgrasslandsplantcomp,20.88,4.4,5,15.9,2.24,5,-1.426424755,0.708332111
+,Thiele et al. 2010,Rosa rugosa,shrub,dunelands,plantcomp,shrubdunelandsplnatcomp,13.6,2.4,5,8.5,3.4,5,-1.733050548,0.741736618
+45,Zhou et al. 2008,Spartina alterniflora,grass,wetlands,nutrients,grasswetlandsnutrients,8.36,0.03,15,8.13,0.04,15,-6.505382387,0.915787457
+,Zhou et al. 2008,Spartina alterniflora,grass,wetlands,nutrients,grasswetlandsnutrients,395.74,70.4,15,444.04,55.86,15,0.760064661,0.378102682
+,Zhou et al. 2008,Spartina alterniflora,grass,wetlands,nutrients,grasswetlandsnutrients,0.04,1.3,15,0.21,0.1,15,0.184390889,0.365923489
+,Zhou et al. 2008,Spartina alterniflora,grass,wetlands,nutrients,grasswetlandsnutrients,3.69,0.6,15,2.37,0.98,15,-1.624561554,0.421093819
+,Zhou et al. 2008,Spartina alterniflora,grass,wetlands,nutrients,grasswetlandsnutrients,1,0.04,15,1.42,0.04,15,10.5,1.403863716
+,Zhou et al. 2008,Spartina alterniflora,grass,wetlands,nutrients,grasswetlandsnutrients,6.85,1.97,15,3.3,0.74,15,-2.385695582,0.477694871
+,Zhou et al. 2008,Spartina alterniflora,grass,wetlands,nutrients,grasswetlandsnutrients,4.11,1.23,15,3.35,0.67,15,-0.767363654,0.378348318
+46,D'Antonio et al. 2011,Schizachyrium condensatum,grass,forests,fire,grassforestsfire,31.8,0.88,5,29.5,2.8,5,-1.108231058,0.679270788
+,D'Antonio et al. 2011,Schizachyrium condensatum,grass,forests,fire,grassforestsfire,17.8,4.7,5,26.1,4.4,5,1.823185351,0.752462784
+,D'Antonio et al. 2011,Schizachyrium condensatum,grass,forests,fire,grassforestsfire,10.6,2.2,5,12.9,0.6,5,1.426399448,0.708329563
+,D'Antonio et al. 2011,Schizachyrium condensatum,grass,forests,fire,grassforestsfire,10.1,1.9,5,9.4,1.2,5,-0.440521743,0.64008044
+,D'Antonio et al. 2011,Schizachyrium condensatum,grass,forests,fire,grassforestsfire,5.4,2.1,5,6.3,0.6,5,0.582771517,0.645740762
+,D'Antonio et al. 2011,Schizachyrium condensatum,grass,forests,fire,grassforestsfire,0.6,0.14,5,1.2,0.15,5,4.135473101,1.120315531
+,D'Antonio et al. 2011,Schizachyrium condensatum,grass,forests,fire,grassforestsfire,5.9,1.2,5,0.88,0.15,5,-5.870441676,1.4570876
+47,Wykoff & Webb 1996 ,Acer platanoides,tree,forests,plantcomp,treeforestsplantcomp,3.2,0.5,16,4.3,0.6,16,1.991786413,0.43242075
+,Wykoff & Webb 1996 ,Acer platanoides,tree,forests,plantcomp,treeforestsplantcomp,3.2,0.5,16,4.8,0.7,16,2.630383797,0.482812705
+,Wykoff & Webb 1996 ,Acer platanoides,tree,forests,plantcomp,treeforestsplantcomp,13,4,16,35,7,16,3.859055285,0.598073831
+,Wykoff & Webb 1996 ,Acer platanoides,tree,forests,plantcomp,treeforestsplantcomp,13,4,16,47,12,16,3.801315562,0.592267887
+48,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,nutrients,treeforestsnutrients,13.6,0.01,5,9.8,0,5,-537.4011537,120.1682154
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,nutrients,treeforestsnutrients,13.6,0.01,5,11.1,0.01,5,-250,55.90527703
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,nutrients,treeforestsnutrients,4.8,0.23,5,5.6,0.14,5,4.201805852,1.132589343
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,nutrients,treeforestsnutrients,4.8,0.23,5,4.9,0.13,5,0.535287728,0.643682101
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,nutrients,treeforestsnutrients,7.5,2.4,5,23.7,8.6,5,2.565939234,0.853933374
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,nutrients,treeforestsnutrients,7.5,2.4,5,4.7,1.45,5,-1.412188596,0.706904401
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,nutrients,treeforestsnutrients,0.2,0.009,5,4.6,2.28,5,2.729162805,0.878872278
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,nutrients,treeforestsnutrients,0.2,0.009,5,0.3,0.07,5,2.003810864,0.775088962
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,nutrients,treeforestsnutrients,0.07,0.01,5,0.07,0.01,5,0,0.632455532
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,nutrients,treeforestsnutrients,0.07,0.01,5,0.09,0.01,5,2,0.774596669
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,litter,treeforestslitter,519,100.5,5,634.6,52.1,5,1.444173222,0.710128027
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,litter,treeforestslitter,519,100.5,5,503.7,68.1,5,-0.178233451,0.633709995
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,plantcomp,treeforestsplantcomp,82.5,3,5,81.5,5,5,-0.242535625,0.634776478
+,Dehlin et al. 2008,Pseudotsuga menziesii,tree,forests,plantcomp,treeforestsplantcomp,82.5,3,5,81.5,5,5,-0.242535625,0.634776478
+49,Shannon et al. 2012,Microstegium vimineum,grass,lab,biota,grasslabbiota,5.8,0.4,42,7.7,0.9,42,2.728241003,0.303190367
+50,Smith & Reynlods 2012,Euonymus fortunei,herb,lab,biota,herblabbiota,64,9,42,60,7,42,-0.496138938,0.221549654

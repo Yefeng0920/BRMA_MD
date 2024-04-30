@@ -1,0 +1,85 @@
+﻿Case,study_id,Focal species,Associated species,Diet breadth ,Response ,FR,TR,N_trt,mean_trt,SD_trt,N_ctrl,mean_ctrl,SD_ctrl,yi,vi
+58,Vehviläinen et al. (2006),Betula pendula,Pinus sylvestris,NA,Damage,50,51.41,8,0.82,0.18,5,1,0.15,-0.19,0.01
+59,Vehviläinen et al. (2006),Betula pendula,Pinus sylvestris,NA,Damage,25,27.11,5,0.68,0.17,5,1,0.15,-0.39,0.02
+60,Vehviläinen et al. (2006),Betula pendula,Pinus sylvestris,Monophagous,Damage,50,51.41,8,1.96,0.98,5,4.29,1.63,-0.78,0.06
+61,Vehviläinen et al. (2006),Betula pendula,Pinus sylvestris,Monophagous,Damage,25,27.11,5,2.5,1.01,5,4.29,1.63,-0.54,0.06
+62,Vehviläinen et al. (2006),Betula pendula,Pinus sylvestris,Monophagous,Damage,50,51.41,8,0.36,0.13,5,0.54,0.11,-0.41,0.03
+63,Vehviläinen et al. (2006),Betula pendula,Pinus sylvestris,Monophagous,Damage,25,27.11,5,0.36,0.11,5,0.54,0.11,-0.41,0.03
+76,Vehviläinen et al. (2007),Betula pendula,Pinus sylvestris,NA,Abundance,50,51.41,2,4.6,0.99,2,2.58,0.86,0.58,0.08
+77,Vehviläinen et al. (2007),Betula pendula,Pinus sylvestris,NA,Abundance,25,27.11,2,2.26,0.75,2,2.58,0.86,-0.13,0.11
+78,Vehviläinen et al. (2007),Betula pendula,Pinus sylvestris,NA,Abundance,50,51.41,3,3.26,0.87,6,5.74,0.68,-0.57,0.03
+79,Vehviläinen et al. (2007),Betula pendula,Pinus sylvestris,NA,Abundance,25,27.11,3,3.61,0.68,3,5.74,0.68,-0.46,0.02
+80,Vehviläinen et al. (2007),Betula pendula,Pinus sylvestris,NA,Damage,50,51.41,8,11.23,3.38,5,11.41,1.94,-0.02,0.02
+81,Vehviläinen et al. (2007),Betula pendula,Pinus sylvestris,NA,Damage,25,27.11,5,7.04,1.17,5,11.41,1.94,-0.48,0.01
+22,Smith et al. (1989),Eucalyptus botryoides,Acacia longifolia,Monophagous,Damage,34,39.2,3,17.7,5.2,3,81.3,5.02,-1.52,0.03
+1,Greaves (1966),Eucalyptus regnans,Acacia dealbata,Monophagous,Damage,50,53.94,2,7.6,5.8,2,9.25,7,-0.2,0.58
+2,Greaves (1966),Eucalyptus regnans,Acacia dealbata,Monophagous,Damage,2,9.71,2,3.9,2.26,2,9.25,7,-0.86,0.45
+44,Nichols et al. (1999),Milicia excelsa,Terminalia superba,Monophagous,Abundance,50,53.94,2,11.36,14.13,2,12.26,9.17,-0.08,1.05
+45,Nichols et al. (1999),Milicia excelsa,Terminalia superba,Monophagous,Abundance,25,30.9,2,6.69,8.22,2,12.26,9.17,-0.61,1.04
+46,Nichols et al. (1999),Milicia excelsa,Terminalia superba,Monophagous,Abundance,11,18.01,2,2.86,4.05,2,12.26,9.17,-1.45,1.28
+49,Orlander et al. (2001),Picea abies,Pinus sylvestris,Polyphagous,Damage,33,40.25,4,54,21.6,4,140,53.4,-0.95,0.08
+50,Orlander et al. (2001),Picea abies,Vaccinium myrtillus,Polyphagous,Damage,50,51.41,4,67.3,6.4,4,82.1,8.4,-0.2,0
+51,Peterssson et al. (2003),Picea abies,Pinus sylvestris,Polyphagous,Damage,50,55.19,4,10.15,12.39,4,17.6,17.32,-0.55,0.61
+52,Peterssson et al. (2003),Picea abies,Pinus sylvestris,Polyphagous,Damage,50,55.19,4,3.35,4.52,4,5.08,5.45,-0.42,0.74
+53,Nordlander et al. (2003),Picea abies,Pinus sylvestris,Polyphagous,Damage,50,55.19,50,3.22,2.55,50,6.41,4.45,-0.69,0.02
+54,Nordlander et al. (2003),Picea abies,Pinus sylvestris,Polyphagous,Damage,50,55.19,50,0.94,1.7,50,2.62,2.97,-1.03,0.09
+55,Nordlander et al. (2003),Picea abies,Pinus sylvestris,Polyphagous,Damage,50,55.19,50,3.08,3.04,50,2.96,2.69,0.04,0.04
+56,Nordlander et al. (2003),Picea abies,Pinus sylvestris,Polyphagous,Damage,50,55.19,50,0.55,1.06,50,2,2.47,-1.29,0.11
+57,Nordlander et al. (2003),Picea abies,Pinus sylvestris,Polyphagous,Damage,50,55.19,50,3.85,3.96,50,6.07,2.55,-0.46,0.02
+23,McLean (1989),Picea sitchensis,Alnus rubra,Oligophagous,Damage,50,51.41,6,5.33,8.57,6,17,17.19,-1.16,0.6
+24,McLean (1989),Picea sitchensis,Alnus rubra,Oligophagous,Damage,50,51.41,6,2,3.52,6,9.33,19.63,-1.54,1.25
+40,Bae et al. (1997),Pinus densiflora,Quercus variabilis,Monophagous,Damage,50,51.41,30,39.45,17.41,30,44.75,18.7,-0.13,0.01
+41,Bae et al. (1997),Pinus densiflora,Quercus variabilis,NA,Abundance,50,51.41,4,1.14,0.67,4,2,1.17,-0.56,0.17
+42,Bae et al. (1997),Pinus densiflora,Quercus variabilis,NA,Abundance,50,51.41,4,0.36,0.27,4,0.31,0.19,0.15,0.23
+43,Bae et al. (1997),Pinus densiflora,Quercus variabilis,NA,Abundance,50,51.41,4,0.21,0.23,4,0.39,0.34,-0.61,0.49
+70,Sholes (2008),Pinus edulis,Pinus ponderosa,Monophagous,Abundance,37,49.91,3,5.47,1.83,2,12.04,4.99,-0.79,0.12
+71,Sholes (2008),Pinus edulis,Juniperus sp,Monophagous,Abundance,62,63.5,4,4.43,2.07,2,12.04,4.99,-1,0.14
+72,Sholes (2008),Pinus edulis,Pinus ponderosa,Monophagous,Abundance,37,49.91,3,50.46,39.59,2,77.98,20.86,-0.44,0.24
+73,Sholes (2008),Pinus edulis,Juniperus sp,Monophagous,Abundance,62,63.5,4,93.96,50.09,2,77.98,20.86,0.19,0.11
+19,Géri (1980),Pinus nigra,Fagus sylvatica,Oligophagous,Damage,50,51.41,10,0.84,0.62,15,1.29,0.79,-0.42,0.08
+20,Géri (1980),Pinus nigra,Fagus sylvatica,Oligophagous,Damage,25,27.11,10,0.05,0.15,15,1.29,0.79,-3.28,1.03
+64,Jactel et al. (2006),Pinus pinaster,Pinus nigra,Monophagous,Abundance,84,87.28,25,10.68,13.76,25,13.16,14.07,-0.21,0.11
+65,Jactel et al. (2006),Pinus pinaster,Pinus nigra,Monophagous,Abundance,72,77.74,25,15.32,10.6,25,18.84,15.92,-0.21,0.05
+66,Jactel et al. (2006),Pinus pinaster,Pinus nigra,Monophagous,Abundance,70,76.15,25,17.64,11.93,25,25.28,20.58,-0.36,0.04
+67,Jactel et al. (2006),Pinus pinaster,Pinus nigra,Monophagous,Abundance,63,70.58,25,12.32,16.47,25,18.08,19.28,-0.38,0.12
+21,Gottschalk et al. (1989),Pinus strobus,Quercus coccinea,Polyphagous,Damage,50,51.41,3,0.59,0.29,3,0.28,0.29,0.73,0.44
+37,Von Sydow et al. (1994),Pinus sylvestris,Picea abies,Polyphagous,Damage,40,46.22,3,13.16,4.56,4,57.89,29.38,-1.48,0.1
+68,Kaitaniemi (2007),Pinus sylvestris,Betula pendula,Monophagous,Abundance,50,51.41,10,0.03,0.09,10,0.17,0.14,-1.67,0.84
+69,Kaitaniemi (2007),Pinus sylvestris,Betula pendula,Monophagous,Abundance,50,51.41,10,0.19,0.21,10,0.27,0.23,-0.33,0.19
+74,Orians (2009),Piper reticulatum,Piper hispidum,Monophagous,Abundance,50,55.66,10,0.33,0.14,15,0.49,0.15,-0.41,0.03
+75,Orians (2009),Piper reticulatum,Aphelandra golfodulcensis,Monophagous,Abundance,50,51.71,10,0.35,0.14,15,0.49,0.15,-0.34,0.02
+47,White et al. (2000),Populus angustifolia,Acer negundo,Polyphagous,Damage,50,53.94,8,32,22.63,8,13,5.66,0.9,0.09
+48,White et al. (2000),Populus angustifolia,Acer negundo,Polyphagous,Damage,50,53.94,19,48,30.51,19,26,21.79,0.61,0.06
+3,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,20,28.3,4,34.9,14.93,4,60.83,11.34,-0.56,0.05
+4,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,40,46.22,4,39.35,8.51,4,60.83,11.34,-0.44,0.02
+5,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,60,64.15,4,57.28,6.3,4,60.83,11.34,-0.06,0.01
+6,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,80,82.07,4,59.48,9.21,4,60.83,11.34,-0.02,0.01
+7,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,20,28.3,4,8.08,4.22,4,42.75,14.79,-1.67,0.1
+8,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,40,46.22,4,24.2,13.75,4,42.75,14.79,-0.57,0.11
+9,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,60,64.15,4,37.5,12.37,4,42.75,14.79,-0.13,0.06
+10,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,80,82.07,4,43,8.94,4,42.75,14.79,0.01,0.04
+11,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,20,28.3,4,41.7,14.93,4,61.95,19.63,-0.4,0.06
+12,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,40,46.22,4,48.95,17.16,4,61.95,19.63,-0.24,0.06
+13,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,60,64.15,4,61.85,16,4,61.95,19.63,0,0.04
+14,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,80,82.07,4,65.1,14.31,4,61.95,19.63,0.05,0.04
+15,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,20,28.3,4,19.7,9.47,4,57.65,24.43,-1.07,0.1
+16,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,40,46.22,4,40.6,22.36,4,57.65,24.43,-0.35,0.12
+17,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,60,64.15,4,56.55,12.92,4,57.65,24.43,-0.02,0.06
+18,Fauss et al. (1969),Pseudotsuga menziesii,Pinus ponderosa,Oligophagous,Damage,80,82.07,4,63.3,10.95,4,57.65,24.43,0.09,0.05
+25,Moore et al. (1991),Quercus petraea,Alnus glutinosa,Polyphagous,Damage,50,59.85,3,231,141.17,3,125.33,61.7,0.61,0.21
+26,Moore et al. (1991),Quercus petraea,Alnus glutinosa,Oligophagous,Damage,50,59.85,3,488.33,59.14,3,538.67,107.21,-0.1,0.02
+27,Moore et al. (1991),Quercus petraea,Alnus glutinosa,Polyphagous,Damage,50,59.85,3,11,5,3,12.33,5.03,-0.11,0.12
+28,Moore et al. (1991),Quercus petraea,Alnus glutinosa,Polyphagous,Damage,50,59.85,3,18,5.2,3,2,1.73,2.2,0.28
+29,Moore et al. (1991),Quercus petraea,Alnus glutinosa,Polyphagous,Damage,50,59.85,3,345,217.54,3,68.67,35.92,1.61,0.22
+30,Moore et al. (1991),Quercus petraea,Alnus glutinosa,Monophagous,Damage,50,59.85,3,0.74,0.62,3,3.19,5.09,-1.47,1.08
+31,Moore et al. (1991),Quercus petraea,Picea abies,Polyphagous,Damage,50,51.41,3,295.67,147.52,3,125.33,61.7,0.86,0.16
+32,Moore et al. (1991),Quercus petraea,Picea abies,Oligophagous,Damage,50,51.41,3,500.33,120.79,3,538.67,107.21,-0.07,0.03
+33,Moore et al. (1991),Quercus petraea,Picea abies,Polyphagous,Damage,50,51.41,3,1,1.73,3,12.33,5.03,-2.51,1.06
+34,Moore et al. (1991),Quercus petraea,Picea abies,Polyphagous,Damage,50,51.41,3,2.67,4.62,3,2,1.73,0.29,1.25
+35,Moore et al. (1991),Quercus petraea,Picea abies,Polyphagous,Damage,50,51.41,3,21.33,16.65,3,68.67,35.92,-1.17,0.29
+36,Moore et al. (1991),Quercus petraea,Picea abies,Monophagous,Damage,50,51.41,3,0.52,0.91,3,3.19,5.09,-1.81,1.85
+82,Castagneyrol et al (2013),Quercus robur,Betula pendula,Monophagous,Abundance,50,59.85,10,1.3,0.83,10,1.9,0.81,-0.38,0.06
+83,Castagneyrol et al (2013),Quercus robur,Pinus pinaster,Monophagous,Abundance,50,51.41,10,0.96,0.64,10,1.9,0.81,-0.68,0.06
+38,Soria et al. (1995),Quercus rotundifolia,Quercus suber,Oligophagous,Damage,50,73.18,7,11.61,9.06,7,9.2,6.73,0.23,0.16
+39,Soria et al. (1995),Quercus suber,Quercus rotundifolia,Oligophagous,Damage,50,73.18,7,9.29,6.98,7,12.1,7.71,-0.26,0.14
+,,19,,,,,,736,,,742,,,,

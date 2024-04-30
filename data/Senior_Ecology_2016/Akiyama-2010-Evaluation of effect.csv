@@ -1,0 +1,116 @@
+Land use,N_trt,N_ctrl,mean_trt,mean_ctrl,SD_trt,SD_ctrl,Type of inhibitora ,Type of chemical or organic fertilizerb,Soil type,Total N application rate ,study_id
+upland,2,2,0.127,0.164,0.008,0.02,AM,U,Andosol,200,Akiyama et al. 2000
+upland,2,2,1.74,3.62,,,nitrapyrin,AA,Typic Haplaquoll,180,Bremner et al. 1981
+upland,2,2,0.55,1.37,,,nitrapyrin,AA,Typic Haplaquoll,180,Bremner et al. 1981
+upland,4,4,1.174,3.362,0.193,0.973,nitrapyrin,U,mesic Aridic Argiustoll,218,Bronson et al. 1992
+upland,4,4,2.255,3.362,1.223,0.973,Ca-carbide,U,mesic Aridic Argiustoll,218,Bronson et al. 1992
+upland,4,4,2.27,3.362,0.483,0.973,Ca-carbide,U,mesic Aridic Argiustoll,218,Bronson et al. 1992
+upland,4,4,1.109,3.226,0.188,0.965,nitrapyrin,U,mesic Aridic Argiustoll,218,Bronson et al. 1992
+upland,4,4,1.017,3.226,0.451,0.965,Ca-carbide,U,mesic Aridic Argiustoll,218,Bronson et al. 1992
+upland,4,4,1.005,3.226,0.171,0.965,Ca-carbide,U,mesic Aridic Argiustoll,218,Bronson et al. 1992
+upland,4,4,0.98,1.651,0.593,0.618,nitrapyrin,U,mesic Aridic Argiustoll,218,Bronson et al. 1992
+upland,4,4,0.483,1.651,0.128,0.618,Ca-carbide,U,mesic Aridic Argiustoll,218,Bronson et al. 1992
+upland,4,4,0.434,1.651,0.192,0.618,Ca-carbide,U,mesic Aridic Argiustoll,218,Bronson et al. 1992
+upland,4,4,0.468,0.738,,,DCD,U,mesic Aridic Argiustoll,90,Delgado & Mosier 1996
+grassland,3,3,1.1,1.62,0.294,0.294,DMPP,cattle slurry,Halstow series,64,Dittert et al. 2001
+grassland,3,3,1.126,3.882,0.96,4.579,DCD,U,Gleysol,100,Dobbie & Smith 2003
+grassland,3,3,4.94,9.189,2.651,7.469,DCD,U,Gleysol,100,Dobbie & Smith 2003
+paddy,3,3,0.051,0.107,0.007,0.005,DCD,U,Typic Ustochrept,120,Ghosh et al. 2003
+paddy,3,3,0.052,0.096,0.004,0.005,DCD,AS,Typic Ustochrept,120,Ghosh et al. 2003
+paddy,3,3,0.107,0.119,0.007,0.013,DCD,PN,Typic Ustochrept,120,Ghosh et al. 2003
+upland,3,3,0.211,6.917,0.09,1.097,DCD,U,Ultisol,90,Hadi et al. 2008
+upland,3,3,1.06,1.87,,,DCD,U,Haplusterts,90,Jumadi et al. 2008
+grassland,3,3,3.52,6.25,0.351,0.325,DCD,urine,yellow-red Sudsol,1000,Kelly et al. 2008
+grassland,3,3,3.72,4.99,0.43,0.245,DCD,urine,yellow-red Sudsol,1000,Kelly et al. 2008
+paddy,4,4,0.142,0.16,0.035,0.053,DCD,U,Typic Ustochrept,140,Kumar et al. 2000
+paddy,4,4,0.147,0.16,0.024,0.053,thiosulphate,U,Typic Ustochrept,140,Kumar et al. 2000
+paddy,4,4,0.174,0.235,0.019,0.029,DCD,AS,Typic Ustochrept,140,Kumar et al. 2000
+upland,8,8,1.271,1.429,,,DCD,AS,Brown earth soil,160,Linzmeier et al. 2001
+upland,8,8,1.213,1.429,,,DMPP,AS,Brown earth soil,160,Linzmeier et al. 2001
+upland,8,8,0.926,1.157,,,DMPP,AN,Brown earth soil,160,Linzmeier et al. 2001
+grassland,4,4,0.715,1.242,0.048,0.234,DCD,AN,,80,Macadam et al. 2003
+grassland,4,4,0.488,1.225,0.08,0.191,DCD,cattle slurry,,85,Macadam et al. 2003
+grassland,4,4,3.167,7.519,0.161,0.744,DMPP,cattle slurry,,125,Macadam et al. 2003
+grassland,4,4,1.143,2.938,0.023,0.18,DMPP,cattle slurry,,125,Macadam et al. 2003
+fallow,3,3,0.051,0.048,,,nitrapyrin,AA,,60,Magalhaes et al. 1984
+fallow,3,3,0.05,0.054,,,nitrapyrin,AA,,80,Magalhaes et al. 1984
+fallow,3,3,0.034,0.071,0.001,0.004,nitrapyrin,AA,,80,Magalhaes et al. 1984
+paddy,4,4,0.049,0.06,0.011,0.005,DCD,U,Typic Ustochrept,140,Majumdar et al. 2000
+paddy,4,4,0.057,0.06,0.007,0.005,neem,U,Typic Ustochrept,140,Majumdar et al. 2000
+paddy,4,4,0.053,0.06,0.005,0.005,neem,U,Typic Ustochrept,140,Majumdar et al. 2000
+upland,4,4,1.09,1.43,0.21,0.16,DCD,U,Typic Ustochrept,120,Majumdar et al. 2002
+upland,4,4,1,1.43,0.1,0.16,neem,U,Typic Ustochrept,120,Majumdar et al. 2002
+upland,4,4,1.36,1.43,0.19,0.16,neem,U,Typic Ustochrept,120,Majumdar et al. 2002
+upland,4,4,1.19,1.43,0.12,0.16,thiosulphate,U,Typic Ustochrept,120,Majumdar et al. 2002
+paddy,3,3,0.68,0.76,,,neem,U,Typic Ustochrept,120,Malla et al. 2005
+paddy,3,3,0.5,0.76,,,thiosulphate,U,Typic Ustochrept,120,Malla et al. 2005
+paddy,3,3,0.54,0.76,,,Ca-carbide,U,Typic Ustochrept,120,Malla et al. 2005
+paddy,3,3,0.6,0.76,,,neem,U,Typic Ustochrept,120,Malla et al. 2005
+paddy,3,3,0.63,0.76,,,DCD,U,Typic Ustochrept,120,Malla et al. 2005
+upland,3,3,0.52,0.66,,,neem,U,Typic Ustochrept,120,Malla et al. 2005
+upland,3,3,0.48,0.66,,,thiosulphate,U,Typic Ustochrept,120,Malla et al. 2005
+upland,3,3,0.58,0.66,,,Ca-carbide,U,Typic Ustochrept,120,Malla et al. 2005
+upland,3,3,0.56,0.66,,,neem,U,Typic Ustochrept,120,Malla et al. 2005
+upland,3,3,0.47,0.66,,,DCD,U,Typic Ustochrept,120,Malla et al. 2005
+grassland,3,3,0.423,0.723,,,DCD,AS,Winton,360,McTaggart et al. 1997
+grassland,3,3,0.645,0.723,,,nitrapyrin,AS,Winton,360,McTaggart et al. 1997
+grassland,3,3,1.313,3.047,,,DCD,U,Winton,360,McTaggart et al. 1997
+grassland,3,3,1.84,3.047,,,nitrapyrin,U,Winton,360,McTaggart et al. 1997
+grassland,3,3,0.755,1.274,,,DCD,AS,Winton,360,McTaggart et al. 1997
+grassland,3,3,2.358,5.189,,,DCD,U,Winton,360,McTaggart et al. 1997
+grassland,3,3,2.736,4.198,,,DCD,AN,Winton,360,McTaggart et al. 1997
+upland,3,3,0.363,0.599,,,DCD,U,alluvial,120,McTaggart et al. 1997
+upland,3,3,0.426,0.38,,,DCD,AN,alluvial,120,McTaggart et al. 1997
+upland,3,3,6.7,8.27,0.97,0.99,DCD,pig slurry,Typic Xerofluvent,175c,Meijide et al. 2007
+grassland,4,4,4.05,4.44,,,DMPP,ASN,,97,Menendez et al. 2006
+grassland,4,4,10.98,15.49,,,DMPP,cattle slurry,,181,Menendez et al. 2006
+grassland,4,4,0.715,1.242,0.048,0.234,DCD,CAN,Gleysol,80,Merino et al. 2002
+grassland,4,4,0.488,1.225,0.08,0.191,DCD,cattle slurry,Gleysol,174,Merino et al. 2002
+grassland,3,3,11.784,15.049,,,DMPP,cattle slurry,,824,Merino et al. 2005
+grassland,3,3,7.407,9.706,,,DMPP,cattle slurry,,860,Merino et al. 2005
+paddy,3,3,0.483,0.735,0.041,0.068,DCD,U,Typic Ustochrept,120,Pathak et al. 2002
+paddy,3,3,0.54,0.929,0.023,0.076,DCD,U,Typic Ustochrept,120,Pathak et al. 2002
+upland,3,3,0.619,0.766,0.019,0.036,DCD,U,Typic Ustochrept,120,Pathak et al. 2002
+upland,3,3,0.55,0.711,0.027,0.011,DCD,U,Typic Ustochrept,120,Pathak et al. 2002
+grassland,4,4,0.25,1,,,DCD,U,Argillic-mottled Fragic Pallic,50,Smith et al. 2008
+grassland,4,4,0.73,3.74,,,DCD,U,Argillic-mottled Fragic Pallic,50,Smith et al. 2008
+grassland,4,4,0.28,2.93,,,DCD,U,Argillic-mottled Fragic Pallic,50,Smith et al. 2008
+grassland,3,3,5.6,10.5,1.2,3,DCD,pig slurry,Typic Xerofluvent,200,Vallejo et al. 2005
+upland,3,3,4.01,5.62,0.42,0.23,DCD,pig slurry,Clcic Haploxerepts,175,Vallejo et al. 2006
+upland,4,4,0.093,0.132,0.004,0.005,DCD,ASN,Fluvisol,90,Weiske et al. 2001
+upland,4,4,0.267,0.34,0.007,0.01,DCD,ASN,Fluvisol,160,Weiske et al. 2001
+upland,4,4,0.252,0.353,0.01,0.01,DCD,ASN,Fluvisol,180,Weiske et al. 2001
+upland,4,4,0.079,0.132,0.004,0.005,DMPP,ASN,Fluvisol,90,Weiske et al. 2001
+upland,4,4,0.181,0.34,0.007,0.01,DMPP,ASN,Fluvisol,160,Weiske et al. 2001
+upland,4,4,0.167,0.353,0.006,0.01,DMPP,ASN,Fluvisol,180,Weiske et al. 2001
+grassland,3,3,1.5,2.4,,,DCD,U,Typic Hapludand,150,Zaman et al. 2008
+Tested mitigation option: polymer-coated fertilizers ,,,,,,,,,,,
+upland,2,2,0.163,0.184,0.019,0.008,,CN,Andosol,150,Akiyama & Tsuruta 2002
+upland,2,2,0.072,0.097,0.009,0.021,,CN,Andosol,150,Akiyama & Tsuruta 2002
+upland,2,2,0.19,0.164,0.012,0.02,,U,Andosol,200,Akiyama et al. 2000
+grassland,3,3,0.305,1.6,0,0.61,,AN,Gleysol,600,Ball et al. 2004
+grassland,3,3,0.533,2.21,0.076,0.305,,AN,Gleysol,600,Ball et al. 2004
+grassland,3,3,1.067,15.7,0.305,1.6,,AN,Gleysol,600,Ball et al. 2004
+grassland,3,3,1.067,5.867,0.229,1.6,,AN,Gleysol,600,Ball et al. 2004
+grassland,3,3,0.61,0.99,0.152,0.076,,AN,Gleysol,600,Ball et al. 2004
+upland,4,4,2.4,2.74,,,,U,Osborne Orthic Black,80,Burton et al. 2008
+upland,4,4,1.07,1.19,,,,U,Osborne Orthic Black,80,Burton et al. 2008
+upland,4,4,0.97,1.77,,,,U,Osborne Orthic Black,80,Burton et al. 2008
+upland,3,3,0.508,0.853,,,,U,Andosol,250,Cheng et al. 2002
+upland,4,4,0.464,0.452,0.035,0.085,,U,Andosol,90,Chu et al. 2007
+upland,4,4,0.621,0.738,,,,U,mesic Aridic Argiustoll,90,Delgado & Mosier 1996
+grassland,3,3,0.569,3.882,0.484,4.579,,U,Gleysol,100,Dobbie and Smith 2003
+grassland,3,3,8.405,9.189,5.061,7.469,,U,Gleysol,100,Dobbie et al. 2003
+upland,3,3,0.573,6.917,0.535,1.097,,U,Ultisol,90,Hadi et al. 2008
+upland,2,2,1.004,0.778,0.117,0.228,,U,Andosol,250,Hou & Tsuruta 2003
+upland,3,3,1.7,1.87,,,,U,Haplusterts,90,Jumadi et al. 2008
+upland,4,4,0.544,0.537,0.119,0.138,,U,Andosol,150,Yan et al. 2001
+Tested mitigation option: urease inhibitors,,,,,,,,,,,
+upland,4,4,0.69,0.48,,,NBPT,U,Newdale Orthic Black,80,Burton et al. 2008
+upland,4,4,0.58,0.61,,,NBPT,U,Newdale Orthic Black,80,Burton et al. 2008
+upland,4,4,0.23,0.21,,,NBPT,U,Newdale Orthic Black,80,Burton et al. 2008
+grassland,3,3,8.491,3.882,8.675,4.579,NBPT,U,Gleysol,100,Dobbie & Smith 2003
+grassland,3,3,7.773,9.189,5.061,7.469,NBPT,U,Gleysol,100,Dobbie & Smith 2003
+paddy,3,3,0.73,0.76,,,hydroquinone,U,Typic Ustochrept,120,Malla et al. 2005
+upland,3,3,0.62,0.66,,,hydroquinone,U,Typic Ustochrept,120,Malla et al. 2005
+grassland,3,3,2.3,2.4,,,NBPT,U,Typic Hapludand,150,Zaman et al. 2008
